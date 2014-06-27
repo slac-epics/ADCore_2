@@ -29,12 +29,6 @@ ifeq ($(STATIC_BUILD), NO)
 endif
 
 DBD += NDPluginSupport.dbd
-DBD += NDFileJPEG.dbd
-DBD += NDFileMagick.dbd
-DBD += NDFileNetCDF.dbd
-DBD += NDFileNexus.dbd
-DBD += NDFileHDF5.dbd
-DBD += NDFileTIFF.dbd
 DBD += NDFileNull.dbd
 DBD += NDPluginColorConvert.dbd
 DBD += NDPluginOverlay.dbd
@@ -44,6 +38,12 @@ DBD += NDPluginStats.dbd
 DBD += NDPluginStdArrays.dbd
 DBD += NDPluginTransform.dbd
 DBD += NDPluginAttribute.dbd
+DBD_Linux += NDFileTIFF.dbd
+DBD_Linux += NDFileJPEG.dbd
+DBD_Linux += NDFileMagick.dbd
+DBD_Linux += NDFileNetCDF.dbd
+DBD_Linux += NDFileNexus.dbd
+DBD_Linux += NDFileHDF5.dbd
 
 INC += NDPluginDriver.h
 INC += NDPluginFile.h
@@ -51,7 +51,6 @@ INC += NDPluginFile.h
 LIBRARY_IOC += NDPlugin
 NDPlugin_SRCS += NDPluginDriver.cpp
 NDPlugin_SRCS += NDPluginFile.cpp
-NDPlugin_SRCS += NDFileNetCDF.cpp
 NDPlugin_SRCS += NDPluginStdArrays.cpp
 NDPlugin_SRCS += NDPluginStats.cpp
 NDPlugin_SRCS += NDPluginProcess.cpp
@@ -60,10 +59,16 @@ NDPlugin_SRCS += NDPluginTransform.cpp
 NDPlugin_SRCS += NDPluginAttribute.cpp
 NDPlugin_SRCS += NDPluginOverlay.cpp
 NDPlugin_SRCS += NDPluginColorConvert.cpp
-NDPlugin_SRCS_DEFAULT += NDFileTIFF.cpp NDFileJPEG.cpp NDFileNexus.cpp NDFileHDF5.cpp NDFileNull.cpp
+NDPlugin_SRCS_DEFAULT += NDFileNull.cpp
 NDPlugin_SRCS_vxWorks += NDFileDummy.cpp
 NDPlugin_SYS_LIBS_WIN32 += Ws2_32
 NDPlugin_SYS_LIBS_WIN32 += User32
+
+NDPlugin_SRCS_Linux += NDFileNetCDF.cpp
+NDPlugin_SRCS_Linux += NDFileJPEG.cpp
+NDPlugin_SRCS_Linux += NDFileNexus.cpp
+NDPlugin_SRCS_Linux += NDFileHDF5.cpp
+NDPlugin_SRCS_Linux += NDFileTIFF.cpp 
 
 ifeq ($(USE_GRAPHICSMAGICK), YES)
   USR_INCLUDES += $(GRAPHICS_MAGICK_INCLUDE)
