@@ -1,0 +1,3 @@
+# Archive template NDROI_sync.tpl-arch
+$(P)$(ROI)SizeXLink			10				monitor
+$(P)$(ROI)SizeYLink			10				monitor

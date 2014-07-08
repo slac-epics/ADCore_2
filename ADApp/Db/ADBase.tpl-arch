@@ -1,0 +1,95 @@
+# Archive template ADBase.tpl-arch
+$(P)$(R)AcquirePeriod_RBV			1		monitor
+$(P)$(R)AcquireTime_RBV				1		monitor
+$(P)$(R)Gain_RBV					1
+$(P)$(R)PoolMaxMem					1
+$(P)$(R)PoolUsedMem					1
+$(P)$(R)ShutterCloseDelay_RBV		1		monitor
+$(P)$(R)ShutterOpenDelay_RBV		1		monitor
+$(P)$(R)TemperatureActual			1
+$(P)$(R)Temperature_RBV				1
+$(P)$(R)TimeRemaining_RBV			1
+
+$(P)$(R)AcquirePeriod				10		monitor
+$(P)$(R)AcquireTime					10		monitor
+$(P)$(R)Gain						10		monitor
+$(P)$(R)ShutterCloseDelay			10		monitor
+$(P)$(R)ShutterOpenDelay			10		monitor
+$(P)$(R)Temperature					10		monitor
+
+$(P)$(R)Acquire_RBV					1		monitor
+$(P)$(R)ArrayCallbacks_RBV			1		monitor
+$(P)$(R)ReverseX_RBV				1		monitor
+$(P)$(R)ReverseY_RBV				1		monitor
+$(P)$(R)ShutterControlEPICS			1		monitor
+$(P)$(R)ShutterControl_RBV			1		monitor
+$(P)$(R)ShutterStatus_RBV			1		monitor
+
+$(P)$(R)ArrayCallbacks				10		monitor
+$(P)$(R)ReadStatus					10		monitor
+$(P)$(R)ReverseX					10		monitor
+$(P)$(R)ReverseY					10		monitor
+$(P)$(R)ShutterControl				10		monitor
+
+$(P)$(R)Acquire						10		monitor
+
+$(P)$(R)ShutterCloseEPICS			1		monitor
+$(P)$(R)ShutterOpenEPICS			1		monitor
+
+$(P)$(R)ArrayRate_RBV				10
+$(P)$(R)PoolUsedBuffers				1
+
+$(P)$(R)ArrayCounter_RBV			10
+$(P)$(R)ArraySize_RBV				1		monitor
+$(P)$(R)ArraySizeX_RBV				1		monitor
+$(P)$(R)ArraySizeY_RBV				1		monitor
+$(P)$(R)ArraySizeZ_RBV				1		monitor
+$(P)$(R)BinX_RBV					1		monitor
+$(P)$(R)BinY_RBV					1		monitor
+$(P)$(R)MaxSizeX_RBV				1		monitor
+$(P)$(R)MaxSizeY_RBV				1		monitor
+$(P)$(R)MinX_RBV					1		monitor
+$(P)$(R)MinY_RBV					1		monitor
+$(P)$(R)NumExposuresCounter_RBV		10
+$(P)$(R)NumExposures_RBV			10
+$(P)$(R)NumImagesCounter_RBV		10
+$(P)$(R)NumImages_RBV				1
+$(P)$(R)PoolAllocBuffers			1
+$(P)$(R)PoolFreeBuffers				1
+$(P)$(R)PoolMaxBuffers				1
+$(P)$(R)SizeX_RBV					1		monitor
+$(P)$(R)SizeY_RBV					1		monitor
+
+$(P)$(R)ArrayCounter				10		monitor
+$(P)$(R)BinX						10		monitor
+$(P)$(R)BinY						10		monitor
+$(P)$(R)MinX						10		monitor
+$(P)$(R)MinY						10		monitor
+$(P)$(R)NumExposures				10		monitor
+$(P)$(R)NumImages					10		monitor
+$(P)$(R)SizeX						10		monitor
+$(P)$(R)SizeY						10		monitor
+
+$(P)$(R)ColorMode_RBV				10		monitor
+$(P)$(R)DataType_RBV				10		monitor
+$(P)$(R)DetectorState_RBV			1		monitor
+$(P)$(R)FrameType_RBV				10		monitor
+$(P)$(R)ImageMode_RBV				10		monitor
+$(P)$(R)ShutterMode_RBV				10		monitor
+$(P)$(R)ShutterStatusEPICS_RBV		1		monitor
+$(P)$(R)TriggerMode_RBV				10		monitor
+
+$(P)$(R)ColorMode					10		monitor
+$(P)$(R)DataType					10		monitor
+$(P)$(R)FrameType					10		monitor
+$(P)$(R)ImageMode					10		monitor
+$(P)$(R)ShutterMode					10		monitor
+$(P)$(R)TriggerMode					10		monitor
+
+$(P)$(R)Manufacturer_RBV			10		monitor
+$(P)$(R)Model_RBV					10		monitor
+$(P)$(R)PortName_RBV				10		monitor
+
+$(P)$(R)StatusMessage_RBV			1
+$(P)$(R)StringFromServer_RBV		1
+$(P)$(R)StringToServer_RBV			1

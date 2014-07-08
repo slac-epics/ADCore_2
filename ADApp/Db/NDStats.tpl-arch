@@ -1,0 +1,50 @@
+# Archive template NDStats.tpl-arch
+$(P)$(R)BgdWidth				10				monitor
+$(P)$(R)BgdWidth_RBV			1
+$(P)$(R)CentroidThreshold		10				monitor
+$(P)$(R)CentroidThreshold_RBV	1
+$(P)$(R)CentroidX_RBV			1
+$(P)$(R)CentroidY_RBV			1
+$(P)$(R)ComputeCentroid			10				monitor
+$(P)$(R)ComputeCentroid_RBV		1
+$(P)$(R)ComputeHistogram		10				monitor
+$(P)$(R)ComputeHistogram_RBV	1
+$(P)$(R)ComputeProfiles			10				monitor
+$(P)$(R)ComputeProfiles_RBV		1
+$(P)$(R)ComputeStatistics		10				monitor
+$(P)$(R)ComputeStatistics_RBV	1
+$(P)$(R)CursorX					10				monitor
+$(P)$(R)CursorX_RBV				1
+$(P)$(R)CursorY					10				monitor
+$(P)$(R)CursorY_RBV				1
+$(P)$(R)HistEntropy_RBV			1
+$(P)$(R)HistMax					10				monitor
+$(P)$(R)HistMax_RBV				1
+$(P)$(R)HistMin					10				monitor
+$(P)$(R)HistMin_RBV				1
+$(P)$(R)HistSize				10				monitor
+$(P)$(R)HistSize_RBV			1
+$(P)$(R)MaxSizeX				1
+$(P)$(R)MaxSizeY				1
+$(P)$(R)MaxValue_RBV			1
+$(P)$(R)MaxX_RBV				1
+$(P)$(R)MaxY_RBV				1
+$(P)$(R)MeanValue_RBV			1
+$(P)$(R)MinValue_RBV			1
+$(P)$(R)MinX_RBV				1
+$(P)$(R)MinY_RBV				1
+$(P)$(R)Net_RBV					1
+$(P)$(R)ProfileSizeX_RBV		1
+$(P)$(R)ProfileSizeY_RBV		1
+$(P)$(R)SetXHOPR				10				monitor
+$(P)$(R)SetYHOPR				10				monitor
+$(P)$(R)Sigma_RBV				1
+$(P)$(R)SigmaX_RBV				1
+$(P)$(R)SigmaXY_RBV				1
+$(P)$(R)SigmaY_RBV				1
+$(P)$(R)Total_RBV				1
+$(P)$(R)TSAcquiring				1
+$(P)$(R)TSControl				10				monitor
+$(P)$(R)TSCurrentPoint			1
+$(P)$(R)TSNumPoints				10				monitor
+$(P)$(R)TSRead					10				monitor

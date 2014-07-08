@@ -1,0 +1,4 @@
+# Archive template NDFileJPEG.tpl-arch
+
+$(P)$(R)JPEGQuality_RBV			1
+$(P)$(R)JPEGQuality				10				monitor

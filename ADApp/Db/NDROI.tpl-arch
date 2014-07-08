@@ -1,0 +1,55 @@
+# Archive template NDROI.tpl-arch
+$(P)$(R)ArraySizeX_RBV			1
+$(P)$(R)ArraySizeY_RBV			1
+$(P)$(R)ArraySizeZ_RBV			1
+$(P)$(R)AutoSizeX				10				monitor
+$(P)$(R)AutoSizeX_RBV			1
+$(P)$(R)AutoSizeY				10				monitor
+$(P)$(R)AutoSizeY_RBV			1
+$(P)$(R)AutoSizeZ				10				monitor
+$(P)$(R)AutoSizeZ_RBV			1
+$(P)$(R)BinX					10				monitor
+$(P)$(R)BinX_RBV				1
+$(P)$(R)BinY					10				monitor
+$(P)$(R)BinY_RBV				1
+$(P)$(R)BinZ					10				monitor
+$(P)$(R)BinZ_RBV				1
+$(P)$(R)DataTypeOut				10				monitor
+$(P)$(R)DataTypeOut_RBV			1
+$(P)$(R)EnableScale				10				monitor
+$(P)$(R)EnableScale_RBV			1
+$(P)$(R)EnableX					10				monitor
+$(P)$(R)EnableX_RBV				1
+$(P)$(R)EnableY					10				monitor
+$(P)$(R)EnableY_RBV				1
+$(P)$(R)EnableZ					10				monitor
+$(P)$(R)EnableZ_RBV				1
+$(P)$(R)MaxSizeX_RBV			1
+$(P)$(R)MaxSizeY_RBV			1
+$(P)$(R)MaxSizeZ_RBV			1
+$(P)$(R)MaxX					1
+$(P)$(R)MaxY					1
+$(P)$(R)MinX					10				monitor
+$(P)$(R)MinX_RBV				1
+$(P)$(R)MinY					10				monitor
+$(P)$(R)MinY_RBV				1
+$(P)$(R)MinZ					10				monitor
+$(P)$(R)MinZ_RBV				1
+$(P)$(R)Name					10				monitor
+$(P)$(R)Name_RBV				1
+$(P)$(R)ReverseX				10				monitor
+$(P)$(R)ReverseX_RBV			1
+$(P)$(R)ReverseY				10				monitor
+$(P)$(R)ReverseY_RBV			1
+$(P)$(R)ReverseZ				10				monitor
+$(P)$(R)ReverseZ_RBV			1
+$(P)$(R)Scale					10				monitor
+$(P)$(R)Scale_RBV				1
+$(P)$(R)SetXHOPR				10				monitor
+$(P)$(R)SetYHOPR				10				monitor
+$(P)$(R)SizeX					10				monitor
+$(P)$(R)SizeX_RBV				1
+$(P)$(R)SizeY					10				monitor
+$(P)$(R)SizeY_RBV				1
+$(P)$(R)SizeZ					10				monitor
+$(P)$(R)SizeZ_RBV				1
