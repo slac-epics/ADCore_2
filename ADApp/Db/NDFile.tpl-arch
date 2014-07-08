@@ -1,0 +1,34 @@
+# Archive template NDFile.tpl-arch
+$(P)$(R)AutoIncrement			10		monitor
+$(P)$(R)AutoIncrement_RBV		1
+$(P)$(R)AutoSave				10		monitor
+$(P)$(R)AutoSave_RBV			1
+$(P)$(R)Capture					10		monitor
+$(P)$(R)Capture_RBV				1
+$(P)$(R)DeleteDriverFile		10		monitor
+$(P)$(R)DeleteDriverFile_RBV	1
+$(P)$(R)FileFormat				10		monitor
+$(P)$(R)FileFormat_RBV			1
+$(P)$(R)FileName				10		monitor
+$(P)$(R)FileName_RBV			10		monitor
+$(P)$(R)FileNumber				10		monitor
+$(P)$(R)FileNumber_RBV			1
+$(P)$(R)FileNumber_Sync			10		monitor
+$(P)$(R)FileNumber_write		10		monitor
+$(P)$(R)FilePathExists_RBV		1
+$(P)$(R)FilePath				10		monitor
+$(P)$(R)FilePath_RBV			10		monitor
+$(P)$(R)FileTemplate			10		monitor
+$(P)$(R)FileTemplate_RBV		10		monitor
+$(P)$(R)FileWriteMode			10		monitor
+$(P)$(R)FileWriteMode_RBV		1
+$(P)$(R)FullFileName_RBV		10		monitor
+$(P)$(R)NumCaptured_RBV			1
+$(P)$(R)NumCapture				10		monitor
+$(P)$(R)NumCapture_RBV			1
+$(P)$(R)ReadFile				10		monitor
+$(P)$(R)ReadFile_RBV			1
+$(P)$(R)WriteFile				10		monitor
+$(P)$(R)WriteFile_RBV			1
+$(P)$(R)WriteMessage			10		monitor
+$(P)$(R)WriteStatus				1

@@ -1,0 +1,31 @@
+# Archive template NDOverlayN.tpl-arch
+$(P)$(R)Blue				10				monitor
+$(P)$(R)Blue_RBV			1
+$(P)$(R)DrawMode			10				monitor
+$(P)$(R)DrawMode_RBV		1
+$(P)$(R)Green				10				monitor
+$(P)$(R)Green_RBV			1
+$(P)$(R)MaxSizeX			1
+$(P)$(R)MaxSizeY			1
+$(P)$(R)Name				10				monitor
+$(P)$(R)Name_RBV			1
+$(P)$(R)PositionXLink		10				monitor
+$(P)$(R)PositionX			10				monitor
+$(P)$(R)PositionX_RBV		1
+$(P)$(R)PositionYLink		10				monitor
+$(P)$(R)PositionY			10				monitor
+$(P)$(R)PositionY_RBV		1
+$(P)$(R)Red					10				monitor
+$(P)$(R)Red_RBV				1
+$(P)$(R)SetXHOPR			10				monitor
+$(P)$(R)SetYHOPR			10				monitor
+$(P)$(R)Shape				10				monitor
+$(P)$(R)Shape_RBV			1
+$(P)$(R)SizeXLink			10				monitor
+$(P)$(R)SizeX				10				monitor
+$(P)$(R)SizeX_RBV			1
+$(P)$(R)SizeYLink			10				monitor
+$(P)$(R)SizeY				10				monitor
+$(P)$(R)SizeY_RBV			1
+$(P)$(R)Use					10				monitor
+$(P)$(R)Use_RBV				1

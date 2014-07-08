@@ -1,0 +1,4 @@
+# Archive template URLDriver.tpl-arch
+
+$(P)$(R)URLSelect		10		monitor
+$(P)$(R)URLSeq"			10		monitor

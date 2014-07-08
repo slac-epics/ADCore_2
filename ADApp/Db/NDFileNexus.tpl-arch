@@ -1,0 +1,6 @@
+# Archive template NDFileNexus.tpl-arch
+$(P)$(R)FileTemplateValid			1
+$(P)$(R)TemplateFileName			1
+$(P)$(R)TemplateFileName_RBV		1
+$(P)$(R)TemplateFilePath			1
+$(P)$(R)TemplateFilePath_RBV		1

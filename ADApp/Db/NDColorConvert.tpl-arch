@@ -1,0 +1,6 @@
+# Archive template NDColorConvert.tpl-arch
+
+$(P)$(R)ColorModeOut_RBV		1
+$(P)$(R)FalseColor_RBV			1
+$(P)$(R)ColorModeOut			10		monitor
+$(P)$(R)FalseColor				10		monitor

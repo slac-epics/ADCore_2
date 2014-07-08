@@ -1,0 +1,47 @@
+# Archive template NDPluginBase.tpl-arch
+$(P)$(R)ArrayCounter			10
+$(P)$(R)ArrayCounter_RBV		10
+$(P)$(R)ArrayRate_RBV			10
+$(P)$(R)ArraySize0_RBV			10				monitor
+$(P)$(R)ArraySize1_RBV			10				monitor
+$(P)$(R)ArraySize2_RBV			10				monitor
+$(P)$(R)AsynIO					10				monitor
+$(P)$(R)BayerPattern_RBV		10				monitor
+$(P)$(R)BlockingCallbacks		10				monitor
+$(P)$(R)BlockingCallbacks_RBV	10				monitor
+$(P)$(R)ColorMode_RBV			10				monitor
+$(P)$(R)DataType_RBV			10				monitor
+$(P)$(R)Dim0SA					10				monitor
+$(P)$(R)Dim1SA					10				monitor
+$(P)$(R)Dim2SA					10				monitor
+$(P)$(R)Dimensions_RBV			10				monitor
+$(P)$(R)DroppedArrays			10				monitor
+$(P)$(R)DroppedArrays_RBV		10				monitor
+$(P)$(R)EnableCallbacks			10				monitor
+$(P)$(R)EnableCallbacks_RBV		10				monitor
+$(P)$(R)MinCallbackTime			10				monitor
+$(P)$(R)MinCallbackTime_RBV		10				monitor
+$(P)$(R)NDArrayAddress			10				monitor
+$(P)$(R)NDArrayAddress_RBV		10				monitor
+$(P)$(R)NDArrayPort				10				monitor
+$(P)$(R)NDArrayPort_RBV			10				monitor
+$(P)$(R)NDAttributesFile		10				monitor
+$(P)$(R)NDimensions_RBV			10				monitor
+$(P)$(R)PluginType_RBV			10				monitor
+$(P)$(R)PoolAllocBuffers		10				monitor
+$(P)$(R)PoolFreeBuffers			1
+$(P)$(R)PoolMaxBuffers			10				monitor
+$(P)$(R)PoolMaxMem				10				monitor
+$(P)$(R)PoolUsedBuffers			10
+$(P)$(R)PoolUsedMem				10
+$(P)$(R)PortName_RBV			10				monitor
+$(P)$(R)QueueFree				10
+$(P)$(R)QueueFreeLow			10				monitor
+$(P)$(R)QueueSize				10				monitor
+$(P)$(R)QueueUse				10
+$(P)$(R)QueueUseHIGH			10				monitor
+$(P)$(R)QueueUseHIHI			10				monitor
+$(P)$(R)TimeStamp_RBV			1
+$(P)$(R)UniqueId_RBV			10				monitor
+$(P)$(R)BIT_DEPTH				10				monitor
+$(P)$(R)N_BYTES_PER_PIXEL		10				monitor

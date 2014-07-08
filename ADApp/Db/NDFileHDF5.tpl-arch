@@ -1,0 +1,47 @@
+# Archive template NDFileHDF5.tpl-arch
+
+$(P)$(R)IOSpeed						1
+$(P)$(R)RunTime						1
+
+$(P)$(R)StoreAttr_RBV				1
+$(P)$(R)StorePerform_RBV			1
+
+$(P)$(R)StoreAttr					10		monitor
+$(P)$(R)StorePerform				10		monitor
+
+$(P)$(R)BoundaryAlign_RBV			1
+$(P)$(R)BoundaryThreshold_RBV		1
+$(P)$(R)DataBitsOffset_RBV			1
+$(P)$(R)ExtraDimSizeN_RBV			1
+$(P)$(R)ExtraDimSizeX_RBV			1
+$(P)$(R)ExtraDimSizeY_RBV			1
+$(P)$(R)NumColChunks_RBV			1
+$(P)$(R)NumDataBits_RBV				1
+$(P)$(R)NumExtraDims_RBV			1
+$(P)$(R)NumFramesChunks_RBV			1
+$(P)$(R)NumFramesFlush_RBV			1
+$(P)$(R)NumRowChunks_RBV			1
+$(P)$(R)SZipNumPixels_RBV			1
+$(P)$(R)ZLevel_RBV					1
+
+$(P)$(R)BoundaryAlign				10		monitor
+$(P)$(R)BoundaryThreshold			10		monitor
+$(P)$(R)DataBitsOffset				10		monitor
+$(P)$(R)ExtraDimSizeN				10		monitor
+$(P)$(R)ExtraDimSizeX				10		monitor
+$(P)$(R)ExtraDimSizeY				10		monitor
+$(P)$(R)NumColChunks				10		monitor
+$(P)$(R)NumDataBits					10		monitor
+$(P)$(R)NumExtraDims				10		monitor
+$(P)$(R)NumFramesChunks				10		monitor
+$(P)$(R)NumFramesFlush				10		monitor
+$(P)$(R)NumRowChunks				10		monitor
+$(P)$(R)SZipNumPixels				10		monitor
+$(P)$(R)ZLevel						10		monitor
+
+$(P)$(R)Compression_RBV				1
+$(P)$(R)Compression					10		monitor
+
+$(P)$(R)ExtraDimNameN_RBV			1
+$(P)$(R)ExtraDimNameX_RBV			1
+$(P)$(R)ExtraDimNameY_RBV			1

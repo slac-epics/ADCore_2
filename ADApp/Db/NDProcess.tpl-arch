@@ -1,0 +1,80 @@
+# Archive template NDProcess.tpl-arch
+$(P)$(R)AutoOffsetScale			10				monitor
+$(P)$(R)AutoResetFilter			10				monitor
+$(P)$(R)AutoResetFilter_RBV		1
+$(P)$(R)AverageSeq				10				monitor
+$(P)$(R)CopyToFilterSeq			10				monitor
+$(P)$(R)DataTypeOut				10				monitor
+$(P)$(R)DataTypeOut_RBV			1
+$(P)$(R)DifferenceSeq			10				monitor
+$(P)$(R)EnableBackground		10				monitor
+$(P)$(R)EnableBackground_RBV	1
+$(P)$(R)EnableFilter			10				monitor
+$(P)$(R)EnableFilter_RBV		1
+$(P)$(R)EnableFlatField			10				monitor
+$(P)$(R)EnableFlatField_RBV		1
+$(P)$(R)EnableHighClip			10				monitor
+$(P)$(R)EnableHighClip_RBV		1
+$(P)$(R)EnableLowClip			10				monitor
+$(P)$(R)EnableLowClip_RBV		1
+$(P)$(R)EnableOffsetScale		10				monitor
+$(P)$(R)EnableOffsetScale_RBV	1
+$(P)$(R)FC1						10				monitor
+$(P)$(R)FC1_RBV					1
+$(P)$(R)FC2						10				monitor
+$(P)$(R)FC2_RBV					1
+$(P)$(R)FC3						10				monitor
+$(P)$(R)FC3_RBV					1
+$(P)$(R)FC4						10				monitor
+$(P)$(R)FC4_RBV					1
+$(P)$(R)FilterCallbacks			10				monitor
+$(P)$(R)FilterCallbacks_RBV		1
+$(P)$(R)FilterType				10				monitor
+$(P)$(R)FilterTypeSeq			10				monitor
+$(P)$(R)FOffset					10				monitor
+$(P)$(R)FOffset_RBV				1
+$(P)$(R)FScale					10				monitor
+$(P)$(R)FScale_RBV				1
+$(P)$(R)HighClip				10				monitor
+$(P)$(R)HighClip_RBV			1
+$(P)$(R)LowClip					10				monitor
+$(P)$(R)LowClip_RBV				1
+$(P)$(R)NumFilter				10				monitor
+$(P)$(R)NumFiltered_RBV			1
+$(P)$(R)NumFilter_RBV			1
+$(P)$(R)NumFilterRecip			10				monitor
+$(P)$(R)OC1						10				monitor
+$(P)$(R)OC1_RBV					1
+$(P)$(R)OC2						10				monitor
+$(P)$(R)OC2_RBV					1
+$(P)$(R)OC3						10				monitor
+$(P)$(R)OC3_RBV					1
+$(P)$(R)OC4						10				monitor
+$(P)$(R)OC4_RBV					1
+$(P)$(R)Offset					10				monitor
+$(P)$(R)Offset_RBV				1
+$(P)$(R)OOffset					10				monitor
+$(P)$(R)OOffset_RBV				1
+$(P)$(R)OScale					10				monitor
+$(P)$(R)OScale_RBV				1
+$(P)$(R)RC1						10				monitor
+$(P)$(R)RC1_RBV					1
+$(P)$(R)RC2						10				monitor
+$(P)$(R)RC2_RBV					1
+$(P)$(R)RecursiveAveDiffSeq		10				monitor
+$(P)$(R)RecursiveAveSeq			10				monitor
+$(P)$(R)ResetFilter				10				monitor
+$(P)$(R)ResetFilter_RBV			1
+$(P)$(R)ROffset					10				monitor
+$(P)$(R)ROffset_RBV				1
+$(P)$(R)SaveBackground			10				monitor
+$(P)$(R)SaveBackground_RBV		1
+$(P)$(R)SaveFlatField			10				monitor
+$(P)$(R)SaveFlatField_RBV		1
+$(P)$(R)Scale					10				monitor
+$(P)$(R)ScaleFlatField			10				monitor
+$(P)$(R)ScaleFlatField_RBV		1
+$(P)$(R)Scale_RBV				1
+$(P)$(R)SumSeq					10				monitor
+$(P)$(R)ValidBackground_RBV		1
+$(P)$(R)ValidFlatField_RBV		1
