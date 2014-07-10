@@ -22,13 +22,13 @@ INC_solaris  += jconfig.h jerror.h jmorecfg.h jpeglib.h szlib.h zconf.h zlib.h
 INC_Darwin   += tiff.h tiffio.h tiffvers.h tiffconf.h
 INC_Darwin   += jpeglib.h jconfig.h jmorecfg.h jerror.h
 
-LIB_INSTALLS_solaris += ../os/solaris-sparc/libjpeg.a ../os/solaris-sparc/libsz.a ../os/solaris-sparc/libz.a
-LIB_INSTALLS_cygwin32 += ../os/cygwin32/libtiff.lib    ../os/cygwin32/libjpeg.lib    ../os/cygwin32/libz.lib
+LIB_INSTALLS_solaris += ../os/solaris-sparc/libjpeg.a ../os/solaris-sparc/libsz.a
+LIB_INSTALLS_cygwin32 += ../os/cygwin32/libtiff.lib    ../os/cygwin32/libjpeg.lib
 
 ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
-LIB_INSTALLS_Linux += ../os/linux-x86_64/libtiff.a ../os/linux-x86_64/libjpeg.a ../os/linux-x86_64/libz.a
+LIB_INSTALLS_Linux += ../os/linux-x86_64/libtiff.a ../os/linux-x86_64/libjpeg.a
 else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))
-LIB_INSTALLS_Linux += ../os/linux-x86/libtiff.a    ../os/linux-x86/libjpeg.a    ../os/linux-x86/libz.a
+LIB_INSTALLS_Linux += ../os/linux-x86/libtiff.a    ../os/linux-x86/libjpeg.a
 else ifeq (darwin-x86, $(findstring darwin-x86, $(T_A)))
 LIB_INSTALLS_Darwin += ../os/darwin-x86/libtiff.a ../os/darwin-x86/libjpeg.a
 else ifeq (win32-x86, $(findstring win32-x86, $(T_A)))
