@@ -21,7 +21,7 @@
 #define SIZEOF_INT 4
 
 /* The size of a `long', as computed by sizeof. */
-#define SIZEOF_LONG 4
+#define SIZEOF_LONG 8
 
 /* Compatibility stuff. */
 
@@ -30,7 +30,7 @@
 #define HAVE_IEEEFP 1
 
 /* Set the native cpu bit order (FILLORDER_LSB2MSB or FILLORDER_MSB2LSB) */
-#define HOST_FILLORDER FILLORDER_LSB2MSB
+#define HOST_FILLORDER FILLORDER_MSB2LSB
 
 /* Native cpu byte order: 1 if big-endian (Motorola) or 0 if little-endian
    (Intel) */
