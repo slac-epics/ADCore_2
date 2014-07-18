@@ -154,7 +154,7 @@ private:
     epicsMutexId listLock_;      /**< Mutex to protect the free list */
     int          maxBuffers_;    /**< Maximum number of buffers this object is allowed to allocate; -1=unlimited */
     int          numBuffers_;    /**< Number of buffers this object has currently allocated */
-    size_t       maxMemory_;     /**< Maximum bytes of memory this object is allowed to allocate; -1=unlimited */
+    size_t       maxMemory_;     /**< Maximum bytes of memory this object is allowed to allocate; 0=unlimited */
     size_t       memorySize_;    /**< Number of bytes of memory this object has currently allocated */
     int          numFree_;       /**< Number of NDArray objects in the free list */
 };
