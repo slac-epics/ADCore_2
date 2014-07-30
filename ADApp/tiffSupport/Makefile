@@ -6,7 +6,14 @@ include $(TOP)/configure/CONFIG
 
 DIRS += tiffBin
 DIRS += jpegSrc
-DIRS += tiffSrc
+
+ifeq (win,$(findstring win,$(EPICS_HOST_ARCH)))
+DIRS += tiffSrcWin
+endif
+
+ifeq (linux,$(findstring linux,$(EPICS_HOST_ARCH)))
+DIRS += tiffSrcLinux
+endif
 
 #=============================
 

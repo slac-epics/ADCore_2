@@ -16,8 +16,8 @@ INC_cygwin32 += tiff.h tiffio.h tiffvers.h tiffconf.h
 INC_cygwin32 += jpeglib.h jconfig.h jmorecfg.h jerror.h 
 # Use these lines to install local versions of these libraries
 # Comment them out to use system versions of the libraries
-INC_Linux    += tiff.h tiffio.h tiffvers.h tiffconf.h tiffconf-32.h tiffconf-64.h 
-INC_Linux    += jpeglib.h jconfig.h jmorecfg.h jerror.h 
+#INC_Linux    += tiff.h tiffio.h tiffvers.h tiffconf.h tiffconf-32.h tiffconf-64.h 
+#INC_Linux    += jpeglib.h jconfig.h jmorecfg.h jerror.h 
 INC_solaris  += jconfig.h jerror.h jmorecfg.h jpeglib.h szlib.h zconf.h zlib.h
 INC_Darwin   += tiff.h tiffio.h tiffvers.h tiffconf.h
 INC_Darwin   += jpeglib.h jconfig.h jmorecfg.h jerror.h
@@ -26,9 +26,11 @@ LIB_INSTALLS_solaris += ../os/solaris-sparc/libjpeg.a ../os/solaris-sparc/libsz.
 LIB_INSTALLS_cygwin32 += ../os/cygwin32/libtiff.lib    ../os/cygwin32/libjpeg.lib
 
 ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
-LIB_INSTALLS_Linux += ../os/linux-x86_64/libtiff.a ../os/linux-x86_64/libjpeg.a
+#LIB_INSTALLS_Linux += ../os/linux-x86_64/libtiff.a
+#LIB_INSTALLS_Linux += ../os/linux-x86_64/libjpeg.a
 else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))
-LIB_INSTALLS_Linux += ../os/linux-x86/libtiff.a    ../os/linux-x86/libjpeg.a
+#LIB_INSTALLS_Linux += ../os/linux-x86/libtiff.a
+#LIB_INSTALLS_Linux += ../os/linux-x86/libjpeg.a
 else ifeq (darwin-x86, $(findstring darwin-x86, $(T_A)))
 LIB_INSTALLS_Darwin += ../os/darwin-x86/libtiff.a ../os/darwin-x86/libjpeg.a
 else ifeq (win32-x86, $(findstring win32-x86, $(T_A)))
