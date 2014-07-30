@@ -894,6 +894,8 @@ record(ai, "$(P)$(R)PoolUsedMem")
    field(EGU,  "MB")
    field(SCAN, "1 second")
    field(FLNK, "$(P)$(R)PoolAllocBuffers")
+   field(DISV, "0")
+   field(SDIS, "$(P)$(R)AsynIO.CNCT")
 }
 
 record(longin, "$(P)$(R)PoolAllocBuffers")
