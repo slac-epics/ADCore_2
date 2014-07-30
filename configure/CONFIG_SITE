@@ -40,3 +40,11 @@ ifdef T_A
   -include $(AREA_DETECTOR)/configure/CONFIG_SITE.Common.$(T_A)
   -include $(AREA_DETECTOR)/configure/CONFIG_SITE.$(EPICS_HOST_ARCH).$(T_A)
 endif
+
+# Build shared libs, but no need for a static build
+# Avoids link errors on libtiff, among others.
+ifeq (Linux, $(OS_CLASS))
+	SHARED_LIBRARIES=YES
+	STATIC_BUILD=NO
+endif
+
