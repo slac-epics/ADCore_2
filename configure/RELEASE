@@ -27,8 +27,8 @@ CONFIG=$(EPICS_BASE)/configure
 # Define the version(s) of any other needed modules 
 # ===============================================================
 # Example
-ASYN_MODULE_VERSION	         = R4.23-0.1.0
-BUSY_MODULE_VERSION	         = R1.6.0-0.5.0
+ASYN_MODULE_VERSION	         = R4.23-0.2.0
+BUSY_MODULE_VERSION	         = R1.6.0-0.6.0
 CALC_MODULE_VERSION	         = R3.2-0.4.0
 SSCAN_MODULE_VERSION	     = R2.8.1-0.1.0
 
@@ -54,4 +54,8 @@ SSCAN        = $(EPICS_MODULES)/sscan/$(SSCAN_MODULE_VERSION)
 # To not use it comment out the line or set it to NO
 # GraphicsMagick is required for NDFileMagick and the URL driver.
 USE_GRAPHICSMAGICK=NO
+
+#MY_MODULES=/reg/neh/home/bhill/wa2/trunk/pcds/epics/modules
+#ASYN=$(MY_MODULES)/asyn/current
+#BUSY=$(MY_MODULES)/busy/current
 
