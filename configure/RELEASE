@@ -28,7 +28,7 @@ CONFIG=$(EPICS_BASE)/configure
 # ===============================================================
 # Example
 ASYN_MODULE_VERSION	         = R4.23-0.2.0
-BUSY_MODULE_VERSION	         = R1.6.0-0.7.0
+BUSY_MODULE_VERSION	         = R1.6.0-0.6.0
 CALC_MODULE_VERSION	         = R3.2-0.4.0
 SSCAN_MODULE_VERSION	     = R2.8.1-0.1.0
 
