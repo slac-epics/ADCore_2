@@ -584,7 +584,7 @@ record(longin, "$(P)$(R)ArrayCounter_RBV")
 # 0 rate sets alarm state to MINOR
 record(calc, "$(P)$(R)ArrayRate_RBV")
 {
-    field(INPA, "$(P)$(R)ArrayRate_RBV.LA NPP NMS" )   # Previous counter value
+    field(INPA, "$(P)$(R)ArrayRate_RBV.LB NPP NMS" )   # Previous counter value
 	field(INPB, "$(P)$(R)ArrayCounter_RBV NPP NMS" )   # Current counter value
     field(INPC, "1.0")								   # Delta time in seconds
     field(INPD, "$(P)$(R)ArrayRate_RBV.VAL NPP NMS" )  # Previous rate
