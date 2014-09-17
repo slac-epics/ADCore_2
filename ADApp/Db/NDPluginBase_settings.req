@@ -4,3 +4,8 @@ $(P)$(R)EnableCallbacks
 $(P)$(R)MinCallbackTime
 $(P)$(R)BlockingCallbacks
 $(P)$(R)NDAttributesFile
+$(P)$(R)ArrayCounter_RBV.TSE
+$(P)$(R)EpicsTSNsec_RBV.TSE
+$(P)$(R)EpicsTSSec_RBV.TSE
+$(P)$(R)UniqueId_RBV.TSE
+$(P)$(R)TimeStamp_RBV.TSE
