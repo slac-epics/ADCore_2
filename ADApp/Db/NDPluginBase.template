@@ -327,6 +327,16 @@ record(mbbi, "$(P)$(R)DataType_RBV")
    field(SVST, "Float64")
    field(SVVL, "7")
    field(SCAN, "I/O Intr")
+   field(FLNK, "$(P)$(R)N_BYTES_PER_PIXEL" )
+}
+record( calc, "$(P)$(R)N_BYTES_PER_PIXEL" )
+{
+	field( INPA, "$(P)$(R)DataType_RBV NPP" )
+	field( CALC, "(a<=1?1:(a<=3?2:4))" )
+}
+record( longin, "$(P)$(R)BIT_DEPTH" )
+{
+	field( INP, "$(BIT_DEPTH=8)" )
 }
 
 record(mbbi, "$(P)$(R)ColorMode_RBV")
