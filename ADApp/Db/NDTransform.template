@@ -3,6 +3,7 @@ record(stringout, "$(P)$(R)Name")
    field(PINI, "1")
    field(DTYP, "asynOctetWrite")
    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))NAME")
+   info( autosaveFields, "VAL" )
 }
 
 record(mbbo, "$(P)$(R)Type1")
@@ -26,6 +27,7 @@ record(mbbo, "$(P)$(R)Type1")
    field(SXVL, "6")
    field(SVST, "FlipY")
    field(SVVL, "7")
+   info( autosaveFields, "VAL" )
 }
 
 record(mbbo, "$(P)$(R)Type2")
@@ -49,6 +51,7 @@ record(mbbo, "$(P)$(R)Type2")
    field(SXVL, "6")
    field(SVST, "FlipY")
    field(SVVL, "7")
+   info( autosaveFields, "VAL" )
 }
 
 record(mbbo, "$(P)$(R)Type3")
@@ -72,6 +75,7 @@ record(mbbo, "$(P)$(R)Type3")
    field(SXVL, "6")
    field(SVST, "FlipY")
    field(SVVL, "7")
+   info( autosaveFields, "VAL" )
 }
 
 record(mbbo, "$(P)$(R)Type4")
@@ -95,6 +99,7 @@ record(mbbo, "$(P)$(R)Type4")
    field(SXVL, "6")
    field(SVST, "FlipY")
    field(SVVL, "7")
+   info( autosaveFields, "VAL" )
 }
 
 
@@ -111,6 +116,7 @@ record(mbbo, "$(P)$(R)OriginLocation")
    field(TWVL, "2")
    field(THST, "UpperRight")
    field(THVL, "3")
+   info( autosaveFields, "VAL" )
 }
 
 record(mbbi, "$(P)$(R)OriginLocation_RBV")
