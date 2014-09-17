@@ -35,6 +35,7 @@ record(longin, "$(P)$(R)BgdWidth_RBV")
    field(DTYP, "asynInt32")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BGD_WIDTH")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(ai, "$(P)$(R)MinValue_RBV")
@@ -42,6 +43,7 @@ record(ai, "$(P)$(R)MinValue_RBV")
    field(DTYP, "asynFloat64")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))MIN_VALUE")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(ai, "$(P)$(R)MaxValue_RBV")
@@ -49,6 +51,7 @@ record(ai, "$(P)$(R)MaxValue_RBV")
    field(DTYP, "asynFloat64")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))MAX_VALUE")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(ai, "$(P)$(R)MeanValue_RBV")
@@ -56,6 +59,7 @@ record(ai, "$(P)$(R)MeanValue_RBV")
    field(DTYP, "asynFloat64")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))MEAN_VALUE")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(ai, "$(P)$(R)Sigma_RBV")
@@ -64,6 +68,7 @@ record(ai, "$(P)$(R)Sigma_RBV")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SIGMA_VALUE")
    field(PREC, "1")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(ai, "$(P)$(R)Total_RBV")
@@ -71,6 +76,7 @@ record(ai, "$(P)$(R)Total_RBV")
    field(DTYP, "asynFloat64")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TOTAL")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(ai, "$(P)$(R)Net_RBV")
@@ -78,6 +84,7 @@ record(ai, "$(P)$(R)Net_RBV")
    field(DTYP, "asynFloat64")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))NET")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(ai, "$(P)$(R)MinX_RBV")
@@ -85,6 +92,7 @@ record(ai, "$(P)$(R)MinX_RBV")
    field(DTYP, "asynFloat64")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))MIN_X")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(ai, "$(P)$(R)MinY_RBV")
@@ -92,6 +100,7 @@ record(ai, "$(P)$(R)MinY_RBV")
    field(DTYP, "asynFloat64")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))MIN_Y")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(ai, "$(P)$(R)MaxX_RBV")
@@ -99,6 +108,7 @@ record(ai, "$(P)$(R)MaxX_RBV")
    field(DTYP, "asynFloat64")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))MAX_X")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(ai, "$(P)$(R)MaxY_RBV")
@@ -106,6 +116,7 @@ record(ai, "$(P)$(R)MaxY_RBV")
    field(DTYP, "asynFloat64")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))MAX_Y")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 ###################################################################
@@ -156,6 +167,7 @@ record(ai, "$(P)$(R)CentroidX_RBV")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CENTROIDX_VALUE")
    field(PREC, "1")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(ai, "$(P)$(R)CentroidY_RBV")
@@ -164,6 +176,7 @@ record(ai, "$(P)$(R)CentroidY_RBV")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CENTROIDY_VALUE")
    field(PREC, "1")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(ai, "$(P)$(R)SigmaX_RBV")
@@ -172,6 +185,7 @@ record(ai, "$(P)$(R)SigmaX_RBV")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SIGMAX_VALUE")
    field(PREC, "1")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(ai, "$(P)$(R)SigmaY_RBV")
@@ -180,6 +194,7 @@ record(ai, "$(P)$(R)SigmaY_RBV")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SIGMAY_VALUE")
    field(PREC, "1")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(ai, "$(P)$(R)SigmaXY_RBV")
@@ -188,6 +203,7 @@ record(ai, "$(P)$(R)SigmaXY_RBV")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SIGMAXY_VALUE")
    field(PREC, "3")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 ###################################################################
@@ -232,6 +248,7 @@ record(longin, "$(P)$(R)TSCurrentPoint")
    field(DTYP, "asynInt32")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TS_CURRENT_POINT")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(bi, "$(P)$(R)TSAcquiring")
@@ -492,6 +509,7 @@ record(waveform, "$(P)$(R)ProfileCentroidX_RBV")
    field(FTVL, "DOUBLE")
    field(NELM, "$(XSIZE)")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(waveform, "$(P)$(R)ProfileCentroidY_RBV")
@@ -501,6 +519,7 @@ record(waveform, "$(P)$(R)ProfileCentroidY_RBV")
    field(FTVL, "DOUBLE")
    field(NELM, "$(YSIZE)")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(waveform, "$(P)$(R)ProfileCursorX_RBV")
@@ -510,6 +529,7 @@ record(waveform, "$(P)$(R)ProfileCursorX_RBV")
    field(FTVL, "DOUBLE")
    field(NELM, "$(XSIZE)")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(waveform, "$(P)$(R)ProfileCursorY_RBV")
@@ -519,6 +539,7 @@ record(waveform, "$(P)$(R)ProfileCursorY_RBV")
    field(FTVL, "DOUBLE")
    field(NELM, "$(YSIZE)")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 
