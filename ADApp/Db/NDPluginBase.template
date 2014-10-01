@@ -162,7 +162,7 @@ record(calc, "$(P)$(R)ArrayRate_RBV")
 	field(INPB, "$(P)$(R)ArrayCounter_RBV NPP NMS" )   # Current counter value
     field(INPC, "1.0")								   # Delta time in seconds
     field(INPD, "$(P)$(R)ArrayRate_RBV.VAL NPP NMS" )  # Previous rate
-    field(INPE, "0.5" ) # Smoothing factor
+    field(INPE, "0.2" ) # Smoothing factor
     field(CALC, "(D*E)/C+MAX(0,B-A)*(1-E)/C" )
     field(PREC, "2" )
     field(EGU,  "Hz" )
