@@ -343,7 +343,8 @@ record( calc, "$(P)$(R)N_BYTES_PER_PIXEL" )
 }
 record( longin, "$(P)$(R)BIT_DEPTH" )
 {
-	field( INP, "$(BIT_DEPTH=8)" )
+	field( INP,  "$(BIT_DEPTH=8)" )
+	field( PINI, "YES" )
 }
 
 record(mbbi, "$(P)$(R)ColorMode_RBV")
