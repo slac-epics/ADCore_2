@@ -3,13 +3,13 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 451
-y 650
-w 390
-h 820
-font "arial-bold-r-12.0"
-ctlFont "arial-bold-r-12.0"
-btnFont "arial-bold-r-12.0"
+x 844
+y 73
+w 419
+h 824
+font "helvetica-bold-r-12.0"
+ctlFont "helvetica-bold-r-12.0"
+btnFont "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 textColor index 14
@@ -21,7 +21,7 @@ topShadowColor index 1
 botShadowColor index 11
 showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
 
 # (Rectangle)
@@ -30,25 +30,10 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 0
-y 385
-w 390
-h 435
-lineColor index 5
-fill
-fillColor index 5
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 5
-y 400
+x 8
+y 412
 w 380
-h 310
+h 324
 lineColor index 14
 fill
 fillColor index 3
@@ -60,8 +45,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 5
-y 390
+x 8
+y 404
 w 47
 h 14
 font "helvetica-medium-r-12.0"
@@ -74,44 +59,22 @@ autoSize
 border
 endObjectProperties
 
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 4
-release 0
-x 10
-y 410
-w 370
-h 290
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-12.0"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "NDStdArraysBig"
-}
-endObjectProperties
-
 # (Hoff Video)
 object TwoDProfileMonitorClass
 beginObjectProperties
 major 4
 minor 2
 release 1
-x 10
-y 410
+x 12
+y 440
 w 370
 h 290
 dataPvStr "$(P)$(R)ArrayData"
 widthPvStr "$(P)$(R)ArraySize0_RBV"
 heightPvStr "$(P)$(R)ArraySize1_RBV"
-dataWidth 0
+dataWidth -1
 pvBasedDataSize 1
-nBitsPerPixel 8
+nBitsPerPixel 16
 endObjectProperties
 
 # (Embedded Window)
@@ -129,12 +92,12 @@ bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
 displaySource "file"
-file "NDPluginBase"
+file "areaDetectorScreens/NDPluginBase.edl"
 sizeOfs 5
 numDsps 2
 displayFileName {
-  0 "NDPluginBase"
-  1 "NDPluginBase"
+  0 "areaDetectorScreens/NDPluginBase.edl"
+  1 "areaDetectorScreens/NDPluginBase.edl"
 }
 noScroll
 endObjectProperties
@@ -145,19 +108,43 @@ beginObjectProperties
 major 4
 minor 3
 release 0
-x 5
-y 790
+x 4
+y 788
 w 380
 h 25
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 buttonLabel "HTML Documentation"
 numCmds 1
 command {
-  0 "firefox \"file://$(which ADBase.edl | sed \"s|data/ADBase.edl|documentation/NDPluginStdArrays.html|\")\" &"
+  0 "firefox file://areaDetectorHelp/NDPluginStdArrays.html &"
 }
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 284
+y 416
+w 100
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "helvetica-bold-r-12.0"
+buttonLabel "Larger"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "areaDetectorScreens/NDStdArraysBig.edl"
+}
+icon
 endObjectProperties
 

@@ -7,9 +7,9 @@ x 518
 y 88
 w 390
 h 820
-font "arial-bold-r-12.0"
-ctlFont "arial-bold-r-12.0"
-btnFont "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
+ctlFont "helvetica-bold-r-12.0"
+btnFont "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 textColor index 14
@@ -21,7 +21,7 @@ topShadowColor index 1
 botShadowColor index 11
 showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
 
 # (Rectangle)
@@ -79,7 +79,7 @@ x 5
 y 475
 w 46
 h 15
-font "arial-medium-r-12.0"
+font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
 value {
@@ -99,7 +99,7 @@ x 200
 y 475
 w 79
 h 15
-font "arial-medium-r-12.0"
+font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
 value {
@@ -124,15 +124,15 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
 x 70
 y 495
@@ -140,10 +140,16 @@ w 55
 h 20
 controlPv "$(P)$(R)GainX"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
+
+bgColor index 5
+newPos
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+fontAlign "center"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Static Text)
@@ -156,7 +162,7 @@ x 10
 y 495
 w 55
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -175,7 +181,7 @@ x 10
 y 525
 w 55
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -184,11 +190,11 @@ value {
 }
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
 x 70
 y 525
@@ -196,10 +202,16 @@ w 55
 h 20
 controlPv "$(P)$(R)GainY"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
+
+bgColor index 5
+newPos
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+fontAlign "center"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Textupdate)
@@ -217,7 +229,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
@@ -231,7 +243,7 @@ x 10
 y 555
 w 55
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -240,11 +252,11 @@ value {
 }
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
 x 70
 y 555
@@ -252,10 +264,16 @@ w 55
 h 20
 controlPv "$(P)$(R)Gain"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
+
+bgColor index 5
+newPos
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+fontAlign "center"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Textupdate)
@@ -273,7 +291,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
@@ -287,7 +305,7 @@ x 10
 y 585
 w 55
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -296,11 +314,11 @@ value {
 }
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
 x 70
 y 585
@@ -308,10 +326,16 @@ w 55
 h 20
 controlPv "$(P)$(R)GainRed"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
+
+bgColor index 5
+newPos
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+fontAlign "center"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Textupdate)
@@ -329,7 +353,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
@@ -343,7 +367,7 @@ x 10
 y 615
 w 55
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -352,11 +376,11 @@ value {
 }
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
 x 70
 y 615
@@ -364,10 +388,16 @@ w 55
 h 20
 controlPv "$(P)$(R)GainGreen"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
+
+bgColor index 5
+newPos
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+fontAlign "center"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Textupdate)
@@ -385,7 +415,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
@@ -399,7 +429,7 @@ x 10
 y 645
 w 55
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -408,11 +438,11 @@ value {
 }
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
 x 70
 y 645
@@ -420,10 +450,16 @@ w 55
 h 20
 controlPv "$(P)$(R)GainBlue"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
+
+bgColor index 5
+newPos
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+fontAlign "center"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Textupdate)
@@ -441,7 +477,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
@@ -465,7 +501,7 @@ pressValue "1"
 onLabel "Reset Image"
 offLabel "Reset Image"
 3d
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Embedded Window)
@@ -483,11 +519,11 @@ bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
 displaySource "file"
-file "ADBase"
+file "areaDetectorScreens/ADBase.edl"
 sizeOfs 5
 numDsps 1
 displayFileName {
-  0 "NDPluginBase"
+  0 "areaDetectorScreens/NDPluginBase.edl"
 }
 noScroll
 endObjectProperties
@@ -506,11 +542,11 @@ fgColor index 14
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 buttonLabel "HTML Documentation"
 numCmds 1
 command {
-  0 "firefox file://$(which ADBase.edl | sed \"s|data/ADBase.edl|documentation/simDetectorDoc.html|\") &"
+  0 "firefox file://areaDetectorHelp/simDetectorDoc.html &"
 }
 endObjectProperties
 

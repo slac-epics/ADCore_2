@@ -3,13 +3,13 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 421
-y 159
-w 390
-h 820
-font "arial-bold-r-12.0"
-ctlFont "arial-bold-r-12.0"
-btnFont "arial-bold-r-12.0"
+x 2102
+y 631
+w 420
+h 860
+font "helvetica-bold-r-12.0"
+ctlFont "helvetica-bold-r-12.0"
+btnFont "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 textColor index 14
@@ -21,7 +21,7 @@ topShadowColor index 1
 botShadowColor index 11
 showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
 
 # (Rectangle)
@@ -31,9 +31,9 @@ major 4
 minor 0
 release 0
 x 0
-y 385
-w 390
-h 435
+y 400
+w 416
+h 456
 lineColor index 5
 fill
 fillColor index 5
@@ -45,9 +45,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 5
-y 400
-w 185
+x 4
+y 416
+w 196
 h 160
 lineColor index 14
 fill
@@ -62,18 +62,17 @@ minor 1
 release 0
 x 0
 y 0
-w 390
-h 385
+w 412
+h 384
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
 displaySource "file"
-file "NDPluginBase"
-sizeOfs 5
+file "areaDetectorScreens/NDPluginBase.edl"
 numDsps 1
 displayFileName {
-  0 "NDPluginBase"
+  0 "areaDetectorScreens/NDPluginBase.edl"
 }
 noScroll
 endObjectProperties
@@ -83,12 +82,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 5
-y 390
-w 63
-h 14
-font "arial-medium-r-12.0"
+release 1
+x 4
+y 408
+w 68
+h 15
+font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
 value {
@@ -104,9 +103,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 10
-y 410
-w 175
+x 8
+y 428
+w 180
 h 20
 fgColor index 25
 bgColor index 3
@@ -115,7 +114,7 @@ topShadowColor index 1
 botShadowColor index 11
 controlPv "$(P)$(R)ComputeStatistics"
 indicatorPv "$(P)$(R)ComputeStatistics_RBV"
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Static Text)
@@ -123,12 +122,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 10
-y 430
-w 75
-h 30
-font "arial-bold-r-12.0"
+release 1
+x 8
+y 448
+w 76
+h 28
+font "helvetica-bold-r-10.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -138,155 +137,198 @@ value {
 }
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 140
-y 435
-w 45
+x 144
+y 452
+w 52
 h 20
 controlPv "$(P)$(R)BgdWidth_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 90
-y 435
+x 92
+y 452
 w 45
 h 20
 controlPv "$(P)$(R)BgdWidth"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 50
-y 485
-w 35
+x 48
+y 500
+w 40
 h 20
 controlPv "$(P)$(R)MaxValue_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 50
-y 460
-w 35
+x 48
+y 476
+w 40
 h 20
 controlPv "$(P)$(R)MinValue_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 110
-y 535
-w 75
+x 132
+y 552
+w 64
 h 20
 controlPv "$(P)$(R)Net_RBV"
+format "exponential"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 110
-y 510
-w 75
+x 132
+y 528
+w 64
 h 20
 controlPv "$(P)$(R)Total_RBV"
+format "exponential"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 50
-y 510
-w 35
+x 48
+y 528
+w 56
 h 20
 controlPv "$(P)$(R)MeanValue_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 50
-y 535
-w 35
+x 48
+y 552
+w 56
 h 20
 controlPv "$(P)$(R)Sigma_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
 # (Rectangle)
@@ -295,10 +337,10 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 200
-y 400
-w 185
-h 135
+x 208
+y 416
+w 204
+h 136
 lineColor index 14
 fill
 fillColor index 3
@@ -309,12 +351,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 200
-y 390
-w 60
-h 14
-font "arial-medium-r-12.0"
+release 1
+x 208
+y 408
+w 63
+h 15
+font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
 value {
@@ -330,9 +372,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 205
-y 410
-w 175
+x 212
+y 428
+w 192
 h 20
 fgColor index 25
 bgColor index 3
@@ -341,7 +383,7 @@ topShadowColor index 1
 botShadowColor index 11
 controlPv "$(P)$(R)ComputeCentroid"
 indicatorPv "$(P)$(R)ComputeCentroid_RBV"
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Static Text)
@@ -349,12 +391,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 205
-y 430
+release 1
+x 212
+y 448
 w 70
 h 30
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -363,136 +405,172 @@ value {
 }
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 335
-y 435
-w 45
+x 352
+y 452
+w 52
 h 20
 controlPv "$(P)$(R)CentroidThreshold_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 285
-y 435
-w 45
+x 296
+y 452
+w 52
 h 20
 controlPv "$(P)$(R)CentroidThreshold"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 335
-y 460
-w 45
+x 352
+y 476
+w 52
 h 20
 controlPv "$(P)$(R)SigmaX_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 235
-y 460
-w 45
+x 240
+y 476
+w 56
 h 20
 controlPv "$(P)$(R)CentroidX_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 335
-y 485
-w 45
+x 352
+y 500
+w 52
 h 20
 controlPv "$(P)$(R)SigmaY_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 235
-y 485
-w 45
+x 240
+y 500
+w 56
 h 20
 controlPv "$(P)$(R)CentroidY_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 335
-y 510
-w 45
+x 352
+y 528
+w 52
 h 20
 controlPv "$(P)$(R)SigmaXY_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
 # (Rectangle)
@@ -501,33 +579,13 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 5
-y 580
-w 185
-h 135
+x 4
+y 592
+w 196
+h 140
 lineColor index 14
 fill
 fillColor index 3
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 5
-y 570
-w 71
-h 14
-font "arial-medium-r-12.0"
-fgColor index 14
-bgColor index 5
-value {
-  "  Histogram  "
-}
-autoSize
-border
 endObjectProperties
 
 # (Menu Button)
@@ -536,9 +594,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 10
-y 590
-w 175
+x 8
+y 604
+w 188
 h 20
 fgColor index 25
 bgColor index 3
@@ -547,7 +605,7 @@ topShadowColor index 1
 botShadowColor index 11
 controlPv "$(P)$(R)ComputeHistogram"
 indicatorPv "$(P)$(R)ComputeHistogram_RBV"
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Static Text)
@@ -555,12 +613,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 10
-y 615
-w 45
+release 1
+x 8
+y 632
+w 56
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -569,41 +627,52 @@ value {
 }
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 130
-y 615
-w 55
+x 132
+y 632
+w 64
 h 20
 controlPv "$(P)$(R)HistSize_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 70
-y 615
-w 55
+x 64
+y 632
+w 64
 h 20
 controlPv "$(P)$(R)HistSize"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
 endObjectProperties
 
 # (Static Text)
@@ -611,12 +680,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 10
-y 690
-w 55
+release 1
+x 8
+y 708
+w 56
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -625,97 +694,124 @@ value {
 }
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 70
-y 690
-w 55
+x 64
+y 708
+w 64
 h 20
 controlPv "$(P)$(R)HistEntropy_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 130
-y 640
-w 55
+x 132
+y 656
+w 64
 h 20
 controlPv "$(P)$(R)HistMin_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 70
-y 640
-w 55
+x 64
+y 656
+w 64
 h 20
 controlPv "$(P)$(R)HistMin"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 130
-y 665
-w 55
+x 132
+y 680
+w 64
 h 20
 controlPv "$(P)$(R)HistMax_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 70
-y 665
-w 55
+x 64
+y 680
+w 64
 h 20
 controlPv "$(P)$(R)HistMax"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
 endObjectProperties
 
 # (Static Text)
@@ -723,12 +819,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 10
-y 640
-w 45
+release 1
+x 8
+y 656
+w 56
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -742,12 +838,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 10
-y 665
-w 45
+release 1
+x 8
+y 680
+w 56
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -760,22 +856,22 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 130
-y 690
-w 55
+x 132
+y 708
+w 64
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 buttonLabel "Plot"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=Histogram_RBV,TITLE=Histogram,XLABEL=Bin Number,YLABEL=Counts"
@@ -788,33 +884,13 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 200
-y 560
-w 185
-h 225
+x 208
+y 568
+w 200
+h 232
 lineColor index 14
 fill
 fillColor index 3
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 200
-y 550
-w 54
-h 14
-font "arial-medium-r-12.0"
-fgColor index 14
-bgColor index 5
-value {
-  "  Profiles  "
-}
-autoSize
-border
 endObjectProperties
 
 # (Menu Button)
@@ -823,9 +899,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 205
-y 570
-w 175
+x 212
+y 584
+w 192
 h 20
 fgColor index 25
 bgColor index 3
@@ -834,7 +910,7 @@ topShadowColor index 1
 botShadowColor index 11
 controlPv "$(P)$(R)ComputeProfiles"
 indicatorPv "$(P)$(R)ComputeProfiles_RBV"
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Static Text)
@@ -842,55 +918,66 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 205
-y 595
+release 1
+x 212
+y 612
 w 50
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "CursorX"
+  "Cursor X"
 }
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 325
-y 595
-w 55
+x 340
+y 612
+w 64
 h 20
 controlPv "$(P)$(R)CursorX_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 260
-y 595
-w 55
+x 272
+y 612
+w 64
 h 20
 controlPv "$(P)$(R)CursorX"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
 endObjectProperties
 
 # (Static Text)
@@ -898,12 +985,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 205
-y 645
-w 55
+release 1
+x 212
+y 660
+w 50
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -912,45 +999,50 @@ value {
 }
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 260
-y 645
-w 55
+x 272
+y 660
+w 64
 h 20
 controlPv "$(P)$(R)ProfileSizeX_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
 # (Related Display)
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 320
-y 670
+x 340
+y 688
 w 30
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 buttonLabel "X"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=ProfileAverageX_RBV,TITLE=AverageX,XLABEL=Pixel,YLABEL=Counts"
@@ -962,96 +1054,112 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 205
-y 620
+release 1
+x 212
+y 636
 w 50
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "CursorY"
+  "Cursor Y"
 }
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 260
-y 620
-w 55
+x 272
+y 636
+w 64
 h 20
 controlPv "$(P)$(R)CursorY"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 325
-y 620
-w 55
+x 340
+y 636
+w 64
 h 20
 controlPv "$(P)$(R)CursorY_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 325
-y 645
-w 55
+x 340
+y 660
+w 64
 h 20
 controlPv "$(P)$(R)ProfileSizeY_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
 # (Related Display)
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 350
-y 670
+x 374
+y 688
 w 30
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 buttonLabel "Y"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=ProfileAverageY_RBV,TITLE=AverageY,XLABEL=Pixel,YLABEL=Counts"
@@ -1062,22 +1170,22 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 320
-y 695
+x 340
+y 712
 w 30
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 buttonLabel "X"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=ProfileThresholdX_RBV,TITLE=ThresholdX,XLABEL=Pixel,YLABEL=Counts"
@@ -1088,22 +1196,22 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 350
-y 695
+x 374
+y 712
 w 30
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 buttonLabel "Y"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=ProfileThresholdY_RBV,TITLE=ThresholdY,XLABEL=Pixel,YLABEL=Counts"
@@ -1114,22 +1222,22 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 320
-y 735
+x 340
+y 752
 w 30
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 buttonLabel "X"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=ProfileCentroidX_RBV,TITLE=CentroidX,XLABEL=Pixel,YLABEL=Counts"
@@ -1140,22 +1248,22 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 350
-y 735
+x 374
+y 752
 w 30
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 buttonLabel "Y"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=ProfileCentroidY_RBV,TITLE=CentroidY,XLABEL=Pixel,YLABEL=Counts"
@@ -1166,22 +1274,22 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 320
-y 760
+x 340
+y 776
 w 30
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 buttonLabel "X"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=ProfileCursorX_RBV,TITLE=CursorX,XLABEL=Pixel,YLABEL=Counts"
@@ -1192,22 +1300,22 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 350
-y 760
+x 374
+y 776
 w 30
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 buttonLabel "Y"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=ProfileCursorY_RBV,TITLE=CursorY,XLABEL=Pixel,YLABEL=Counts"
@@ -1219,12 +1327,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 205
-y 670
-w 115
+release 1
+x 212
+y 688
+w 124
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1238,12 +1346,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 205
-y 695
-w 115
+release 1
+x 212
+y 712
+w 124
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1257,12 +1365,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 205
-y 735
-w 115
+release 1
+x 212
+y 752
+w 124
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1276,12 +1384,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 205
-y 760
-w 115
+release 1
+x 212
+y 776
+w 124
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1296,10 +1404,10 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 5
-y 735
-w 185
-h 80
+x 4
+y 752
+w 196
+h 96
 lineColor index 14
 fill
 fillColor index 3
@@ -1310,12 +1418,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 5
-y 725
+release 1
+x 4
+y 744
 w 146
-h 14
-font "arial-medium-r-12.0"
+h 15
+font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
 value {
@@ -1330,12 +1438,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 205
-y 715
+release 1
+x 212
+y 732
 w 175
 h 20
-font "arial-medium-r-12.0"
+font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1348,21 +1456,21 @@ endObjectProperties
 object shellCmdClass
 beginObjectProperties
 major 4
-minor 2
+minor 3
 release 0
-x 200
-y 790
+x 216
+y 808
 w 90
 h 25
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 buttonLabel "HTML Doc"
 numCmds 1
 command {
-  0 "firefox file://$(which ADBase.edl | sed \"s|data/ADBase.edl|documentation/NDPluginStats.html|\") &"
+  0 "firefox file://areaDetectorHelp/NDPluginStats.html &"
 }
 endObjectProperties
 
@@ -1371,12 +1479,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 10
-y 765
-w 55
+release 1
+x 12
+y 788
+w 60
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1385,71 +1493,63 @@ value {
 }
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 130
-y 765
-w 55
-h 20
-controlPv "$(P)$(R)TSNumPoints"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 70
-y 765
-w 55
-h 20
-controlPv "$(P)$(R)TSCurrentPoint"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 1
+minor 7
 release 0
-x 125
-y 765
-w 5
+x 140
+y 788
+w 56
 h 20
-font "arial-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "/"
-}
+controlPv "$(P)$(R)TSNumPoints"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 25
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 72
+y 788
+w 48
+h 20
+controlPv "$(P)$(R)TSCurrentPoint"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
 # (Message Button)
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
-x 125
-y 740
-w 35
+x 132
+y 764
+w 40
 h 20
 fgColor index 21
 onColor index 4
@@ -1462,18 +1562,18 @@ onLabel "Stop"
 offLabel "Stop"
 3d
 useEnumNumeric
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Message Button)
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
-x 85
-y 740
-w 35
+x 88
+y 764
+w 44
 h 20
 fgColor index 19
 onColor index 4
@@ -1486,36 +1586,18 @@ onLabel "Start"
 offLabel "Start"
 3d
 useEnumNumeric
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Byte)
-object ByteClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 165
-y 740
-w 18
-h 18
-controlPv "$(P)$(R)TSAcquiring"
-lineColor index 14
-onColor index 15
-offColor index 19
-lineWidth 2
-numBits 1
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Message Button)
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
-x 10
-y 740
-w 70
+x 8
+y 764
+w 80
 h 20
 fgColor index 19
 onColor index 4
@@ -1528,29 +1610,29 @@ onLabel "Erase/Start"
 offLabel "Erase/Start"
 3d
 useEnumNumeric
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Related Display)
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 10
-y 460
-w 40
+x 8
+y 476
+w 36
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 buttonLabel "Min"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=TSMinValue,TITLE=Minimum value,XLABEL=Frame Number,YLABEL=Pixel Intensity"
@@ -1561,22 +1643,22 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 10
-y 485
-w 40
+x 8
+y 500
+w 36
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 buttonLabel "Max"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=TSMaxValue,TITLE=Maximum value,XLABEL=Frame Number,YLABEL=Pixel Intensity"
@@ -1587,22 +1669,22 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 10
-y 510
+x 8
+y 528
 w 40
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 buttonLabel "Mean"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=TSMeanValue,TITLE=Mean value,XLABEL=Frame Number,YLABEL=Pixel Intensity"
@@ -1613,22 +1695,22 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 10
-y 535
+x 8
+y 552
 w 40
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 buttonLabel "Sigma"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=TSSigma,TITLE=Sigma (standard deviation) value,XLABEL=Frame Number,YLABEL=Standard Deviation"
@@ -1639,22 +1721,22 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 85
-y 510
-w 25
+x 104
+y 528
+w 28
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 buttonLabel "Tot"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=TSTotal,TITLE=Total value,XLABEL=Frame Number,YLABEL=Pixel Intensity"
@@ -1665,22 +1747,22 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 85
-y 535
-w 25
+x 104
+y 552
+w 28
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 buttonLabel "Net"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=TSNet,TITLE=Net value (Background of border subtracted),XLABEL=Frame Number,YLABEL=Pixel Intensity"
@@ -1691,22 +1773,22 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 205
-y 460
-w 30
+x 212
+y 476
+w 24
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 buttonLabel "X"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=TSCentroidX,TITLE=Centroid X position,XLABEL=Frame Number,YLABEL=Pixel Value"
@@ -1717,22 +1799,22 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 205
-y 485
-w 30
+x 212
+y 500
+w 24
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 buttonLabel "Y"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=TSCentroidY,TITLE=Centroid Y position,XLABEL=Frame Number,YLABEL=Pixel Value"
@@ -1743,22 +1825,22 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 285
-y 460
-w 50
+x 300
+y 476
+w 52
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 buttonLabel "SigmaX"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=TSSigmaX,TITLE=Sigma X position,XLABEL=Frame Number,YLABEL=Width"
@@ -1769,22 +1851,22 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 285
-y 485
-w 50
+x 300
+y 500
+w 52
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 buttonLabel "SigmaY"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=TSSigmaY,TITLE=Sigma Y position,XLABEL=Frame Number,YLABEL=Height"
@@ -1795,22 +1877,22 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 275
-y 510
-w 60
+x 288
+y 528
+w 68
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 buttonLabel "SigmaXY"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=TSSigmaXY,TITLE=Sigma XY correlation,XLABEL=Frame Number,YLABEL=Tilt"
@@ -1821,176 +1903,196 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 85
-y 460
-w 20
+x 88
+y 476
+w 16
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 buttonLabel "X"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=TSMinX,TITLE=X of minimum value,XLABEL=Frame Number,YLABEL=X Pixel"
 }
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 105
-y 460
-w 30
+x 104
+y 476
+w 36
 h 20
 controlPv "$(P)$(R)MinX_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
 # (Related Display)
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 135
-y 460
+x 140
+y 476
 w 20
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 buttonLabel "Y"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=TSMinY,TITLE=Y of minimum value,XLABEL=Frame Number,YLABEL=Y Pixel"
 }
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 155
-y 460
-w 30
+x 160
+y 476
+w 36
 h 20
 controlPv "$(P)$(R)MinY_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 155
-y 485
-w 30
+x 160
+y 500
+w 36
 h 20
 controlPv "$(P)$(R)MaxY_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
 # (Related Display)
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 135
-y 485
+x 140
+y 500
 w 20
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 buttonLabel "Y"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=TSMaxY,TITLE=Y of maximum value,XLABEL=Frame Number,YLABEL=Y Pixel"
 }
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 105
-y 485
-w 30
+x 104
+y 500
+w 36
 h 20
 controlPv "$(P)$(R)MaxX_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
 # (Related Display)
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 85
-y 485
-w 20
+x 88
+y 500
+w 16
 h 20
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 buttonLabel "X"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPlot"
+  0 "areaDetectorScreens/NDPlot.edl"
 }
 symbols {
   0 "DATA=TSMaxX,TITLE=X of maximum value,XLABEL=Frame Number,YLABEL=X Pixel"
@@ -2002,12 +2104,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 10
-y 790
+release 1
+x 12
+y 816
 w 55
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -2022,9 +2124,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 70
-y 790
-w 115
+x 72
+y 816
+w 124
 h 20
 fgColor index 25
 bgColor index 3
@@ -2032,34 +2134,111 @@ inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
 controlPv "$(P)$(R)TSRead.SCAN"
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Related Display)
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 295
-y 790
+x 312
+y 808
 w 90
 h 25
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 xPosOffset 200
 yPosOffset -200
 buttonLabel "Advanced..."
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPluginDriverAdvanced.edl"
+  0 "areaDetectorScreens/NDPluginDriverAdvanced.edl"
 }
 setPosition {
   0 "button"
 }
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 178
+y 764
+w 18
+h 18
+controlPv "$(P)$(R)TSAcquiring"
+lineColor index 14
+onColor index 15
+offColor index 19
+lineWidth 2
+numBits 1
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 126
+y 788
+w 6
+h 20
+font "helvetica-bold-r-18.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "/"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 208
+y 560
+w 56
+h 15
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 5
+value {
+  "  Profiles  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 4
+y 584
+w 74
+h 15
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 5
+value {
+  "  Histogram  "
+}
+autoSize
+border
 endObjectProperties
 

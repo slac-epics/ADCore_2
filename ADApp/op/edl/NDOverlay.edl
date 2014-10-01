@@ -3,13 +3,13 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1474
-y 79
-w 390
-h 820
-font "arial-bold-r-12.0"
-ctlFont "arial-bold-r-12.0"
-btnFont "arial-bold-r-12.0"
+x 1337
+y 160
+w 420
+h 860
+font "helvetica-bold-r-12.0"
+ctlFont "helvetica-bold-r-12.0"
+btnFont "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 textColor index 14
@@ -21,7 +21,7 @@ topShadowColor index 1
 botShadowColor index 11
 showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
 
 # (Rectangle)
@@ -30,13 +30,12 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 0
-y 385
-w 390
-h 435
-lineColor index 5
-fill
-fillColor index 5
+x 4
+y 444
+w 404
+h 360
+lineColor index 14
+fillColor index 3
 endObjectProperties
 
 # (Embedded Window)
@@ -47,19 +46,18 @@ minor 1
 release 0
 x 0
 y 0
-w 390
-h 385
+w 400
+h 404
 fgColor index 14
-bgColor index 3
+bgColor index 0
 topShadowColor index 1
 botShadowColor index 11
 displaySource "file"
-file "NDPluginBase"
-sizeOfs 5
+file "areaDetectorScreens/NDPluginBase.edl"
 numDsps 2
 displayFileName {
-  0 "NDPluginBase"
-  1 "NDPluginBase"
+  0 "areaDetectorScreens/NDPluginBase.edl"
+  1 "areaDetectorScreens/NDPluginBase.edl"
 }
 noScroll
 endObjectProperties
@@ -70,10 +68,10 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 5
-y 390
-w 380
-h 25
+x 4
+y 416
+w 404
+h 24
 fgColor index 14
 bgColor index 3
 selectColor index 4
@@ -81,7 +79,7 @@ inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
 controlPv "LOC\\$(!W)tab=e:0,O1,O2,O3,O4,O5,O6,O7,O8"
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 orientation "horizontal"
 endObjectProperties
 
@@ -91,12 +89,12 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 5
-y 415
-w 380
-h 370
+x 8
+y 448
+w 396
+h 352
 fgColor index 14
-bgColor index 3
+bgColor index 0
 topShadowColor index 0
 botShadowColor index 0
 displaySource "menu"
@@ -104,14 +102,14 @@ filePv "LOC\\$(!W)tab"
 sizeOfs 5
 numDsps 8
 displayFileName {
-  0 "NDOverlayN"
-  1 "NDOverlayN"
-  2 "NDOverlayN"
-  3 "NDOverlayN"
-  4 "NDOverlayN"
-  5 "NDOverlayN"
-  6 "NDOverlayN"
-  7 "NDOverlayN"
+  0 "areaDetectorScreens/NDOverlayN.edl"
+  1 "areaDetectorScreens/NDOverlayN.edl"
+  2 "areaDetectorScreens/NDOverlayN.edl"
+  3 "areaDetectorScreens/NDOverlayN.edl"
+  4 "areaDetectorScreens/NDOverlayN.edl"
+  5 "areaDetectorScreens/NDOverlayN.edl"
+  6 "areaDetectorScreens/NDOverlayN.edl"
+  7 "areaDetectorScreens/NDOverlayN.edl"
 }
 symbols {
   0 "O=1:"
@@ -126,75 +124,25 @@ symbols {
 noScroll
 endObjectProperties
 
-# (Lines)
-object activeLineClass
-beginObjectProperties
-major 4
-minor 0
-release 1
-x 5
-y 415
-w 380
-h 370
-lineColor index 1
-fillColor index 0
-numPoints 3
-xPoints {
-  0 5
-  1 385
-  2 385
-}
-yPoints {
-  0 785
-  1 785
-  2 415
-}
-endObjectProperties
-
-# (Lines)
-object activeLineClass
-beginObjectProperties
-major 4
-minor 0
-release 1
-x 5
-y 415
-w 380
-h 370
-lineColor index 11
-fillColor index 0
-numPoints 3
-xPoints {
-  0 5
-  1 5
-  2 385
-}
-yPoints {
-  0 785
-  1 415
-  2 415
-}
-endObjectProperties
-
 # (Shell Command)
 object shellCmdClass
 beginObjectProperties
 major 4
 minor 2
 release 0
-x 5
-y 790
+x 4
+y 812
 w 185
 h 25
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 buttonLabel "HTML Documentation"
 numCmds 1
 command {
-  0 "firefox \"file://$(which ADBase.edl | sed \"s|data/ADBase.edl|documentation/NDPluginOverlay.html|\")\" &"
+  0 "firefox file://areaDetectorHelp/NDPluginOverlay.html &"
 }
 endObjectProperties
 
@@ -204,22 +152,22 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 200
-y 790
+x 216
+y 812
 w 185
 h 25
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 xPosOffset 200
 yPosOffset -200
 buttonLabel "Advanced..."
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDPluginDriverAdvanced.edl"
+  0 "areaDetectorScreens/NDPluginDriverAdvanced.edl"
 }
 setPosition {
   0 "button"
