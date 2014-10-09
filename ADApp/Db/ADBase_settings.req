@@ -30,4 +30,5 @@ $(P)$(R)ShutterStatusEPICS_RBV.ONVL
 $(P)$(R)Temperature
 $(P)$(R)ReadStatus.SCAN
 $(P)$(R)NDAttributesFile
-$(P)$(R)PoolUsedMem.SCAN
+$(P)$(R)MemoryPoolDiagEnable
+$(P)$(R)MemoryPoolDiagScan.SCAN

@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 544
-y 108
+x 1216
+y 1224
 w 700
 h 506
 font "helvetica-bold-r-12.0"
@@ -23,6 +23,21 @@ showGrid
 snapToGrid
 gridSize 4
 endScreenProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 400
+y 336
+w 292
+h 100
+lineColor index 14
+fill
+fillColor index 3
+endObjectProperties
 
 # (Rectangle)
 object activeRectangleClass
@@ -59,7 +74,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 5
 y 175
 w 55
@@ -79,7 +94,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 190
 w 80
@@ -98,7 +113,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 215
 w 85
@@ -117,7 +132,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 265
 w 85
@@ -194,7 +209,7 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 100
 y 240
@@ -218,7 +233,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 240
 w 70
@@ -236,7 +251,7 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 290
 y 240
@@ -260,7 +275,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 205
 y 240
 w 75
@@ -298,7 +313,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 200
 y 265
 w 85
@@ -336,7 +351,7 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 95
 y 350
@@ -359,7 +374,7 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 95
 y 380
@@ -382,7 +397,7 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 95
 y 440
@@ -405,7 +420,7 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 95
 y 470
@@ -429,7 +444,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 295
 w 85
@@ -448,7 +463,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 325
 w 85
@@ -467,7 +482,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 385
 w 85
@@ -486,7 +501,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 355
 w 85
@@ -505,7 +520,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 415
 w 85
@@ -524,7 +539,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 445
 w 85
@@ -543,7 +558,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 475
 w 85
@@ -561,7 +576,7 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 95
 y 290
@@ -584,7 +599,7 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 95
 y 320
@@ -607,7 +622,7 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 95
 y 410
@@ -646,7 +661,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 5
 y 55
 w 73
@@ -666,7 +681,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 70
 w 85
@@ -686,7 +701,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 95
 w 85
@@ -705,7 +720,7 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 105
 y 70
@@ -727,7 +742,7 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 105
 y 95
@@ -765,7 +780,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 400
 y 175
 w 74
@@ -785,7 +800,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 405
 y 190
 w 100
@@ -824,7 +839,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 405
 y 215
 w 100
@@ -863,7 +878,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 5
 y 130
 w 68
@@ -883,7 +898,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 145
 w 90
@@ -902,7 +917,7 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 105
 y 145
@@ -953,7 +968,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 405
 y 240
 w 120
@@ -972,7 +987,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 405
 y 265
 w 125
@@ -1009,7 +1024,7 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 530
 y 265
@@ -1053,7 +1068,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 405
 y 290
 w 120
@@ -1067,27 +1082,12 @@ value {
 }
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 400
-y 336
-w 292
-h 100
-lineColor index 14
-fill
-fillColor index 3
-endObjectProperties
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 400
 y 325
 w 99
@@ -1102,48 +1102,12 @@ autoSize
 border
 endObjectProperties
 
-# (Text Update)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 600
-y 350
-w 65
-h 20
-controlPv "$(P)$(R)PoolMaxMem"
-fgColor index 16
-bgColor index 10
-fill
-font "helvetica-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Text Update)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 530
-y 350
-w 65
-h 20
-controlPv "$(P)$(R)PoolUsedMem"
-fgColor index 16
-bgColor index 10
-fill
-font "helvetica-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 410
 y 350
 w 120
@@ -1157,48 +1121,12 @@ value {
 }
 endObjectProperties
 
-# (Text Update)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 600
-y 375
-w 65
-h 20
-controlPv "$(P)$(R)PoolMaxBuffers"
-fgColor index 16
-bgColor index 10
-fill
-font "helvetica-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Text Update)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 530
-y 375
-w 65
-h 20
-controlPv "$(P)$(R)PoolAllocBuffers"
-fgColor index 16
-bgColor index 10
-fill
-font "helvetica-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 410
 y 375
 w 120
@@ -1212,31 +1140,12 @@ value {
 }
 endObjectProperties
 
-# (Text Update)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 530
-y 400
-w 65
-h 20
-controlPv "$(P)$(R)PoolFreeBuffers"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "helvetica-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 410
 y 400
 w 120
@@ -1254,7 +1163,7 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 3
+minor 4
 release 0
 x 410
 y 470
@@ -1292,7 +1201,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 0
 y 0
 w 700
@@ -1306,5 +1215,138 @@ value {
   "$(P)$(R)"
 }
 border
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 504
+y 324
+w 155
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)MemoryPoolDiagEnable"
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Text Update)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 600
+y 375
+w 65
+h 20
+controlPv "$(P)$(R)PoolMaxBuffers"
+fgColor index 16
+bgColor index 10
+fill
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Text Update)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 530
+y 400
+w 65
+h 20
+controlPv "$(P)$(R)PoolFreeBuffers"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Text Update)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 530
+y 375
+w 65
+h 20
+controlPv "$(P)$(R)PoolAllocBuffers"
+fgColor index 16
+bgColor index 10
+fill
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Text Update)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 530
+y 350
+w 65
+h 20
+controlPv "$(P)$(R)PoolUsedMem"
+fgColor index 16
+bgColor index 10
+fill
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Text Update)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 600
+y 350
+w 65
+h 20
+controlPv "$(P)$(R)PoolMaxMem"
+fgColor index 16
+bgColor index 10
+fill
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 524
+y 348
+w 160
+h 80
+font "helvetica-bold-r-24.0"
+fontAlign "center"
+fgColor index 35
+bgColor index 3
+useDisplayBg
+visPv "$(P)$(R)MemoryPoolDiagEnable"
+visMin "0"
+visMax "1"
+value {
+  "Disabled"
+}
 endObjectProperties
 

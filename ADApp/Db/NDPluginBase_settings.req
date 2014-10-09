@@ -1,6 +1,8 @@
 $(P)$(R)NDArrayPort
 $(P)$(R)NDArrayAddress
 $(P)$(R)EnableCallbacks
+$(P)$(R)MemoryPoolDiagEnable
+$(P)$(R)MemoryPoolDiagScan.SCAN
 $(P)$(R)MinCallbackTime
 $(P)$(R)BlockingCallbacks
 $(P)$(R)NDAttributesFile
