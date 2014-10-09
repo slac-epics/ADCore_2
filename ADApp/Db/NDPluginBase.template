@@ -159,7 +159,7 @@ record(longin, "$(P)$(R)ArrayCounter_RBV")
 record(calc, "$(P)$(R)ArrayRate_RBV")
 {
     field(INPA, "$(P)$(R)ArrayRate_RBV.LB NPP NMS" )   # Previous counter value
-	field(INPB, "$(P)$(R)ArrayCounter_RBV NPP NMS" )   # Current counter value
+	field(INPB, "$(P)$(R)ArrayCounter_RBV NPP NMS" )   # Current  counter value
     field(INPC, "1.0")								   # Delta time in seconds
     field(INPD, "$(P)$(R)ArrayRate_RBV.VAL NPP NMS" )  # Previous rate
     field(INPE, "0.2" ) # Smoothing factor
@@ -167,8 +167,8 @@ record(calc, "$(P)$(R)ArrayRate_RBV")
     field(PREC, "2" )
     field(EGU,  "Hz" )
     field(SCAN, "1 second" )
-	field( LOW,  "0" )
-	field( LSV,  "MINOR" )
+	field(LOW,  "0" )
+	field(LSV,  "MINOR" )
 }
 
 record(longout, "$(P)$(R)DroppedArrays")
@@ -463,16 +463,36 @@ record(longin, "$(P)$(R)PoolMaxBuffers")
    field(PINI, "YES")
 }
 
+record(bo, "$(P)$(R)MemoryPoolDiagEnable" )
+{
+    field(PINI, "YES")
+    field(ZNAM, "Disabled")
+    field(ONAM, "Enabled")
+    field(VAL,  "0")
+	info( autosaveFields, "VAL" )
+}
+
+record(fanout, "$(P)$(R)MemoryPoolDiagScan" )
+{
+    field(PINI, "YES")
+	field(SCAN, "1 second")
+	field(DISV, "0" )
+	field(SDIS, "$(P)$(R)MemoryPoolDiagEnable" )
+	field(DISS, "INVALID" )
+	field(LNK1, "$(P)$(R)PoolUsedMem")
+	field(LNK2, "$(P)$(R)PoolAllocBuffers")
+	info( autosaveFields, "SCAN" )
+}
+
 record(ai, "$(P)$(R)PoolUsedMem")
 {
    field(DTYP, "asynFloat64")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))POOL_USED_MEMORY")
    field(PREC, "1")
    field(EGU,  "MB")
-   field(SCAN, "1 second")
-   field(FLNK, "$(P)$(R)PoolAllocBuffers")
    field(DISV, "0" )
    field(SDIS, "$(P)$(R)AsynIO.CNCT" )
+   field(DISS, "INVALID" )
 }
 
 record(longin, "$(P)$(R)PoolAllocBuffers")
@@ -480,6 +500,9 @@ record(longin, "$(P)$(R)PoolAllocBuffers")
    field(DTYP, "asynInt32")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))POOL_ALLOC_BUFFERS")
    field(FLNK, "$(P)$(R)PoolFreeBuffers")
+   field(DISV, "0" )
+   field(SDIS, "$(P)$(R)AsynIO.CNCT" )
+   field(DISS, "INVALID" )
 }
 
 record(longin, "$(P)$(R)PoolFreeBuffers")
@@ -487,6 +510,9 @@ record(longin, "$(P)$(R)PoolFreeBuffers")
    field(DTYP, "asynInt32")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))POOL_FREE_BUFFERS")
    field(FLNK, "$(P)$(R)PoolUsedBuffers")
+   field(DISV, "0" )
+   field(SDIS, "$(P)$(R)AsynIO.CNCT" )
+   field(DISS, "INVALID" )
 }
 
 record(calc, "$(P)$(R)PoolUsedBuffers")

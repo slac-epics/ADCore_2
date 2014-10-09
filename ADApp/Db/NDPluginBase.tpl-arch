@@ -19,6 +19,7 @@ $(P)$(R)DroppedArrays			10				monitor
 $(P)$(R)DroppedArrays_RBV		10				monitor
 $(P)$(R)EnableCallbacks			10				monitor
 $(P)$(R)EnableCallbacks_RBV		10				monitor
+$(P)$(R)MemoryPoolDiagEnable	10				monitor
 $(P)$(R)MinCallbackTime			10				monitor
 $(P)$(R)MinCallbackTime_RBV		10				monitor
 $(P)$(R)NDArrayAddress			10				monitor

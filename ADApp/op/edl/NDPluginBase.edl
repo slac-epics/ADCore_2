@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1368
-y 1429
+x 1376
+y 1477
 w 397
 h 385
 font "helvetica-bold-r-12.0"
@@ -137,7 +137,7 @@ minor 7
 release 0
 x 96
 y 44
-w 290
+w 228
 h 20
 controlPv "$(P)$(R)PluginType_RBV"
 font "helvetica-bold-r-12.0"
@@ -1086,8 +1086,8 @@ minor 1
 release 1
 x 5
 y 5
-w 82
-h 15
+w 76
+h 14
 font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
@@ -1106,8 +1106,8 @@ minor 1
 release 1
 x 5
 y 80
-w 45
-h 15
+w 43
+h 14
 font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
@@ -1147,7 +1147,7 @@ release 1
 x 5
 y 255
 w 66
-h 15
+h 14
 font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
@@ -1166,8 +1166,8 @@ minor 1
 release 1
 x 200
 y 80
-w 81
-h 15
+w 78
+h 14
 font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
@@ -1206,8 +1206,8 @@ minor 1
 release 1
 x 200
 y 310
-w 79
-h 15
+w 77
+h 14
 font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
@@ -1216,5 +1216,42 @@ value {
 }
 autoSize
 border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 328
+y 44
+w 60
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "helvetica-medium-r-12.0"
+xPosOffset -200
+yPosOffset -400
+buttonLabel "ASYN"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "asynScreens/asynRecord.edl"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "P=$(P),R=$(R)AsynIO"
+}
+replaceSymbols {
+  0 1
+}
+propagateMacros {
+  0 0
+}
 endObjectProperties
 
