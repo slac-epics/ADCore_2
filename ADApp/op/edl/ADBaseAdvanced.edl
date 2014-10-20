@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1216
-y 1224
+x 1924
+y 856
 w 700
 h 506
 font "helvetica-bold-r-12.0"
@@ -23,21 +23,6 @@ showGrid
 snapToGrid
 gridSize 4
 endScreenProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 400
-y 336
-w 292
-h 100
-lineColor index 14
-fill
-fillColor index 3
-endObjectProperties
 
 # (Rectangle)
 object activeRectangleClass
@@ -1082,6 +1067,21 @@ value {
 }
 endObjectProperties
 
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 400
+y 336
+w 292
+h 120
+lineColor index 14
+fill
+fillColor index 3
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
@@ -1102,14 +1102,50 @@ autoSize
 border
 endObjectProperties
 
+# (Text Update)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 600
+y 368
+w 65
+h 20
+controlPv "$(P)$(R)PoolMaxMem"
+fgColor index 16
+bgColor index 10
+fill
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Text Update)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 532
+y 368
+w 65
+h 20
+controlPv "$(P)$(R)PoolUsedMem"
+fgColor index 15
+bgColor index 12
+fill
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 1
-x 410
-y 350
+x 412
+y 368
 w 120
 h 20
 font "helvetica-bold-r-12.0"
@@ -1121,14 +1157,50 @@ value {
 }
 endObjectProperties
 
+# (Text Update)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 600
+y 392
+w 65
+h 20
+controlPv "$(P)$(R)PoolMaxBuffers"
+fgColor index 16
+bgColor index 10
+fill
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Text Update)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 532
+y 392
+w 65
+h 20
+controlPv "$(P)$(R)PoolAllocBuffers"
+fgColor index 16
+bgColor index 10
+fill
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 1
-x 410
-y 375
+x 412
+y 392
 w 120
 h 20
 font "helvetica-bold-r-12.0"
@@ -1140,14 +1212,33 @@ value {
 }
 endObjectProperties
 
+# (Text Update)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 532
+y 416
+w 65
+h 20
+controlPv "$(P)$(R)PoolFreeBuffers"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 1
-x 410
-y 400
+x 412
+y 416
 w 120
 h 20
 font "helvetica-bold-r-12.0"
@@ -1217,15 +1308,34 @@ value {
 border
 endObjectProperties
 
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 412
+y 344
+w 120
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Memory Pool Diag:"
+}
+endObjectProperties
+
 # (Menu Button)
 object activeMenuButtonClass
 beginObjectProperties
 major 4
 minor 0
 release 0
-x 504
-y 324
-w 155
+x 532
+y 344
+w 132
 h 20
 fgColor index 25
 bgColor index 3
@@ -1234,119 +1344,5 @@ topShadowColor index 1
 botShadowColor index 11
 controlPv "$(P)$(R)MemoryPoolDiagEnable"
 font "helvetica-bold-r-12.0"
-endObjectProperties
-
-# (Text Update)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 600
-y 375
-w 65
-h 20
-controlPv "$(P)$(R)PoolMaxBuffers"
-fgColor index 16
-bgColor index 10
-fill
-font "helvetica-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Text Update)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 530
-y 400
-w 65
-h 20
-controlPv "$(P)$(R)PoolFreeBuffers"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "helvetica-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Text Update)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 530
-y 375
-w 65
-h 20
-controlPv "$(P)$(R)PoolAllocBuffers"
-fgColor index 16
-bgColor index 10
-fill
-font "helvetica-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Text Update)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 530
-y 350
-w 65
-h 20
-controlPv "$(P)$(R)PoolUsedMem"
-fgColor index 16
-bgColor index 10
-fill
-font "helvetica-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Text Update)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 600
-y 350
-w 65
-h 20
-controlPv "$(P)$(R)PoolMaxMem"
-fgColor index 16
-bgColor index 10
-fill
-font "helvetica-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 524
-y 348
-w 160
-h 80
-font "helvetica-bold-r-24.0"
-fontAlign "center"
-fgColor index 35
-bgColor index 3
-useDisplayBg
-visPv "$(P)$(R)MemoryPoolDiagEnable"
-visMin "0"
-visMax "1"
-value {
-  "Disabled"
-}
 endObjectProperties
 
