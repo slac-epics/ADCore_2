@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1928
-y 880
+x 394
+y 240
 w 700
 h 506
 font "helvetica-bold-r-12.0"
@@ -329,8 +329,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 575
-y 470
+x 576
+y 476
 w 110
 h 25
 fgColor index 46
@@ -1089,9 +1089,9 @@ major 4
 minor 0
 release 0
 x 400
-y 336
+y 328
 w 292
-h 120
+h 140
 lineColor index 14
 fill
 fillColor index 3
@@ -1104,7 +1104,7 @@ major 4
 minor 1
 release 1
 x 400
-y 325
+y 324
 w 99
 h 14
 font "helvetica-medium-r-12.0"
@@ -1124,7 +1124,7 @@ major 4
 minor 7
 release 0
 x 600
-y 368
+y 392
 w 65
 h 20
 controlPv "$(P)$(R)PoolMaxMem"
@@ -1148,7 +1148,7 @@ major 4
 minor 7
 release 0
 x 532
-y 368
+y 392
 w 65
 h 20
 controlPv "$(P)$(R)PoolUsedMem"
@@ -1172,7 +1172,7 @@ major 4
 minor 1
 release 1
 x 412
-y 368
+y 392
 w 120
 h 20
 font "helvetica-bold-r-12.0"
@@ -1191,7 +1191,7 @@ major 4
 minor 7
 release 0
 x 600
-y 392
+y 416
 w 65
 h 20
 controlPv "$(P)$(R)PoolMaxBuffers"
@@ -1215,7 +1215,7 @@ major 4
 minor 7
 release 0
 x 532
-y 392
+y 416
 w 65
 h 20
 controlPv "$(P)$(R)PoolAllocBuffers"
@@ -1239,7 +1239,7 @@ major 4
 minor 1
 release 1
 x 412
-y 392
+y 416
 w 120
 h 20
 font "helvetica-bold-r-12.0"
@@ -1258,7 +1258,7 @@ major 4
 minor 7
 release 0
 x 532
-y 416
+y 440
 w 65
 h 20
 controlPv "$(P)$(R)PoolFreeBuffers"
@@ -1282,7 +1282,7 @@ major 4
 minor 1
 release 1
 x 412
-y 416
+y 440
 w 120
 h 20
 font "helvetica-bold-r-12.0"
@@ -1300,8 +1300,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 410
-y 470
+x 412
+y 476
 w 110
 h 25
 fgColor index 43
@@ -1388,5 +1388,43 @@ topShadowColor index 1
 botShadowColor index 11
 controlPv "$(P)$(R)MemoryPoolDiagEnable"
 font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 532
+y 368
+w 132
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)MemoryPoolDiagScan.SCAN"
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 412
+y 368
+w 120
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Diag Update Rate:"
+}
 endObjectProperties
 
