@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 189
-y 199
+x 1069
+y 1764
 w 847
 h 513
 font "helvetica-medium-r-18.0"
@@ -27,7 +27,7 @@ endScreenProperties
 object xyGraphClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 # Geometry
 x 10
@@ -36,23 +36,35 @@ w 830
 h 460
 # Appearance
 border
+plotAreaBorder
+autoScaleBothDirections
+autoScaleUpdateMs 7000
+autoScaleThreshPct 80
 graphTitle "$(P)$(R) $(TITLE)"
 xLabel "$(XLABEL)"
 yLabel "$(YLABEL)"
 fgColor index 14
-bgColor index 0
-gridColor index 14
-font "helvetica-medium-r-18.0"
+bgColor index 10
+gridColor index 5
+font "helvetica-medium-r-12.0"
 # Operating Modes
-nPts 2
+plotMode "plotLastNPts"
+nPts 2048
+updateTimerMs 50
 # X axis properties
 showXAxis
-xAxisSrc "AutoScale"
+xMin 0
 xMax 1
+xLabelIntervals 2
+xMajorsPerLabel 2
+xShowLabelGrid
 # Y axis properties
 showYAxis
 yAxisSrc "AutoScale"
 yMax 1
+yLabelIntervals 2
+yMajorsPerLabel 2
+yShowLabelGrid
 # Y2 axis properties
 y2AxisSrc "AutoScale"
 y2Max 1
@@ -61,8 +73,14 @@ numTraces 1
 yPv {
   0 "$(P)$(R)$(DATA)"
 }
+plotUpdateMode {
+  0 "y"
+}
+ySigned {
+  0 1
+}
 plotColor {
-  0 index 25
+  0 index 26
 }
 endObjectProperties
 
