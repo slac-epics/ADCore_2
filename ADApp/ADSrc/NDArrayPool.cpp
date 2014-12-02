@@ -89,6 +89,7 @@ NDArray* NDArrayPool::alloc(int ndims, size_t *dims, NDDataType_t dataType, size
     /* Initialize fields */
     pArray->pNDArrayPool = this;
     pArray->dataType = dataType;
+	pArray->bitsPerElement = GetNDDataTypeBits(dataType);
     pArray->ndims = ndims;
     memset(pArray->dims, 0, sizeof(pArray->dims));
     for (i=0; i<ndims && i<ND_ARRAY_MAX_DIMS; i++) {
@@ -190,6 +191,7 @@ NDArray* NDArrayPool::copy(NDArray *pIn, NDArray *pOut, int copyData)
     for (i=0; i<pIn->ndims; i++) dimSizeOut[i] = pIn->dims[i].size;
     pOut = this->alloc(pIn->ndims, dimSizeOut, pIn->dataType, 0, NULL);
   }
+  pOut->bitsPerElement = pIn->bitsPerElement;
   pOut->uniqueId = pIn->uniqueId;
   pOut->timeStamp = pIn->timeStamp;
   pOut->epicsTS = pIn->epicsTS;
@@ -478,7 +480,6 @@ int NDArrayPool::convert(NDArray *pIn,
   NDDimension_t dimsOutCopy[ND_ARRAY_MAX_DIMS];
   int i;
   NDArray *pOut;
-  NDArrayInfo_t arrayInfo;
   NDAttribute *pAttribute;
   int colorMode, colorModeMono = NDColorModeMono;
   const char *functionName = "convert";
@@ -515,20 +516,25 @@ int NDArrayPool::convert(NDArray *pIn,
     return(ND_ERROR);
   }
   /* Copy fields from input to output */
-  pOut->timeStamp = pIn->timeStamp;
-  pOut->epicsTS = pIn->epicsTS;
-  pOut->uniqueId = pIn->uniqueId;
+  pOut->bitsPerElement	= pIn->bitsPerElement;
+  if( pOut->bitsPerElement > GetNDDataTypeBits(pOut->dataType) )
+	  pOut->bitsPerElement = GetNDDataTypeBits(pOut->dataType);
+  pOut->timeStamp		= pIn->timeStamp;
+  pOut->epicsTS			= pIn->epicsTS;
+  pOut->uniqueId		= pIn->uniqueId;
   /* Replace the dimensions with those passed to this function */
   memcpy(pOut->dims, dimsOutCopy, pIn->ndims*sizeof(NDDimension_t));
   pIn->pAttributeList->copy(pOut->pAttributeList);
 
-  pOut->getInfo(&arrayInfo);
-
+  NDArrayInfo_t arrayInfoIn;
+  NDArrayInfo_t arrayInfoOut;
+  pIn->getInfo(	&arrayInfoIn );
+  pOut->getInfo(&arrayInfoOut);
   if (dimsUnchanged) {
     if (pIn->dataType == pOut->dataType) {
       /* The dimensions are the same and the data type is the same,
        * then just copy the input image to the output image */
-      memcpy(pOut->pData, pIn->pData, arrayInfo.totalBytes);
+      memcpy(pOut->pData, pIn->pData, arrayInfoOut.totalBytes);
       return ND_SUCCESS;
     } else {
       /* We need to convert data types */
@@ -566,7 +572,7 @@ int NDArrayPool::convert(NDArray *pIn,
     /* The input and output dimensions are not the same, so we are extracting a region
      * and/or binning */
     /* Clear entire output array */
-    memset(pOut->pData, 0, arrayInfo.totalBytes);
+    memset(pOut->pData, 0, arrayInfoOut.totalBytes);
     convertDimension(pIn, pOut, pIn->pData, pOut->pData, pIn->ndims-1);
   }
 
