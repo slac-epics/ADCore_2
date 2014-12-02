@@ -22,5 +22,7 @@ nexusSrc_DEPEND_DIRS += hdf5Support
 DIRS += tiffSupport
 pluginSrc_DEPEND_DIRS += tiffSupport
 
+install.linux-x86_64:
+
 include $(TOP)/configure/RULES_DIRS
 
