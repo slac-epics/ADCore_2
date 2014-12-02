@@ -75,8 +75,8 @@ record(bo, "$(P)$(R)EnableCallbacks")
     field(PINI, "YES")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ENABLE_CALLBACKS")
-    field(ZNAM, "Disable")
-    field(ONAM, "Enable")
+    field(ZNAM, "Disabled")
+    field(ONAM, "Enabled")
     field(VAL,  "$(Enable=0)")
     info( autosaveFields, "DESC VAL" )
 }
@@ -351,6 +351,8 @@ record(mbbi, "$(P)$(R)DataType_RBV")
    field(SCAN, "I/O Intr")
    field(FLNK, "$(P)$(R)N_BYTES_PER_PIXEL" )
 }
+
+# Support older PV names for a while
 record( calc, "$(P)$(R)N_BYTES_PER_PIXEL" )
 {
     field( INPA, "$(P)$(R)DataType_RBV NPP" )
@@ -490,7 +492,7 @@ record(bo, "$(P)$(R)MemoryPoolDiagEnable" )
     field(PINI, "YES")
     field(ZNAM, "Disabled")
     field(ONAM, "Enabled")
-    field(VAL,  "0")
+    field(VAL,  "1")
     info( autosaveFields, "VAL" )
 }
 
