@@ -1,0 +1,59 @@
+#RELEASE Location of external products
+# Run "gnumake clean uninstall install" in the application
+# top directory each time this file is changed.
+#
+# NOTE: The build does not check dependancies on files
+# external to this application. Thus you should run
+# "gnumake clean uninstall install" in the top directory
+# each time EPICS_BASE, SNCSEQ, or any other external
+# module defined in the RELEASE file is rebuilt.
+
+# If you don't want to install into $(TOP) then
+# define INSTALL_LOCATION_APP here
+#INSTALL_LOCATION_APP=<fullpathname>
+
+# =============================================================
+# All needed variables come in via the following include:
+# =============================================================
+include $(TOP)/../../RELEASE_SITE
+
+TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
+
+# =============================================================
+# Define location of the modules tree
+# =============================================================
+EPICS_MODULES=$(MODULES_SITE_TOP)
+
+
+# ==============================================================
+# Define the cvs module version of EPICS BASE that you will use
+# =============================================================
+BASE_MODULE_VERSION=$(EPICS_BASE_VER)
+
+# =============================================================
+# Define the version of modules needed by
+# IOC apps or other Support apps
+# =============================================================
+AUTOSAVE_MODULE_VERSION=autosave-R5-5_0-0
+ASYN_MODULE_VERSION=asyn-R4-25_1-0
+SSCAN_MODULE_VERSION=sscan-R2-8-1_1-0
+CALC_MODULE_VERSION=calc-R3-1_1-0
+BUSY_MODULE_VERSION=busy-R1-4_1-3
+
+# ============================================================
+#  Module Location
+# ============================================================
+#======================================================
+AUTOSAVE=$(EPICS_MODULES)/autosave/$(AUTOSAVE_MODULE_VERSION)
+ASYN=$(EPICS_MODULES)/asyn/$(ASYN_MODULE_VERSION)
+SSCAN=$(EPICS_MODULES)/sscan/$(SSCAN_MODULE_VERSION)
+CALC=$(EPICS_MODULES)/calc/$(CALC_MODULE_VERSION)
+BUSY=$(EPICS_MODULES)/busy/$(BUSY_MODULE_VERSION)
+ADCORE=$(TOP)/../..
+
+# =================================================================
+# Define EPICS_BASE
+# EPICS_BASE usually appears last so other apps can override stuff:
+# =================================================================
+EPICS_BASE=$(BASE_SITE_TOP)/$(BASE_MODULE_VERSION)
+
