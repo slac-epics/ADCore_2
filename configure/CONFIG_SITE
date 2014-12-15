@@ -1,42 +1,51 @@
 # CONFIG_SITE
 
 # Make any application-specific changes to the EPICS build
-#   configuration variables in this file.
+# configuration variables in this file.
 #
 # Host/target specific settings can be specified in files named
-#   CONFIG_SITE.$(EPICS_HOST_ARCH).Common
-#   CONFIG_SITE.Common.$(T_A)
-#   CONFIG_SITE.$(EPICS_HOST_ARCH).$(T_A)
-
-# CHECK_RELEASE controls the consistency checking of the support
-#   applications pointed to by the RELEASE* files.
-# Normally CHECK_RELEASE should be set to YES.
-# Set CHECK_RELEASE to NO to disable checking completely.
-# Set CHECK_RELEASE to WARN to perform consistency checking but
-#   continue building anyway if conflicts are found.
-CHECK_RELEASE = YES
+#  CONFIG_SITE.$(EPICS_HOST_ARCH).Common
+#  CONFIG_SITE.Common.$(T_A)
+#  CONFIG_SITE.$(EPICS_HOST_ARCH).$(T_A)
 
 # Set this when you only want to compile this application
-#   for a subset of the cross-compiled target architectures
-#   that Base is built for.
+# for a subset of the cross-compiled target architectures
+# that Base is built for.
 #CROSS_COMPILER_TARGET_ARCHS = vxWorks-68040
 
-# To install files into a location other than $(TOP) define
-#   INSTALL_LOCATION here.
-#INSTALL_LOCATION=</path/name/to/install/top>
+# Can't build for linuxRT: will need to add some weight.
+# Need to add hdf5, sz, and GraphicsMagick libraries
+#CROSS_COMPILER_TARGET_ARCHS = linuxRT-x86
 
-# Set this when your IOC and the host use different paths
-#   to access the application. This will be needed to boot
-#   from a Microsoft FTP server or with some NFS mounts.
-# You must rebuild in the iocBoot directory for this to
-#   take effect.
-#IOCS_APPL_TOP = </IOC/path/to/application/top>
+# Build for Host Only:
+CROSS_COMPILER_TARGET_ARCHS = 
 
-# Get settings from AREA_DETECTOR, so we only have to configure once for all detectors if we want to
--include $(AREA_DETECTOR)/configure/CONFIG_SITE
--include $(AREA_DETECTOR)/configure/CONFIG_SITE.$(EPICS_HOST_ARCH)
--include $(AREA_DETECTOR)/configure/CONFIG_SITE.$(EPICS_HOST_ARCH).Common
-ifdef T_A
-  -include $(AREA_DETECTOR)/configure/CONFIG_SITE.Common.$(T_A)
-  -include $(AREA_DETECTOR)/configure/CONFIG_SITE.$(EPICS_HOST_ARCH).$(T_A)
-endif
+# If you don't want to install into $(TOP) then
+# define INSTALL_LOCATION here
+#INSTALL_LOCATION=<fullpathname>
+#
+# Define the location of the hdf5, sz, and GraphicsMagick libraries
+# I did an RPM install of the following package:
+# hdf5-1.8.14-1.with.szip.encoder.el6.x86_64
+# So only need to define location of libs and headers
+#HDF5         = /usr/local/hdf5-1.8.7/hdf5
+#HDF5_LIB     = $(HDF5)/lib
+#HDF5_INCLUDE = -I$(HDF5)/include
+
+HDF5_LIB     = /usr/lib64
+HDF5_INCLUDE = -I$/usr/include
+
+#SZIP           = /usr/local/szip-2.1/szip
+#SZIP_LIB       = $(SZIP)/lib
+#SZIP_INCLUDE   = -I$(SZIP)/include
+
+SZIP_LIB       = /usr/lib64
+SZIP_INCLUDE   = -I/usr/include
+
+#
+# GRAPHICS_MAGICK         = /usr/local
+# GRAPHICS_MAGICK_LIB     = $(GRAPHICS_MAGICK)/lib
+# GRAPHICS_MAGICK_INCLUDE = -I$(GRAPHICS_MAGICK)/include/GraphicsMagick
+
+STATIC_BUILD=YES
+
