@@ -1,0 +1,6 @@
+
+ADCore-R2-1_1-0:  Initial RELEASE for ICD: areaDetector Core: (Developed by Mark Rivers, Univ of Chicago))
+                  -- base classes for drivers, 
+                  -- code for all of the standard plugins, 
+                  -- an example simulation detector
+
