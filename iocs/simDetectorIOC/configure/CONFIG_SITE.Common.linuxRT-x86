@@ -4,7 +4,7 @@
 
 # Define the location of the hdf5, sz
 # So only need to define location of libs and headers
-BUILDROOT_HOME=/home/ernesto/packages/buildroot-2014.11
+BUILDROOT_HOME=/afs/slac/g/lcls/package/linuxRT/buildroot-2014.11
 STAGE_X86=$(BUILDROOT_HOME)/buildroot-uclibc-x86/output/staging
 
 HDF5_LIB     = $(STAGE_X86)/usr/lib32
