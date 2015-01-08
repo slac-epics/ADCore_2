@@ -18,7 +18,7 @@
 #CROSS_COMPILER_TARGET_ARCHS = linuxRT-x86
 
 # Build for Host Only:
-CROSS_COMPILER_TARGET_ARCHS = 
+CROSS_COMPILER_TARGET_ARCHS = linuxRT-x86_64 linuxRT-x86
 
 # If you don't want to install into $(TOP) then
 # define INSTALL_LOCATION here
