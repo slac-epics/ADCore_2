@@ -13,12 +13,12 @@
 # that Base is built for.
 #CROSS_COMPILER_TARGET_ARCHS = vxWorks-68040
 
-# Can't build for linuxRT: will need to add some weight.
-# Need to add hdf5, sz, and GraphicsMagick libraries
-#CROSS_COMPILER_TARGET_ARCHS = linuxRT-x86
+# Build for linuxRT: will need to add some weight.
+# Need to add hdf5, sz
+CROSS_COMPILER_TARGET_ARCHS = linuxRT-x86 linuxRT-x86_64
 
 # Build for Host Only:
-CROSS_COMPILER_TARGET_ARCHS = linuxRT-x86_64 linuxRT-x86
+#CROSS_COMPILER_TARGET_ARCHS =
 
 # If you don't want to install into $(TOP) then
 # define INSTALL_LOCATION here
