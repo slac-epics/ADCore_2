@@ -15,7 +15,7 @@
 
 # Build for linuxRT:
 # Need to add hdf5, szip libraries
-CROSS_COMPILER_TARGET_ARCHS = linuxRT-x86 linuxRT-x86_64
+CROSS_COMPILER_TARGET_ARCHS = linuxRT_glibc-x86_64
 
 # Build for Host Only:
 #CROSS_COMPILER_TARGET_ARCHS = 
