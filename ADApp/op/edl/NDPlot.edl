@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1069
-y 1764
+x 498
+y 1814
 w 847
 h 513
 font "helvetica-medium-r-18.0"
@@ -53,6 +53,7 @@ nPts 2048
 updateTimerMs 50
 # X axis properties
 showXAxis
+xAxisSrc "AutoScale"
 xMin 0
 xMax 1
 xLabelIntervals 2
@@ -101,5 +102,50 @@ botShadowColor index 11
 label "EXIT"
 font "helvetica-bold-r-14.0"
 3d
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 660
+y 480
+w 60
+h 20
+controlPv "$(P)$(R)ArrayRate_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
+noExecuteClipMask
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 580
+y 480
+w 80
+h 20
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Rate(fps)"
+}
 endObjectProperties
 
