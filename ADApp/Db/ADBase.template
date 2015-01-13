@@ -602,6 +602,11 @@ record(longin, "$(P)$(R)ArrayCounter_RBV")
 
 # Updated rate calculation to use a smoothing factor w/ guard against negative values
 # 0 rate sets alarm state to MINOR
+# TODO: Why do we see slightly high rate values?
+# For example, sampling a confirmed 120hz counter at 10hz with
+# these values we get 121.2hz as our average rate
+#    field(INPC, "0.1")
+#    field(SCAN, ".1 second")
 record(calc, "$(P)$(R)ArrayRate_RBV")
 {
     field(INPA, "$(P)$(R)ArrayRate_RBV.LB NPP NMS" )   # Previous counter value
@@ -609,7 +614,7 @@ record(calc, "$(P)$(R)ArrayRate_RBV")
     field(INPC, "1.0")								   # Delta time in seconds
     field(INPD, "$(P)$(R)ArrayRate_RBV.VAL NPP NMS" )  # Previous rate
     field(INPE, "0.2" ) # Smoothing factor
-    field(CALC, "(D*E)/C+MAX(0,B-A)*(1-E)/C" )
+    field(CALC, "(D*E)+MAX(0,B-A)*(1-E)/C" )
     field(PREC, "2" )
     field(EGU,  "Hz" )
     field(SCAN, "1 second")
