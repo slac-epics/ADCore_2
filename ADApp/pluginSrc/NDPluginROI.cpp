@@ -216,7 +216,6 @@ void NDPluginROI::processCallbacks(NDArray *pArray)
 
     /* Set the image size of the ROI image data */
     setIntegerParam(NDBitsPerPixel,		arrayInfo.bitsPerElement);
-    setIntegerParam(NDBytesPerPixel,	arrayInfo.bytesPerElement);
 
     /* Set the image size of the ROI image data */
     setIntegerParam(NDArraySizeX, 0);

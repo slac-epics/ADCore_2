@@ -58,7 +58,6 @@ void NDPluginDriver::processCallbacks(NDArray *pArray)
     NDArrayInfo_t arrayInfo;
     pArray->getInfo(&arrayInfo);
     setIntegerParam(NDBitsPerPixel, arrayInfo.bitsPerElement);
-    setIntegerParam(NDBytesPerPixel,arrayInfo.bytesPerElement);
 
     setIntegerParam(NDColorMode,     colorMode);
     setIntegerParam(NDBayerPattern,  bayerPattern);

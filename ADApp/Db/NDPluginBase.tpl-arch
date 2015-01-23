@@ -44,5 +44,3 @@ $(P)$(R)QueueUseHIGH			10				monitor
 $(P)$(R)QueueUseHIHI			10				monitor
 $(P)$(R)TimeStamp_RBV			1
 $(P)$(R)UniqueId_RBV			1
-$(P)$(R)BIT_DEPTH				10				monitor
-$(P)$(R)N_BYTES_PER_PIXEL		10				monitor
