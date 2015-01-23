@@ -122,7 +122,7 @@ private:
   epicsTimeStamp opents;
   epicsTimeStamp firstFrame;
   double frameSize;  /** < frame size in megabits. For performance measurement. */
-  int bytesPerPixel;
+  int bytesPerElement;
   char *hostname;
 
   ELLLIST attrList;
@@ -248,7 +248,7 @@ asynStatus NDFileHDF5::openFile(const char *fileName, NDFileOpenMode_t openMode,
   NDArrayInfo_t info;
   pArray->getInfo(&info);
   this->frameSize = (8.0 * info.totalBytes)/(1024.0 * 1024.0);
-  this->bytesPerPixel = info.bytesPerElement;
+  this->bytesPerElement = info.bytesPerElement;
 
   /* Construct an attribute list. We use a separate attribute list
    * from the one in pArray to avoid the need to copy the array. */
@@ -990,7 +990,7 @@ hsize_t NDFileHDF5::calc_chunk_cache_bytes()
     epicsInt32 n_frames_chunk=0;
     getIntegerParam(NDFileHDF5_nFramesChunks, &n_frames_chunk);
     nbytes = this->maxdims[this->rank - 1] * this->maxdims[this->rank - 2]
-             * this->bytesPerPixel * n_frames_chunk;
+             * this->bytesPerElement * n_frames_chunk;
     return nbytes;
 }
 
