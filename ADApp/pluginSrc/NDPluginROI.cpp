@@ -95,11 +95,14 @@ void NDPluginROI::processCallbacks(NDArray *pArray)
     for (dim=0; dim<pArray->ndims; dim++) {
         pDim = &dims[dim];
         if (enableDim[dim]) {
+			size_t newDimSize = pArray->dims[userDims[dim]].size;
+            pDim->offset  = requestedOffset_[dim];
+            pDim->size    = requestedSize_[dim];
             pDim->offset  = MAX(pDim->offset,  0);
-            pDim->offset  = MIN(pDim->offset,  pArray->dims[userDims[dim]].size-1);
-            if (autoSize[dim]) pDim->size = pArray->dims[userDims[dim]].size;
+            pDim->offset  = MIN(pDim->offset,  newDimSize-1);
+            if (autoSize[dim]) pDim->size = newDimSize;
             pDim->size    = MAX(pDim->size,    1);
-            pDim->size    = MIN(pDim->size,    pArray->dims[userDims[dim]].size - pDim->offset);
+            pDim->size    = MIN(pDim->size,    newDimSize - pDim->offset);
             pDim->binning = MAX(pDim->binning, 1);
             pDim->binning = MIN(pDim->binning, (int)pDim->size);
         } else {
@@ -256,7 +259,7 @@ asynStatus NDPluginROI::writeInt32(asynUser *pasynUser, epicsInt32 value)
     } else if (function == NDPluginROIDim1Min) {
         requestedOffset_[1] = value;
     } else if (function == NDPluginROIDim2Min) {
-        requestedOffset_[1] = value;
+        requestedOffset_[2] = value;
     } else if (function == NDPluginROIDim0Size) {
         requestedSize_[0] = value;
     } else if (function == NDPluginROIDim1Size) {
@@ -268,18 +271,25 @@ asynStatus NDPluginROI::writeInt32(asynUser *pasynUser, epicsInt32 value)
         if (function < FIRST_NDPLUGIN_ROI_PARAM) 
             status = NDPluginDriver::writeInt32(pasynUser, value);
     }
-    
+ 
     /* Do callbacks so higher layers see any changes */
     callParamCallbacks();
-    
-    if (status) 
+
+    const char* paramName;
+    if (status) {
+		getParamName( function, &paramName );
         asynPrint(pasynUser, ASYN_TRACE_ERROR, 
-              "%s:%s: function=%d, value=%d\n", 
-              driverName, functionName, function, value);
-    else        
-        asynPrint(pasynUser, ASYN_TRACEIO_DRIVER, 
-              "%s:%s: function=%d, value=%d\n", 
-              driverName, functionName, function, value);
+              "%s:%s: function=%d %s, value=%d\n", 
+              driverName, functionName, function, paramName, value);
+	}
+    else {
+		if ( pasynTrace->getTraceMask(pasynUser) & ASYN_TRACEIO_DRIVER ) {
+			getParamName( function, &paramName );
+			asynPrint(pasynUser, ASYN_TRACEIO_DRIVER, 
+				  "%s:%s: function=%d %s, paramvalue=%d\n", 
+				  driverName, functionName, function, paramName, value);
+		}
+	}
     return status;
 }
 
