@@ -951,7 +951,7 @@ record(bo, "$(P)$(R)MemoryPoolDiagEnable" )
     field(PINI, "YES")
     field(ZNAM, "Disabled")
     field(ONAM, "Enabled")
-    field(VAL,  "1")
+    field(VAL,  "0")
 	info( autosaveFields, "VAL" )
 }
 
