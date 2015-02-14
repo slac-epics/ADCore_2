@@ -403,6 +403,8 @@ int GetNDDataTypeBits( NDDataType_t tyData )
     case NDUInt16:	nBits	= 16;	break;
     case NDInt32:	nBits	= 32;	break;
     case NDUInt32:	nBits	= 32;	break;
+    case NDFloat32:	nBits	= 32;	break;
+    case NDFloat64:	nBits	= 64;	break;
 	}
 	return nBits;
 }

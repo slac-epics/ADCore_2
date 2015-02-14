@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1376
-y 1477
+x 1380
+y 1501
 w 397
 h 385
 font "helvetica-bold-r-12.0"
@@ -47,9 +47,9 @@ major 4
 minor 0
 release 0
 x 200
-y 212
+y 196
 w 192
-h 92
+h 108
 lineColor index 14
 fill
 fillColor index 3
@@ -62,9 +62,9 @@ major 4
 minor 0
 release 0
 x 200
-y 84
+y 76
 w 192
-h 112
+h 108
 lineColor index 14
 fill
 fillColor index 3
@@ -79,7 +79,7 @@ release 0
 x 4
 y 12
 w 388
-h 60
+h 56
 lineColor index 14
 fill
 fillColor index 3
@@ -91,7 +91,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
+x 12
 y 20
 w 75
 h 20
@@ -160,8 +160,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 45
+x 12
+y 44
 w 80
 h 20
 font "helvetica-bold-r-12.0"
@@ -619,8 +619,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 205
-y 95
+x 204
+y 88
 w 85
 h 20
 font "helvetica-bold-r-12.0"
@@ -639,7 +639,7 @@ major 4
 minor 7
 release 0
 x 296
-y 96
+y 88
 w 88
 h 20
 controlPv "$(P)$(R)NDimensions_RBV"
@@ -664,7 +664,7 @@ major 4
 minor 7
 release 0
 x 296
-y 120
+y 112
 w 88
 h 20
 controlPv "$(P)$(R)ArraySize0_RBV"
@@ -688,8 +688,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 205
-y 120
+x 204
+y 112
 w 80
 h 20
 font "helvetica-bold-r-12.0"
@@ -707,8 +707,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 205
-y 145
+x 204
+y 136
 w 80
 h 20
 font "helvetica-bold-r-12.0"
@@ -727,7 +727,7 @@ major 4
 minor 7
 release 0
 x 296
-y 144
+y 136
 w 88
 h 20
 controlPv "$(P)$(R)ArraySize1_RBV"
@@ -751,8 +751,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 205
-y 170
+x 204
+y 160
 w 80
 h 20
 font "helvetica-bold-r-12.0"
@@ -771,7 +771,7 @@ major 4
 minor 7
 release 0
 x 296
-y 172
+y 160
 w 88
 h 20
 controlPv "$(P)$(R)ArraySize2_RBV"
@@ -796,7 +796,7 @@ major 4
 minor 1
 release 1
 x 204
-y 220
+y 208
 w 88
 h 20
 font "helvetica-bold-r-12.0"
@@ -815,7 +815,7 @@ major 4
 minor 1
 release 1
 x 204
-y 244
+y 256
 w 88
 h 20
 font "helvetica-bold-r-12.0"
@@ -834,7 +834,7 @@ major 4
 minor 7
 release 0
 x 296
-y 220
+y 208
 w 88
 h 20
 controlPv "$(P)$(R)DataType_RBV"
@@ -859,7 +859,7 @@ major 4
 minor 7
 release 0
 x 296
-y 244
+y 256
 w 88
 h 20
 controlPv "$(P)$(R)ColorMode_RBV"
@@ -884,7 +884,7 @@ major 4
 minor 1
 release 1
 x 204
-y 272
+y 280
 w 88
 h 20
 font "helvetica-bold-r-10.0"
@@ -903,7 +903,7 @@ major 4
 minor 7
 release 0
 x 296
-y 272
+y 280
 w 88
 h 20
 controlPv "$(P)$(R)BayerPattern_RBV"
@@ -1084,8 +1084,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 5
-y 5
+x 4
+y 4
 w 76
 h 14
 font "helvetica-medium-r-12.0"
@@ -1165,7 +1165,7 @@ major 4
 minor 1
 release 1
 x 200
-y 80
+y 72
 w 78
 h 14
 font "helvetica-medium-r-12.0"
@@ -1185,7 +1185,7 @@ major 4
 minor 1
 release 1
 x 200
-y 204
+y 192
 w 76
 h 16
 font "helvetica-medium-r-12.0"
@@ -1253,5 +1253,49 @@ replaceSymbols {
 propagateMacros {
   0 0
 }
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 204
+y 232
+w 88
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "BitsPerPixel"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 296
+y 232
+w 88
+h 20
+controlPv "$(P)$(R)BitsPerPixel_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
+noExecuteClipMask
 endObjectProperties
 
