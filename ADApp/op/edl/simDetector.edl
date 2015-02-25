@@ -546,7 +546,7 @@ font "helvetica-bold-r-12.0"
 buttonLabel "HTML Documentation"
 numCmds 1
 command {
-  0 "firefox file://areaDetectorHelp/simDetectorDoc.html &"
+  0 "firefox --no-remote areaDetectorHelp/simDetectorDoc.html &"
 }
 endObjectProperties
 

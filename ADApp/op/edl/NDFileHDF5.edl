@@ -577,7 +577,7 @@ font "helvetica-bold-r-12.0"
 buttonLabel "HTML Documentation"
 numCmds 1
 command {
-  0 "firefox file://areaDetectorHelp/NDPluginFile.html#HDF5 &"
+  0 "firefox --no-remote areaDetectorHelp/NDPluginFile.html#HDF5 &"
 }
 endObjectProperties
 

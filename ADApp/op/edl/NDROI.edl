@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 722
-y 1497
+x 1503
+y 1478
 w 413
 h 835
 font "helvetica-bold-r-12.0"
@@ -103,8 +103,8 @@ minor 1
 release 1
 x 4
 y 468
-w 56
-h 15
+w 58
+h 14
 font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
@@ -205,8 +205,8 @@ minor 1
 release 1
 x 4
 y 408
-w 71
-h 15
+w 68
+h 14
 font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
@@ -225,8 +225,8 @@ minor 1
 release 1
 x 4
 y 528
-w 80
-h 15
+w 78
+h 14
 font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
@@ -346,8 +346,8 @@ minor 1
 release 1
 x 116
 y 540
-w 9
-h 16
+w 8
+h 14
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
@@ -366,8 +366,8 @@ minor 1
 release 1
 x 220
 y 540
-w 9
-h 16
+w 8
+h 14
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
@@ -386,8 +386,8 @@ minor 1
 release 1
 x 324
 y 540
-w 8
-h 16
+w 7
+h 14
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
@@ -1153,7 +1153,7 @@ font "helvetica-bold-r-12.0"
 buttonLabel "HTML Documentation"
 numCmds 1
 command {
-  0 "firefox file://areaDetectorHelp/NDPluginROI.html &"
+  0 "firefox --no-remote areaDetectorHelp/NDPluginROI.html &"
 }
 endObjectProperties
 
