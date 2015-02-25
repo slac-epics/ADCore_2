@@ -167,18 +167,19 @@ record(longin, "$(P)$(R)ArrayCounter_RBV")
 # 0 rate sets alarm state to MINOR
 record(calc, "$(P)$(R)ArrayRate_RBV")
 {
-    field( INPA, "$(P)$(R)ArrayRate_RBV.LB NPP NMS"  )  # A: Previous counter (Last B value)
-    field( INPB, "$(P)$(R)ArrayCounter_RBV NPP NMS"  )  # B: Current  counter
+    field( INPA, "$(P)$(R)ArrayCounter_RBV NPP NMS"  )  # A: Current  counter
+    field( INPB, "$(P)$(R)ArrayRate_RBV.LA NPP NMS"  )  # B: Previous counter (Last A value)
     field( INPC, "1.0"                               )  # C: Delta time in seconds
     field( INPD, "$(P)$(R)ArrayRate_RBV.VAL NPP NMS" )  # D: Previous rate
     field( INPE, "0.2"                               )  # E: Smoothing factor
-    field( CALC, "(D*E)/C+MAX(0,B-A)*(1-E)/C" )
+    field( CALC, "(D*E)/C+MAX(0,A-B)*(1-E)/C" )
     field( PREC, "2" )
     field( EGU,  "Hz" )
     field( SCAN, "1 second" )
     field( LOW,  "0" )
     field( LSV,  "MINOR" )
-    info( autosaveFields, "DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV PREC INPC INPE SCAN EGU" )
+	field( ADEL, "0.1" )
+    info( autosaveFields, "ADEL DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV MDEL PREC C E SCAN EGU" )
 }
 
 record(longout, "$(P)$(R)DroppedArrays")
