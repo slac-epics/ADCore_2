@@ -600,19 +600,24 @@ record(longin, "$(P)$(R)ArrayCounter_RBV")
 # these values we get 121.2hz as our average rate
 #    field(INPC, "0.1")
 #    field(SCAN, ".1 second")
+# Update: Swapped A & B inputs and results are generally better,
+# but with .1 sec updates, any delay in record processing causes bigger jumps up and down
+# in the calculated rate due to proportionally larger delta variations vs calc time
 record(calc, "$(P)$(R)ArrayRate_RBV")
 {
-    field(INPA, "$(P)$(R)ArrayRate_RBV.LB NPP NMS" )   # Previous counter value
-	field(INPB, "$(P)$(R)ArrayCounter_RBV NPP NMS" )   # Current  counter value
-    field(INPC, "1.0")								   # Delta time in seconds
-    field(INPD, "$(P)$(R)ArrayRate_RBV.VAL NPP NMS" )  # Previous rate
+	field(INPA, "$(P)$(R)ArrayCounter_RBV NPP NMS" )   # A: Current  counter value
+    field(INPB, "$(P)$(R)ArrayRate_RBV.LA NPP NMS" )   # B: Previous counter (Last A value)
+    field(INPC, "1.0")								   # C: Delta time in seconds
+    field(INPD, "$(P)$(R)ArrayRate_RBV.VAL NPP NMS" )  # D: Previous rate
     field(INPE, "0.2" ) # Smoothing factor
-    field(CALC, "(D*E)+MAX(0,B-A)*(1-E)/C" )
+    field(CALC, "(D*E)+MAX(0,A-B)*(1-E)/C" )
     field(PREC, "2" )
     field(EGU,  "Hz" )
     field(SCAN, "1 second")
 	field(LOW,  "0" )
 	field(LSV,  "MINOR" )
+	field(ADEL, "0.1" )
+    info( autosaveFields, "ADEL DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV MDEL PREC C E SCAN EGU" )
 }
 
 ###################################################################
