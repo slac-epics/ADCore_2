@@ -14,7 +14,7 @@ record(waveform, "$(P)$(R)FilePath")
     field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))FILE_PATH")
     field(FTVL, "CHAR")
     field(NELM, "256")
-   info( autosaveFields, "VAL" )
+    info( autosaveFields, "VAL" )
 }
 
 record(waveform, "$(P)$(R)FilePath_RBV")
@@ -45,7 +45,7 @@ record(waveform, "$(P)$(R)FileName")
     field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))FILE_NAME")
     field(FTVL, "CHAR")
     field(NELM, "256")
-   info( autosaveFields, "VAL" )
+    info( autosaveFields, "VAL" )
 }
 
 record(waveform, "$(P)$(R)FileName_RBV")
@@ -62,7 +62,7 @@ record(longout, "$(P)$(R)FileNumber")
     field(PINI, "YES")
     field(OUT, "$(P)$(R)FileNumber_write PP")
     field(VAL, "1")
-   info( autosaveFields, "VAL" )
+    info( autosaveFields, "VAL" )
 }
 
 record(longout, "$(P)$(R)FileNumber_write")
@@ -97,7 +97,7 @@ record(bo, "$(P)$(R)AutoIncrement")
     field(VAL,  "1")
     field(ZNAM, "No")
     field(ONAM, "Yes")
-   info( autosaveFields, "VAL" )
+    info( autosaveFields, "VAL" )
 }
 
 record(bi, "$(P)$(R)AutoIncrement_RBV")
@@ -117,7 +117,7 @@ record(waveform, "$(P)$(R)FileTemplate")
     field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))FILE_TEMPLATE")
     field(FTVL, "CHAR")
     field(NELM, "256")
-   info( autosaveFields, "VAL" )
+    info( autosaveFields, "VAL" )
 }
 
 record(waveform, "$(P)$(R)FileTemplate_RBV")
@@ -147,7 +147,7 @@ record(bo, "$(P)$(R)AutoSave")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))AUTO_SAVE")
     field(ZNAM, "No")
     field(ONAM, "Yes")
-   info( autosaveFields, "VAL" )
+    info( autosaveFields, "VAL" )
 }
 
 record(bi, "$(P)$(R)AutoSave_RBV")
@@ -211,7 +211,7 @@ record(mbbo, "$(P)$(R)FileFormat")
     field(ZRVL, "0")
     field(ONST, "Invalid")
     field(ONVL, "1")
-   info( autosaveFields, "VAL" )
+    info( autosaveFields, "VAL" )
 }
 
 record(mbbi, "$(P)$(R)FileFormat_RBV")
@@ -238,7 +238,7 @@ record(mbbo, "$(P)$(R)FileWriteMode")
     field(ONVL, "1")
     field(TWST, "Stream")
     field(TWVL, "2")
-   info( autosaveFields, "VAL" )
+    info( autosaveFields, "VAL" )
 }
 
 record(mbbi, "$(P)$(R)FileWriteMode_RBV")
@@ -261,6 +261,8 @@ record(busy, "$(P)$(R)Capture")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))CAPTURE")
     field(ZNAM, "Done")
     field(ONAM, "Capture")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MINOR")
 }
 
 record(bi, "$(P)$(R)Capture_RBV")
@@ -280,7 +282,7 @@ record(longout, "$(P)$(R)NumCapture")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NUM_CAPTURE")
     field(VAL,  "1")
-   info( autosaveFields, "VAL" )
+    info( autosaveFields, "VAL" )
 }
 
 record(longin, "$(P)$(R)NumCapture_RBV")
@@ -306,7 +308,7 @@ record(bo, "$(P)$(R)DeleteDriverFile")
     field(VAL,  "0")
     field(ZNAM, "No")
     field(ONAM, "Yes")
-   info( autosaveFields, "VAL" )
+    info( autosaveFields, "VAL" )
 }
 
 record(bi, "$(P)$(R)DeleteDriverFile_RBV")
