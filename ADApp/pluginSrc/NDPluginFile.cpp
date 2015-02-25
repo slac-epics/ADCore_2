@@ -44,7 +44,7 @@ asynStatus NDPluginFile::openFileBase(NDFileOpenMode_t openMode, NDArray *pArray
         this->attrFileNameSet();
 
     setIntegerParam(NDFileWriteStatus, NDFileWriteOK);
-    setStringParam(NDFileWriteMessage, "");
+    setStringParam(NDFileWriteMessage, "Creating full file name ...");
     status = (asynStatus)createFileName(MAX_FILENAME_LEN, fullFileName);
     if (status) {
         asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR, 
@@ -55,7 +55,10 @@ asynStatus NDPluginFile::openFileBase(NDFileOpenMode_t openMode, NDArray *pArray
         return(status);
     }
     setStringParam(NDFullFileName, fullFileName);
-    
+	epicsSnprintf(	errorMessage, sizeof(errorMessage)-1, 
+					"Opening %s ...", fullFileName );
+    setStringParam( NDFileWriteMessage, "Opening %s ..." );
+ 
     /* Call the openFile method in the derived class */
     epicsMutexLock(this->fileMutexId);
     status = this->openFile(fullFileName, openMode, pArray);
@@ -69,6 +72,10 @@ asynStatus NDPluginFile::openFileBase(NDFileOpenMode_t openMode, NDArray *pArray
         setStringParam(NDFileWriteMessage, errorMessage);
     }
     epicsMutexUnlock(this->fileMutexId);
+
+	epicsSnprintf(	errorMessage, sizeof(errorMessage)-1, 
+					"Opened %s", fullFileName );
+    setStringParam( NDFileWriteMessage, errorMessage );
     
     return(status);
 }
@@ -83,7 +90,7 @@ asynStatus NDPluginFile::closeFileBase()
     const char* functionName = "closeFileBase";
 
     setIntegerParam(NDFileWriteStatus, NDFileWriteOK);
-    setStringParam(NDFileWriteMessage, "");
+    setStringParam(NDFileWriteMessage, "Closing output file ...");
      /* Call the closeFile method in the derived class */
     epicsMutexLock(this->fileMutexId);
     status = this->closeFile();
@@ -354,6 +361,9 @@ asynStatus NDPluginFile::doCapture(int capture)
     switch(fileWriteMode) {
         case NDFileModeSingle:
             /* It is an error to set capture=1 in this mode, set to 0 */
+			asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+				"%s:%s ERROR: capture not supported in Single mode\n",
+				driverName, functionName);
             setIntegerParam(NDFileCapture, 0);
             break;
         case NDFileModeCapture:
