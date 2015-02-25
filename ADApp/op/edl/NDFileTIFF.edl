@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1355
-y 274
-w 390
-h 820
+x 343
+y 1260
+w 420
+h 864
 font "helvetica-bold-r-12.0"
 ctlFont "helvetica-bold-r-12.0"
 btnFont "helvetica-bold-r-12.0"
@@ -19,25 +19,11 @@ ctlBgColor1 index 3
 ctlBgColor2 index 3
 topShadowColor index 1
 botShadowColor index 11
+title "$(P)$(R) TIFF plugin"
 showGrid
 snapToGrid
 gridSize 4
 endScreenProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 665
-w 390
-h 155
-lineColor index 5
-fill
-fillColor index 5
-endObjectProperties
 
 # (Embedded Window)
 object activePipClass
@@ -47,15 +33,14 @@ minor 1
 release 0
 x 0
 y 0
-w 390
-h 385
+w 412
+h 388
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
 displaySource "file"
 file "areaDetectorScreens/NDPluginBase.edl"
-sizeOfs 5
 numDsps 2
 displayFileName {
   0 "areaDetectorScreens/NDPluginBase.edl"
@@ -71,9 +56,9 @@ major 4
 minor 1
 release 0
 x 0
-y 385
-w 390
-h 280
+y 400
+w 412
+h 432
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
@@ -93,21 +78,21 @@ endObjectProperties
 object shellCmdClass
 beginObjectProperties
 major 4
-minor 2
+minor 3
 release 0
-x 5
-y 790
-w 380
-h 25
+x 12
+y 836
+w 392
+h 24
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
 font "helvetica-bold-r-12.0"
-buttonLabel "HTML Documentation"
+buttonLabel "HTML Help Documentation"
 numCmds 1
 command {
-  0 "firefox file://areaDetectorHelp/NDPluginFile.html#TIFF &"
+  0 "firefox --no-remote file://areaDetectorHelp/NDPluginFile.html#TIFF &"
 }
 endObjectProperties
 

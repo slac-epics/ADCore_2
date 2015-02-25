@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1721
-y 401
+x 768
+y 1659
 w 400
-h 340
+h 480
 font "helvetica-bold-r-12.0"
 ctlFont "helvetica-bold-r-12.0"
 btnFont "helvetica-bold-r-12.0"
@@ -34,7 +34,7 @@ release 0
 x 4
 y 12
 w 388
-h 320
+h 416
 lineColor index 14
 fill
 fillColor index 3
@@ -45,7 +45,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 4
 y 4
 w 37
@@ -65,15 +65,14 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 12
-y 20
+y 176
 w 372
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
-useDisplayBg
 value {
   "Full filename derived via File Format from Dir, Name, and File #"
 }
@@ -86,7 +85,7 @@ major 10
 minor 0
 release 0
 x 152
-y 144
+y 124
 w 60
 h 20
 controlPv "$(P)$(R)FileNumber"
@@ -105,7 +104,7 @@ major 4
 minor 0
 release 0
 x 332
-y 144
+y 124
 w 56
 h 20
 fgColor index 25
@@ -122,15 +121,16 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 76
-y 68
+y 48
 w 308
 h 20
 controlPv "$(P)$(R)FilePath_RBV"
 font "helvetica-medium-r-12.0"
-fgColor index 16
+fgColor index 15
+fgAlarm
 bgColor index 12
 limitsFromDb
 nullColor index 0
@@ -144,10 +144,10 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 76
-y 44
+y 24
 w 284
 h 20
 controlPv "$(P)$(R)FilePath"
@@ -170,16 +170,17 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 76
-y 116
+y 96
 w 308
 h 20
 controlPv "$(P)$(R)FileName_RBV"
 font "helvetica-medium-r-12.0"
 fgColor index 15
 bgColor index 12
+bgAlarm
 limitsFromDb
 nullColor index 0
 smartRefresh
@@ -192,10 +193,10 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 76
-y 92
+y 72
 w 308
 h 20
 controlPv "$(P)$(R)FileName"
@@ -218,9 +219,9 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 12
-y 144
+y 124
 w 68
 h 20
 font "helvetica-bold-r-12.0"
@@ -237,9 +238,9 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 232
-y 144
+y 124
 w 95
 h 20
 font "helvetica-bold-r-12.0"
@@ -255,15 +256,16 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 12
-y 200
+y 240
 w 376
 h 20
 controlPv "$(P)$(R)FullFileName_RBV"
 font "helvetica-medium-r-12.0"
 fgColor index 15
+fgAlarm
 bgColor index 12
 limitsFromDb
 nullColor index 0
@@ -278,9 +280,9 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 12
-y 172
+y 152
 w 68
 h 20
 font "helvetica-bold-r-12.0"
@@ -296,10 +298,10 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 84
-y 172
+y 152
 w 100
 h 20
 controlPv "$(P)$(R)FileTemplate"
@@ -322,10 +324,10 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 192
-y 172
+y 152
 w 100
 h 20
 controlPv "$(P)$(R)FileTemplate_RBV"
@@ -347,28 +349,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 100
-y 256
-w 72
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)FileWriteMode"
-indicatorPv "$(P)$(R)FileWriteMode_RBV"
-font "helvetica-bold-r-12.0"
-endObjectProperties
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
 x 296
-y 172
+y 152
 w 92
 h 20
 fgColor index 25
@@ -386,9 +368,9 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 268
-y 228
+y 268
 w 60
 h 20
 font "helvetica-bold-r-12.0"
@@ -407,7 +389,7 @@ major 4
 minor 0
 release 0
 x 332
-y 228
+y 268
 w 56
 h 20
 fgColor index 25
@@ -420,148 +402,6 @@ indicatorPv "$(P)$(R)AutoSave_RBV"
 font "helvetica-bold-r-12.0"
 endObjectProperties
 
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 12
-y 228
-w 68
-h 20
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "# Capture"
-}
-endObjectProperties
-
-# (Text Update)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 144
-y 228
-w 52
-h 20
-controlPv "$(P)$(R)NumCapture_RBV"
-fgColor index 15
-fgAlarm
-bgColor index 12
-fill
-font "helvetica-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Text Update)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 200
-y 228
-w 52
-h 20
-controlPv "$(P)$(R)NumCaptured_RBV"
-fgColor index 15
-fgAlarm
-bgColor index 12
-fill
-font "helvetica-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 12
-y 256
-w 90
-h 20
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Capture Mode"
-}
-endObjectProperties
-
-# (Message Button)
-object activeMessageButtonClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 204
-y 256
-w 45
-h 40
-fgColor index 19
-onColor index 4
-offColor index 3
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)Capture"
-pressValue "1"
-onLabel "Start"
-offLabel "Start"
-3d
-useEnumNumeric
-font "helvetica-bold-r-12.0"
-endObjectProperties
-
-# (Byte)
-object ByteClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 180
-y 256
-w 18
-h 18
-controlPv "$(P)$(R)Capture_RBV"
-lineColor index 14
-onColor index 15
-offColor index 19
-lineWidth 2
-numBits 1
-endObjectProperties
-
-# (Message Button)
-object activeMessageButtonClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 256
-y 256
-w 45
-h 40
-fgColor index 21
-onColor index 4
-offColor index 3
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)Capture"
-pressValue "0"
-onLabel "Stop"
-offLabel "Stop"
-3d
-useEnumNumeric
-font "helvetica-bold-r-12.0"
-endObjectProperties
-
 # (Group)
 object activeGroupClass
 beginObjectProperties
@@ -569,7 +409,7 @@ major 4
 minor 0
 release 0
 x 308
-y 256
+y 296
 w 80
 h 40
 
@@ -580,11 +420,11 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 308
-y 257
+y 296
 w 40
-h 15
+h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
@@ -600,14 +440,14 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 313
-y 277
-w 18
-h 18
+x 312
+y 316
+w 20
+h 20
 controlPv "$(P)$(R)WriteFile_RBV"
 lineColor index 14
 onColor index 15
-offColor index 19
+offColor index 6
 lineWidth 2
 numBits 1
 endObjectProperties
@@ -618,10 +458,10 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 343
-y 257
-w 45
-h 40
+x 344
+y 296
+w 44
+h 44
 fgColor index 25
 onColor index 4
 offColor index 3
@@ -639,7 +479,7 @@ endObjectProperties
 endGroup
 
 visPv "$(P)$(R)FileWriteMode_RBV"
-visMin "1"
+visMin "0"
 visMax "2"
 endObjectProperties
 
@@ -650,8 +490,8 @@ major 4
 minor 0
 release 0
 x 364
-y 44
-w 18
+y 24
+w 20
 h 18
 controlPv "$(P)$(R)FilePathExists_RBV"
 lineColor index 14
@@ -665,16 +505,17 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
-x 12
-y 308
-w 376
+x 76
+y 344
+w 312
 h 20
 controlPv "$(P)$(R)WriteMessage"
 font "helvetica-medium-r-12.0"
 fontAlign "center"
 fgColor index 15
+fgAlarm
 bgColor index 12
 limitsFromDb
 nullColor index 0
@@ -690,8 +531,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 180
-y 280
+x 52
+y 344
 w 18
 h 18
 controlPv "$(P)$(R)WriteStatus"
@@ -706,10 +547,10 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 84
-y 144
+y 124
 w 64
 h 20
 controlPv "$(P)$(R)FileNumber"
@@ -727,14 +568,206 @@ newPos
 objType "controls"
 endObjectProperties
 
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 12
+y 24
+w 60
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Directory"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 12
+y 72
+w 60
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Filename"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 8
+y 344
+w 40
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Status"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 12
+y 196
+w 372
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "First %s in format is dir, 2nd is filename, %d is number"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 12
+y 216
+w 372
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "Example File Format: %s%s_%d.tif"
+}
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 12
+y 268
+w 289
+h 68
+
+beginGroup
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 256
+y 296
+w 45
+h 40
+fgColor index 21
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)Capture"
+pressValue "0"
+onLabel "Stop"
+offLabel "Stop"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 204
+y 296
+w 45
+h 40
+fgColor index 19
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)Capture"
+pressValue "1"
+onLabel "Start"
+offLabel "Start"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Text Update)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 200
+y 268
+w 52
+h 20
+controlPv "$(P)$(R)NumCaptured_RBV"
+fgColor index 15
+fgAlarm
+bgColor index 12
+fill
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Text Update)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 144
+y 268
+w 52
+h 20
+controlPv "$(P)$(R)NumCapture_RBV"
+fgColor index 15
+fgAlarm
+bgColor index 12
+fill
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
 # (Text Control)
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 84
-y 228
+y 268
 w 56
 h 20
 controlPv "$(P)$(R)NumCapture"
@@ -757,17 +790,123 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 12
-y 44
-w 60
+y 268
+w 68
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "Directory"
+  "# Capture"
+}
+endObjectProperties
+
+endGroup
+
+visPv "$(P)$(R)FileWriteMode"
+visMin "1"
+visMax "3"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 12
+y 296
+w 90
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Capture Mode"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 100
+y 296
+w 72
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)FileWriteMode"
+indicatorPv "$(P)$(R)FileWriteMode_RBV"
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 178
+y 296
+w 20
+h 20
+controlPv "$(P)$(R)Capture_RBV"
+lineColor index 14
+onColor index 15
+offColor index 6
+lineWidth 2
+numBits 1
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 100
+y 372
+w 100
+h 20
+controlPv "$(P)$(R)Capture_RBV"
+font "helvetica-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 0
+smartRefresh
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 8
+y 372
+w 92
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Capture Status"
 }
 endObjectProperties
 
@@ -776,17 +915,124 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 12
-y 92
-w 60
+release 1
+x 8
+y 396
+w 92
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "Filename"
+  "Save Status"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 100
+y 396
+w 100
+h 20
+controlPv "$(P)$(R)WriteFile_RBV"
+font "helvetica-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 0
+smartRefresh
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 284
+y 372
+w 104
+h 20
+controlPv "$(P)$(R)ReadFile_RBV"
+font "helvetica-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 0
+smartRefresh
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 204
+y 372
+w 76
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Read Status"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 284
+y 396
+w 104
+h 20
+controlPv "$(P)$(R)WriteStatus"
+font "helvetica-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 0
+smartRefresh
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 204
+y 396
+w 76
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Write Status"
 }
 endObjectProperties
 
