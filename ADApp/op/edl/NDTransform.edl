@@ -947,7 +947,7 @@ font "helvetica-bold-r-12.0"
 buttonLabel "HTML Documentation"
 numCmds 1
 command {
-  0 "firefox file://areaDetectorHelp/NDPluginTransform.html &"
+  0 "firefox --no-remote areaDetectorHelp/NDPluginTransform.html &"
 }
 endObjectProperties
 
