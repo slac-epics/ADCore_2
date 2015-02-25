@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1380
-y 1501
+x 1384
+y 1525
 w 397
 h 385
 font "helvetica-bold-r-12.0"
@@ -92,8 +92,8 @@ major 4
 minor 1
 release 1
 x 12
-y 20
-w 75
+y 18
+w 76
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
@@ -111,7 +111,7 @@ major 4
 minor 7
 release 0
 x 96
-y 20
+y 18
 w 290
 h 20
 controlPv "$(P)$(R)PortName_RBV"
@@ -425,9 +425,9 @@ major 4
 minor 0
 release 0
 x 4
-y 264
+y 260
 w 192
-h 116
+h 120
 lineColor index 14
 fill
 fillColor index 3
@@ -1089,12 +1089,12 @@ y 4
 w 76
 h 14
 font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 14
 bgColor index 5
 value {
-  "  Information  "
+  "Information"
 }
-autoSize
 border
 endObjectProperties
 
@@ -1104,17 +1104,17 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 5
+x 4
 y 80
 w 43
 h 14
 font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 14
 bgColor index 5
 value {
-  "  Input  "
+  "Input"
 }
-autoSize
 border
 endObjectProperties
 
@@ -1144,17 +1144,17 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 5
-y 255
-w 66
+x 4
+y 256
+w 60
 h 14
 font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 14
 bgColor index 5
 value {
-  "  Counters  "
+  "Counters"
 }
-autoSize
 border
 endObjectProperties
 
@@ -1169,12 +1169,12 @@ y 72
 w 78
 h 14
 font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 14
 bgColor index 5
 value {
-  "  Array Dims  "
+  "Array Dims"
 }
-autoSize
 border
 endObjectProperties
 
@@ -1206,15 +1206,15 @@ minor 1
 release 1
 x 200
 y 310
-w 77
+w 76
 h 14
 font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 14
 bgColor index 5
 value {
-  "  Array Time  "
+  "Array Time"
 }
-autoSize
 border
 endObjectProperties
 
@@ -1224,9 +1224,9 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 328
+x 332
 y 44
-w 60
+w 56
 h 20
 fgColor index 14
 bgColor index 3
