@@ -32,7 +32,7 @@ static const char *driverName = "asynNDArrayDriver";
 
 /** Checks whether the directory specified NDFilePath parameter exists.
   * 
-  * This is a convenience function that determinesthe directory specified NDFilePath parameter exists.
+  * This is a convenience function that determines if the directory specified by NDFilePath parameter exists.
   * It sets the value of NDFilePathExists to 0 (does not exist) or 1 (exists).  
   * It also adds a trailing '/' character to the path if one is not present.
   * Returns a error status if the directory does not exist.
@@ -118,8 +118,8 @@ int asynNDArrayDriver::createFileName(int maxChars, char *fullFileName)
   * \param[out] filePath The file path.
   * \param[out] fileName The constructed file name without file file path.
   * 
-  * This is a convenience function that constructs a file path and file name
-  * from the NDFilePath, NDFileName, NDFileNumber, and
+  * This is a convenience function that constructs the directory path and the
+  * file name in that directory from the NDFilePath, NDFileName, NDFileNumber, and
   * NDFileTemplate parameters. If NDAutoIncrement is true then it increments the
   * NDFileNumber after creating the file name.
   */
