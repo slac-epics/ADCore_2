@@ -145,7 +145,7 @@ void NDPluginROI::processCallbacks(NDArray *pArray)
     }
 
     /* This function is called with the lock taken, and it must be set when we exit.
-     * The following code can be exected without the mutex because we are not accessing memory
+     * The following code can be executed without the mutex because we are not accessing memory
      * that other threads can access. */
     this->unlock();
 
@@ -181,7 +181,7 @@ void NDPluginROI::processCallbacks(NDArray *pArray)
         for (i=0; i<scratchInfo.nElements; i++) pData[i] = pData[i]/scale;
         this->pNDArrayPool->convert(pScratch, &this->pArrays[0], (NDDataType_t)dataType);
         pScratch->release();
-    } 
+    }
     else {        
         this->pNDArrayPool->convert(pArray, &this->pArrays[0], (NDDataType_t)dataType, dims);
     }
@@ -216,9 +216,21 @@ void NDPluginROI::processCallbacks(NDArray *pArray)
     this->lock();
     NDArrayInfo arrayInfoOut;
 	pOutput->getInfo(&arrayInfoOut);
-
-    /* Set the image size of the ROI image data */
-    setIntegerParam(NDBitsPerPixel,		arrayInfo.bitsPerElement);
+ 
+	/* Calculate ROI bitsPerElement */
+    int		bitsPerPixel	=	arrayInfo.bitsPerElement;
+	size_t	binFactor = 1;
+	for ( int iDim=0; iDim < pArray->ndims; iDim++ )
+		binFactor	*= dims[iDim].binning;
+	if ( binFactor != 1 )
+		bitsPerPixel	+= static_cast<int>( ceil( log2( binFactor ) ) );
+	if ( enableScale && scale != 0 && scale != 1 )
+		bitsPerPixel	-= static_cast<int>( floor( log2( scale ) ) );
+	/* Clip bitsPerElement to max for output dataType */
+	if( bitsPerPixel > GetNDDataTypeBits(pOutput->dataType) )
+		bitsPerPixel = GetNDDataTypeBits(pOutput->dataType);
+    /* Set the bits per pixel of the ROI output */
+	pOutput->bitsPerElement = bitsPerPixel;
 
     /* Set the image size of the ROI image data */
     setIntegerParam(NDArraySizeX, 0);
