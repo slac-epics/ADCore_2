@@ -7,6 +7,7 @@
  */
 
 #include <stdlib.h>
+#include <math.h>
 
 #include <epicsExport.h>
 
@@ -515,10 +516,19 @@ int NDArrayPool::convert(NDArray *pIn,
            driverName, functionName);
     return(ND_ERROR);
   }
-  /* Copy fields from input to output */
+
+  /* Use log2 of binning factors to calculate effect on bitsPerElement */
   pOut->bitsPerElement	= pIn->bitsPerElement;
+  size_t	binFactor = 1;
+  for (i=0; i<pIn->ndims; i++)
+	  binFactor	*= dimsOutCopy[i].binning;
+  pOut->bitsPerElement	+= lround( log2( binFactor ) );
+
+  /* Clip bitsPerElement to max for output dataType */
   if( pOut->bitsPerElement > GetNDDataTypeBits(pOut->dataType) )
 	  pOut->bitsPerElement = GetNDDataTypeBits(pOut->dataType);
+ 
+  /* Copy fields from input to output */
   pOut->timeStamp		= pIn->timeStamp;
   pOut->epicsTS			= pIn->epicsTS;
   pOut->uniqueId		= pIn->uniqueId;
