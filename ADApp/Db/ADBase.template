@@ -822,7 +822,7 @@ record(calcout, "$(P)$(R)ShutterCloseEPICS")
 record(mbbi, "$(P)$(R)ShutterStatusEPICS_RBV")
 {
     field(DTYP, "Raw Soft Channel")
-    field(INP,  "test CP MS")
+    field(INP,  "")
     field(ZRVL, "0")
     field(ZRST, "Closed")
     field(ZRSV, "NO_ALARM")
