@@ -35,6 +35,8 @@ typedef enum
     NDColorModeYUV411   /**< YUV image, 6 bytes encodes 4 RGB pixels */
 } NDColorMode_t;
 
+extern int GetNDColorModeBits( NDColorMode_t, NDDataType_t );
+
 /** Enumeration of Bayer patterns for NDArray attribute "bayerPattern".
   * This value is only meaningful if colorMode is NDColorModeBayer. 
   * This value is needed because the Bayer pattern will change when reading out a 

@@ -403,10 +403,12 @@ int GetNDDataTypeBits( NDDataType_t tyData )
     case NDUInt16:	nBits	= 16;	break;
     case NDInt32:	nBits	= 32;	break;
     case NDUInt32:	nBits	= 32;	break;
-    case NDFloat32:	nBits	= 32;	break;
-    case NDFloat64:	nBits	= 64;	break;
+	// nBits is more an indicator of max pixel value for mono rendering
+	// than a measure of accuracy, so we set floating point types to
+	// a large number to avoid clipping w/ wierd binning like 512x512
+    case NDFloat32:	nBits	= 99;	break;
+    case NDFloat64:	nBits	= 99;	break;
 	}
 	return nBits;
 }
-
 
