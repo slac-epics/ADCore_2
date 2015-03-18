@@ -220,7 +220,7 @@ void NDPluginROI::processCallbacks(NDArray *pArray)
 	/* Calculate ROI bitsPerElement */
     int		bitsPerPixel	=	arrayInfo.bitsPerElement;
 	size_t	binFactor = 1;
-	for ( int iDim=0; iDim < pArray->ndims; iDim++ )
+	for ( size_t iDim=0; iDim < pArray->ndims; iDim++ )
 		binFactor	*= dims[iDim].binning;
 	if ( binFactor != 1 )
 		bitsPerPixel	+= static_cast<int>( ceil( log2( binFactor ) ) );

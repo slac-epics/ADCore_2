@@ -213,3 +213,41 @@ int NDArray::report(FILE *fp, int details)
   return ND_SUCCESS;
 }
 
+int GetNDColorModeBits( NDColorMode_t tyColor, NDDataType_t tyData )
+{
+	int	nBits;
+	switch ( tyColor )
+	{
+	default:
+    case NDColorModeMono:
+		nBits = GetNDDataTypeBits( tyData );
+		break;
+	// For defined color standards, set nBits to the
+	// number of combined bits in one pixel element
+    case NDColorModeBayer:
+		// Optimal packing uses all bits of data type
+		nBits = GetNDDataTypeBits( tyData );
+		break;
+    case NDColorModeRGB1:
+    case NDColorModeRGB2:
+    case NDColorModeRGB3:
+		// 3 pixels packed with room for a 4th
+		nBits = GetNDDataTypeBits( tyData ) * 3 / 4;
+		break;
+    case NDColorModeYUV444:
+		// 3 values for 1 pixel
+		nBits = 3 * GetNDDataTypeBits( tyData );
+		break;
+    case NDColorModeYUV422:
+		// 4 values for 2 pixels
+		nBits = 4 * GetNDDataTypeBits( tyData );
+		break;
+    case NDColorModeYUV411:
+		// 6 values for 4 pixels
+		nBits = 6 * GetNDDataTypeBits( tyData );
+		break;
+	}
+	return nBits;
+}
+
+
