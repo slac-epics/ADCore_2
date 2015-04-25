@@ -76,6 +76,11 @@ HDF5_LIBS =  $(addprefix ../os/rhel6-x86_64/, libsz.a libsz.so libsz.so.2 libsz.
 HDF5_LIBS += $(addprefix ../os/rhel6-x86_64/, libhdf5.a libhdf5.so libhdf5.so.7 libhdf5.so.7.0.1 )
 LIB_INSTALLS_Linux   += $(HDF5_LIBS)
 
+else ifeq (linuxRT_glibc-x86_64, $(findstring linuxRT_glibc-x86_64, $(T_A)))
+HDF5_LIBS =  $(addprefix ../os/linuxRT_glibc-x86_64/, libsz.a libsz.so libsz.so.2 libsz.so.2.0.0 )
+HDF5_LIBS += $(addprefix ../os/linuxRT_glibc-x86_64/, libhdf5.a libhdf5.so libhdf5.so.7 libhdf5.so.7.0.1 )
+LIB_INSTALLS_Linux   += $(HDF5_LIBS)
+
 else ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
 HDF5_LIBS =  $(addprefix ../os/linux-x86_64/, libsz.a libsz.so libsz.so.2 libsz.so.2.0.0 )
 HDF5_LIBS += $(addprefix ../os/linux-x86_64/, libhdf5.a libhdf5.so libhdf5.so.7 libhdf5.so.7.0.1 )
