@@ -14,6 +14,9 @@ endif
 ifeq (linux,$(findstring linux,$(EPICS_HOST_ARCH)))
 DIRS += tiffSrcLinux
 endif
+ifeq (rhel6,$(findstring rhel6,$(EPICS_HOST_ARCH)))
+DIRS += tiffSrcLinux
+endif
 
 #=============================
 
