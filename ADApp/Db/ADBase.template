@@ -234,7 +234,7 @@ record(longout, "$(P)$(R)SizeX")
    field(PINI, "YES")
    field(DTYP, "asynInt32")
    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))SIZE_X")
-   field(VAL,  "1")
+   field(VAL,  "99999")
    info( autosaveFields, "VAL" )
 }
 
@@ -250,7 +250,7 @@ record(longout, "$(P)$(R)SizeY")
    field(PINI, "YES")
    field(DTYP, "asynInt32")
    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))SIZE_Y")
-   field(VAL,  "1")
+   field(VAL,  "99999")
    info( autosaveFields, "VAL" )
 }
 
