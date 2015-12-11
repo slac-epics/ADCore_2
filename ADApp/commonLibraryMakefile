@@ -58,8 +58,15 @@ USR_LDFLAGS_Darwin      += -framework CoreFoundation
 LIB_LIBS_Darwin         += hdf5 sz
 LIB_SYS_LIBS_Darwin     += tiff jpeg z
 
-hdf5_DIR               = $(HDF5_LIB)
-sz_DIR                 = $(SZIP_LIB)
+#hdf5_DIR               = $(HDF5_LIB)
+#sz_DIR                 = $(SZIP_LIB)
 GraphicsMagick_DIR     = $(GRAPHICS_MAGICK_LIB)
 GraphicsMagick++_DIR   = $(GRAPHICS_MAGICK_LIB)
 GraphicsMagickWand_DIR = $(GRAPHICS_MAGICK_LIB)
+
+# Install the jpeg and tiff libraries
+LIB_INSTALLS += $(wildcard $(HDF5_LIB_DIR)/lib*)
+LIB_INSTALLS += $(wildcard $(SZIP_LIB_DIR)/lib*)
+LIB_INSTALLS += $(wildcard $(JPEG_LIB_DIR)/lib*)
+LIB_INSTALLS += $(wildcard $(TIFF_LIB_DIR)/lib*)
+
