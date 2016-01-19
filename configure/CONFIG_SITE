@@ -14,7 +14,7 @@
 # Set CHECK_RELEASE to NO to disable checking completely.
 # Set CHECK_RELEASE to WARN to perform consistency checking but
 #   continue building anyway if conflicts are found.
-CHECK_RELEASE = YES
+CHECK_RELEASE = WARN
 
 # Set this when you only want to compile this application
 #   for a subset of the cross-compiled target architectures
@@ -53,30 +53,26 @@ endif
 ifndef CONFIG_SITE_TOP
 CONFIG_SITE_TOP=/reg/g/pcds/pyps/config
 endif
--include $(CONFIG_SITE_TOP)/common_dirs.mak
+include $(CONFIG_SITE_TOP)/common_dirs.mak
+PKG_ARCH	= $(T_A)
+ifeq '$(PKG_ARCH)' 'linuxRT_glibc-x86_64'
+PKG_ARCH	= rhel6-x86_64
+endif
 
-HDF5_TOP		= $(PSPKG_ROOT)/hdf5/1.8.7
-HDF5_INC_DIR	= $(HDF5_TOP)/$(PKG_ARCH)/include
-HDF5_LIB_DIR	= $(HDF5_TOP)/$(PKG_ARCH)/lib
+HDF5_TOP		= $(PSPKG_ROOT)/release/hdf5/1.8.7/$(PKG_ARCH)
+SZIP_TOP		= $(PSPKG_ROOT)/release/szip/2.1/$(PKG_ARCH)
+JPEG_TOP		= $(PSPKG_ROOT)/release/jpeg/6b/$(PKG_ARCH)
+TIFF_TOP		= $(PSPKG_ROOT)/release/tiff/4.0.3/$(PKG_ARCH)
 
-SZIP_TOP		= $(PSPKG_ROOT)/szip/2.1
-SZIP_INC_DIR	= $(SZIP_TOP)/$(PKG_ARCH)/include
-SZIP_LIB_DIR	= $(SZIP_TOP)/$(PKG_ARCH)/lib
+# Install the jpeg and tiff libraries
+LIB_INSTALLS += $(wildcard $(HDF5_TOP)/lib/lib*)
+LIB_INSTALLS += $(wildcard $(SZIP_TOP)/lib/lib*)
+LIB_INSTALLS += $(wildcard $(JPEG_TOP)/lib/lib*)
+LIB_INSTALLS += $(wildcard $(TIFF_TOP)/lib/lib*)
 
-JPEG_TOP		= $(PSPKG_ROOT)/jpeg/6b
-JPEG_INC_DIR	= $(JPEG_TOP)/$(PKG_ARCH)/include
-JPEG_LIB_DIR	= $(JPEG_TOP)/$(PKG_ARCH)/lib
+# Add the extrnal package include paths to USR_INCLUDES
+USR_INCLUDES	+= -I$(HDF5_TOP)/include
+USR_INCLUDES	+= -I$(SZIP_TOP)/include
+USR_INCLUDES	+= -I$(JPEG_TOP)/include
+USR_INCLUDES	+= -I$(TIFF_TOP)/include
 
-TIFF_TOP		= $(PSPKG_ROOT)/tiff/4.0.3
-TIFF_INC_DIR	= $(TIFF_TOP)/$(PKG_ARCH)/include
-TIFF_LIB_DIR	= $(TIFF_TOP)/$(PKG_ARCH)/lib
-
-# Could go to nexusSrc/Makefile
-USR_INCLUDES		+= -I$(HDF5_INC_DIR) -I$(SZIP_INC_DIR)
-SHRLIB_DEPLIB_DIRS	+= $(HDF5_LIB_DIR) $(SZIP_LIB_DIR)
-PROD_DEPLIB_DIRS	+= $(HDF5_LIB_DIR) $(SZIP_LIB_DIR)
-
-# Could go to pluginSrc/Makefile
-USR_INCLUDES		+= -I$(JPEG_INC_DIR) -I$(TIFF_INC_DIR)
-SHRLIB_DEPLIB_DIRS	+= $(JPEG_LIB_DIR) $(TIFF_LIB_DIR)
-PROD_DEPLIB_DIRS	+= $(JPEG_LIB_DIR) $(TIFF_LIB_DIR)

@@ -77,17 +77,9 @@ else
   NDPlugin_SRCS += NDFileMagickStub.cpp
 endif
 
-USR_INCLUDES += $(HDF5_INCLUDE)
-USR_INCLUDES += $(SZIP_INCLUDE)
-
 include $(TOP)/ADApp/commonLibraryMakefile
-
-install: showme
 
 include $(TOP)/configure/RULES
 #----------------------------------------
 #  ADD RULES AFTER THIS LINE
-
-showme:
-	@echo LIB_INSTALLS=$(LIB_INSTALLS)
 
