@@ -70,7 +70,7 @@ LIB_INSTALLS += $(wildcard $(SZIP_TOP)/lib/lib*)
 LIB_INSTALLS += $(wildcard $(JPEG_TOP)/lib/lib*)
 LIB_INSTALLS += $(wildcard $(TIFF_TOP)/lib/lib*)
 
-# Add the extrnal package include paths to USR_INCLUDES
+# Add the external package include paths to USR_INCLUDES
 USR_INCLUDES	+= -I$(HDF5_TOP)/include
 USR_INCLUDES	+= -I$(SZIP_TOP)/include
 USR_INCLUDES	+= -I$(JPEG_TOP)/include
