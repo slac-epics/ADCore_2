@@ -674,6 +674,7 @@ record(bo, "$(P)$(R)ArrayCallbacks")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARRAY_CALLBACKS")
     field(ZNAM, "Disable")
     field(ONAM, "Enable")
+	field(DOL,  "1")
    info( autosaveFields, "VAL" )
 }
 
