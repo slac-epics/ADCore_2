@@ -32,104 +32,6 @@ static const char *driverName="NDPluginFile";
 
 
 
-/**
- * Make sure all the directories in the create path exist.  Returns asnySuccess
- * or asynFail in the hope that this is propagated back to GDA.
- */
-#define MAX_PATH_PARTS 32
-
-#if defined(_WIN32)              // Windows
-  #include <direct.h>
-  #define strtok_r(a,b,c) strtok(a,b)
-  #define MKDIR(a,b) _mkdir(a)
-  #define delim "\\"
-#elif defined(vxWorks)           // VxWorks
-  #include <sys/stat.h>
-  #define MKDIR(a,b) mkdir(a)
-  #define delim "/"
-#else                            // Linux
-  #include <sys/stat.h>
-  #include <sys/types.h>
-  #define delim "/"
-  #define MKDIR(a,b) mkdir(a,b)
-#endif
-
-/** Function to create a directory path for a file.
-  \param[in] createPath  Path to create. The final part is the file name and is not created.
-  \param[in] stem_size   This determines how much file stem to assume exists before attempting
-                         to create directories:
-                         stem_size = 0 create no directories
-                         stem_size = 1 create all directories needed (i.e. only assume root directory exists).
-                         stem_size = 2  Assume 1 directory below the root directory exists
-                         stem_size = -1 Assume all but one direcory exists
-                         stem_size = -2 Assume all but two directories exist.
-*/
-asynStatus NDPluginFile::createDirectoryPath( char *createPath, int stem_size )
-{
-    asynStatus result = asynSuccess;
-    char * parts[MAX_PATH_PARTS];
-    int num_parts;
-    char directory[MAX_FILENAME_LEN];
-
-    // Initialise the directory to create
-    char nextDir[MAX_FILENAME_LEN];
-
-    // Extract the next name from the directory
-    char* saveptr;
-    int i=0;
-
-    // Check for trivial case.
-    if (stem_size == 0) return asynSuccess;
-
-    // Check for Windows disk designator
-    if ( createPath[1] == ':' )
-    {
-        nextDir[0]=createPath[0];
-        nextDir[1]=':';
-        i+=2;
-    }
-
-    // Skip over any more delimiters
-    while ( (createPath[i] == '/' || createPath[i] == '\\') && i < MAX_FILENAME_LEN)
-    {
-        nextDir[i] = createPath[i];
-        ++i;
-    }
-    nextDir[i] = 0;
-
-    // Now, tokenise the path - first making a copy because strtok is destructive
-    strcpy( directory, &createPath[i] );
-    num_parts = 0;
-    parts[num_parts] = strtok_r( directory, "\\/",&saveptr);
-    while ( parts[num_parts] != NULL ) {
-        parts[++num_parts] = strtok_r(NULL, "\\/",&saveptr);
-    }
-
-    // Handle the case if the stem size is negative
-    if (stem_size < 0)
-    {
-        stem_size = num_parts + stem_size;
-        if (stem_size < 1) stem_size = 1;
-    }
-
-    // Loop through parts creating dirctories
-    for ( i = 1; i < num_parts && result != asynError; i++ )
-    {
-        strcat(nextDir, parts[i-1]);
-
-        if ( i >= stem_size )
-        {
-            if(MKDIR(nextDir, 0777) != 0 && errno != EEXIST)
-            {
-                result = asynError;
-            }
-        }
-        strcat(nextDir, delim);
-   }
-
-    return result;
-}
-
 /** Base method for opening a file
   * Creates the file name with NDPluginBase::createFileName, then calls the pure virtual function openFile
   * in the derived class. */
@@ -158,11 +60,6 @@ asynStatus NDPluginFile::openFileBase(NDFileOpenMode_t openMode, NDArray *pArray
     }
     setStringParam(NDFullFileName, fullFileName);
     
-    int createDirectory;
-    getIntegerParam( NDFileCreateDir, &createDirectory );
-    if (createDirectory)
-        status = createDirectoryPath( fullFileName, createDirectory );
-
     getStringParam(NDFileTempSuffix, sizeof(tempSuffix), tempSuffix);
     if ( *tempSuffix != 0 && 
          (strlen(fullFileName) + strlen(tempSuffix)) < sizeof(fullFileName) ) {
@@ -170,6 +67,8 @@ asynStatus NDPluginFile::openFileBase(NDFileOpenMode_t openMode, NDArray *pArray
     }
 
     /* Call the openFile method in the derived class */
+    /* Do this with the main lock released since it is slow */
+    this->unlock();
     epicsMutexLock(this->fileMutexId);
     this->registerInitFrameInfo(pArray);
     status = this->openFile(fullFileName, openMode, pArray);
@@ -183,6 +82,7 @@ asynStatus NDPluginFile::openFileBase(NDFileOpenMode_t openMode, NDArray *pArray
         setStringParam(NDFileWriteMessage, errorMessage);
     }
     epicsMutexUnlock(this->fileMutexId);
+    this->lock();
     
     return(status);
 }
@@ -205,17 +105,14 @@ asynStatus NDPluginFile::closeFileBase()
     getStringParam(NDFullFileName, sizeof(fullFileName), fullFileName);
     getStringParam(NDFileTempSuffix, sizeof(tempSuffix), tempSuffix);
 
-     /* Call the closeFile method in the derived class */
+    /* Call the closeFile method in the derived class */
+    /* Do this with the main lock released since it is slow */
+    this->unlock();
     epicsMutexLock(this->fileMutexId);
     status = this->closeFile();
     if (status) {
         epicsSnprintf(errorMessage, sizeof(errorMessage)-1, 
             "Error closing file, status=%d", status);
-        asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR, 
-              "%s:%s %s\n", 
-              driverName, functionName, errorMessage);
-        setIntegerParam(NDFileWriteStatus, NDFileWriteError);
-        setStringParam(NDFileWriteMessage, errorMessage);
     }
 
     if ( *tempSuffix != 0 && 
@@ -225,15 +122,20 @@ asynStatus NDPluginFile::closeFileBase()
         if ( rename( tempFileName, fullFileName ) != 0 ) {
             epicsSnprintf(errorMessage, sizeof(errorMessage)-1, 
                           "Error renaming temporary file %s to %s", tempFileName, fullFileName );
-            asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR, 
-                      "%s:%s %s\n", 
-                      driverName, functionName, errorMessage);
             status=asynError;
         }
     }
 
     epicsMutexUnlock(this->fileMutexId);
-    
+    this->lock();
+    if (status) {
+        asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR, 
+              "%s:%s %s\n", 
+              driverName, functionName, errorMessage);
+        setIntegerParam(NDFileWriteStatus, NDFileWriteError);
+        setStringParam(NDFileWriteMessage, errorMessage);
+    }
+
     return(status);
 }
 
@@ -257,11 +159,14 @@ asynStatus NDPluginFile::readFileBase(void)
     }
     
     /* Call the readFile method in the derived class */
+    /* Do this with the main lock released since it is slow */
+    this->unlock();
     epicsMutexLock(this->fileMutexId);
     status = this->openFile(fullFileName, NDFileModeRead, pArray);
     status = this->readFile(&pArray);
     status = this->closeFile();
     epicsMutexUnlock(this->fileMutexId);
+    this->lock();
     
     /* If we got an error then return */
     if (status) return(status);
@@ -330,6 +235,7 @@ asynStatus NDPluginFile::writeFileBase()
                 status = this->writeFile(pArrayOut);
                 epicsMutexUnlock(this->fileMutexId);
                 this->lock();
+                doNDArrayCallbacks(pArrayOut);
                 if (status) {
                     epicsSnprintf(errorMessage, sizeof(errorMessage)-1, 
                         "Error writing file, status=%d", status);
@@ -372,6 +278,7 @@ asynStatus NDPluginFile::writeFileBase()
                         status = this->writeFile(pArray);
                         epicsMutexUnlock(this->fileMutexId);
                         this->lock();
+                        doNDArrayCallbacks(pArray);
                         if (status) {
                             epicsSnprintf(errorMessage, sizeof(errorMessage)-1, 
                                 "Error writing file, status=%d", status);
@@ -402,9 +309,9 @@ asynStatus NDPluginFile::writeFileBase()
             else
                 this->attrFileNameCheck();
             if (!this->isFrameValid(this->pArrays[0])) {
-                    setIntegerParam(NDFileWriteStatus, NDFileWriteError);
-                    setStringParam(NDFileWriteMessage, "Invalid frame. Ignoring.");
-                    status = asynError;
+                setIntegerParam(NDFileWriteStatus, NDFileWriteError);
+                setStringParam(NDFileWriteMessage, "Invalid frame. Ignoring.");
+                status = asynError;
             }
             if (status == asynSuccess) {
                 NDArray *pArrayOut = this->pArrays[0];
@@ -413,6 +320,7 @@ asynStatus NDPluginFile::writeFileBase()
                 status = this->writeFile(pArrayOut);
                 epicsMutexUnlock(this->fileMutexId);
                 this->lock();
+                doNDArrayCallbacks(pArrayOut);
                 if (status) {
                     epicsSnprintf(errorMessage, sizeof(errorMessage)-1,
                             "Error writing file, status=%d", status);
@@ -455,7 +363,7 @@ asynStatus NDPluginFile::writeFileBase()
             }
         }
     }
-    
+
     return((asynStatus)status);
 }
 
@@ -839,10 +747,33 @@ void NDPluginFile::processCallbacks(NDArray *pArray)
             }
             break;
     }
-
+    
     /* Update the parameters.  */
     setIntegerParam(NDArrayCounter, arrayCounter);
     callParamCallbacks();
+}
+
+void NDPluginFile::doNDArrayCallbacks(NDArray *pArray)
+{
+  int arrayCallbacks = 0;
+  static const char *functionName = "doNDArrayCallbacks";
+
+  getIntegerParam(NDArrayCallbacks, &arrayCallbacks);
+  if (arrayCallbacks == 1) {
+    NDArray *pArrayOut = this->pNDArrayPool->copy(pArray, NULL, 1);
+    if (pArrayOut != NULL) {
+      this->getAttributes(pArrayOut->pAttributeList);
+      this->unlock();
+      doCallbacksGenericPointer(pArrayOut, NDArrayData, 0);
+      this->lock();
+      pArrayOut->release();
+    }
+    else {
+      asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR, 
+        "%s: Couldn't allocate output array. Callbacks failed.\n", 
+        functionName);
+    }
+  }
 }
 
 /** Called when asyn clients call pasynInt32->write().
@@ -884,19 +815,28 @@ asynStatus NDPluginFile::writeInt32(asynUser *pasynUser, epicsInt32 value)
             setIntegerParam(NDReadFile, 0);
         }
     } else if (function == NDFileCapture) {
-        /* Latch the NDFileLazyOpen parameter so that we don't need to care
-         * if the user modifies this parameter before first frame has arrived. */
-        int paramFileLazyOpen = 0;
-        getIntegerParam(NDFileLazyOpen, &paramFileLazyOpen);
-        this->lazyOpen = (paramFileLazyOpen != 0);
-        /* So far everything is OK, so we just clear the FileWriteStatus parameters */
-        setIntegerParam(NDFileWriteStatus, NDFileWriteOK);
-        setStringParam(NDFileWriteMessage, "");
-        setStringParam(NDFullFileName, "");
+        if (value) {  // Started capture or stream
+            // Reset the value temporarily until the doCapture() has called the
+            // inherited openFile() method and the writer is in a good state to
+            // start writing frames.
+            // See comments on: https://github.com/areaDetector/ADCore/pull/100
+            setIntegerParam(NDFileCapture, 0);
+
+            /* Latch the NDFileLazyOpen parameter so that we don't need to care
+             * if the user modifies this parameter before first frame has arrived. */
+            int paramFileLazyOpen = 0;
+            getIntegerParam(NDFileLazyOpen, &paramFileLazyOpen);
+            this->lazyOpen = (paramFileLazyOpen != 0);
+            /* So far everything is OK, so we just clear the FileWriteStatus parameters */
+            setIntegerParam(NDFileWriteStatus, NDFileWriteOK);
+            setStringParam(NDFileWriteMessage, "");
+            setStringParam(NDFullFileName, "");
+        }
         /* Must call doCapture if capturing was just started or stopped */
         status = doCapture(value);
         if (status == asynSuccess) {
             if (this->lazyOpen) setStringParam(NDFileWriteMessage, "Lazy Open...");
+            setIntegerParam(NDFileCapture, value);
         } else {
             setIntegerParam(NDFileCapture, 0);
         }
@@ -984,6 +924,10 @@ NDPluginFile::NDPluginFile(const char *portName, int queueSize, int blockingCall
     this->fileMutexId = epicsMutexCreate();
     /* Set the plugin type string */    
     setStringParam(NDPluginDriverPluginType, "NDPluginFile");
+
+    // Disable ArrayCallbacks.  
+    // This plugin currently does not do array callbacks, so make the setting reflect the behavior
+    setIntegerParam(NDArrayCallbacks, 0);
 
     /* Try to connect to the NDArray port */
     connectToArrayPort();

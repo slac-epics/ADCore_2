@@ -89,6 +89,7 @@ namespace hdf5
       Attribute(const Attribute& src); // Copy constructor
       Attribute(std::string& name);
       Attribute(const char* name);
+      Attribute(const char* name, DataSource& src);
       ~Attribute(){};
       Attribute& operator=(const Attribute& src);
       std::string get_name();
@@ -251,7 +252,7 @@ namespace hdf5
       MapGroups_t& get_groups();
       MapDatasets_t& get_datasets();
       MapHardLinks_t& get_hardlinks();
-      void find_dsets(DataSrc_t source, MapDatasets_t& dsets); /** return a map of datasets <string name, Dataset dset> which contains all datasets, marked as <source> data. */
+      void find_dsets(DataSrc_t source, MapDatasets_t& dsets); /** return a map of datasets [string name, Dataset dset] which contains all datasets, marked as [source] data. */
 
       typedef std::map<std::string, DataSource*> MapNDAttrSrc_t;
       virtual void merge_ndattributes(MapNDAttrSrc_t::const_iterator it_begin,

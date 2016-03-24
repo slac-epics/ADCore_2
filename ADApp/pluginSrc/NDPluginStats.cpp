@@ -395,6 +395,7 @@ void NDPluginStats::doTimeSeriesCallbacks()
     doCallbacksFloat64Array(this->timeSeries[TSSigmaX],     currentPoint, NDPluginStatsTSSigmaX, 0);
     doCallbacksFloat64Array(this->timeSeries[TSSigmaY],     currentPoint, NDPluginStatsTSSigmaY, 0);
     doCallbacksFloat64Array(this->timeSeries[TSSigmaXY],    currentPoint, NDPluginStatsTSSigmaXY, 0);
+    doCallbacksFloat64Array(this->timeSeries[TSTimestamp],  currentPoint, NDPluginStatsTSTimestamp, 0);
 }
 
 
@@ -457,6 +458,10 @@ void NDPluginStats::processCallbacks(NDArray *pArray)
         getIntegerParam(NDPluginStatsBgdWidth, &bgdWidth);
         doComputeStatistics(pArray, pStats);
         /* If there is a non-zero background width then compute the background counts */
+        // Note that the following algorithm is general in N-dimensions but does have a slight inaccuracy.
+        // It computes the background region such that the pixels at the corners are counted twice.
+        // The normalization correctly accounts for this when computing the average background per pixel,
+        // but these pixels are given extra weight in the calculation.
         if (bgdWidth > 0) {
             bgdPixels = 0;
             bgdCounts = 0.;
@@ -480,7 +485,7 @@ void NDPluginStats::processCallbacks(NDArray *pArray)
                 pBgdArray->release();
                 bgdPixels += pStatsTemp->nElements;
                 bgdCounts += pStatsTemp->total;
-                pDim->offset = MAX(0, (int)(pDim->size - 1 - bgdWidth));
+                pDim->offset = MAX(0, (int)(pDim->size - bgdWidth));
                 pDim->size = MIN((size_t)bgdWidth, pArray->dims[dim].size - pDim->offset);
                 this->pNDArrayPool->convert(pArray, &pBgdArray, pArray->dataType, bgdDims);
                 pDim->offset = 0;
@@ -552,11 +557,12 @@ void NDPluginStats::processCallbacks(NDArray *pArray)
         timeSeries[TSSigmaValue][currentTSPoint]  = pStats->sigma;
         timeSeries[TSTotal][currentTSPoint]       = pStats->total;
         timeSeries[TSNet][currentTSPoint]         = pStats->net;
-        timeSeries[TSCentroidX][currentTSPoint] = this->centroidX;
-        timeSeries[TSCentroidY][currentTSPoint] = this->centroidY;
-        timeSeries[TSSigmaX][currentTSPoint]    = this->sigmaX;
-        timeSeries[TSSigmaY][currentTSPoint]    = this->sigmaY;
-        timeSeries[TSSigmaXY][currentTSPoint]   = this->sigmaXY;
+        timeSeries[TSCentroidX][currentTSPoint]   = this->centroidX;
+        timeSeries[TSCentroidY][currentTSPoint]   = this->centroidY;
+        timeSeries[TSSigmaX][currentTSPoint]      = this->sigmaX;
+        timeSeries[TSSigmaY][currentTSPoint]      = this->sigmaY;
+        timeSeries[TSSigmaXY][currentTSPoint]     = this->sigmaXY;
+        timeSeries[TSTimestamp][currentTSPoint]   = pArray->timeStamp;
         currentTSPoint++;
         setIntegerParam(NDPluginStatsTSCurrentPoint, currentTSPoint);
         if (currentTSPoint >= numTSPoints) {
@@ -565,20 +571,25 @@ void NDPluginStats::processCallbacks(NDArray *pArray)
         }
     }
 
-    NDArray *pArrayOut = this->pNDArrayPool->copy(pArray, NULL, 1);
-    if (NULL != pArrayOut) {
-        this->getAttributes(pArrayOut->pAttributeList);
-        this->unlock();
-        doCallbacksGenericPointer(pArrayOut, NDArrayData, 0);
-        this->lock();
-        /* Save a copy of this array for calculations when cursor is moved or threshold is changed */
-        if (this->pArrays[0]) this->pArrays[0]->release();
-        this->pArrays[0] = pArrayOut;
-    }
-    else {
-        asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR, 
-            "%s::%s: Couldn't allocate output array. Further processing terminated.\n", 
-            driverName, functionName);
+
+    int arrayCallbacks = 0;
+    getIntegerParam(NDArrayCallbacks, &arrayCallbacks);
+    if (arrayCallbacks == 1) {
+        NDArray *pArrayOut = this->pNDArrayPool->copy(pArray, NULL, 1);
+        if (NULL != pArrayOut) {
+            this->getAttributes(pArrayOut->pAttributeList);
+            this->unlock();
+            doCallbacksGenericPointer(pArrayOut, NDArrayData, 0);
+            this->lock();
+            /* Save a copy of this array for calculations when cursor is moved or threshold is changed */
+            if (this->pArrays[0]) this->pArrays[0]->release();
+            this->pArrays[0] = pArrayOut;
+        }
+        else {
+            asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR, 
+                "%s::%s: Couldn't allocate output array. Further processing terminated.\n", 
+                driverName, functionName);
+        }
     }
 
     callParamCallbacks();
@@ -781,6 +792,7 @@ NDPluginStats::NDPluginStats(const char *portName, int queueSize, int blockingCa
     createParam(NDPluginStatsTSSigmaXString,          asynParamFloat64Array, &NDPluginStatsTSSigmaX);
     createParam(NDPluginStatsTSSigmaYString,          asynParamFloat64Array, &NDPluginStatsTSSigmaY);
     createParam(NDPluginStatsTSSigmaXYString,         asynParamFloat64Array, &NDPluginStatsTSSigmaXY);
+    createParam(NDPluginStatsTSTimestampString,       asynParamFloat64Array, &NDPluginStatsTSTimestamp);
 
     /* Profiles */
     createParam(NDPluginStatsComputeProfilesString,   asynParamInt32,         &NDPluginStatsComputeProfiles);

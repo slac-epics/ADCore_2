@@ -65,13 +65,13 @@ public:
                                   * multiple NDArrays to a single file. Used in capture and stream modes. */
 
 private:
-    asynStatus createDirectoryPath( char * path, int create );
     asynStatus openFileBase(NDFileOpenMode_t openMode, NDArray *pArray);
     asynStatus readFileBase();
     asynStatus writeFileBase();
     asynStatus closeFileBase();
     asynStatus doCapture(int capture);
     void       freeCaptureBuffer(int numCapture);
+    void       doNDArrayCallbacks(NDArray *pArray);
     asynStatus attrFileNameCheck();
     asynStatus attrFileNameSet();
     bool attrIsProcessingRequired(NDAttributeList* pAttrList);
