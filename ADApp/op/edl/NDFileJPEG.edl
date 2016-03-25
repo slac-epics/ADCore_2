@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1292
-y 68
+x 518
+y 1272
 w 420
-h 820
+h 914
 font "helvetica-bold-r-12.0"
 ctlFont "helvetica-bold-r-12.0"
 btnFont "helvetica-bold-r-12.0"
@@ -32,8 +32,8 @@ minor 1
 release 0
 x 0
 y 0
-w 404
-h 384
+w 412
+h 388
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
@@ -58,7 +58,7 @@ release 0
 x 0
 y 392
 w 404
-h 336
+h 432
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
@@ -81,8 +81,8 @@ major 4
 minor 0
 release 0
 x 4
-y 744
-w 185
+y 836
+w 236
 h 40
 lineColor index 14
 fill
@@ -94,9 +94,9 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 4
-y 736
+y 828
 w 56
 h 14
 font "helvetica-medium-r-12.0"
@@ -114,10 +114,10 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 12
-y 756
-w 70
+y 848
+w 88
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
@@ -132,11 +132,11 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
-x 92
-y 756
-w 45
+x 116
+y 848
+w 52
 h 20
 controlPv "$(P)$(R)JPEGQuality"
 font "helvetica-bold-r-12.0"
@@ -157,9 +157,9 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 140
-y 756
-w 45
+x 176
+y 848
+w 52
 h 20
 controlPv "$(P)$(R)JPEGQuality_RBV"
 fgColor index 16
@@ -176,8 +176,8 @@ beginObjectProperties
 major 4
 minor 3
 release 0
-x 5
-y 790
+x 4
+y 884
 w 380
 h 25
 fgColor index 14
