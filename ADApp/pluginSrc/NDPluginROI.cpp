@@ -218,19 +218,19 @@ void NDPluginROI::processCallbacks(NDArray *pArray)
 	pOutput->getInfo(&arrayInfoOut);
  
 	/* Calculate ROI bitsPerElement */
-    int		bitsPerPixel	=	arrayInfo.bitsPerElement;
+    double	bitsPerPixel	=	arrayInfo.bitsPerElement;
 	size_t	binFactor = 1;
-	for ( size_t iDim=0; iDim < pArray->ndims; iDim++ )
+	for ( size_t iDim=0; iDim < static_cast<unsigned>(pArray->ndims); iDim++ )
 		binFactor	*= dims[iDim].binning;
 	if ( binFactor != 1 )
-		bitsPerPixel	+= static_cast<int>( ceil( log2( binFactor ) ) );
+		bitsPerPixel	+= log2( binFactor );
 	if ( enableScale && scale != 0 && scale != 1 )
-		bitsPerPixel	-= static_cast<int>( floor( log2( scale ) ) );
+		bitsPerPixel	-= log2( scale );
 	/* Clip bitsPerElement to max for output dataType */
 	if( bitsPerPixel > GetNDDataTypeBits(pOutput->dataType) )
 		bitsPerPixel = GetNDDataTypeBits(pOutput->dataType);
     /* Set the bits per pixel of the ROI output */
-	pOutput->bitsPerElement = bitsPerPixel;
+	pOutput->bitsPerElement = lrint( bitsPerPixel );
 
     /* Set the image size of the ROI image data */
     setIntegerParam(NDArraySizeX, 0);
