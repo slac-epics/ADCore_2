@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1384
-y 1525
-w 397
-h 385
+x 787
+y 1288
+w 400
+h 400
 font "helvetica-bold-r-12.0"
 ctlFont "helvetica-bold-r-12.0"
 btnFont "helvetica-bold-r-12.0"
@@ -31,8 +31,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 200
-y 316
+x 192
+y 312
 w 192
 h 64
 lineColor index 14
@@ -46,8 +46,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 200
-y 196
+x 192
+y 192
 w 192
 h 108
 lineColor index 14
@@ -61,8 +61,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 200
-y 76
+x 192
+y 72
 w 192
 h 108
 lineColor index 14
@@ -76,8 +76,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 4
-y 12
+x 0
+y 8
 w 388
 h 56
 lineColor index 14
@@ -91,8 +91,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 12
-y 18
+x 4
+y 16
 w 76
 h 20
 font "helvetica-bold-r-12.0"
@@ -110,8 +110,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 96
-y 18
+x 88
+y 14
 w 290
 h 20
 controlPv "$(P)$(R)PortName_RBV"
@@ -135,8 +135,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 96
-y 44
+x 88
+y 40
 w 228
 h 20
 controlPv "$(P)$(R)PluginType_RBV"
@@ -160,8 +160,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 12
-y 44
+x 4
+y 40
 w 80
 h 20
 font "helvetica-bold-r-12.0"
@@ -179,8 +179,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 4
-y 84
+x 0
+y 80
 w 192
 h 60
 lineColor index 14
@@ -194,8 +194,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 95
+x 4
+y 92
 w 59
 h 45
 font "helvetica-bold-r-12.0"
@@ -214,8 +214,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 76
-y 120
+x 68
+y 116
 w 112
 h 20
 controlPv "$(P)$(R)NDArrayPort_RBV"
@@ -239,8 +239,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 76
-y 96
+x 68
+y 92
 w 112
 h 20
 controlPv "$(P)$(R)NDArrayPort"
@@ -263,8 +263,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 4
-y 160
+x 0
+y 156
 w 192
 h 84
 lineColor index 14
@@ -278,9 +278,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 8
-y 172
-w 64
+x 4
+y 168
+w 60
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
@@ -297,9 +297,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 8
-y 196
-w 64
+x 4
+y 192
+w 60
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
@@ -316,8 +316,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 136
-y 196
+x 128
+y 192
 w 55
 h 20
 controlPv "$(P)$(R)MinCallbackTime_RBV"
@@ -341,8 +341,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 76
-y 196
+x 68
+y 192
 w 55
 h 20
 controlPv "$(P)$(R)MinCallbackTime"
@@ -365,9 +365,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 8
-y 220
-w 64
+x 4
+y 216
+w 60
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
@@ -384,8 +384,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 76
-y 220
+x 68
+y 216
 w 115
 h 20
 fgColor index 25
@@ -404,13 +404,13 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 76
-y 172
+x 68
+y 168
 w 115
 h 20
 fgColor index 25
 bgColor index 3
-inconsistentColor index 0
+inconsistentColor index 40
 topShadowColor index 1
 botShadowColor index 11
 controlPv "$(P)$(R)EnableCallbacks"
@@ -424,8 +424,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 4
-y 260
+x 0
+y 256
 w 192
 h 120
 lineColor index 14
@@ -439,8 +439,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 275
+x 4
+y 272
 w 40
 h 20
 font "helvetica-bold-r-12.0"
@@ -458,8 +458,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 350
+x 4
+y 348
 w 55
 h 20
 font "helvetica-bold-r-12.0"
@@ -477,8 +477,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 128
-y 276
+x 120
+y 272
 w 60
 h 20
 controlPv "$(P)$(R)ArrayCounter_RBV"
@@ -502,8 +502,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 72
-y 276
+x 64
+y 272
 w 52
 h 20
 controlPv "$(P)$(R)ArrayCounter"
@@ -526,8 +526,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 128
-y 352
+x 120
+y 348
 w 60
 h 20
 controlPv "$(P)$(R)DroppedArrays_RBV"
@@ -551,8 +551,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 72
-y 352
+x 64
+y 348
 w 52
 h 20
 controlPv "$(P)$(R)DroppedArrays"
@@ -575,8 +575,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 300
+x 4
+y 296
 w 115
 h 20
 font "helvetica-bold-r-12.0"
@@ -594,8 +594,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 128
-y 300
+x 120
+y 296
 w 60
 h 20
 controlPv "$(P)$(R)ArrayRate_RBV"
@@ -619,8 +619,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 204
-y 88
+x 196
+y 84
 w 85
 h 20
 font "helvetica-bold-r-12.0"
@@ -638,8 +638,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 296
-y 88
+x 288
+y 84
 w 88
 h 20
 controlPv "$(P)$(R)NDimensions_RBV"
@@ -663,8 +663,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 296
-y 112
+x 288
+y 108
 w 88
 h 20
 controlPv "$(P)$(R)ArraySize0_RBV"
@@ -688,8 +688,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 204
-y 112
+x 196
+y 108
 w 80
 h 20
 font "helvetica-bold-r-12.0"
@@ -707,8 +707,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 204
-y 136
+x 196
+y 132
 w 80
 h 20
 font "helvetica-bold-r-12.0"
@@ -726,8 +726,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 296
-y 136
+x 288
+y 132
 w 88
 h 20
 controlPv "$(P)$(R)ArraySize1_RBV"
@@ -751,8 +751,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 204
-y 160
+x 196
+y 156
 w 80
 h 20
 font "helvetica-bold-r-12.0"
@@ -770,8 +770,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 296
-y 160
+x 288
+y 156
 w 88
 h 20
 controlPv "$(P)$(R)ArraySize2_RBV"
@@ -795,8 +795,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 204
-y 208
+x 196
+y 204
 w 88
 h 20
 font "helvetica-bold-r-12.0"
@@ -814,8 +814,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 204
-y 256
+x 196
+y 252
 w 88
 h 20
 font "helvetica-bold-r-12.0"
@@ -833,8 +833,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 296
-y 208
+x 288
+y 204
 w 88
 h 20
 controlPv "$(P)$(R)DataType_RBV"
@@ -858,8 +858,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 296
-y 256
+x 288
+y 252
 w 88
 h 20
 controlPv "$(P)$(R)ColorMode_RBV"
@@ -883,52 +883,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 204
-y 280
-w 88
-h 20
-font "helvetica-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Bayer Pattern"
-}
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 296
-y 280
-w 88
-h 20
-controlPv "$(P)$(R)BayerPattern_RBV"
-font "helvetica-bold-r-12.0"
-fontAlign "center"
-fgColor index 16
-fgAlarm
-bgColor index 12
-limitsFromDb
-nullColor index 40
-smartRefresh
-useHexPrefix
-newPos
-objType "monitors"
-noExecuteClipMask
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 205
-y 325
+x 196
+y 320
 w 80
 h 20
 font "helvetica-bold-r-12.0"
@@ -936,7 +892,7 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "Unique ID"
+  "Fiducial"
 }
 endObjectProperties
 
@@ -946,9 +902,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 296
-y 324
-w 88
+x 276
+y 320
+w 100
 h 20
 controlPv "$(P)$(R)UniqueId_RBV"
 font "helvetica-bold-r-12.0"
@@ -971,8 +927,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 205
-y 350
+x 196
+y 348
 w 80
 h 20
 font "helvetica-bold-r-12.0"
@@ -990,9 +946,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 296
-y 352
-w 88
+x 276
+y 348
+w 100
 h 20
 controlPv "$(P)$(R)TimeStamp_RBV"
 font "helvetica-bold-r-12.0"
@@ -1000,7 +956,7 @@ fontAlign "center"
 fgColor index 16
 fgAlarm
 bgColor index 12
-limitsFromDb
+precision 2
 nullColor index 40
 smartRefresh
 useHexPrefix
@@ -1015,8 +971,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 128
-y 324
+x 120
+y 320
 w 60
 h 20
 controlPv "$(P)$(R)QueueSize"
@@ -1040,8 +996,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 72
-y 324
+x 64
+y 320
 w 52
 h 20
 controlPv "$(P)$(R)QueueUse"
@@ -1065,8 +1021,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 325
+x 4
+y 320
 w 55
 h 20
 font "helvetica-bold-r-12.0"
@@ -1084,8 +1040,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 4
-y 4
+x 0
+y 0
 w 76
 h 14
 font "helvetica-medium-r-12.0"
@@ -1104,8 +1060,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 4
-y 80
+x 0
+y 76
 w 43
 h 14
 font "helvetica-medium-r-12.0"
@@ -1124,8 +1080,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 4
-y 156
+x 0
+y 152
 w 60
 h 16
 font "helvetica-medium-r-12.0"
@@ -1144,8 +1100,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 4
-y 256
+x 0
+y 252
 w 60
 h 14
 font "helvetica-medium-r-12.0"
@@ -1164,8 +1120,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 200
-y 72
+x 192
+y 68
 w 78
 h 14
 font "helvetica-medium-r-12.0"
@@ -1184,8 +1140,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 200
-y 192
+x 192
+y 188
 w 76
 h 16
 font "helvetica-medium-r-12.0"
@@ -1204,8 +1160,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 200
-y 310
+x 192
+y 308
 w 76
 h 14
 font "helvetica-medium-r-12.0"
@@ -1224,8 +1180,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 332
-y 44
+x 324
+y 40
 w 56
 h 20
 fgColor index 14
@@ -1261,8 +1217,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 204
-y 232
+x 196
+y 228
 w 88
 h 20
 font "helvetica-bold-r-12.0"
@@ -1280,8 +1236,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 296
-y 232
+x 288
+y 228
 w 88
 h 20
 controlPv "$(P)$(R)BitsPerPixel_RBV"
@@ -1297,5 +1253,70 @@ useHexPrefix
 newPos
 objType "monitors"
 noExecuteClipMask
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 196
+y 276
+w 180
+h 20
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 196
+y 276
+w 88
+h 20
+font "helvetica-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Bayer Pattern"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 288
+y 276
+w 88
+h 20
+controlPv "$(P)$(R)BayerPattern_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
+noExecuteClipMask
+endObjectProperties
+
+endGroup
+
+visPv "$(P)$(R)ColorMode"
+visInvert
+visMin "0"
+visMax "1"
 endObjectProperties
 
