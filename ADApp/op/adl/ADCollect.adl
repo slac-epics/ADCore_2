@@ -1,6 +1,6 @@
 
 file {
-	name="/home/epics/devel/areaDetector-2-4/ADCore/ADApp/op/adl/ADCollect.adl"
+	name="/home/epics/devel/areaDetector-2-5/ADCore/ADApp/op/adl/ADCollect.adl"
 	version=030107
 }
 display {
@@ -301,48 +301,6 @@ text {
 }
 text {
 	object {
-		x=25
-		y=155
-		width=100
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Image mode"
-	align="horiz. right"
-}
-menu {
-	object {
-		x=130
-		y=155
-		width=120
-		height=20
-	}
-	control {
-		chan="$(P)$(R)ImageMode"
-		clr=14
-		bclr=51
-	}
-}
-"text update" {
-	object {
-		x=255
-		y=157
-		width=80
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)ImageMode_RBV"
-		clr=54
-		bclr=4
-	}
-	format="string"
-	limits {
-	}
-}
-text {
-	object {
 		x=5
 		y=180
 		width=120
@@ -488,7 +446,6 @@ text {
 		bclr=2
 	}
 	clrmod="alarm"
-	format="string"
 	limits {
 	}
 }
@@ -509,7 +466,7 @@ text {
 	object {
 		x=180
 		y=306
-		width=90
+		width=67
 		height=18
 	}
 	monitor {
@@ -663,33 +620,22 @@ text {
 	limits {
 	}
 }
-composite {
+rectangle {
 	object {
 		x=123
 		y=2
 		width=105
 		height=21
 	}
-	"composite name"=""
-	children {
-		rectangle {
-			object {
-				x=123
-				y=2
-				width=105
-				height=21
-			}
-			"basic attribute" {
-				clr=2
-			}
-		}
+	"basic attribute" {
+		clr=2
 	}
 }
 text {
 	object {
-		x=97
+		x=140
 		y=3
-		width=157
+		width=70
 		height=20
 	}
 	"basic attribute" {
@@ -697,4 +643,46 @@ text {
 	}
 	textix="Collect"
 	align="horiz. centered"
+}
+text {
+	object {
+		x=25
+		y=155
+		width=100
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Image mode"
+	align="horiz. right"
+}
+menu {
+	object {
+		x=130
+		y=155
+		width=120
+		height=20
+	}
+	control {
+		chan="$(P)$(R)ImageMode"
+		clr=14
+		bclr=51
+	}
+}
+"text update" {
+	object {
+		x=255
+		y=157
+		width=80
+		height=18
+	}
+	monitor {
+		chan="$(P)$(R)ImageMode_RBV"
+		clr=54
+		bclr=4
+	}
+	format="string"
+	limits {
+	}
 }

@@ -13,8 +13,11 @@
 #include <math.h>
 #include <time.h>
 
-#include <epicsString.h>
-#include <epicsMutex.h>
+#include <epicsTypes.h>
+#include <epicsMessageQueue.h>
+#include <epicsThread.h>
+#include <epicsEvent.h>
+#include <epicsTime.h>
 #include <iocsh.h>
 
 #include <asynDriver.h>
@@ -399,9 +402,9 @@ extern "C" int NDOverlayConfigure(const char *portName, int queueSize, int block
                                  int maxBuffers, size_t maxMemory,
                                  int priority, int stackSize)
 {
-    new NDPluginOverlay(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr, maxOverlays,
-                        maxBuffers, maxMemory, priority, stackSize);
-    return(asynSuccess);
+    NDPluginOverlay *pPlugin = new NDPluginOverlay(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr, maxOverlays,
+                                                   maxBuffers, maxMemory, priority, stackSize);
+    return pPlugin->start();
 }
 
 /* EPICS iocsh shell commands */

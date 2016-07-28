@@ -23,7 +23,11 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <epicsStdio.h>
+#include <epicsTypes.h>
+#include <epicsMessageQueue.h>
+#include <epicsThread.h>
+#include <epicsEvent.h>
+#include <epicsTime.h>
 #include <iocsh.h>
 
 #include <asynDriver.h>
@@ -477,9 +481,9 @@ extern "C" int NDFileTIFFConfigure(const char *portName, int queueSize, int bloc
                                    const char *NDArrayPort, int NDArrayAddr,
                                    int priority, int stackSize)
 {
-    new NDFileTIFF(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr,
-                   priority, stackSize);
-    return(asynSuccess);
+    NDFileTIFF *pPlugin = new NDFileTIFF(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr,
+                                         priority, stackSize);
+    return pPlugin->start();
 }
 
 

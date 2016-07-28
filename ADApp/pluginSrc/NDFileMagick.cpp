@@ -9,7 +9,11 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <epicsStdio.h>
+#include <epicsTypes.h>
+#include <epicsMessageQueue.h>
+#include <epicsThread.h>
+#include <epicsEvent.h>
+#include <epicsTime.h>
 #include <iocsh.h>
 
 #include <asynDriver.h>
@@ -220,9 +224,9 @@ extern "C" int NDFileMagickConfigure(const char *portName, int queueSize, int bl
                                    const char *NDArrayPort, int NDArrayAddr,
                                    int priority, int stackSize)
 {
-    new NDFileMagick(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr,
-                     priority, stackSize);
-    return(asynSuccess);
+    NDFileMagick *pPlugin = new NDFileMagick(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr,
+                                             priority, stackSize);
+    return pPlugin->start();
 }
 
 

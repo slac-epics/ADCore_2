@@ -23,8 +23,25 @@ files respectively, in the configure/ directory of the appropriate release of th
 Release Notes
 =============
 
-R2-5 (March XXX, 2016)
+R2-5 (May XXX, 2016)
 ========================
+### NDPluginDriver
+* Added the ability to change the QueueSize of a plugin at run-time. This can be very useful,
+  particularly for file plugins where an acquisition of N frames is overflowing the queue,
+  but increasing the queue can fix the problem. This will be even more useful in ADCore R3-0
+  where we plan to eliminate Capture mode in NDPluginFile. Being able to increase the queue does
+  everything that Capture mode did, but has the additional advantage that in Capture mode the
+  NDArray memory is not allocated from the NDArrayPool, so there is no check on allocating too
+  many arrays or too much memory. Using the queue means that arrays are allocated from the pool,
+  so the limits on total number of arrays and total memory defined in the constructor will be obeyed.
+  This is very important in preventing system freezes if the user accidentally tries allocate all the
+  system memory, which can effectively crash the computer.
+
+### Added a new start() method that must be called after the plugin object is created.  This requires
+  a small change to all plugins.  The plugins in ADCore/ADApp/pluginSrc can be used as examples.  This
+  change was required to prevent a race condition when the plugin only existed for a very short
+  time, which happens in the unit tests in ADCore/ADApp/pluginsTests.
+
 ### NDPluginTimeSeries
 * New plugin to for time-series data.  The plugin accepts input arrays of dimensions
   [NumSignals] or [NumSignals, NewTimePoints].  The plugin creates NumSignals 1-D
@@ -48,7 +65,7 @@ R2-5 (March XXX, 2016)
   ADC with 8 input waveform signals.
 
 ### NDPluginFFT
-* New plugin to compute 1-D or 2-D Fast Fourrier transforms.  It exports 1-D or 2-D
+* New plugin to compute 1-D or 2-D Fast Fourier transforms.  It exports 1-D or 2-D
   NDArrays containing the absolute value of the FFT.  It creates 1-D waveform
   records of the input, and the real, imaginary, and absolute values of the first row of the FFT.
   It also creates 1-D waveform records of the time and frequency axes, which are useful if the 1-D
@@ -78,10 +95,21 @@ R2-5 (March XXX, 2016)
 ### NDArrayBase.template, NDPluginDriver.cpp
 * Set ArrayCallbacks.VAL to 1 so array callbacks are enabled by default.
 
+### NDFileHDF5
+* Added capability to save NDAttributes of type NDAttrString as a 1-D array of strings (HDF5 type H5T_C_S1) rather
+  than a 2-D array of 8-bit integers (HDF5 type H5T_NATIVE_CHAR), which is the datatype used prior to R2-5.  
+  H5T_NATIVE_CHAR is really
+  intended to be an integer data type, and so most HDF5 utilities (h5dump, HDFView, etc.) display
+  these attributes by default as an array of integer numbers rather than as a string.  There is a new
+  PV StrAttrDataType that controls which data type is used.  The default is "Char" which is backwards
+  compatible and uses H5T_NATIVE_CHAR.  "String" selects H5T_C_S1.
+
 ### NDPluginBase.template
+* Changed QueueSize from longin to longout, because the plugin queue size can now be changed at runtime.
+  Added longin QueueSize_RBV.
 * Changed EnableCallbacks.VAL to $(ENABLED=0), allowing enabling callbacks when loading database,
   but default remains Disable.
-* Set the default value of the MDARRAY_ADDR macro to 0 so it does not need to be defined in most cases.
+* Set the default value of the NDARRAY_ADDR macro to 0 so it does not need to be defined in most cases.
   
 ### ADApp/op/adl
 * Fixed many medm adl files so text fields have correct string/decimal, width and aligmnent attributes to
@@ -94,6 +122,10 @@ R2-5 (March XXX, 2016)
 ### iocBoot
 * Deleted commonPlugins.cmd and commonPlugin_settings.req.  These were accidentally restored before the R2-4
   release after renaming them to EXAMPLE_commonPlugins.cmd and EXAMPLE_commonPlugin_settings.req.
+
+### ImageJ EPICS_ADViewer
+* Changed to work with 1-D arrays, i.e. nx>0, ny=0, nz=0.  Previously it did not work if ny=0.  This
+  is a useful enhancement because the ImageJ Dynamic Profiler can then be used to plot the 1-D array.
 
 
 R2-4 (September 21, 2015)

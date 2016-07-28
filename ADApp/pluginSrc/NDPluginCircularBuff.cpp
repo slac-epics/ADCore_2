@@ -12,8 +12,11 @@
 #include <stdio.h>
 #include <math.h>
 
-#include <epicsString.h>
-#include <epicsMutex.h>
+#include <epicsTypes.h>
+#include <epicsMessageQueue.h>
+#include <epicsThread.h>
+#include <epicsEvent.h>
+#include <epicsTime.h>
 #include <epicsMath.h>
 #include <iocsh.h>
 #include <postfix.h>
@@ -449,9 +452,9 @@ extern "C" int NDCircularBuffConfigure(const char *portName, int queueSize, int 
                                 const char *NDArrayPort, int NDArrayAddr,
                                 int maxBuffers, size_t maxMemory)
 {
-    new NDPluginCircularBuff(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr,
-                      maxBuffers, maxMemory, 0, 2000000);
-    return(asynSuccess);
+    NDPluginCircularBuff *pPlugin = new NDPluginCircularBuff(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr,
+                                                             maxBuffers, maxMemory, 0, 2000000);
+    return pPlugin->start();
 }
 
 /* EPICS iocsh shell commands */

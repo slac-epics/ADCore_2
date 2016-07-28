@@ -12,8 +12,11 @@
 #include <stdio.h>
 #include <math.h>
 
-#include <epicsString.h>
-#include <epicsMutex.h>
+#include <epicsTypes.h>
+#include <epicsMessageQueue.h>
+#include <epicsThread.h>
+#include <epicsEvent.h>
+#include <epicsTime.h>
 #include <iocsh.h>
 
 #include <asynDriver.h>
@@ -287,9 +290,9 @@ extern "C" int NDAttrConfigure(const char *portName, int queueSize, int blocking
                                int maxAttributes, int maxBuffers, size_t maxMemory,
                                int priority, int stackSize)
 {
-    new NDPluginAttribute(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr,
-                          maxAttributes, maxBuffers, maxMemory, priority, stackSize);
-    return(asynSuccess);
+    NDPluginAttribute *pPlugin = new NDPluginAttribute(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr,
+                                                       maxAttributes, maxBuffers, maxMemory, priority, stackSize);
+    return pPlugin->start();
 }
 
 /* EPICS iocsh shell commands */

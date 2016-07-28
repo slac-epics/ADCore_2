@@ -13,13 +13,12 @@
 #include <stdio.h>
 #include <errno.h>
 
-#include <epicsThread.h>
-#include <epicsString.h>
-#include <epicsTimer.h>
-#include <epicsMutex.h>
-#include <epicsEvent.h>
+#include <epicsTypes.h>
 #include <epicsMessageQueue.h>
-#include <cantProceed.h>
+#include <epicsThread.h>
+#include <epicsEvent.h>
+#include <epicsTime.h>
+#include <epicsString.h>
 
 #include <asynDriver.h>
 
@@ -397,12 +396,17 @@ asynStatus NDPluginFile::doCapture(int capture)
     int numCapture;
     static const char* functionName = "doCapture";
 
-    /* Make sure there is a valid array */
+    /* Make sure there is a valid array if capture is set to 1 */
     if (!pArray && !this->lazyOpen) {
-        asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
-            "%s:%s: ERROR, must collect an array to get dimensions first\n",
-            driverName, functionName);
-        return(asynError);
+        if (capture == 0){
+            /* No error here, but just return straight away as stop capture is non operation */
+            return(asynSuccess);
+        } else {
+            asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+                "%s:%s: ERROR, must collect an array to get dimensions first\n",
+                driverName, functionName);
+            return(asynError);
+        }
     }
     
     /* Decide whether or not to use the NDAttribute named "fileprefix" to create the filename */
