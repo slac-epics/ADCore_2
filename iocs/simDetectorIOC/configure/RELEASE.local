@@ -1,0 +1,16 @@
+# RELEASE.local
+#
+# Fetch path relative EPICS_BASE and EPICS_MODULES
+# $(info Trying to read $(TOP)/../../../../RELEASE.local ... )
+-include $(TOP)/../../../../RELEASE.local
+
+# =============================================================
+# Define the version of modules needed by
+# IOC apps or other Support apps
+# =============================================================
+ASYN_MODULE_VERSION=asyn-R4-25_1-0
+
+# ============================================================
+#  Module Location
+# ============================================================
+ASYN=$(EPICS_MODULES)/asyn/$(ASYN_MODULE_VERSION)
