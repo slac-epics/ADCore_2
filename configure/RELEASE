@@ -8,3 +8,7 @@
 -include $(TOP)/RELEASE.local
 -include $(TOP)/configure/RELEASE.local
 
+# Test for required macros
+ifeq ($(wildcard $(ASYN)),)
+$(error ASYN path not found: $(ASYN))
+endif
