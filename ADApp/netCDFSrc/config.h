@@ -187,7 +187,7 @@
 #if !defined(vxWorks) && !defined(_WIN32)
 #define HAVE_STDBOOL_H 1
 #endif
-#if defined(vxWorks) && defined(_WRS_VXWORKS_MAJOR) && (_WRS_VXWORKS_MAJOR >= 6) && (_WRS_VXWORKS_MINOR >= 8)
+#if defined(vxWorks) && defined(_WRS_VXWORKS_MAJOR) && (_WRS_VXWORKS_MAJOR >= 6) && (_WRS_VXWORKS_MINOR >= 6)
 #define HAVE_STDBOOL_H 1
 #endif
 
@@ -302,7 +302,7 @@
 /* Define to 1 if you have the `vprintf' function. */
 #define HAVE_VPRINTF 1
 
-/* Define to 1 if the system has the type `_Bool'. */
+/* Define to 1 if the system has the type `utf8proc_bool'. */
 #if !defined(vxWorks) && !defined(_WIN32)
 #define HAVE__BOOL 1
 #endif
