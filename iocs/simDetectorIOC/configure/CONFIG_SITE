@@ -21,6 +21,13 @@ CHECK_RELEASE = YES
 #   that Base is built for.
 #CROSS_COMPILER_TARGET_ARCHS = vxWorks-68040
 
+# Build for linuxRT:
+# Need to add hdf5, szip libraries
+# CROSS_COMPILER_TARGET_ARCHS = linuxRT_glibc-x86_64
+
+# Build for Host Only:
+#CROSS_COMPILER_TARGET_ARCHS = 
+
 # To install files into a location other than $(TOP) define
 #   INSTALL_LOCATION here.
 #INSTALL_LOCATION=</path/name/to/install/top>
@@ -40,3 +47,30 @@ ifdef T_A
   -include $(AREA_DETECTOR)/configure/CONFIG_SITE.Common.$(T_A)
   -include $(AREA_DETECTOR)/configure/CONFIG_SITE.$(EPICS_HOST_ARCH).$(T_A)
 endif
+
+#
+# Define the location of the hdf5, sz, and GraphicsMagick libraries
+# I did an RPM install of the following package:
+# hdf5-1.8.14-1.with.szip.encoder.el6.x86_64
+# So only need to define location of libs and headers
+#HDF5         = /usr/local/hdf5-1.8.7/hdf5
+#HDF5_LIB     = $(HDF5)/lib
+#HDF5_INCLUDE = -I$(HDF5)/include
+
+HDF5_LIB     = /usr/lib64
+HDF5_INCLUDE = -I$/usr/include
+
+#SZIP           = /usr/local/szip-2.1/szip
+#SZIP_LIB       = $(SZIP)/lib
+#SZIP_INCLUDE   = -I$(SZIP)/include
+
+SZIP_LIB       = /usr/lib64
+SZIP_INCLUDE   = -I/usr/include
+
+#
+# GRAPHICS_MAGICK         = /usr/local
+# GRAPHICS_MAGICK_LIB     = $(GRAPHICS_MAGICK)/lib
+# GRAPHICS_MAGICK_INCLUDE = -I$(GRAPHICS_MAGICK)/include/GraphicsMagick
+
+STATIC_BUILD=YES
+
