@@ -3,13 +3,13 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1355
-y 274
-w 390
-h 820
-font "arial-bold-r-12.0"
-ctlFont "arial-bold-r-12.0"
-btnFont "arial-bold-r-12.0"
+x 518
+y 1272
+w 420
+h 914
+font "helvetica-bold-r-12.0"
+ctlFont "helvetica-bold-r-12.0"
+btnFont "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 textColor index 14
@@ -21,23 +21,8 @@ topShadowColor index 1
 botShadowColor index 11
 showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 665
-w 390
-h 155
-lineColor index 5
-fill
-fillColor index 5
-endObjectProperties
 
 # (Embedded Window)
 object activePipClass
@@ -47,19 +32,19 @@ minor 1
 release 0
 x 0
 y 0
-w 390
-h 385
+w 412
+h 388
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
 displaySource "file"
-file "NDPluginBase"
+file "areaDetectorScreens/NDPluginBase.edl"
 sizeOfs 5
 numDsps 2
 displayFileName {
-  0 "NDPluginBase"
-  1 "NDPluginBase"
+  0 "areaDetectorScreens/NDPluginBase.edl"
+  1 "areaDetectorScreens/NDPluginBase.edl"
 }
 noScroll
 endObjectProperties
@@ -71,20 +56,20 @@ major 4
 minor 1
 release 0
 x 0
-y 385
-w 390
-h 280
+y 392
+w 404
+h 432
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
 displaySource "file"
-file "NDFile"
+file "areaDetectorScreens/NDFile.edl"
 sizeOfs 5
 numDsps 2
 displayFileName {
-  0 "NDPluginBase"
-  1 "NDPluginBase"
+  0 "areaDetectorScreens/NDPluginBase.edl"
+  1 "areaDetectorScreens/NDPluginBase.edl"
 }
 noScroll
 endObjectProperties
@@ -95,9 +80,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 5
-y 680
-w 185
+x 4
+y 836
+w 236
 h 40
 lineColor index 14
 fill
@@ -109,12 +94,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 5
-y 670
-w 52
-h 15
-font "arial-medium-r-12.0"
+release 1
+x 4
+y 828
+w 56
+h 14
+font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
 value {
@@ -129,12 +114,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 10
-y 690
-w 70
+release 1
+x 12
+y 848
+w 88
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -143,40 +128,45 @@ value {
 }
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 90
-y 690
-w 45
+x 116
+y 848
+w 52
 h 20
 controlPv "$(P)$(R)JPEGQuality"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
 endObjectProperties
 
-# (Textupdate)
+# (Text Update)
 object TextupdateClass
 beginObjectProperties
 major 10
 minor 0
 release 0
-x 140
-y 690
-w 45
+x 176
+y 848
+w 52
 h 20
 controlPv "$(P)$(R)JPEGQuality_RBV"
 fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
@@ -184,21 +174,21 @@ endObjectProperties
 object shellCmdClass
 beginObjectProperties
 major 4
-minor 2
+minor 3
 release 0
-x 5
-y 790
+x 4
+y 884
 w 380
 h 25
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 buttonLabel "HTML Documentation"
 numCmds 1
 command {
-  0 "firefox \"file://$(which ADBase.edl | sed \"s|data/ADBase.edl|documentation/NDPluginFile.html#JPEG|\")\" &"
+  0 "firefox --no-remote areaDetectorHelp/NDPluginFile.html#JPEG &"
 }
 endObjectProperties
 

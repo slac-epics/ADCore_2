@@ -12,6 +12,7 @@ auto_settings.sav*
 configure/*.local
 O.*/
 *~
+*.log
 *.swp
 .project
 .settings

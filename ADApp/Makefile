@@ -9,15 +9,15 @@ simDetectorSrc_DEPEND_DIRS = pluginSrc
 
 DIRS += ADSrc
 
+#DIRS += hdf5Support
+
 DIRS += pluginSrc
-pluginSrc_DEPEND_DIRS += ADSrc netCDFSrc nexusSrc tiffSupport
+pluginSrc_DEPEND_DIRS += ADSrc netCDFSrc nexusSrc
 
 DIRS += netCDFSrc
 
 DIRS += nexusSrc
-#nexusSrc_DEPEND_DIRS += ADBinaries
-
-DIRS += tiffSupport
+#nexusSrc_DEPEND_DIRS += hdf5Support
 
 include $(TOP)/configure/RULES_DIRS
 

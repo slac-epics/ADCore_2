@@ -3,13 +3,13 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 313
-y 173
+x 394
+y 240
 w 700
 h 506
-font "arial-bold-r-12.0"
-ctlFont "arial-bold-r-12.0"
-btnFont "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
+ctlFont "helvetica-bold-r-12.0"
+btnFont "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 5
 textColor index 14
@@ -21,7 +21,7 @@ topShadowColor index 1
 botShadowColor index 11
 showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
 
 # (Rectangle)
@@ -59,12 +59,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 5
 y 175
-w 52
+w 55
 h 14
-font "arial-medium-r-12.0"
+font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
 value {
@@ -79,12 +79,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 190
-w 80
+w 85
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -98,12 +98,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 215
 w 85
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -117,12 +117,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 265
 w 85
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -148,7 +148,7 @@ topShadowColor index 1
 botShadowColor index 11
 controlPv "$(P)$(R)ShutterMode"
 indicatorPv "$(P)$(R)ShutterMode_RBV"
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Menu Button)
@@ -168,44 +168,54 @@ topShadowColor index 1
 botShadowColor index 11
 controlPv "$(P)$(R)ShutterControl"
 indicatorPv "$(P)$(R)ShutterControl_RBV"
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
 x 100
 y 265
 w 90
 h 20
 controlPv "$(P)$(R)ShutterStatus_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
 x 100
 y 240
 w 90
 h 20
 controlPv "$(P)$(R)ShutterOpenDelay"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
 endObjectProperties
 
 # (Static Text)
@@ -213,12 +223,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 240
-w 70
+w 85
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -227,22 +237,27 @@ value {
 }
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
 x 290
 y 240
 w 90
 h 20
 controlPv "$(P)$(R)ShutterCloseDelay"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
 endObjectProperties
 
 # (Static Text)
@@ -250,12 +265,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 205
 y 240
 w 75
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -264,23 +279,28 @@ value {
 }
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
 x 290
 y 265
 w 90
 h 20
 controlPv "$(P)$(R)ShutterStatusEPICS_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
 # (Static Text)
@@ -288,12 +308,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 200
 y 265
 w 85
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fontAlign "center"
 fgColor index 14
 bgColor index 3
@@ -309,8 +329,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 575
-y 470
+x 576
+y 476
 w 110
 h 25
 fgColor index 46
@@ -318,80 +338,100 @@ bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
 label "EXIT"
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 3d
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
 x 95
 y 350
 w 290
 h 25
 controlPv "$(P)$(R)ShutterOpenEPICS.OCAL"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-10.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
 x 95
 y 380
 w 290
 h 25
 controlPv "$(P)$(R)ShutterCloseEPICS.OCAL"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-10.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
 x 95
 y 440
 w 290
 h 25
 controlPv "$(P)$(R)ShutterStatusEPICS_RBV.ONVL"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-10.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
 x 95
 y 470
 w 290
 h 25
 controlPv "$(P)$(R)ShutterStatusEPICS_RBV.ZRVL"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-10.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
 endObjectProperties
 
 # (Static Text)
@@ -399,12 +439,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 295
 w 85
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -418,12 +458,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 325
 w 85
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -437,12 +477,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 385
 w 85
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -456,12 +496,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 355
 w 85
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -475,12 +515,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 415
 w 85
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -494,12 +534,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 445
 w 85
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -513,12 +553,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 475
 w 85
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -527,58 +567,73 @@ value {
 }
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
 x 95
 y 290
 w 290
 h 25
 controlPv "$(P)$(R)ShutterOpenEPICS.OUT"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-10.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
 x 95
 y 320
 w 290
 h 25
 controlPv "$(P)$(R)ShutterCloseEPICS.OUT"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-10.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
 x 95
 y 410
 w 290
 h 25
 controlPv "$(P)$(R)ShutterStatusEPICS_RBV.INP"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-10.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
 endObjectProperties
 
 # (Rectangle)
@@ -601,12 +656,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 5
 y 55
-w 70
+w 73
 h 14
-font "arial-medium-r-12.0"
+font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
 value {
@@ -621,12 +676,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 70
 w 85
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
 bgColor index 3
@@ -641,12 +696,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 95
 w 85
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
 bgColor index 3
@@ -660,16 +715,16 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 105
 y 70
 w 580
 h 20
 controlPv "$(P)$(R)StringToServer_RBV"
-font "helvetica-medium-r-10.0"
-fgColor index 16
-bgColor index 10
+font "helvetica-medium-r-12.0"
+fgColor index 25
+bgColor index 5
 limitsFromDb
 nullColor index 0
 smartRefresh
@@ -682,16 +737,16 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 105
 y 95
 w 580
 h 20
 controlPv "$(P)$(R)StringFromServer_RBV"
-font "helvetica-medium-r-10.0"
-fgColor index 16
-bgColor index 10
+font "helvetica-medium-r-12.0"
+fgColor index 25
+bgColor index 5
 limitsFromDb
 nullColor index 0
 smartRefresh
@@ -720,12 +775,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 400
 y 175
-w 71
+w 74
 h 14
-font "arial-medium-r-12.0"
+font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
 value {
@@ -740,12 +795,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 405
 y 190
 w 100
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -766,12 +821,12 @@ w 155
 h 20
 fgColor index 25
 bgColor index 3
-inconsistentColor index 0
+inconsistentColor index 40
 topShadowColor index 1
 botShadowColor index 11
 controlPv "$(P)$(R)FrameType"
 indicatorPv "$(P)$(R)FrameType_RBV"
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Static Text)
@@ -779,12 +834,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 405
 y 215
 w 100
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -805,12 +860,12 @@ w 155
 h 20
 fgColor index 25
 bgColor index 3
-inconsistentColor index 0
+inconsistentColor index 40
 topShadowColor index 1
 botShadowColor index 11
 controlPv "$(P)$(R)ArrayCallbacks"
 indicatorPv "$(P)$(R)ArrayCallbacks_RBV"
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Static Text)
@@ -818,12 +873,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 5
 y 130
-w 63
+w 68
 h 14
-font "arial-medium-r-12.0"
+font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
 value {
@@ -838,12 +893,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 145
 w 90
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
 bgColor index 3
@@ -857,16 +912,16 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 105
 y 145
 w 580
 h 20
 controlPv "$(P)$(R)NDAttributesFile"
-font "helvetica-medium-r-10.0"
+font "helvetica-medium-r-12.0"
 fgColor index 25
-bgColor index 3
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
@@ -883,7 +938,7 @@ endObjectProperties
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 530
 y 240
@@ -900,7 +955,7 @@ onLabel "Force Read"
 offLabel "Force Read"
 3d
 useEnumNumeric
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Static Text)
@@ -908,12 +963,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 405
 y 240
 w 120
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -927,55 +982,65 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 405
 y 265
 w 125
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "Detector Temperature"
+  "Detector Temp."
 }
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
 x 610
 y 265
 w 75
 h 20
 controlPv "$(P)$(R)Temperature_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
 x 530
 y 265
 w 75
 h 20
 controlPv "$(P)$(R)Temperature"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
 endObjectProperties
 
 # (Menu Button)
@@ -990,12 +1055,12 @@ w 155
 h 20
 fgColor index 25
 bgColor index 3
-inconsistentColor index 0
+inconsistentColor index 40
 topShadowColor index 1
 botShadowColor index 11
 controlPv "$(P)$(R)DeleteAfterReading"
 indicatorPv "$(P)$(R)DeleteAfterReading_RBV"
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 endObjectProperties
 
 # (Static Text)
@@ -1003,12 +1068,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 405
 y 290
 w 120
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1024,9 +1089,9 @@ major 4
 minor 0
 release 0
 x 400
-y 335
-w 290
-h 95
+y 328
+w 292
+h 140
 lineColor index 14
 fill
 fillColor index 3
@@ -1037,12 +1102,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 400
-y 325
-w 96
+y 324
+w 99
 h 14
-font "arial-medium-r-12.0"
+font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
 value {
@@ -1052,40 +1117,52 @@ autoSize
 border
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
 x 600
-y 350
+y 392
 w 65
 h 20
 controlPv "$(P)$(R)PoolMaxMem"
-fgColor index 16
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 530
-y 350
+x 532
+y 392
 w 65
 h 20
 controlPv "$(P)$(R)PoolUsedMem"
-fgColor index 16
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
 # (Static Text)
@@ -1093,12 +1170,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 410
-y 350
+release 1
+x 412
+y 392
 w 120
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1107,40 +1184,52 @@ value {
 }
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
 x 600
-y 375
+y 416
 w 65
 h 20
 controlPv "$(P)$(R)PoolMaxBuffers"
-fgColor index 16
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 530
-y 375
+x 532
+y 416
 w 65
 h 20
 controlPv "$(P)$(R)PoolAllocBuffers"
-fgColor index 16
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
 # (Static Text)
@@ -1148,12 +1237,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 410
-y 375
+release 1
+x 412
+y 416
 w 120
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1162,23 +1251,28 @@ value {
 }
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 530
-y 400
+x 532
+y 440
 w 65
 h 20
 controlPv "$(P)$(R)PoolFreeBuffers"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
 # (Static Text)
@@ -1186,12 +1280,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 410
-y 400
+release 1
+x 412
+y 440
 w 120
 h 20
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1204,24 +1298,24 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
-x 410
-y 470
+x 412
+y 476
 w 110
 h 25
 fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 xPosOffset -200
 yPosOffset -400
 buttonLabel "ASYN record"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "asynRecord"
+  0 "asynScreens/asynRecord.edl"
 }
 setPosition {
   0 "button"
@@ -1242,12 +1336,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 0
 y 0
 w 700
 h 45
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fontAlign "center"
 fgColor index 14
 bgColor index 48
@@ -1258,28 +1352,79 @@ value {
 border
 endObjectProperties
 
-# (Variable Scale Bar)
-object activeVsBarClass
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 412
+y 344
+w 120
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Memory Pool Diag:"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
 beginObjectProperties
 major 4
 minor 0
 release 0
-x 670
-y 350
-w 10
-h 70
-indicatorColour index 16
-indicatorAlarm
-fgColour index 14
-bgColour index 3
-indicatorPv "$(P)$(R)PoolUsedBuffers"
-maxPv "$(P)$(R)PoolMaxBuffers"
-font "arial-medium-r-12.0"
-labelTicks 10
-majorTicks 20
-minorTicks 2
-precision 0
-scaleFormat "FFloat"
-orientation "vertical"
+x 532
+y 344
+w 132
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)MemoryPoolDiagEnable"
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 532
+y 368
+w 132
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)MemoryPoolDiagScan.SCAN"
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 412
+y 368
+w 120
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Diag Update Rate:"
+}
 endObjectProperties
 

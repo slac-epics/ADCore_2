@@ -1,0 +1,7 @@
+# Archive template NDFileMagick.tpl-arch
+$(P)$(R)BitDepth			10		monitor
+$(P)$(R)BitDepth_RBV		1
+$(P)$(R)CompressType		10		monitor
+$(P)$(R)CompressType_RBV	1
+$(P)$(R)Quality				10		monitor
+$(P)$(R)Quality_RBV			1

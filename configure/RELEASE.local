@@ -1,0 +1,61 @@
+# RELEASE.local
+#
+# Fetch path relative EPICS_BASE and EPICS_MODULES
+# from one of the following options
+-include $(TOP)/../../RELEASE_SITE
+-include $(TOP)/RELEASE_SITE
+
+# Check for multiple inclusions
+ifneq ($(wildcard "include $(TOP)/../../RELEASE_SITE"),)
+ifneq ($(wildcard "include $(TOP)/RELEASE_SITE"),)
+$(error Two RELEASE_SITE files found: $(TOP)/RELEASE_SITE and $(TOP)/../../RELEASE_SITE!)
+endif
+endif
+
+# Check for undefined EPICS_BASE or EPICS_MODULES
+ifndef EPICS_BASE
+ifneq ($(wildcard "include $(TOP)/../../RELEASE_SITE"),)
+$(info RELEASE_SITE Read: $(TOP)/../../RELEASE_SITE)
+endif
+ifneq ($(wildcard "include $(TOP)/RELEASE_SITE"),)
+$(info RELEASE_SITE Read: $(TOP)/RELEASE_SITE)
+endif
+$(error EPICS_BASE not defined!)
+endif
+ifndef EPICS_MODULES
+$(error EPICS_MODULES not defined!)
+endif
+
+# ==========================================================
+# Define the version strings for all needed modules
+# Use naming pattern:
+#   FOO_MODULE_VERSION = R1.2
+# so scripts can extract version strings
+# Don't set your version to anything such as "test" that
+# could match a directory name.
+# ==========================================================
+ASYN_MODULE_VERSION	         = R4.30-1.0.0
+#BUSY_MODULE_VERSION	         = R1.6.0-0.9.5
+#CALC_MODULE_VERSION	         = R3.2-0.4.0
+#SSCAN_MODULE_VERSION	     = R2.9-1.0.0
+
+# ============================================================
+# Define module paths using pattern
+# FOO = $(EPICS_MODULES)/foo/$(FOO_MODULE_VERSION)
+#  or
+# FOO = /Full/Path/To/Development/Version 
+# ============================================================
+ASYN         = $(EPICS_MODULES)/asyn/$(ASYN_MODULE_VERSION)
+#BUSY         = $(EPICS_MODULES)/busy/$(BUSY_MODULE_VERSION)
+#CALC         = $(EPICS_MODULES)/calc/$(CALC_MODULE_VERSION)
+#SSCAN        = $(EPICS_MODULES)/sscan/$(SSCAN_MODULE_VERSION)
+
+# To include GraphicsMagick support set the following to YES
+# To not use it comment out the line or set it to NO
+# GraphicsMagick is required for NDFileMagick and the URL driver.
+USE_GRAPHICSMAGICK=NO
+
+#MY_MODULES=/reg/neh/home/bhill/wa2/trunk/pcds/epics/modules
+#ASYN=$(MY_MODULES)/asyn/current
+#BUSY=$(MY_MODULES)/busy/current
+

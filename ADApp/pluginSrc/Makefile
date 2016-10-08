@@ -15,12 +15,6 @@ endif
 USR_CXXFLAGS_WIN32 += -DLIBTIFF_STATIC
 
 DBD += NDPluginSupport.dbd
-DBD += NDFileJPEG.dbd
-DBD += NDFileMagick.dbd
-DBD += NDFileNetCDF.dbd
-DBD += NDFileNexus.dbd
-DBD += NDFileHDF5.dbd
-DBD += NDFileTIFF.dbd
 DBD += NDFileNull.dbd
 DBD += NDPluginColorConvert.dbd
 DBD += NDPluginOverlay.dbd
@@ -32,6 +26,12 @@ DBD += NDPluginStdArrays.dbd
 DBD += NDPluginTransform.dbd
 DBD += NDPluginAttribute.dbd
 DBD += NDPluginCircularBuff.dbd
+DBD += NDFileTIFF.dbd
+DBD += NDFileJPEG.dbd
+DBD += NDFileMagick.dbd
+DBD += NDFileNetCDF.dbd
+DBD += NDFileNexus.dbd
+DBD += NDFileHDF5.dbd
 
 INC += NDFileHDF5.h
 INC += NDFileHDF5Dataset.h
@@ -61,7 +61,6 @@ INC += NDArrayRing.h
 LIBRARY_IOC += NDPlugin
 NDPlugin_SRCS += NDPluginDriver.cpp
 NDPlugin_SRCS += NDPluginFile.cpp
-NDPlugin_SRCS += NDFileNetCDF.cpp
 NDPlugin_SRCS += NDPluginStdArrays.cpp
 NDPlugin_SRCS += NDPluginStats.cpp
 NDPlugin_SRCS += NDPluginProcess.cpp
@@ -79,6 +78,12 @@ NDPlugin_SRCS_vxWorks += NDFileDummy.cpp
 NDPlugin_SYS_LIBS_WIN32 += Ws2_32
 NDPlugin_SYS_LIBS_WIN32 += User32
 
+NDPlugin_SRCS_Linux += NDFileNetCDF.cpp
+NDPlugin_SRCS_Linux += NDFileJPEG.cpp
+NDPlugin_SRCS_Linux += NDFileNexus.cpp
+NDPlugin_SRCS_Linux += NDFileHDF5.cpp
+NDPlugin_SRCS_Linux += NDFileTIFF.cpp 
+
 ifeq ($(USE_GRAPHICSMAGICK), YES)
   USR_INCLUDES += $(GRAPHICS_MAGICK_INCLUDE)
   NDPlugin_SRCS += NDFileMagick.cpp
@@ -86,9 +91,9 @@ else
   NDPlugin_SRCS += NDFileMagickStub.cpp
 endif
 
-USR_INCLUDES += $(HDF5_INCLUDE)
-USR_INCLUDES += $(SZ_INCLUDE)
-USR_INCLUDES += $(XML2_INCLUDE)
+#USR_INCLUDES += $(HDF5_INCLUDE)
+#USR_INCLUDES += $(SZ_INCLUDE)
+#USR_INCLUDES += $(XML2_INCLUDE)
 
 include $(TOP)/ADApp/commonLibraryMakefile
 

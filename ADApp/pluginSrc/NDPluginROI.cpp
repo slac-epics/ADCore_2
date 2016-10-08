@@ -146,13 +146,15 @@ void NDPluginROI::processCallbacks(NDArray *pArray)
     }
 
     /* This function is called with the lock taken, and it must be set when we exit.
-     * The following code can be exected without the mutex because we are not accessing memory
+     * The following code can be executed without the mutex because we are not accessing memory
      * that other threads can access. */
     this->unlock();
 
     /* Extract this ROI from the input array.  The convert() function allocates
      * a new array and it is reserved (reference count = 1) */
-    if (dataType == -1) dataType = (int)pArray->dataType;
+    if (dataType == -1) {
+        dataType     = (int)pArray->dataType;
+    }
     /* We treat the case of RGB1 data specially, so that NX and NY are the X and Y dimensions of the
      * image, not the first 2 dimensions.  This makes it much easier to switch back and forth between
      * RGB1 and mono mode when using an ROI. */
@@ -180,7 +182,7 @@ void NDPluginROI::processCallbacks(NDArray *pArray)
         for (i=0; i<scratchInfo.nElements; i++) pData[i] = pData[i]/scale;
         this->pNDArrayPool->convert(pScratch, &this->pArrays[0], (NDDataType_t)dataType);
         pScratch->release();
-    } 
+    }
     else {        
         this->pNDArrayPool->convert(pArray, &this->pArrays[0], (NDDataType_t)dataType, dims);
     }
@@ -213,6 +215,23 @@ void NDPluginROI::processCallbacks(NDArray *pArray)
         pOutput->pAttributeList->add("ColorMode", "Color mode", NDAttrInt32, &colorMode);
     }
     this->lock();
+    NDArrayInfo arrayInfoOut;
+    pOutput->getInfo(&arrayInfoOut);
+ 
+    /* Calculate ROI bitsPerElement */
+    double  bitsPerPixel    =   arrayInfo.bitsPerElement;
+    size_t  binFactor = 1;
+    for ( size_t iDim=0; iDim < static_cast<unsigned>(pArray->ndims); iDim++ )
+        binFactor   *= dims[iDim].binning;
+    if ( binFactor != 1 )
+        bitsPerPixel    += log2( binFactor );
+    if ( enableScale && scale != 0 && scale != 1 )
+        bitsPerPixel    -= log2( scale );
+    /* Clip bitsPerElement to max for output dataType */
+    if( bitsPerPixel > GetNDDataTypeBits(pOutput->dataType) )
+        bitsPerPixel = GetNDDataTypeBits(pOutput->dataType);
+    /* Set the bits per pixel of the ROI output */
+    pOutput->bitsPerElement = lrint( bitsPerPixel );
 
     /* Set the image size of the ROI image data */
     setIntegerParam(NDArraySizeX, 0);
@@ -269,14 +288,21 @@ asynStatus NDPluginROI::writeInt32(asynUser *pasynUser, epicsInt32 value)
     /* Do callbacks so higher layers see any changes */
     callParamCallbacks();
     
-    if (status) 
+    const char* paramName;
+    if (status) {
+        getParamName( function, &paramName );
         asynPrint(pasynUser, ASYN_TRACE_ERROR, 
-              "%s:%s: function=%d, value=%d\n", 
-              driverName, functionName, function, value);
-    else        
-        asynPrint(pasynUser, ASYN_TRACEIO_DRIVER, 
-              "%s:%s: function=%d, value=%d\n", 
-              driverName, functionName, function, value);
+              "%s:%s: function=%d %s, value=%d\n", 
+              driverName, functionName, function, paramName, value);
+    }
+    else {
+        if ( pasynTrace->getTraceMask(pasynUser) & ASYN_TRACEIO_DRIVER ) {
+            getParamName( function, &paramName );
+            asynPrint(pasynUser, ASYN_TRACEIO_DRIVER, 
+                  "%s:%s: function=%d %s, paramvalue=%d\n", 
+                  driverName, functionName, function, paramName, value);
+        }
+    }
     return status;
 }
 

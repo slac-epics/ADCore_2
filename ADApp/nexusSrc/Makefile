@@ -19,11 +19,11 @@ else
   USR_CFLAGS_WIN32      += -DH5_BUILT_AS_STATIC_LIB
   LIB_LIBS_WIN32        += libhdf5 libszip libzlib
 endif
-USR_INCLUDES += $(HDF5_INCLUDE)
+#USR_INCLUDES += $(HDF5_INCLUDE)
 
 LIB_SYS_LIBS_cygwin32 += libhdf5
 LIB_SYS_LIBS_cygwin32 += libz
-LIB_LIBS_Linux        += hdf5 sz
+#LIB_LIBS_Linux        += hdf5 sz
 LIB_LIBS_Darwin       += hdf5 sz
 
 LIBRARY_IOC_WIN32    += NeXus

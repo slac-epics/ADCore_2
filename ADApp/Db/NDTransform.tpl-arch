@@ -1,0 +1,23 @@
+# Archive template NDTransform.tpl-arch
+$(P)$(R)ArraySize0			1
+$(P)$(R)ArraySize1			1
+$(P)$(R)ArraySize2			1
+$(P)$(R)Name				10				monitor
+$(P)$(R)OriginLocation		10				monitor
+$(P)$(R)OriginLocation_RBV	1
+$(P)$(R)T1MaxSize0			1
+$(P)$(R)T1MaxSize1			1
+$(P)$(R)T1MaxSize2			1
+$(P)$(R)T2MaxSize0			1
+$(P)$(R)T2MaxSize1			1
+$(P)$(R)T2MaxSize2			1
+$(P)$(R)T3MaxSize0			1
+$(P)$(R)T3MaxSize1			1
+$(P)$(R)T3MaxSize2			1
+$(P)$(R)T4MaxSize0			1
+$(P)$(R)T4MaxSize1			1
+$(P)$(R)T4MaxSize2			1
+$(P)$(R)Type1				10				monitor
+$(P)$(R)Type2				10				monitor
+$(P)$(R)Type3				10				monitor
+$(P)$(R)Type4				10				monitor

@@ -11,7 +11,7 @@ record(stringout, "$(P)$(R)Name")
 {
     field(PINI, "YES")
     field(DTYP, "asynOctetWrite")
-    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))NAME")
+    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NAME")
     field(VAL,  "$(NAME)")
     info(autosaveFields, "VAL")
 }
@@ -19,7 +19,7 @@ record(stringout, "$(P)$(R)Name")
 record(stringin, "$(P)$(R)Name_RBV")
 {
     field(DTYP, "asynOctetRead")
-    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))NAME")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NAME")
     field(SCAN, "I/O Intr")
 }
 
@@ -31,7 +31,7 @@ record(bo, "$(P)$(R)Use")
 {
     field(PINI, "YES")
     field(DTYP, "asynInt32")
-    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))USE")
+    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))USE")
     field(VAL,  "0")
     field(ZNAM, "No")
     field(ONAM, "Yes")
@@ -41,7 +41,7 @@ record(bo, "$(P)$(R)Use")
 record(bi, "$(P)$(R)Use_RBV")
 {
     field(DTYP, "asynInt32")
-    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))USE")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))USE")
     field(ZNAM, "No")
     field(ONAM, "Yes")
     field(ZSV,  "NO_ALARM")
@@ -53,9 +53,16 @@ record(bi, "$(P)$(R)Use_RBV")
 #  These records control the overlay definition                   #
 ###################################################################
 
+# Providing a dummy PV as the default PositionXLink DOL
+# so we don't generate references to a PV named "CP" when
+# we don't have a real PV that we want PositionX to follow.
+record(longout, "$(P)$(R)XPosDummy")
+{
+}
+
 record(longout, "$(P)$(R)PositionXLink")
 {
-    field(DOL,  "$(XPOS="") CP MS")
+    field(DOL,  "$(XPOS=$(P)$(R)XPosDummy) CP MS")
     field(OMSL, "closed_loop")
     field(OUT, "$(P)$(R)PositionX PP")
     info(autosaveFields, "DOL")
@@ -65,7 +72,7 @@ record(longout, "$(P)$(R)PositionX")
 {
     field(PINI, "YES")
     field(DTYP, "asynInt32")
-    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OVERLAY_POSITION_X")
+    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_POSITION_X")
     field(LOPR, "1")
     field(HOPR, "1024")
     field(VAL,  "1")
@@ -75,13 +82,20 @@ record(longout, "$(P)$(R)PositionX")
 record(longin, "$(P)$(R)PositionX_RBV")
 {
     field(DTYP, "asynInt32")
-    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OVERLAY_POSITION_X")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_POSITION_X")
     field(SCAN, "I/O Intr")
+}
+
+# Providing a dummy PV as the default PositionYLink DOL
+# so we don't generate references to a PV named "CP" when
+# we don't have a real PV that we want PositionY to follow.
+record(longout, "$(P)$(R)YPosDummy")
+{
 }
 
 record(longout, "$(P)$(R)PositionYLink")
 {
-    field(DOL,  "$(YPOS="") CP MS")
+    field(DOL,  "$(YPOS=$(P)$(R)YPosDummy) CP MS")
     field(OMSL, "closed_loop")
     field(OUT, "$(P)$(R)PositionY PP")
     info(autosaveFields, "DOL")
@@ -91,7 +105,7 @@ record(longout, "$(P)$(R)PositionY")
 {
     field(PINI, "YES")
     field(DTYP, "asynInt32")
-    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OVERLAY_POSITION_Y")
+    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_POSITION_Y")
     field(LOPR, "1")
     field(HOPR, "1024")
     field(VAL,  "1")
@@ -101,13 +115,20 @@ record(longout, "$(P)$(R)PositionY")
 record(longin, "$(P)$(R)PositionY_RBV")
 {
     field(DTYP, "asynInt32")
-    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OVERLAY_POSITION_Y")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_POSITION_Y")
     field(SCAN, "I/O Intr")
+}
+
+# Providing a dummy PV as the default SizeXLink DOL
+# so we don't generate references to a PV named "CP" when
+# we don't have a real PV that we want SizeX to follow.
+record(longout, "$(P)$(R)SizeXDummy")
+{
 }
 
 record(longout, "$(P)$(R)SizeXLink")
 {
-    field(DOL,  "$(XSIZE="") CP MS")
+    field(DOL,  "$(XSIZE=$(P)$(R)SizeXDummy) CP MS")
     field(OMSL, "closed_loop")
     field(OUT, "$(P)$(R)SizeX PP")
     info(autosaveFields, "DOL")
@@ -117,7 +138,7 @@ record(longout, "$(P)$(R)SizeX")
 {
     field(PINI, "YES")
     field(DTYP, "asynInt32")
-    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OVERLAY_SIZE_X")
+    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_SIZE_X")
     field(LOPR, "1")
     field(HOPR, "1024")
     field(VAL,  "1")
@@ -127,13 +148,20 @@ record(longout, "$(P)$(R)SizeX")
 record(longin, "$(P)$(R)SizeX_RBV")
 {
     field(DTYP, "asynInt32")
-    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OVERLAY_SIZE_X")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_SIZE_X")
     field(SCAN, "I/O Intr")
+}
+
+# Providing a dummy PV as the default SizeYLink DOL
+# so we don't generate references to a PV named "CP" when
+# we don't have a real PV that we want SizeY to follow.
+record(longout, "$(P)$(R)SizeYDummy")
+{
 }
 
 record(longout, "$(P)$(R)SizeYLink")
 {
-    field(DOL,  "$(YSIZE="") CP MS")
+    field(DOL,  "$(YSIZE=$(P)$(R)SizeYDummy) CP MS")
     field(OMSL, "closed_loop")
     field(OUT, "$(P)$(R)SizeY PP")
     info(autosaveFields, "DOL")
@@ -143,7 +171,7 @@ record(longout, "$(P)$(R)SizeY")
 {
     field(PINI, "YES")
     field(DTYP, "asynInt32")
-    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OVERLAY_SIZE_Y")
+    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_SIZE_Y")
     field(LOPR, "1")
     field(HOPR, "1024")
     field(VAL,  "1")
@@ -153,7 +181,7 @@ record(longout, "$(P)$(R)SizeY")
 record(longin, "$(P)$(R)SizeY_RBV")
 {
     field(DTYP, "asynInt32")
-    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OVERLAY_SIZE_Y")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_SIZE_Y")
     field(SCAN, "I/O Intr")
 }
 
@@ -213,7 +241,7 @@ record(mbbo, "$(P)$(R)Shape")
 {
     field(PINI, "YES")
     field(DTYP, "asynInt32")
-    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OVERLAY_SHAPE")
+    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_SHAPE")
     field(ZRST, "Cross")
     field(ZRVL, "0")
     field(ONST, "Rectangle")
@@ -227,7 +255,7 @@ record(mbbo, "$(P)$(R)Shape")
 record(mbbi, "$(P)$(R)Shape_RBV")
 {
     field(DTYP, "asynInt32")
-    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OVERLAY_SHAPE")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_SHAPE")
     field(ZRST, "Cross")
     field(ZRVL, "0")
     field(ONST, "Rectangle")
@@ -241,7 +269,7 @@ record(mbbo, "$(P)$(R)DrawMode")
 {
     field(PINI, "YES")
     field(DTYP, "asynInt32")
-    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OVERLAY_DRAW_MODE")
+    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_DRAW_MODE")
     field(ZRST, "Set")
     field(ZRVL, "0")
     field(ONST, "XOR")
@@ -252,7 +280,7 @@ record(mbbo, "$(P)$(R)DrawMode")
 record(mbbi, "$(P)$(R)DrawMode_RBV")
 {
     field(DTYP, "asynInt32")
-    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OVERLAY_DRAW_MODE")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_DRAW_MODE")
     field(ZRST, "Set")
     field(ZRVL, "0")
     field(ONST, "XOR")
@@ -264,15 +292,15 @@ record(longout, "$(P)$(R)Red")
 {
     field(PINI, "YES")
     field(DTYP, "asynInt32")
-    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OVERLAY_RED")
-    field(VAL,  "1")
+    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_RED")
+    field(VAL,  "$(RED=1)")
     info(autosaveFields, "VAL")
 }
 
 record(longin, "$(P)$(R)Red_RBV")
 {
     field(DTYP, "asynInt32")
-    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OVERLAY_RED")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_RED")
     field(SCAN, "I/O Intr")
 }
 
@@ -280,15 +308,15 @@ record(longout, "$(P)$(R)Green")
 {
     field(PINI, "YES")
     field(DTYP, "asynInt32")
-    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OVERLAY_GREEN")
-    field(VAL,  "1")
+    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_GREEN")
+    field(VAL,  "$(GREEN=65535)")
     info(autosaveFields, "VAL")
 }
 
 record(longin, "$(P)$(R)Green_RBV")
 {
     field(DTYP, "asynInt32")
-    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OVERLAY_GREEN")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_GREEN")
     field(SCAN, "I/O Intr")
 }
 
@@ -296,15 +324,15 @@ record(longout, "$(P)$(R)Blue")
 {
     field(PINI, "YES")
     field(DTYP, "asynInt32")
-    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OVERLAY_BLUE")
-    field(VAL,  "1")
+    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_BLUE")
+    field(VAL,  "$(BLUE=1)")
     info(autosaveFields, "VAL")
 }
 
 record(longin, "$(P)$(R)Blue_RBV")
 {
     field(DTYP, "asynInt32")
-    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OVERLAY_BLUE")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_BLUE")
     field(SCAN, "I/O Intr")
 }
 

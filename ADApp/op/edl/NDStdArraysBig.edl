@@ -3,13 +3,13 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 487
-y 100
-w 1292
-h 964
-font "arial-bold-r-12.0"
-ctlFont "arial-bold-r-12.0"
-btnFont "arial-bold-r-12.0"
+x 1284
+y 73
+w 1191
+h 912
+font "helvetica-bold-r-12.0"
+ctlFont "helvetica-bold-r-12.0"
+btnFont "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 textColor index 14
@@ -21,7 +21,7 @@ topShadowColor index 1
 botShadowColor index 11
 showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
 
 # (Exit Button)
@@ -30,48 +30,34 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 0
+x 1000
 y 0
-w 1024
-h 768
-fgColor index 46
+w 60
+h 20
+fgColor index 14
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
 label "EXIT"
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 3d
-invisible
 endObjectProperties
 
-# (TwoDProfileMonitor)
+# (Hoff Video)
 object TwoDProfileMonitorClass
 beginObjectProperties
 major 4
-minor 3
+minor 1
 release 1
 x 0
 y 0
-w 1292
-h 964
+w 1000
+h 860
 dataPvStr "$(P)$(R)ArrayData"
 widthPvStr "$(P)$(R)ArraySize0_RBV"
 heightPvStr "$(P)$(R)ArraySize1_RBV"
-gridSizePvStr "100"
-useFalseColourPvStr "0"
-showGridPvStr "0"
+dataWidth 1624
 pvBasedDataSize 1
-maxDataWidth 1292
-maxDataHeight 964
-pvBasedOffsets 0
-pvBasedGridSize 0
-pvBasedUseFalseColour 0
-pvBasedShowGrid 0
-pvBasedGridColour 0
-rescaleData 0
-pvBasedDataRange 0
-dataRangeMin 0
-dataRangeMax 0
-transposeXY 0
+nBitsPerPixel 12
 endObjectProperties
 

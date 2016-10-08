@@ -1,0 +1,4 @@
+# Archive template NDStdArrays.tpl-arch
+
+# Only PV is the image data, which we don't want to archive
+# $(P)$(R)ArrayData		1000		monitor
