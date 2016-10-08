@@ -34,10 +34,7 @@ endif
 # Don't set your version to anything such as "test" that
 # could match a directory name.
 # ==========================================================
-ASYN_MODULE_VERSION	         = R4.30-1.0.0
-#BUSY_MODULE_VERSION	         = R1.6.0-0.9.5
-#CALC_MODULE_VERSION	         = R3.2-0.4.0
-#SSCAN_MODULE_VERSION	     = R2.9-1.0.0
+ASYN_MODULE_VERSION     = R4.30-1.0.0
 
 # ============================================================
 # Define module paths using pattern
@@ -45,15 +42,7 @@ ASYN_MODULE_VERSION	         = R4.30-1.0.0
 #  or
 # FOO = /Full/Path/To/Development/Version 
 # ============================================================
-ASYN         = $(EPICS_MODULES)/asyn/$(ASYN_MODULE_VERSION)
-#BUSY         = $(EPICS_MODULES)/busy/$(BUSY_MODULE_VERSION)
-#CALC         = $(EPICS_MODULES)/calc/$(CALC_MODULE_VERSION)
-#SSCAN        = $(EPICS_MODULES)/sscan/$(SSCAN_MODULE_VERSION)
-
-# To include GraphicsMagick support set the following to YES
-# To not use it comment out the line or set it to NO
-# GraphicsMagick is required for NDFileMagick and the URL driver.
-USE_GRAPHICSMAGICK=NO
+ASYN=$(EPICS_MODULES)/asyn/$(ASYN_MODULE_VERSION)
 
 #MY_MODULES=/reg/neh/home/bhill/wa2/trunk/pcds/epics/modules
 #ASYN=$(MY_MODULES)/asyn/current
