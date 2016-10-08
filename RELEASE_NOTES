@@ -1,3 +1,8 @@
+R2.2-0.1.0:	Oct 8, 2016, Bruce Hill (bhill)
+	Updated to asyn R4.30-0.1.2
+	Updated build files for git work-flow
+	Includes asSupport.dbd instead of autosaveSupport.dbd for compatibility
+		w/ SLAC autosave module
 
 ADCore-R2-1_1-0:  Initial RELEASE for ICD: areaDetector Core: (Developed by Mark Rivers, Univ of Chicago))
                   -- base classes for drivers, 

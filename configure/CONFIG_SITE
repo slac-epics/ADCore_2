@@ -19,14 +19,12 @@ CHECK_RELEASE = YES
 # Set this when you only want to compile this application
 #   for a subset of the cross-compiled target architectures
 #   that Base is built for.
-#CROSS_COMPILER_TARGET_ARCHS = vxWorks-68040
+ifeq '$(EPICS_HOST_ARCH)' 'rhel6-x86_64'
+CROSS_COMPILER_TARGET_ARCHS     +=  linuxRT_glibc-x86_64
+endif
 CROSS_COMPILER_TARGET_ARCHS := $(filter-out linuxRT_glibc-i686,$(CROSS_COMPILER_TARGET_ARCHS))
 CROSS_COMPILER_TARGET_ARCHS := $(filter-out vxWorks%,$(CROSS_COMPILER_TARGET_ARCHS))
 CROSS_COMPILER_TARGET_ARCHS := $(filter-out RTEMS%,$(CROSS_COMPILER_TARGET_ARCHS))
-
-# Build for linuxRT: will need to add some weight.
-# Need to add hdf5, sz
-# CROSS_COMPILER_TARGET_ARCHS = linuxRT_glibc-x86_64
 
 # To install files into a location other than $(TOP) define
 #   INSTALL_LOCATION here.
@@ -48,30 +46,43 @@ ifdef T_A
   -include $(AREA_DETECTOR)/configure/CONFIG_SITE.$(EPICS_HOST_ARCH).$(T_A)
 endif
 
-#
-# Define the location of the hdf5, sz, and GraphicsMagick libraries
-# I did an RPM install of the following package:
-# hdf5-1.8.14-1.with.szip.encoder.el6.x86_64
-# So only need to define location of libs and headers
-#HDF5         = /usr/local/hdf5-1.8.7/hdf5
-#HDF5_LIB     = $(HDF5)/lib
-#HDF5_INCLUDE = -I$(HDF5)/include
+# Build shared and static libs
+ifeq (Linux, $(OS_CLASS))
+	SHARED_LIBRARIES=YES
+	STATIC_BUILD=YES
+endif
 
-HDF5_LIB     = /usr/lib64
-HDF5_INCLUDE = -I$/usr/include
-USR_INCLUDES += -I/usr/include/libxml2
+ifndef CONFIG_SITE_TOP
+ifneq ($(wildcard /reg/g/pcds/pyps/config),)
+CONFIG_SITE_TOP=/reg/g/pcds/pyps/config
+endif
+ifneq ($(wildcard /afs/slac/g/lcls/epics/config),)
+CONFIG_SITE_TOP=/afs/slac/g/lcls/epics/config
+endif
+endif
+include $(CONFIG_SITE_TOP)/common_dirs.mak
+PKG_ARCH	= $(T_A)
+ifeq '$(PKG_ARCH)' 'linuxRT_glibc-x86_64'
+PKG_ARCH	= rhel6-x86_64
+endif
 
-#SZIP           = /usr/local/szip-2.1/szip
-#SZIP_LIB       = $(SZIP)/lib
-#SZIP_INCLUDE   = -I$(SZIP)/include
+LIBXML2_TOP		= $(PSPKG_ROOT)/release/libxml2/2.9.3/$(PKG_ARCH)
+HDF5_TOP		= $(PSPKG_ROOT)/release/hdf5/1.8.7/$(PKG_ARCH)
+SZIP_TOP		= $(PSPKG_ROOT)/release/szip/2.1/$(PKG_ARCH)
+JPEG_TOP		= $(PSPKG_ROOT)/release/jpeg/6b/$(PKG_ARCH)
+TIFF_TOP		= $(PSPKG_ROOT)/release/tiff/4.0.3/$(PKG_ARCH)
 
-SZIP_LIB       = /usr/lib64
-SZIP_INCLUDE   = -I/usr/include
+# Install the jpeg and tiff libraries
+LIB_INSTALLS += $(wildcard $(HDF5_TOP)/lib/lib*)
+LIB_INSTALLS += $(wildcard $(SZIP_TOP)/lib/lib*)
+LIB_INSTALLS += $(wildcard $(JPEG_TOP)/lib/lib*)
+LIB_INSTALLS += $(wildcard $(TIFF_TOP)/lib/lib*)
+LIB_INSTALLS += $(wildcard $(LIBXML2_TOP)/lib/lib*)
 
-#
-# GRAPHICS_MAGICK         = /usr/local
-# GRAPHICS_MAGICK_LIB     = $(GRAPHICS_MAGICK)/lib
-# GRAPHICS_MAGICK_INCLUDE = -I$(GRAPHICS_MAGICK)/include/GraphicsMagick
-
-STATIC_BUILD=YES
+# Add the external package include paths to USR_INCLUDES
+USR_INCLUDES	+= -I$(HDF5_TOP)/include
+USR_INCLUDES	+= -I$(SZIP_TOP)/include
+USR_INCLUDES	+= -I$(JPEG_TOP)/include
+USR_INCLUDES	+= -I$(TIFF_TOP)/include
+USR_INCLUDES	+= -I$(LIBXML2_TOP)/include/libxml2
 
