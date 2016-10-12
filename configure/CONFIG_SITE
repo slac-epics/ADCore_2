@@ -19,9 +19,9 @@ CHECK_RELEASE = YES
 # Set this when you only want to compile this application
 #   for a subset of the cross-compiled target architectures
 #   that Base is built for.
-ifeq '$(EPICS_HOST_ARCH)' 'rhel6-x86_64'
-CROSS_COMPILER_TARGET_ARCHS     +=  linuxRT_glibc-x86_64
-endif
+#ifeq '$(EPICS_HOST_ARCH)' 'rhel6-x86_64'
+#CROSS_COMPILER_TARGET_ARCHS     +=  linuxRT_glibc-x86_64
+#endif
 CROSS_COMPILER_TARGET_ARCHS := $(filter-out linuxRT_glibc-i686,$(CROSS_COMPILER_TARGET_ARCHS))
 CROSS_COMPILER_TARGET_ARCHS := $(filter-out vxWorks%,$(CROSS_COMPILER_TARGET_ARCHS))
 CROSS_COMPILER_TARGET_ARCHS := $(filter-out RTEMS%,$(CROSS_COMPILER_TARGET_ARCHS))
