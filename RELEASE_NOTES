@@ -6,3 +6,16 @@
 
 R2.2-1.0.0:	7-Oct-2016, B. Hill  (bhill)
 	Updated to build w/ git work-flow
+	Added bitsPerPixel support
+	Added archive template files
+	Added macro defaults for ADDR and TIMEOUT everywhere
+	Removed unneeded tiffSupport lib as we get it from pkg_mgr
+	Added areaDetectorHelp and areaDetectorScreens links
+	Numerous edl screen tweaks and enhancements
+	Wrap include of default jpeg.6b C header jpeglib.h in extern "C" declaration\
+	Added more status updates of NDFileWriteMessage in NDPluginFile
+	Added paramName to some more diagnostic messages
+	Set TSE to -2 for ArrayData and some other PV's so they get a proper timestamp
+	Provide defaults for overlay RGB colors and dummy pv's for DOL links to avoid bad CA references
+	Set Size PV default values to 99999 so their defaults clip to max dimensions
+
