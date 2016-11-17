@@ -6,23 +6,20 @@
 -include $(TOP)/RELEASE_SITE
 
 # Check for multiple inclusions
-ifneq ($(wildcard "include $(TOP)/../../RELEASE_SITE"),)
-ifneq ($(wildcard "include $(TOP)/RELEASE_SITE"),)
+ifneq ($(wildcard "$(TOP)/../../RELEASE_SITE"),)
+ifneq ($(wildcard "$(TOP)/RELEASE_SITE"),)
 $(error Two RELEASE_SITE files found: $(TOP)/RELEASE_SITE and $(TOP)/../../RELEASE_SITE!)
 endif
 endif
 
-# Check for undefined EPICS_BASE or EPICS_MODULES
-ifndef EPICS_BASE
-ifneq ($(wildcard "include $(TOP)/../../RELEASE_SITE"),)
+# Check for undefined EPICS_MODULES
+ifndef EPICS_MODULES
+ifneq ($(wildcard "$(TOP)/../../RELEASE_SITE"),)
 $(info RELEASE_SITE Read: $(TOP)/../../RELEASE_SITE)
 endif
-ifneq ($(wildcard "include $(TOP)/RELEASE_SITE"),)
+ifneq ($(wildcard "$(TOP)/RELEASE_SITE"),)
 $(info RELEASE_SITE Read: $(TOP)/RELEASE_SITE)
 endif
-$(error EPICS_BASE not defined!)
-endif
-ifndef EPICS_MODULES
 $(error EPICS_MODULES not defined!)
 endif
 
@@ -36,15 +33,25 @@ endif
 # ==========================================================
 ASYN_MODULE_VERSION     = R4.30-1.0.0
 
-# ============================================================
+# ==========================================================
 # Define module paths using pattern
 # FOO = $(EPICS_MODULES)/foo/$(FOO_MODULE_VERSION)
 #  or
 # FOO = /Full/Path/To/Development/Version 
-# ============================================================
-ASYN=$(EPICS_MODULES)/asyn/$(ASYN_MODULE_VERSION)
+# ==========================================================
+ASYN    = $(EPICS_MODULES)/asyn/$(ASYN_MODULE_VERSION)
 
-#MY_MODULES=/reg/neh/home/bhill/wa2/trunk/pcds/epics/modules
-#ASYN=$(MY_MODULES)/asyn/current
-#BUSY=$(MY_MODULES)/busy/current
+# Set EPICS_BASE last so it appears last in the DB, DBD, INCLUDE, and LIB search paths
+EPICS_BASE              = $(EPICS_SITE_TOP)/base/$(BASE_MODULE_VERSION)
+
+# Check for invalid EPICS_BASE
+ifeq ($(wildcard $(EPICS_BASE)/configure/CONFIG),)
+ifneq ($(wildcard $(TOP)/../../RELEASE_SITE),)
+$(info RELEASE_SITE Read: $(TOP)/../../RELEASE_SITE)
+endif
+ifneq ($(wildcard $(TOP)/RELEASE_SITE),)
+$(info RELEASE_SITE Read: $(TOP)/RELEASE_SITE)
+endif
+$(error EPICS_BASE is invalid: $(EPICS_BASE))
+endif
 
