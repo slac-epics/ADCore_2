@@ -52,15 +52,14 @@ ifeq (Linux, $(OS_CLASS))
 	STATIC_BUILD=YES
 endif
 
-ifndef CONFIG_SITE_TOP
-ifneq ($(wildcard /reg/g/pcds/pyps/config),)
-CONFIG_SITE_TOP=/reg/g/pcds/pyps/config
+ifndef PSPKG_ROOT
+ifneq ($(wildcard /reg/g/pcds/pkg_mgr),)
+PSPKG_ROOT=/reg/g/pcds/pkg_mgr
 endif
-ifneq ($(wildcard /afs/slac/g/lcls/epics/config),)
-CONFIG_SITE_TOP=/afs/slac/g/lcls/epics/config
+ifneq ($(wildcard /afs/slac/g/pcds/pkg_mgr),)
+PSPKG_ROOT=/afs/slac/g/pcds/pkg_mgr
 endif
 endif
-include $(CONFIG_SITE_TOP)/common_dirs.mak
 PKG_ARCH	= $(T_A)
 ifeq '$(PKG_ARCH)' 'linuxRT_glibc-x86_64'
 PKG_ARCH	= rhel6-x86_64
