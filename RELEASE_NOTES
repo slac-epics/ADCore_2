@@ -3,6 +3,13 @@
 #  Name: RELEASE_NOTES
 #
 #==============================================================
+R2.2-1.1.1:	30-Jan-2017, B. Hill  (bhill)
+	Fixed various build issues related to building R2.2-1.branch for the
+	compatible LCLS-II accelerator target arches
+
+R2.2-1.1.0:	11-Jan-2016, B. Hill  (bhill)
+	Fixed some build errors for LCLS build compatibility
+	Bumped up to asyn/R4.30-1.1.1
 
 R2.2-1.0.0:	7-Oct-2016, B. Hill  (bhill)
 	Updated to build w/ git work-flow
@@ -12,7 +19,7 @@ R2.2-1.0.0:	7-Oct-2016, B. Hill  (bhill)
 	Removed unneeded tiffSupport lib as we get it from pkg_mgr
 	Added areaDetectorHelp and areaDetectorScreens links
 	Numerous edl screen tweaks and enhancements
-	Wrap include of default jpeg.6b C header jpeglib.h in extern "C" declaration\
+	Wrap include of default jpeg.6b C header jpeglib.h in extern "C" declaration
 	Added more status updates of NDFileWriteMessage in NDPluginFile
 	Added paramName to some more diagnostic messages
 	Set TSE to -2 for ArrayData and some other PV's so they get a proper timestamp
