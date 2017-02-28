@@ -3,6 +3,8 @@
 #  Name: RELEASE_NOTES
 #
 #==============================================================
+R2.2-1.?.?:	date, (user)
+	
 R2.2-1.1.1:	30-Jan-2017, B. Hill  (bhill)
 	Fixed various build issues related to building R2.2-1.branch for the
 	compatible LCLS-II accelerator target arches
