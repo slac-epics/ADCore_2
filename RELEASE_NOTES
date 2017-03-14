@@ -5,6 +5,9 @@
 #==============================================================
 R2.2-1.?.?:	date, (user)
 	
+R2.2-1.1.2:     14-March-2017 	      (jmock)
+	Build against asyn R4.30-1.1.2
+
 R2.2-1.1.1:	30-Jan-2017, B. Hill  (bhill)
 	Fixed various build issues related to building R2.2-1.branch for the
 	compatible LCLS-II accelerator target arches
