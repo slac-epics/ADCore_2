@@ -67,7 +67,11 @@ ifeq '$(PKG_ARCH)' 'linuxRT-x86_64'
 PKG_ARCH	= rhel6-x86_64
 endif
 
+ifeq '$(PKG_ARCH)' 'linux-x86_64'
+LIBXML2_TOP		= /usr
+else
 LIBXML2_TOP		= $(PSPKG_ROOT)/release/libxml2/2.9.3/$(PKG_ARCH)
+endif
 HDF5_TOP		= $(PSPKG_ROOT)/release/hdf5/1.8.7/$(PKG_ARCH)
 SZIP_TOP		= $(PSPKG_ROOT)/release/szip/2.1/$(PKG_ARCH)
 JPEG_TOP		= $(PSPKG_ROOT)/release/jpeg/6b/$(PKG_ARCH)
@@ -78,7 +82,9 @@ LIB_INSTALLS += $(wildcard $(HDF5_TOP)/lib/lib*)
 LIB_INSTALLS += $(wildcard $(SZIP_TOP)/lib/lib*)
 LIB_INSTALLS += $(wildcard $(JPEG_TOP)/lib/lib*)
 LIB_INSTALLS += $(wildcard $(TIFF_TOP)/lib/lib*)
+ifneq '$(PKG_ARCH)' 'linux-x86_64'
 LIB_INSTALLS += $(wildcard $(LIBXML2_TOP)/lib/lib*)
+endif
 
 # Add the external package include paths to USR_INCLUDES
 USR_INCLUDES	+= -I$(HDF5_TOP)/include
@@ -86,4 +92,3 @@ USR_INCLUDES	+= -I$(SZIP_TOP)/include
 USR_INCLUDES	+= -I$(JPEG_TOP)/include
 USR_INCLUDES	+= -I$(TIFF_TOP)/include
 USR_INCLUDES	+= -I$(LIBXML2_TOP)/include/libxml2
-
