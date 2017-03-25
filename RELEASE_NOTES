@@ -1,3 +1,7 @@
+R2.6-0.1.0:	Mar 24, 2017, Bruce Hill (bhill)
+	Merged in updates from github R2-6
+	Now depends on ADSupport instead of pkg_mgr for standard areaDetector plugins.
+
 R2.2-0.1.0:	Oct 8, 2016, Bruce Hill (bhill)
 	Updated to asyn R4.30-0.1.2
 	Updated build files for git work-flow
