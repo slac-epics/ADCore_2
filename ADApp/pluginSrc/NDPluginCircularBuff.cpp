@@ -12,8 +12,11 @@
 #include <stdio.h>
 #include <math.h>
 
-#include <epicsString.h>
-#include <epicsMutex.h>
+#include <epicsTypes.h>
+#include <epicsMessageQueue.h>
+#include <epicsThread.h>
+#include <epicsEvent.h>
+#include <epicsTime.h>
 #include <epicsMath.h>
 #include <iocsh.h>
 #include <postfix.h>
@@ -25,6 +28,8 @@
 #include "NDPluginCircularBuff.h"
 
 static const char *driverName="NDPluginCircularBuff";
+
+#define DEFAULT_TRIGGER_CALC "0"
 
 asynStatus NDPluginCircularBuff::calculateTrigger(NDArray *pArray, int *trig)
 {
@@ -324,7 +329,13 @@ asynStatus NDPluginCircularBuff::writeOctet(asynUser *pasynUser, const char *val
 
   if (function == NDCircBuffTriggerCalc){
     if (nChars > sizeof(triggerCalcInfix_)) nChars = sizeof(triggerCalcInfix_);
-    strncpy(triggerCalcInfix_, value, nChars);
+    // If the input string is empty then use a value of "0", otherwise there is an error
+    if ((value == 0) || (strlen(value) == 0)) {
+      strcpy(triggerCalcInfix_, DEFAULT_TRIGGER_CALC);
+      setStringParam(NDCircBuffTriggerCalc, DEFAULT_TRIGGER_CALC);
+    } else {
+      strncpy(triggerCalcInfix_, value, nChars);
+    }
     status = (asynStatus)postfix(triggerCalcInfix_, triggerCalcPostfix_, &postfixError);
     if (status) {
       asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
@@ -382,7 +393,7 @@ NDPluginCircularBuff::NDPluginCircularBuff(const char *portName, int queueSize, 
                    NDArrayPort, NDArrayAddr, 1, NUM_NDPLUGIN_CIRC_BUFF_PARAMS, maxBuffers, maxMemory,
                    asynInt32ArrayMask | asynFloat64ArrayMask | asynGenericPointerMask,
                    asynInt32ArrayMask | asynFloat64ArrayMask | asynGenericPointerMask,
-                   0, 1, priority, stackSize)
+                   0, 1, priority, stackSize), pOldArray_(NULL)
 {
     //const char *functionName = "NDPluginCircularBuff";
     preBuffer_ = NULL;
@@ -427,7 +438,7 @@ NDPluginCircularBuff::NDPluginCircularBuff(const char *portName, int queueSize, 
     // Init the preset trigger count to 1
     setIntegerParam(NDCircBuffPresetTriggerCount, 1);
     setIntegerParam(NDCircBuffActualTriggerCount, 0);
-
+    
     // Enable ArrayCallbacks.  
     // This plugin currently ignores this setting and always does callbacks, so make the setting reflect the behavior
     setIntegerParam(NDArrayCallbacks, 1);
@@ -441,9 +452,9 @@ extern "C" int NDCircularBuffConfigure(const char *portName, int queueSize, int 
                                 const char *NDArrayPort, int NDArrayAddr,
                                 int maxBuffers, size_t maxMemory)
 {
-    new NDPluginCircularBuff(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr,
-                      maxBuffers, maxMemory, 0, 2000000);
-    return(asynSuccess);
+    NDPluginCircularBuff *pPlugin = new NDPluginCircularBuff(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr,
+                                                             maxBuffers, maxMemory, 0, 2000000);
+    return pPlugin->start();
 }
 
 /* EPICS iocsh shell commands */

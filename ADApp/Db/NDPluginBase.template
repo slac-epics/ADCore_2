@@ -44,7 +44,7 @@ record(longout, "$(P)$(R)NDArrayAddress")
     field(PINI, "YES")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))NDARRAY_ADDR")
-    field(VAL,  "0")
+    field(VAL,  "$(NDARRAY_ADDR=0)")
     info(autosaveFields, "VAL")
 }
 
@@ -66,7 +66,7 @@ record(bo, "$(P)$(R)EnableCallbacks")
     field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ENABLE_CALLBACKS")
     field(ZNAM, "Disable")
     field(ONAM, "Enable")
-    field(VAL,  "0")
+    field(VAL,  "$(ENABLED=0)")
     info(autosaveFields, "VAL")
 }
 
@@ -97,6 +97,18 @@ record(ai, "$(P)$(R)MinCallbackTime_RBV")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))MIN_CALLBACK_TIME")
     field(EGU,  "s")
+    field(PREC, "3")
+    field(SCAN, "I/O Intr")
+}
+
+###################################################################
+#  This record contains the last execution time of the plugin     #
+###################################################################
+record(ai, "$(P)$(R)ExecutionTime_RBV")
+{
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EXECUTION_TIME")
+    field(EGU,  "ms")
     field(PREC, "3")
     field(SCAN, "I/O Intr")
 }
@@ -140,12 +152,19 @@ record(longin, "$(P)$(R)DroppedArrays_RBV")
     field(SCAN, "I/O Intr")
 }
 
-record(longin, "$(P)$(R)QueueSize")
+record(longout, "$(P)$(R)QueueSize")
+{
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))QUEUE_SIZE")
+    field(PINI, "YES")
+}
+
+record(longin, "$(P)$(R)QueueSize_RBV")
 {
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))QUEUE_SIZE")
-    field(PINI, "YES")
     field(FLNK, "$(P)$(R)QueueFreeLow")
+    field(SCAN, "I/O Intr")
 }
 
 record(calcout, "$(P)$(R)QueueFreeLow") {

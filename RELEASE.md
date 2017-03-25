@@ -11,9 +11,6 @@ http://cars.uchicago.edu/software/epics/areaDetector.html.
 Tagged source code releases from R2-0 onward can be obtained at 
 https://github.com/areaDetector/ADCore/releases.
 
-Tagged prebuilt binaries from R2-0 onward can be obtained at
-http://cars.uchicago.edu/software/pub/ADCore.
-
 The versions of EPICS base, asyn, and other synApps modules used for each release can be obtained from 
 the EXAMPLE_RELEASE_PATHS.local, EXAMPLE_RELEASE_LIBS.local, and EXAMPLE_RELEASE_PRODS.local
 files respectively, in the configure/ directory of the appropriate release of the 
@@ -22,6 +19,439 @@ files respectively, in the configure/ directory of the appropriate release of th
 
 Release Notes
 =============
+R2-6 (February 19, 2017)
+========================
+
+### NDPluginDriver, NDPluginBase.template, NDPluginBase.adl
+* If blockCallbacks is non-zero in constructor then it no longer creates a processing thread.
+  This saves resources if the plugin will only be used in blocking mode.  If the plugin is changed
+  to non-blocking mode at runtime then the thread will be created then.
+* Added new parameter NDPluginExecutionTime and new ai record ExecutionTime_RBV.  This gives the execution
+  time in ms the last time the plugin ran.  It works both with BlockingCallbacks=Yes and No.  It is very
+  convenient for measuring the performance of the plugin without having to run the detector at high
+  frame rates.
+
+### NDArrayBase.template
+* Added new longout record NDimensions and new waveform record Dimensions to control the NDArray
+  dimensions.  These were needed for NDDriverStdArrays, and may be useful for other drivers.
+  Previously there were only input records (NDimensions_RBV and Dimensions_RBV) 
+  for these parameters.
+
+### NDPluginSupport.dbd
+* Build this file in Makefile, remove from source so it is easier to maintain correctly.
+
+### NDPluginROI
+* Added CollapseDims to optionally collapse (remove) output array dimensions whose value is 1.
+  For example an output array that would normally have dimensions [1, 256, 256] would be
+  [256, 256] if CollapseDims=Enable.
+  
+### pluginTests
+* Added ROIPluginWrapper.cpp to test the CollapseDims behavior in NDPluginROI.
+
+### NDPluginTransform
+* Set the NDArraySize[X,Y,Z] parameters appropriately after the transformation.  This is also done
+  by the ROI plugin, and is convenient for clients to see the sizes, since the transform can
+  swap the X and Y dimensions. 
+
+### NDPluginOverlay
+* Added new Ellipse shape to draw elliptical or circular overlays.
+* Improved efficiency by only computing the coordinates of the overlay pixels when the overlay
+  definition changes or the image format changes.  The pixel coordinates are saved in a list.
+  This is particularly important for the new Ellipse shape because it uses trigonometric functions 
+  to compute the pixel coordinates. When neither the overlay definition or the image format changes 
+  it now just sets the pixel values for each pixel in the list.
+* Added CenterX and CenterY parameter for each overlay.  One can now specify the overlay location
+  either by PositionX and PositionY, which defines the position of the upper left corner of the
+  overlay, or by CenterX and CenterY, which define the location of the center of the overlay.
+  If CenterX/Y is changed then PositionX/Y will automatically update, and vice-versa.
+* Changed the meaning of SizeX and SizeY for the Cross overlay shape.  Previously the total size
+  of a Cross overlay was SizeX\*2 and SizeY\*2.  It is now SizeX and SizeY.  This makes it consistent
+  with the Rectangle and Overlay shapes, i.e. drawing each of these shapes with the same PositionX
+  and SizeX/Y will result in shapes that overlap in the expected manner.
+* Slightly changed the meaning of SizeX/Y for the Cross and Rectangle shapes.  Previously the total
+  size of the overlay was SizeX and SizeY.  Now it is SizeX+1 and SizeY+1, i.e. the overlay extends
+  +-SizeX/2 and +-SizeY/2 pixels from the center pixel.  This preserves symmetry when WidthX/Y is 1,
+  and the previous behavior is difficult to duplicate for the Ellipse shape.
+
+### NDPluginStats
+* Extensions to compute Centroid
+  * Added calculations of 3rd and 4th order image moments, this provides skewness and kurtosis.
+  * Added eccentricity and orientation calculations.
+* Changed Histogram.
+  * Previously the documentation stated that all values less than or equal to HistMin will 
+    be in the first bin of the histogram, and all values greater than or equal to histMax will 
+    be in last bin of the histogram.  This was never actually implemented; values outside the range
+    HistMin:HistMax were not included in the histogram at all.
+  * Rather than change the code to be consistent with the documentation two new records were added,
+    HistBelow and HistAbove.  HistBelow contains the number of values less than HistMin,
+    while HistAbove contains the number of values greater than HistMax.  This was done
+    because adding a large number of values to the first and last bins of the histogram would change
+    the entropy calculation, and also make histogram plots hard to scale nicely.
+
+### NDPluginPos
+* Added NDPos.adl medm file.
+* Removed NDPosPlugin.dbd from NDPluginSupport.dbd because it can only be built if WITH_XML2 is set.
+
+### NDPluginPva
+* The pvaServer is no longer started in the plugin code, because that would result in running multiple servers
+  if multiple NDPluginPva plugins were loaded.  Now the command "startPVAServer" must be added to the IOC startup
+  script if any NDPluginPva plugins are being used.
+
+### NDPluginFile
+* If the NDArray contains an attribute named FilePluginClose and the attribute value is non-zero then
+  the current file will be closed.
+
+### NDFileTIFF
+* If there is an NDAttribute of type NDAttrString named TIFFImageDescription then this attribute is written 
+  to the TIFFTAG_IMAGEDESCRIPTION tag in the TIFF file.  Note that it will also be written to a user
+  tag in the TIFF file, as with all other NDAttributes.  This is OK because some data processing code
+  may expect to find the information in one location or the other.
+* Added documentation on how the plugin writes NDAttributes to the TIFF file.
+
+### NDAttribute
+* Removed the line `#define MAX_ATTRIBUTE_STRING_SIZE 256` from NDAttribute.h because it creates the
+  false impression that there is a limit on the size of string attributes.  There is not.
+  Some drivers and plugins may need to limit the size, but they should do this with local definitions.
+  The following files were changed to use local definitions, with these symbolic names and values:
+
+  | File                           | Symbolic name             | Value |
+  | ------------------------------ | ------------------------- | ----- |
+  | NDFileHDF5AttributeDataset.cpp | MAX_ATTRIBUTE_STRING_SIZE | 256   |
+  | NDFileNetCDF.cpp               | MAX_ATTRIBUTE_STRING_SIZE | 256   |
+  | NDFileTIFF.cpp                 | STRING_BUFFER_SIZE        | 2048  |
+
+### paramAttribute
+* Changed to read string parameters using the asynPortDriver::getStringParam(int index, std::string&amp;) 
+  method that was added in asyn R4-31.  This removes the requirement that paramAttribute specify a maximum
+  string parameters size, there is now no limit.
+  
+### PVAttribute
+* Fixed problem where a PV that disconnected and reconnected would cause multiple CA subscriptions.
+  Note that if the data type of the PV changes on reconnect that the data may not be correct because
+  the data type of a PVAttribute is not allowed to change.  The application must be restarted in this
+  case.
+  
+### asynNDArrayDriver, NDArrayBase.template, NDPluginBase.adl, ADSetup.adl, all plugin adl files
+* Added 2 new parameters: NDADCoreVersion, NDDriverVersion and new stringin records ADCoreVersion_RBV and
+  DriverVersion_RBV.  These show the version of ADCore and of the driver or plugin that the IOC was
+  built with.  Because NDPluginBase.adl grew larger all of the other plugin adl files have changed
+  their layouts.
+
+### ADDriver, ADBase.template, ADSetup.adl
+* Added 3 new parameters: ADSerialNumber, ADFirmwareVersion, and ADSDKVersion and new stringin records 
+  SerialNumber_RBV, FirmwareVersion_RBV, and SDKVersion_RBV. These show the serial number and firmware
+  version of the detector, and the version of the vendor SDK library that the IOC was built with.
+  Because ADSetup.adl grew larger all driver adl files need to change their layouts.  This has been done
+  for ADBase.adl in ADCore.  New releases of driver modules will have the changed layouts.
+
+### pvaDriver
+* Moved the driver into its own repository areaDetector/pvaDriver.  The new repository contains
+  both the driver library from ADCore and the example IOC that was previously in ADExample.
+  
+### NDArray.cpp
+* Print the reference count in the report() method.
+
+### iocBoot/EXAMPLE_commonPlugins.cmd
+* Add commented out line to call startPVAServer if the EPICS V4 NDPva plugin is loaded.
+  Previously the plugin itself called startPVAServer, but this can result in the function 
+  being called multiple times, which is not allowed.
+
+### Viewers/ImageJ
+* Improvements to EPICS_AD_Viewer.java 
+  * Automatically set the contrast when a new window is created. This eliminates the need to 
+    manually set the contrast when changing image size, data type, and color mode in many cases.
+  * When the image window is automatically closed and reopened because the size, data type, 
+    or color mode changes the new window is now positioned in the same location as the window 
+    that was closed.
+* New ImageJ plugin called GaussianProfiler.java.  It was written by Noumane Laanait when he
+  was at the APS (currently at ORNL).  This is similar to the standard ImageJ Plot Profile tool in Live
+  mode, but it also fits a Gaussian peak to the profile, and prints the fit parameters centroid, FWHM,
+  amplitude, and background.  It is very useful for focusing x-ray beams, etc.
+* New ImageJ plugin called EPICS_AD_Controller.java.  This plugin allows using the ImageJ ROI tools
+  (rectangle and oval) to graphically define the following:
+  * The readout region of the detector/camera
+  * The position and size of an ROI (NDPluginROI)
+  * The position and size of an overlay (NDPluginOverlay)
+
+  The plugin chain can include an NDPluginTransform plugin which changes the image orientation and an
+  NDPluginROI plugin that changes the binning, size, and X/Y axes directions.  The plugin corrects
+  for these transformations when defining the target object.  Chris Roehrig from the APS wrote an
+  earlier version of this plugin.
+
+### Dependencies
+* This release requires asyn R4-31 or later because it uses new features in asynPortDriver.
+
+
+R2-5 (October 28, 2016)
+========================
+### ADSupport
+* Added a new repository ADSupport to areaDetector.  This module contains the source code for all 3rd party
+  libraries used by ADCore.  The libraries that were previously built in ADCore have been moved
+  to this new repository.  These are ADCore/ADApp/netCDFSrc, nexusSrc, and tiffSupport/tiffSrc, and
+  tiffSupport/jpegSrc.  ADSupport also replaces the ADBinaries repository.  ADBinaries contained prebuilt
+  libraries for Windows for xml2, GraphicsMagick, and HDF5.  It was becoming too difficult to maintain
+  these prebuilt libraries to work with different versions of Visual Studio, and also with 32/64 bit, 
+  static dynamic, debug/release, and to work with MinGW.  These libraries are now built from source code
+  using the EPICS build system in ADSupport.
+* The libraries in ADSupport can be built for Windows (Visual Studio or MinGW, 32/64 bit, static/dynamic), 
+  Linux (currently Intel architectures only, 32/64 bit), Darwin, and vxWorks 
+  (currently big-endian 32-bit architectures only).  
+* Previously the only file saving plugin that was supported on vxWorks was netCDF.  Now all file saving 
+  plugins are supported on vxWorks 6.x (TIFF, JPEG, netCDF, HDF5, Nexus).  HDF5 and Nexus are not supported
+  on vxWorks 5.x because the compiler is too old.
+* All 3rd party libraries are now optional.  For each library XXX there are now 4 Makefile variables that control
+  support for that library.  XXX can be JPEG, TIFF, NEXUS, NETCDF, HDF5, XML2, SZIP, and ZLIB.
+  - WITH_XXX   If this is YES then drivers or plugins that use this library will be built.  If NO then
+    drivers and plugins that use this library will not be built.
+  - XXX_EXTERNAL  If this is YES then the library is not built in ADSupport, but is rather assumed to be found
+    external to the EPICS build system.  If this is NO then the XXX library will be built in ADSupport.
+  - XXX_DIR  If this is defined and XXX_EXTERNAL=YES then the build system will search this directory for the 
+    XXX library.
+  - XXX_INCLUDE If this is defined then the build system will search this directory for the include files for
+    the XXX library.
+* ADSupport does not currently include support for GraphicsMagick.  This means that GraphicsMagick is not
+  currently supported on Windows.  It can be used on Linux and Darwin if it is installed external to areaDetector
+  and GRAPHICSMAGICK_EXTERNAL=YES.
+* All EPICS modules except base and asyn are now optional.  Previously 
+  commonDriverSupport.dbd included "calcSupport.dbd", "sscanSupport.dbd", etc.
+  These dbd and libraries are now only included if they are defined in a RELEASE
+  file.
+
+
+### NDPluginPva
+* New plugin for exporting NDArrays as EPICS V4 NTNDArrays.  It has an embedded EPICSv4 server to serve the NTNDArrays
+  to V4 clients.
+  When used with pvaDriver it provides a mechanism for distributing plugin processing across multiple  processes 
+  and multiple machines. Thanks to Bruno Martins for this.
+
+### pvaDriver
+* New driver for importing an EPICS V4 NTNDArray into areaDetector.  It works by creating a monitor on the 
+  specified PV and doing plugin callbacks each time the array changes.  
+  When used with NDPluginPva it provides a mechanism for distributing plugin processing across multiple processes 
+  and multiple machines.  Thanks to Bruno Martins for this.
+
+### NDFileHDF5
+* Added support for Single Writer Multiple Reader (SWMR).  This allows HDF5 files to be read while they are still be
+  written.  This feature was added in HDF5 1.10.0-patch1, so this release or higher is required to use the 
+  SWMR support in this plugin.
+  The file plugin allows selecting whether SWMR support is enabled, and it is disabled by default.
+  Files written with SWMR support enabled can only be read by programs built with HDF 1.10 or higher, so SWMR should not
+  be enabled if older clients are to read the files.  SWMR is only supported on local, GPFS, and Lustre file systems. 
+  It is not supported on NFS or SMB file systems, for example.  Thanks to Alan Greer for this.
+  * NOTE: we discovered shortly before releasing ADSupport R1-0 and ADCore R2-5 that the
+    Single Writer Multiple Reader (SWMR) support in HDF5 1.10.0-patch1 was broken.
+    It can return errors if any of the datasets are of type H5_C_S1 (fixed length strings).
+    We were able to reproduce the errors with a simple C program, and sent that to the HDF Group.
+    They quickly produced a new unreleased version of HDF5 called 1.10-swmr-fixes that fixed the problem.
+
+    The HDF5 Group plans to release 1.10.1, hopefully before the end of 2016.  That should be
+    the first official release that will correctly support SWMR.
+
+    As of the R1-0 release ADSupport contains 2 branches. 
+    - master contains the HDF5 1.10.0-patch1 release from the HDF5 Group with only the minor changes
+      required to build with the EPICS build system, and to work on vxWorks and mingw.
+      These changes are documented in README.epics.  This version should not be used with SWMR
+      support enabled because of the known problems described above.
+    - swmr-fixes contains the 1.10-swmr-fixes code that the HDF Group provided.
+      We had to make some changes to this code to get it to work on Windows.
+      It is not an official release, but does appear to correctly support SWMR.
+      Users who would like to begin to use SWMR before HDF5 1.10.1 is released can use
+      this branch, but must be aware that it is not officially supported. 
+
+* NDAttributes of type NDAttrString are now saved as 1-D array of strings (HDF5 type H5T_C_S1) rather
+  than a 2-D array of 8-bit integers (HDF5 type H5T_NATIVE_CHAR), which is the datatype used prior to R2-5.  
+  H5T_NATIVE_CHAR is really intended to be an integer data type, and so most HDF5 utilities (h5dump, HDFView, etc.) display
+  these attributes by default as an array of integer numbers rather than as a string.  
+
+### NDPosPlugin
+* New plugin attach positional information to NDArrays in the form of NDAttributes. This plugin accepts an XML
+  description of the position data and then attaches each position to NDArrays as they are passed through the plugin.
+  Each position can contain a set of index values and each index is attached as a separate NDAttribute.  
+  The plugin operates using a FIFO and new positions can be added to the queue while the plugin is actively 
+  attaching position data.  When used in conjunction with the HDF5
+  writer it is possible to store NDArrays in an arbitrary pattern within a multi-dimensional dataset.
+
+### NDPluginDriver
+* Added the ability to change the QueueSize of a plugin at run-time. This can be very useful,
+  particularly for file plugins where an acquisition of N frames is overflowing the queue,
+  but increasing the queue can fix the problem. This will be even more useful in ADCore R3-0
+  where we plan to eliminate Capture mode in NDPluginFile. Being able to increase the queue does
+  everything that Capture mode did, but has the additional advantage that in Capture mode the
+  NDArray memory is not allocated from the NDArrayPool, so there is no check on allocating too
+  many arrays or too much memory. Using the queue means that arrays are allocated from the pool,
+  so the limits on total number of arrays and total memory defined in the constructor will be obeyed.
+  This is very important in preventing system freezes if the user accidentally tries allocate all the
+  system memory, which can effectively crash the computer.
+* Added a new start() method that must be called after the plugin object is created.  This requires
+  a small change to all plugins.  The plugins in ADCore/ADApp/pluginSrc can be used as examples.  This
+  change was required to prevent a race condition when the plugin only existed for a very short
+  time, which happens in the unit tests in ADCore/ADApp/pluginsTests.
+
+### NDPluginTimeSeries
+* New plugin for time-series data.  The plugin accepts input arrays of dimensions
+  [NumSignals] or [NumSignals, NewTimePoints].  The plugin creates NumSignals 1-D
+  arrays of dimension [NumTimPoints], each of which is the time-series for one signal.
+  On each callback the new time points are appended to the existing time series arrays.
+  The plugin can operate in one of two modes.  In Fixed Length mode the time-series arrays
+  are cleared when acquisition starts, and new time points are appended until 
+  NumTimePoints points have been received, at which point acquisition stops and further
+  callbacks are ignorred.  In Circular Buffer mode when NumTimePoints samples are received
+  then acquisition continues with the new time points replacing the oldest ones in the
+  circular buffer.  In this mode the exported NDArrays and waveforms always contain the latest 
+  NumTimePoints samples, with the first element of the array containing the oldest time
+  point and the last element containing the most recent time point.    
+* This plugin is used by R7-0 and later of the 
+  [quadEM module](https://github.com/epics-modules/quadEM).
+  It should also be useful for devices like ADCs, transient digitizers, and other devices
+  that produce time-series data on one or more input signals.  
+* There is a new ADCSimDetector test application in 
+  [areaDetector/ADExample](https://github.com/areaDetector/ADExample) 
+  that tests and demonstrates this plugin.  This test application simulates a buffered 
+  ADC with 8 input waveform signals.
+
+### NDPluginFFT
+* New plugin to compute 1-D or 2-D Fast Fourier transforms.  It exports 1-D or 2-D
+  NDArrays containing the absolute value of the FFT.  It creates 1-D waveform
+  records of the input, and the real, imaginary, and absolute values of the first row of the FFT.
+  It also creates 1-D waveform records of the time and frequency axes, which are useful if the 1-D
+  input represents a time-series. The waveform records are convenient for plotting in OPI screens. 
+* The FFT algorithm requires that the input array dimensions be a power of 2, but the plugin
+  will pad the array to the next larger power of 2 if the input array does not meet this
+  requirement.  
+* The simDetector test application in 
+  [areaDetector/ADExample](https://github.com/areaDetector/ADExample) 
+  has a new simulation mode that generates images based on the sums and/or products of 4 sine waves.
+  This application is useful for testing and demonstrating the NDPluginFFT plugin.
+
+### NDPluginStats and NDPluginROIStat
+* Added waveform record containing NDArray timestamps to time series data arrays. Thanks to
+  Stuart Wilkins for this.
+
+### NDPluginCircularBuff
+* Initialize the TriggerCalc string to "0" in the constructor to avoid error messages during iocInit
+  if the string has not been set to a valid value that is stored with autosave.
+
+### asynNDArrayDriver
+* Fixed bug in FilePath handling on Windows. If the file path ended in "/" then it would incorrectly
+  report that the directory did not exist when it did.
+* Added asynGenericPointerMask to interrupt mask in constructor.  Should always have been there.
+* Added asynDrvUserMask to interface mask in constructor.  Should always have been there.
+
+### NDArrayBase.template, NDPluginDriver.cpp
+* Set ArrayCallbacks.VAL to 1 so array callbacks are enabled by default.
+
+### NDPluginBase.template
+* Changed QueueSize from longin to longout, because the plugin queue size can now be changed at runtime.
+  Added longin QueueSize_RBV.
+* Changed EnableCallbacks.VAL to $(ENABLED=0), allowing enabling callbacks when loading database,
+  but default remains Disable.
+* Set the default value of the NDARRAY_ADDR macro to 0 so it does not need to be defined in most cases.
+  
+### ADApp/op/adl
+* Fixed many medm adl files so text fields have correct string/decimal, width and aligmnent attributes to
+  improve autoconversion to other display managers.
+
+### nexusSrc/Makefile
+* Fixed so it will work when hdf5 and sz libraries are system libraries.
+  Used same logic as commonDriverMakefile
+
+### iocBoot
+* Deleted commonPlugins.cmd and commonPlugin_settings.req.  These were accidentally restored before the R2-4
+  release after renaming them to EXAMPLE_commonPlugins.cmd and EXAMPLE_commonPlugin_settings.req.
+
+### ImageJ EPICS_ADViewer
+* Changed to work with 1-D arrays, i.e. nx>0, ny=0, nz=0.  Previously it did not work if ny=0.  This
+  is a useful enhancement because the ImageJ Dynamic Profiler can then be used to plot the 1-D array.
+
+
+R2-4 (September 21, 2015)
+========================
+### Removed simDetector and iocs directory. 
+Previously the simDetector was part of ADCore, and there was an iocs directory that built the simDetector 
+application both as part of an IOC and independent of an IOC. This had 2 disadvantages:
+
+1. It prevented building the simDetector IOC with optional plugins that reside in separate
+   repositories, such as ffmpegServer and ADPluginEdge.  This is because ADCore needs to
+   be built before the optional plugins, but by then the simDetector IOC is already built
+   and cannot use the optional plugins.
+2. It made ADCore depend on the synApps modules required to build an IOC, not just the
+   EPICS base and asyn that are required to build the base classes and plugins.
+   It was desirable to minimize such dependencies in ADCore.
+  
+For these reasons the simDetector driver and IOC code have been moved to a new repository
+called ADExample.  This repository is just like any other detector repository.
+This solves problem 1 above because the optional plugins can now be built after ADCore
+but before ADExample. 
+
+### NDAttribute
+* Fixed problem that the sourceType property was never set.
+
+### NDRoiStat[.adl, .edl, ui, .opi]
+* Fixed problem with ROI numbers when calling related displays.
+
+### ADApp/pluginTests/
+* New directory with unit tests.
+
+### XML schema
+* Moved the XML schema files from the iocBoot directory to a new XML_schema directory.
+
+### iocBoot
+* Moved commonPlugin_settings.req from ADApp/Db to iocBoot.  
+  Renamed commonPlugins.cmd to EXAMPLE_commonPlugins.cmd and commonPlugin_settings.req to
+  EXAMPLE_commonPlugin_settings.req.  These files must be copied to commonPlugins.cmd and
+  commonPlugin_settings.req respectively.  This was done because these files are typically
+  edited locally, and so should not be in git. 
+  iocBoot now only contains EXAMPLE_commonPlugins.cmd and EXAMPLE_commonPlugin_settings.req.  
+  EXAMPLE_commonPlugins.cmd adds ADCore/iocBoot to the autosave search path.
+  
+### ADApp
+* commonLibraryMakefile has been changed to define xxx_DIR and set LIB_LIBS+ = xxx if xxx_LIB is defined.  
+  If xxx_LIB is not defined then xxx_DIR is not defined and it sets LIB_SYS_LIBS += xxx.  
+  xxx includes HDF5, SZIP, and OPENCV. 
+  commonDriverMakefile has been changed similarly for PROD_LIBS and PROD_SYS_LIBS.
+  This allows optional libraries to either searched in the system location or a user-defined location 
+  without some conflicts that could previously occur.
+
+
+R2-3 (July 23, 2015)
+========================
+### devIocStats and alive modules
+* The example iocs in ADCore and other drivers can now optionally be built with the 
+  devIocStats module, which provides very useful resource utilization information for the IOC.
+  devIocStats runs on all supported architectures.
+  The OPI screen can be loaded from Plugins/Other/devIocStats.
+  It is enabled by default in areaDetector/configure/EXAMPLE_RELEASE_PRODS.local. 
+* The synApps alive module can also be built into detector IOCs.  It provdes status information
+  about the IOC to a central server.  It is disabled by default in 
+  areaDetector/configure/EXAMPLE_RELEASE_PRODS.local.  areaDetector/INSTALL_GUIDE.md has been
+  updated to describe what needs to be done to enable or disable these optional modules.
+
+### NDPluginFile
+* Fixed a serious performance problem.  The calls to openFile() and closeFile() in the derived file 
+  writing classes were being done with the asynPortDriver mutex locked.
+  This meant that driver callbacks were blocked from putting entries on the queue during this time, 
+  slowing down the drivers and potentially causing them to drop frames.  
+  Changed openFileBase() and closeFileBase() to unlock the mutex during these operations.  
+  Testing with the simDetector and ADDexela shows that the new version no longer slows
+  down the driver or drops frames at the driver level when saving TIFF files or netCDF files 
+  in Single mode.  This required locking the mutex in the derived file writing classes when
+  they access the parameter library.
+
+### NDPluginROIStat
+* Added time-series support for each of the statistics in each ROI.  This is the same as the
+  time-series support in the NDPluginStats and NDPluginAttribute plugins.
+
+### NDFileHDF5
+* Bug fixes: 
+  * When writing files in Single mode if NumCapture was 0 then the chunking was computed 
+    incorrectly and the files could be much larger than they should be.
+  * There was a problem with the HDF5 istorek parameter not being set correctly.
+
+### commonDriverMakefile
+* Include SNCSEQ libraries if SNCSEQ is defined.  This must be defined if the CALC module
+  was built with SNCSEQ support.
+* Optionally include DEVIOCSTATS and ALIVE libraries and dbd files if these are defined.
+
 
 R2-2 (March 23, 2015)
 ========================

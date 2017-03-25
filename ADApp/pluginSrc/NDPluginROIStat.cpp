@@ -14,8 +14,12 @@
 #include <stdio.h>
 #include <math.h>
 
-#include <epicsString.h>
-#include <epicsMutex.h>
+#include <cantProceed.h>
+#include <epicsTypes.h>
+#include <epicsMessageQueue.h>
+#include <epicsThread.h>
+#include <epicsEvent.h>
+#include <epicsTime.h>
 #include <iocsh.h>
 
 #include <asynDriver.h>
@@ -27,6 +31,8 @@
 
 #define MAX(A,B) (A)>(B)?(A):(B)
 #define MIN(A,B) (A)<(B)?(A):(B)
+
+#define DEFAULT_NUM_TSPOINTS 2048
   
 /**
  * Templated function to calculate statistics on different NDArray data types.
@@ -204,6 +210,7 @@ void NDPluginROIStat::processCallbacks(NDArray *pArray)
   int dim = 0;
   asynStatus status = asynSuccess;
   NDROI *pROI;
+  int TSAcquiring;
   const char* functionName = "NDPluginROIStat::processCallbacks";
 
   /* Call the base class method */
@@ -220,10 +227,12 @@ void NDPluginROIStat::processCallbacks(NDArray *pArray)
   if (pArray->ndims > 0) setIntegerParam(NDArraySizeX, (int)pArray->dims[0].size);
   if (pArray->ndims > 1) setIntegerParam(NDArraySizeY, (int)pArray->dims[1].size);
 
+  getIntegerParam(NDPluginROIStatTSAcquiring,        &TSAcquiring);
+
   /* Loop over the ROIs in this driver */
-  for (int roi=0; roi<this->maxROIs; ++roi) {
+  for (int roi=0; roi<maxROIs_; ++roi) {
     
-    pROI = &this->pROIs[roi];
+    pROI = &pROIs_[roi];
     getIntegerParam(roi, NDPluginROIStatUse, &use);
     if (!use) {
       continue;
@@ -270,6 +279,16 @@ void NDPluginROIStat::processCallbacks(NDArray *pArray)
         functionName, status);
     }
 
+    if (TSAcquiring) {
+      double *pData = timeSeries_ + (roi * MAX_TIME_SERIES_TYPES * numTSPoints_);
+      pData[TSMinValue*numTSPoints_ + currentTSPoint_]  = pROI->min;
+      pData[TSMaxValue*numTSPoints_ + currentTSPoint_]  = pROI->max;
+      pData[TSMeanValue*numTSPoints_ + currentTSPoint_] = pROI->mean;
+      pData[TSTotal*numTSPoints_ + currentTSPoint_]     = pROI->total;
+      pData[TSNet*numTSPoints_ + currentTSPoint_]       = pROI->net;
+      pData[TSTimestamp*numTSPoints_ + currentTSPoint_] = pArray->timeStamp;
+    }
+
     /* We must enter the loop and exit with the mutex locked */
     this->lock();
     setDoubleParam(roi, NDPluginROIStatMinValue,    pROI->min);
@@ -282,6 +301,15 @@ void NDPluginROIStat::processCallbacks(NDArray *pArray)
           functionName, roi, pROI->min, pROI->max, pROI->mean, pROI->total, pROI->net);
 
     callParamCallbacks(roi);
+  }
+
+  if (TSAcquiring) {
+    currentTSPoint_++;
+    setIntegerParam(NDPluginROIStatTSCurrentPoint, currentTSPoint_);
+    if (currentTSPoint_ >= numTSPoints_) {
+      setIntegerParam(NDPluginROIStatTSAcquiring, 0);
+      doTimeSeriesCallbacks();
+    }
   }
 
   int arrayCallbacks = 0;
@@ -330,9 +358,34 @@ asynStatus NDPluginROIStat::writeInt32(asynUser *pasynUser, epicsInt32 value)
     if (function == NDPluginROIStatReset) {
       stat = (clear(roi) == asynSuccess) && stat;
     } else if (function == NDPluginROIStatResetAll) {
-      for (int i=0; i<this->maxROIs; ++i) {
+      for (int i=0; i<maxROIs_; ++i) {
         stat = (clear(i) == asynSuccess) && stat;
       }
+    } else if (function == NDPluginROIStatTSNumPoints) {
+      free(timeSeries_);
+      numTSPoints_ = value;
+      timeSeries_ = (double *)calloc(MAX_TIME_SERIES_TYPES*maxROIs_*numTSPoints_, sizeof(double));
+    } else if (function == NDPluginROIStatTSControl) {
+        switch (value) {
+          case TSEraseStart:
+            currentTSPoint_ = 0;
+            setIntegerParam(NDPluginROIStatTSCurrentPoint, currentTSPoint_);
+            setIntegerParam(NDPluginROIStatTSAcquiring, 1);
+            memset(timeSeries_, 0, maxROIs_*MAX_TIME_SERIES_TYPES*numTSPoints_*sizeof(double));
+            break;
+          case TSStart:
+            if (currentTSPoint_ < numTSPoints_) {
+                setIntegerParam(NDPluginROIStatTSAcquiring, 1);
+            }
+            break;
+          case TSStop:
+            setIntegerParam(NDPluginROIStatTSAcquiring, 0);
+            doTimeSeriesCallbacks();
+            break;
+          case TSRead:
+            doTimeSeriesCallbacks();
+            break;
+        }
     } else if (function < FIRST_NDPLUGIN_ROISTAT_PARAM) {
       stat = (NDPluginDriver::writeInt32(pasynUser, value) == asynSuccess) && stat;
     }
@@ -386,6 +439,23 @@ asynStatus NDPluginROIStat::clear(epicsUInt32 roi)
   return status;
 }
 
+void NDPluginROIStat::doTimeSeriesCallbacks()
+{
+  double *pData;
+    
+  /* Loop over the ROIs in this driver */
+  for (int roi=0; roi<maxROIs_; ++roi) {
+    pData = timeSeries_ + (roi * MAX_TIME_SERIES_TYPES * numTSPoints_);
+    doCallbacksFloat64Array(pData + TSMinValue*numTSPoints_,   currentTSPoint_, NDPluginROIStatTSMinValue, roi);
+    doCallbacksFloat64Array(pData + TSMaxValue*numTSPoints_,   currentTSPoint_, NDPluginROIStatTSMaxValue, roi);
+    doCallbacksFloat64Array(pData + TSMeanValue*numTSPoints_,  currentTSPoint_, NDPluginROIStatTSMeanValue, roi);
+    doCallbacksFloat64Array(pData + TSTotal*numTSPoints_,      currentTSPoint_, NDPluginROIStatTSTotal, roi);
+    doCallbacksFloat64Array(pData + TSNet*numTSPoints_,        currentTSPoint_, NDPluginROIStatTSNet, roi);
+    doCallbacksFloat64Array(pData + TSTimestamp*numTSPoints_,  currentTSPoint_, NDPluginROIStatTSTimestamp, roi);
+  }
+}
+
+
 
 /** Constructor for NDPluginROIStat; most parameters are simply passed to NDPluginDriver::NDPluginDriver.
   * After calling the base class constructor this method sets reasonable default values for all of the
@@ -423,9 +493,9 @@ NDPluginROIStat::NDPluginROIStat(const char *portName, int queueSize, int blocki
   if (maxROIs < 1) {
     maxROIs = 1;
   }
-  this->maxROIs = maxROIs;
-  this->pROIs = new NDROI[maxROIs];
-  if(!this->pROIs) {cantProceed(functionName);}
+  maxROIs_ = maxROIs;
+  pROIs_ = new NDROI[maxROIs];
+  if(!pROIs_) {cantProceed(functionName);}
   
   /* ROI general parameters */
   createParam(NDPluginROIStatFirstString,             asynParamInt32, &NDPluginROIStatFirst);
@@ -453,6 +523,18 @@ NDPluginROIStat::NDPluginROIStat(const char *portName, int queueSize, int blocki
   createParam(NDPluginROIStatTotalString,             asynParamFloat64, &NDPluginROIStatTotal);
   createParam(NDPluginROIStatNetString,               asynParamFloat64, &NDPluginROIStatNet);
 
+  /* Time series arrays */
+  createParam(NDPluginROIStatTSControlString,           asynParamInt32, &NDPluginROIStatTSControl);
+  createParam(NDPluginROIStatTSNumPointsString,         asynParamInt32, &NDPluginROIStatTSNumPoints);
+  createParam(NDPluginROIStatTSCurrentPointString,      asynParamInt32, &NDPluginROIStatTSCurrentPoint);
+  createParam(NDPluginROIStatTSAcquiringString,         asynParamInt32, &NDPluginROIStatTSAcquiring);
+  createParam(NDPluginROIStatTSMinValueString,   asynParamFloat64Array, &NDPluginROIStatTSMinValue);
+  createParam(NDPluginROIStatTSMaxValueString,   asynParamFloat64Array, &NDPluginROIStatTSMaxValue);
+  createParam(NDPluginROIStatTSMeanValueString,  asynParamFloat64Array, &NDPluginROIStatTSMeanValue);
+  createParam(NDPluginROIStatTSTotalString,      asynParamFloat64Array, &NDPluginROIStatTSTotal);
+  createParam(NDPluginROIStatTSNetString,        asynParamFloat64Array, &NDPluginROIStatTSNet);
+  createParam(NDPluginROIStatTSTimestampString,  asynParamFloat64Array, &NDPluginROIStatTSTimestamp);
+
   createParam(NDPluginROIStatLastString,              asynParamInt32, &NDPluginROIStatLast);
   
   //Note: params set to a default value here will overwrite a default database value
@@ -460,7 +542,7 @@ NDPluginROIStat::NDPluginROIStat(const char *portName, int queueSize, int blocki
   /* Set the plugin type string */
   setStringParam(NDPluginDriverPluginType, "NDPluginROIStat");
   
-  for (int roi=0; roi<this->maxROIs; ++roi) {
+  for (int roi=0; roi<maxROIs_; ++roi) {
     
     setIntegerParam(roi , NDPluginROIStatFirst,             0);
     setIntegerParam(roi , NDPluginROIStatLast,              0);
@@ -486,6 +568,10 @@ NDPluginROIStat::NDPluginROIStat(const char *portName, int queueSize, int blocki
     callParamCallbacks(roi);
   }
 
+  numTSPoints_ = DEFAULT_NUM_TSPOINTS;
+  setIntegerParam(NDPluginROIStatTSNumPoints, numTSPoints_);
+  timeSeries_ = (double *)calloc(MAX_TIME_SERIES_TYPES*maxROIs_*numTSPoints_, sizeof(double));
+  
   /* Try to connect to the array port */
   connectToArrayPort();
 
@@ -499,14 +585,9 @@ extern "C" int NDROIStatConfigure(const char *portName, int queueSize, int block
                                  int maxBuffers, size_t maxMemory,
                                  int priority, int stackSize)
 {
-    NDPluginROIStat *pPlugin =
-        new NDPluginROIStat(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr, maxROIs,
-                        maxBuffers, maxMemory, priority, stackSize);
-    //To take care of compiler warnings
-    if (pPlugin) {
-      pPlugin = NULL;  
-    }
-    return(asynSuccess);
+    NDPluginROIStat *pPlugin = new NDPluginROIStat(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr, maxROIs,
+                                                   maxBuffers, maxMemory, priority, stackSize);
+    return pPlugin->start();
 }
 
 /* EPICS iocsh shell commands */

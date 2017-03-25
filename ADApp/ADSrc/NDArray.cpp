@@ -169,7 +169,7 @@ int NDArray::reserve()
   const char *functionName = "NDArray::reserve";
 
   if (!pNDArrayPool) {
-    printf("%s: ERROR, no owner\n", functionName);
+    printf("%s: WARNING, no owner\n", functionName);
     return(ND_ERROR);
   }
   return(pNDArrayPool->reserve(this));
@@ -181,7 +181,7 @@ int NDArray::release()
   const char *functionName = "NDArray::release";
 
   if (!pNDArrayPool) {
-    printf("%s: ERROR, no owner\n", functionName);
+    printf("%s: WARNING, no owner\n", functionName);
     return(ND_ERROR);
   }
   return(pNDArrayPool->release(this));
@@ -203,8 +203,8 @@ int NDArray::report(FILE *fp, int details)
   fprintf(fp, "]\n");
   fprintf(fp, "  dataType=%d, dataSize=%d, pData=%p\n",
         this->dataType, (int)this->dataSize, this->pData);
-  fprintf(fp, "  uniqueId=%d, timeStamp=%f\n",
-        this->uniqueId, this->timeStamp);
+  fprintf(fp, "  uniqueId=%d, timeStamp=%f, referenceCount=%d\n",
+        this->uniqueId, this->timeStamp, this->referenceCount);
   fprintf(fp, "  number of attributes=%d\n", this->pAttributeList->count());
   if (details > 5) {
     this->pAttributeList->report(fp, details);

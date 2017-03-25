@@ -63,6 +63,7 @@ asynStatus asynNDArrayDriver::checkPath()
     /* Formats a complete file name from the components defined in NDStdDriverParams */
     asynStatus status = asynError;
     char filePath[MAX_FILENAME_LEN];
+    char lastChar;
     int hasTerminator=0;
     struct stat buff;
     int istat;
@@ -75,7 +76,13 @@ asynStatus asynNDArrayDriver::checkPath()
     if (len == 0) return(asynSuccess);
     /* If the path contains a trailing '/' or '\' remove it, because Windows won't find
      * the directory if it has that trailing character */
-    if (strncmp(&filePath[len-1], delim, 1) == 0) {
+    lastChar = filePath[len-1];
+#ifdef _WIN32
+    if ((lastChar == '/') || (lastChar == '\\'))
+#else
+    if (lastChar == '/') 
+#endif
+    {
         filePath[len-1] = 0;
         len--;
         hasTerminator=1;
@@ -595,8 +602,8 @@ asynNDArrayDriver::asynNDArrayDriver(const char *portName, int maxAddr, int numP
                                      size_t maxMemory, int interfaceMask, int interruptMask,
                                      int asynFlags, int autoConnect, int priority, int stackSize)
     : asynPortDriver(portName, maxAddr, numParams+NUM_NDARRAY_PARAMS, 
-                     interfaceMask | asynInt32Mask | asynFloat64Mask | asynOctetMask | asynInt32ArrayMask | asynGenericPointerMask, 
-                     interruptMask | asynInt32Mask | asynFloat64Mask | asynOctetMask | asynInt32ArrayMask,
+                     interfaceMask | asynInt32Mask | asynFloat64Mask | asynOctetMask | asynInt32ArrayMask | asynGenericPointerMask | asynDrvUserMask, 
+                     interruptMask | asynInt32Mask | asynFloat64Mask | asynOctetMask | asynInt32ArrayMask | asynGenericPointerMask,
                      asynFlags, autoConnect, priority, stackSize),
       pNDArrayPool(NULL)
 {
@@ -609,6 +616,7 @@ asynNDArrayDriver::asynNDArrayDriver(const char *portName, int maxAddr, int numP
     
     createParam(NDPortNameSelfString,         asynParamOctet,           &NDPortNameSelf);
     createParam(NDADCoreVersionString,        asynParamOctet,           &NDADCoreVersion);
+    createParam(NDDriverVersionString,        asynParamOctet,           &NDDriverVersion);
     createParam(NDArraySizeXString,           asynParamInt32,           &NDArraySizeX);
     createParam(NDArraySizeYString,           asynParamInt32,           &NDArraySizeY);
     createParam(NDArraySizeZString,           asynParamInt32,           &NDArraySizeZ);
@@ -663,6 +671,9 @@ asynNDArrayDriver::asynNDArrayDriver(const char *portName, int maxAddr, int numP
     epicsSnprintf(versionString, sizeof(versionString), "%d.%d.%d", 
                   ADCORE_VERSION, ADCORE_REVISION, ADCORE_MODIFICATION);
     setStringParam(NDADCoreVersion, versionString);
+    // We set the driver version to the same thing, which is appropriate for plugins in ADCore
+    // Other drivers need to set this after this constructor
+    setStringParam(NDDriverVersion, versionString);
     setIntegerParam(NDArraySizeX,   0);
     setIntegerParam(NDArraySizeY,   0);
     setIntegerParam(NDArraySizeZ,   0);
@@ -703,7 +714,7 @@ asynNDArrayDriver::asynNDArrayDriver(const char *portName, int maxAddr, int numP
 asynNDArrayDriver::~asynNDArrayDriver()
 { 
     delete this->pNDArrayPool;
-    delete this->pArrays;
+    free(this->pArrays);
     delete this->pAttributeList;
 }    
 

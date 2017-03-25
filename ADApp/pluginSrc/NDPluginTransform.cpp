@@ -16,8 +16,11 @@
 #include <stdio.h>
 #include <math.h>
 
-#include <epicsString.h>
-#include <epicsMutex.h>
+#include <epicsTypes.h>
+#include <epicsMessageQueue.h>
+#include <epicsThread.h>
+#include <epicsEvent.h>
+#include <epicsTime.h>
 #include <iocsh.h>
 
 #include <asynDriver.h>
@@ -563,6 +566,11 @@ void NDPluginTransform::transformImage(NDArray *inArray, NDArray *outArray, NDAr
       transformNDArray<epicsFloat64>(inArray, outArray, transformType, colorMode, arrayInfo);
       break;
   }
+  // Set NDArraySizeX and NDArraySizeY appropriately
+  setIntegerParam(NDArraySizeX, outArray->dims[arrayInfo->xDim].size);
+  setIntegerParam(NDArraySizeY, outArray->dims[arrayInfo->yDim].size);
+  if (outArray->ndims < 3) setIntegerParam(NDArraySizeZ, 0);
+  else setIntegerParam(NDArraySizeZ, 3);
 
   return;
 }
@@ -624,9 +632,9 @@ extern "C" int NDTransformConfigure(const char *portName, int queueSize, int blo
                                     int maxBuffers, size_t maxMemory,
                                     int priority, int stackSize)
 {
-  new NDPluginTransform(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr,
-              maxBuffers, maxMemory, priority, stackSize);
-  return(asynSuccess);
+  NDPluginTransform *pPlugin = new NDPluginTransform(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr,
+                                                      maxBuffers, maxMemory, priority, stackSize);
+  return pPlugin->start();
 }
 
 /* EPICS iocsh shell commands */

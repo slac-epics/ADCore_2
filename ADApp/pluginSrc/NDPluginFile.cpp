@@ -13,13 +13,12 @@
 #include <stdio.h>
 #include <errno.h>
 
-#include <epicsThread.h>
-#include <epicsString.h>
-#include <epicsTimer.h>
-#include <epicsMutex.h>
-#include <epicsEvent.h>
+#include <epicsTypes.h>
 #include <epicsMessageQueue.h>
-#include <cantProceed.h>
+#include <epicsThread.h>
+#include <epicsEvent.h>
+#include <epicsTime.h>
+#include <epicsString.h>
 
 #include <asynDriver.h>
 
@@ -67,6 +66,8 @@ asynStatus NDPluginFile::openFileBase(NDFileOpenMode_t openMode, NDArray *pArray
     }
 
     /* Call the openFile method in the derived class */
+    /* Do this with the main lock released since it is slow */
+    this->unlock();
     epicsMutexLock(this->fileMutexId);
     this->registerInitFrameInfo(pArray);
     status = this->openFile(fullFileName, openMode, pArray);
@@ -80,6 +81,7 @@ asynStatus NDPluginFile::openFileBase(NDFileOpenMode_t openMode, NDArray *pArray
         setStringParam(NDFileWriteMessage, errorMessage);
     }
     epicsMutexUnlock(this->fileMutexId);
+    this->lock();
     
     return(status);
 }
@@ -102,17 +104,14 @@ asynStatus NDPluginFile::closeFileBase()
     getStringParam(NDFullFileName, sizeof(fullFileName), fullFileName);
     getStringParam(NDFileTempSuffix, sizeof(tempSuffix), tempSuffix);
 
-     /* Call the closeFile method in the derived class */
+    /* Call the closeFile method in the derived class */
+    /* Do this with the main lock released since it is slow */
+    this->unlock();
     epicsMutexLock(this->fileMutexId);
     status = this->closeFile();
     if (status) {
         epicsSnprintf(errorMessage, sizeof(errorMessage)-1, 
             "Error closing file, status=%d", status);
-        asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR, 
-              "%s:%s %s\n", 
-              driverName, functionName, errorMessage);
-        setIntegerParam(NDFileWriteStatus, NDFileWriteError);
-        setStringParam(NDFileWriteMessage, errorMessage);
     }
 
     if ( *tempSuffix != 0 && 
@@ -122,15 +121,20 @@ asynStatus NDPluginFile::closeFileBase()
         if ( rename( tempFileName, fullFileName ) != 0 ) {
             epicsSnprintf(errorMessage, sizeof(errorMessage)-1, 
                           "Error renaming temporary file %s to %s", tempFileName, fullFileName );
-            asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR, 
-                      "%s:%s %s\n", 
-                      driverName, functionName, errorMessage);
             status=asynError;
         }
     }
 
     epicsMutexUnlock(this->fileMutexId);
-    
+    this->lock();
+    if (status) {
+        asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR, 
+              "%s:%s %s\n", 
+              driverName, functionName, errorMessage);
+        setIntegerParam(NDFileWriteStatus, NDFileWriteError);
+        setStringParam(NDFileWriteMessage, errorMessage);
+    }
+
     return(status);
 }
 
@@ -154,11 +158,14 @@ asynStatus NDPluginFile::readFileBase(void)
     }
     
     /* Call the readFile method in the derived class */
+    /* Do this with the main lock released since it is slow */
+    this->unlock();
     epicsMutexLock(this->fileMutexId);
     status = this->openFile(fullFileName, NDFileModeRead, pArray);
     status = this->readFile(&pArray);
     status = this->closeFile();
     epicsMutexUnlock(this->fileMutexId);
+    this->lock();
     
     /* If we got an error then return */
     if (status) return(status);
@@ -322,6 +329,7 @@ asynStatus NDPluginFile::writeFileBase()
                     setIntegerParam(NDFileWriteStatus, NDFileWriteError);
                     setStringParam(NDFileWriteMessage, errorMessage);
                 } else {
+                    status = this->attrFileCloseCheck();
                     if (!this->supportsMultipleArrays)
                         status = this->closeFileBase();
                 }
@@ -389,12 +397,17 @@ asynStatus NDPluginFile::doCapture(int capture)
     int numCapture;
     static const char* functionName = "doCapture";
 
-    /* Make sure there is a valid array */
+    /* Make sure there is a valid array if capture is set to 1 */
     if (!pArray && !this->lazyOpen) {
-        asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
-            "%s:%s: ERROR, must collect an array to get dimensions first\n",
-            driverName, functionName);
-        return(asynError);
+        if (capture == 0){
+            /* No error here, but just return straight away as stop capture is non operation */
+            return(asynSuccess);
+        } else {
+            asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+                "%s:%s: ERROR, must collect an array to get dimensions first\n",
+                driverName, functionName);
+            return(asynError);
+        }
     }
     
     /* Decide whether or not to use the NDAttribute named "fileprefix" to create the filename */
@@ -475,6 +488,33 @@ asynStatus NDPluginFile::doCapture(int capture)
     return(status);
 }
 
+/** Check whether an attribute asking the file to be closed has been set.
+ *  if the value of FILEPLUGIN_CLOSE attribute is set to 1 then close the file.
+ */
+asynStatus NDPluginFile::attrFileCloseCheck()
+{
+    asynStatus status = asynSuccess;
+    NDAttribute *NDattrFileClose;
+    int getStatus = 0;
+    int closeFile = 0;
+    NDattrFileClose = this->pArrays[0]->pAttributeList->find(FILEPLUGIN_CLOSE);
+    // Check for the existence of the parameter
+    if (NDattrFileClose != NULL) {
+        // Check NDAttribute value (0 = continue, anything else = close file)
+        getStatus = NDattrFileClose->getValue(NDAttrInt32, &closeFile);
+        if (getStatus == 0){
+            if (closeFile != 0){
+                // Force a file close
+                this->closeFileBase();
+                // We must also set the parameter to notify we have stopped capturing
+                setIntegerParam(NDFileCapture, 0);
+            }
+        } else {
+            status = asynError;
+        }
+    }
+    return status;
+}
 
 /** Check whether the attributes defining the filename has changed since last write.
  * If this is the first frame (NDFileNumCaptured == 1) then the file is opened.
@@ -808,6 +848,12 @@ asynStatus NDPluginFile::writeInt32(asynUser *pasynUser, epicsInt32 value)
         }
     } else if (function == NDFileCapture) {
         if (value) {  // Started capture or stream
+            // Reset the value temporarily until the doCapture() has called the
+            // inherited openFile() method and the writer is in a good state to
+            // start writing frames.
+            // See comments on: https://github.com/areaDetector/ADCore/pull/100
+            setIntegerParam(NDFileCapture, 0);
+
             /* Latch the NDFileLazyOpen parameter so that we don't need to care
              * if the user modifies this parameter before first frame has arrived. */
             int paramFileLazyOpen = 0;
@@ -822,6 +868,7 @@ asynStatus NDPluginFile::writeInt32(asynUser *pasynUser, epicsInt32 value)
         status = doCapture(value);
         if (status == asynSuccess) {
             if (this->lazyOpen) setStringParam(NDFileWriteMessage, "Lazy Open...");
+            setIntegerParam(NDFileCapture, value);
         } else {
             setIntegerParam(NDFileCapture, 0);
         }

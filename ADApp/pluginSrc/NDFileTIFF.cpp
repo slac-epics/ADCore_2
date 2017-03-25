@@ -22,9 +22,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <netcdf.h>
 
-#include <epicsStdio.h>
+#include <epicsTypes.h>
+#include <epicsMessageQueue.h>
+#include <epicsThread.h>
+#include <epicsEvent.h>
+#include <epicsTime.h>
 #include <iocsh.h>
 
 #include <asynDriver.h>
@@ -34,12 +37,12 @@
 #include "tiffio.h"
 #include "NDFileTIFF.h"
 
+#define STRING_BUFFER_SIZE 2048
+ 
 static const char *driverName = "NDFileTIFF";
 
 const int NDFileTIFF::TIFFTAG_START_ = 65010;
 const int NDFileTIFF::TIFFTAG_END_ = 65500;
-
-#define MAX_ATTRIBUTE_STRING_SIZE 256
 
 /** Opens a TIFF file.
   * \param[in] fileName The name of the file to open.
@@ -56,8 +59,8 @@ asynStatus NDFileTIFF::openFile(const char *fileName, NDFileOpenMode_t openMode,
     int bitsPerSample=8, sampleFormat=SAMPLEFORMAT_INT, samplesPerPixel, photoMetric, planarConfig;
     int colorMode=NDColorModeMono;
     NDAttribute *pAttribute = NULL;
-    char tagString[MAX_ATTRIBUTE_STRING_SIZE] = {0};
-    char attrString[MAX_ATTRIBUTE_STRING_SIZE] = {0};
+    char tagString[STRING_BUFFER_SIZE] = {0};
+    char attrString[STRING_BUFFER_SIZE] = {0};
 
     /* We don't support reading yet */
     if (openMode & NDFileModeRead) return(asynError);
@@ -72,6 +75,7 @@ asynStatus NDFileTIFF::openFile(const char *fileName, NDFileOpenMode_t openMode,
         driverName, functionName, fileName);
         return(asynError);
     }
+    
     /* We do some special treatment based on colorMode */
     pAttribute = pArray->pAttributeList->find("ColorMode");
     if (pAttribute) pAttribute->getValue(NDAttrInt32, &colorMode);
@@ -181,7 +185,7 @@ asynStatus NDFileTIFF::openFile(const char *fileName, NDFileOpenMode_t openMode,
     TIFFSetField(this->output, TIFFTAG_PLANARCONFIG, planarConfig);
     TIFFSetField(this->output, TIFFTAG_IMAGEWIDTH, (epicsUInt32)sizeX);
     TIFFSetField(this->output, TIFFTAG_IMAGELENGTH, (epicsUInt32)sizeY);
-    TIFFSetField(this->output, TIFFTAG_ROWSPERSTRIP, (epicsUInt32)rowsPerStrip);
+    TIFFSetField(this->output, TIFFTAG_ROWSPERSTRIP, (epicsUInt32)rowsPerStrip);   
     
     this->pFileAttributes->clear();
     this->getAttributes(this->pFileAttributes);
@@ -189,125 +193,126 @@ asynStatus NDFileTIFF::openFile(const char *fileName, NDFileOpenMode_t openMode,
  
     pAttribute = this->pFileAttributes->find("Model");
     if (pAttribute) {
-      pAttribute->getValue(NDAttrString, tagString);
-      TIFFSetField(this->output, TIFFTAG_MODEL, tagString);
+        pAttribute->getValue(NDAttrString, tagString, sizeof(tagString)-1);
+        TIFFSetField(this->output, TIFFTAG_MODEL, tagString);
     } else {
-      TIFFSetField(this->output, TIFFTAG_MODEL, "Unknown");
+        TIFFSetField(this->output, TIFFTAG_MODEL, "Unknown");
     }
     
     pAttribute = this->pFileAttributes->find("Manufacturer");
     if (pAttribute) {
-      pAttribute->getValue(NDAttrString, tagString);
-      TIFFSetField(this->output, TIFFTAG_MAKE, tagString);
+        pAttribute->getValue(NDAttrString, tagString);
+        TIFFSetField(this->output, TIFFTAG_MAKE, tagString, sizeof(tagString)-1);
     } else {
-      TIFFSetField(this->output, TIFFTAG_MAKE, "Unknown");
+        TIFFSetField(this->output, TIFFTAG_MAKE, "Unknown");
     }
 
     TIFFSetField(this->output, TIFFTAG_SOFTWARE, "EPICS areaDetector");
+
+    // If the attribute TIFFImageDescription exists use it to set the TIFFTAG_IMAGEDESCRIPTION
+    pAttribute = this->pFileAttributes->find("TIFFImageDescription");
+    if (pAttribute) {
+        pAttribute->getValue(NDAttrString, tagString, sizeof(tagString)-1);
+        TIFFSetField(this->output, TIFFTAG_IMAGEDESCRIPTION, tagString);
+    }
 
     int count = 0;
     int tagId = TIFFTAG_START_;
    
     numAttributes_ = this->pFileAttributes->count();
     asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
-		"%s:%s this->pFileAttributes->count(): %d\n",
-		driverName, functionName, numAttributes_);
+        "%s:%s this->pFileAttributes->count(): %d\n",
+        driverName, functionName, numAttributes_);
 
     fieldInfo_ = (TIFFFieldInfo**) malloc(numAttributes_ * sizeof(TIFFFieldInfo *));
     if (fieldInfo_ == NULL) {
-      asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
-		"%s:%s error, fieldInfo_ malloc failed. file: %s\n",
-		driverName, functionName, fileName);
-      return asynError;
+        asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+            "%s:%s error, fieldInfo_ malloc failed. file: %s\n",
+            driverName, functionName, fileName);
+        return asynError;
     }
     for (int i=0; i<numAttributes_; ++i) {
-      asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
-		"%s:%s Initializing %d fieldInfo_ entry.\n",
-		driverName, functionName, i);
-      fieldInfo_[i] = NULL;
+        asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
+            "%s:%s Initializing %d fieldInfo_ entry.\n",
+            driverName, functionName, i);
+        fieldInfo_[i] = NULL;
     }
     
     asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
-		"%s:%s Looping over attributes...\n",
-		driverName, functionName);
+        "%s:%s Looping over attributes...\n",
+        driverName, functionName);
 
     pAttribute = this->pFileAttributes->next(NULL);
     while (pAttribute) {
-        
-      const char *attributeName = pAttribute->getName();
-      //const char *attributeDescription = pAttribute->getDescription();
-      const char *attributeSource = pAttribute->getSource();
+        const char *attributeName = pAttribute->getName();
+        //const char *attributeDescription = pAttribute->getDescription();
+        const char *attributeSource = pAttribute->getSource();
 
-      asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
-		"%s:%s : attribute: %s, source: %s\n",
-		driverName, functionName, attributeName, attributeSource);
+        asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
+          "%s:%s : attribute: %s, source: %s\n",
+          driverName, functionName, attributeName, attributeSource);
 
-      NDAttrDataType_t attrDataType;
-      size_t attrSize;
-      NDAttrValue value;
-      pAttribute->getValueInfo(&attrDataType, &attrSize);
-      memset(tagString, 0, MAX_ATTRIBUTE_STRING_SIZE);
+        NDAttrDataType_t attrDataType;
+        size_t attrSize;
+        NDAttrValue value;
+        pAttribute->getValueInfo(&attrDataType, &attrSize);
+        memset(tagString, 0, sizeof(tagString));
 
-      switch (attrDataType) {
-        case NDAttrInt8:
-        case NDAttrUInt8:
-        case NDAttrInt16:
-        case NDAttrUInt16:
-        case NDAttrInt32:
-        case NDAttrUInt32:
-	  {
-	    pAttribute->getValue(attrDataType, &value.i32);
-	    epicsSnprintf(tagString, MAX_ATTRIBUTE_STRING_SIZE, "%s:%d", attributeName, value.i32);
-	    break;
-	  }
-        case NDAttrFloat32:
-	  {
-	    pAttribute->getValue(attrDataType, &value.f32);
-	    epicsSnprintf(tagString, MAX_ATTRIBUTE_STRING_SIZE, "%s:%f", attributeName, value.f32);
-	    break;
-	  }
-        case NDAttrFloat64:
-	  {
-	    pAttribute->getValue(attrDataType, &value.f64);
-	    epicsSnprintf(tagString, MAX_ATTRIBUTE_STRING_SIZE, "%s:%f", attributeName, value.f64);
-	    break;
-	  }
-        case NDAttrString:
-	  {
-	    memset(attrString, 0, MAX_ATTRIBUTE_STRING_SIZE);
-	    pAttribute->getValue(attrDataType, attrString, MAX_ATTRIBUTE_STRING_SIZE);
-	    epicsSnprintf(tagString, MAX_ATTRIBUTE_STRING_SIZE, "%s:%s", attributeName, attrString);
-	    break;
-	  }
-        case NDAttrUndefined:
-	  break;
-        default:
-	  asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
-                    "%s:%s error, unknown attrDataType=%d\n",
-                    driverName, functionName, attrDataType);
-	  return asynError;
-	  break;
-      }
-	
-      if (attrDataType != NDAttrUndefined) {
-	asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
-		"%s:%s : tagId: %d, tagString: %s\n",
-		  driverName, functionName, tagId, tagString);
-	fieldInfo_[count] = (TIFFFieldInfo*) malloc(sizeof(TIFFFieldInfo));
-	populateAsciiFieldInfo(fieldInfo_[count], tagId, attributeName);
-	TIFFMergeFieldInfo(output, fieldInfo_[count], 1);
-	TIFFSetField(this->output, tagId, tagString);
-	++count;
-	++tagId;
-	if ((tagId == TIFFTAG_END_) || (count > numAttributes_)) {
-	  asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
-		    "%s:%s error, Too many tags/attributes for file. tagId: %d, count: %d\n",
-		    driverName, functionName, tagId, count);
-	  break;
-	}
-      }
-      
-      pAttribute = this->pFileAttributes->next(pAttribute);
+        switch (attrDataType) {
+            case NDAttrInt8:
+            case NDAttrUInt8:
+            case NDAttrInt16:
+            case NDAttrUInt16:
+            case NDAttrInt32:
+            case NDAttrUInt32: {
+                pAttribute->getValue(attrDataType, &value.i32);
+                epicsSnprintf(tagString, sizeof(tagString)-1, "%s:%d", attributeName, value.i32);
+                break;
+            }
+            case NDAttrFloat32: {
+                pAttribute->getValue(attrDataType, &value.f32);
+                epicsSnprintf(tagString, sizeof(tagString)-1, "%s:%f", attributeName, value.f32);
+                break;
+            }
+            case NDAttrFloat64: {
+                pAttribute->getValue(attrDataType, &value.f64);
+                epicsSnprintf(tagString, sizeof(tagString)-1, "%s:%f", attributeName, value.f64);
+                break;
+            }
+            case NDAttrString: {
+                memset(attrString, 0, sizeof(tagString)-1);
+                pAttribute->getValue(attrDataType, attrString, sizeof(attrString)-1);
+                epicsSnprintf(tagString, sizeof(tagString)-1, "%s:%s", attributeName, attrString);
+                break;
+            }
+            case NDAttrUndefined:
+                break;
+            default:
+                asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+                          "%s:%s error, unknown attrDataType=%d\n",
+                          driverName, functionName, attrDataType);
+                return asynError;
+                break;
+        }
+
+        if (attrDataType != NDAttrUndefined) {
+            asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
+                "%s:%s : tagId: %d, tagString: %s\n",
+                  driverName, functionName, tagId, tagString);
+            fieldInfo_[count] = (TIFFFieldInfo*) malloc(sizeof(TIFFFieldInfo));
+            populateAsciiFieldInfo(fieldInfo_[count], tagId, attributeName);
+            TIFFMergeFieldInfo(output, fieldInfo_[count], 1);
+            TIFFSetField(this->output, tagId, tagString);
+            ++count;
+            ++tagId;
+            if ((tagId == TIFFTAG_END_) || (count > numAttributes_)) {
+                asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+                    "%s:%s error, Too many tags/attributes for file. tagId: %d, count: %d\n",
+                    driverName, functionName, tagId, count);
+                break;
+            }
+        }
+        pAttribute = this->pFileAttributes->next(pAttribute);
     }
     
     return(asynSuccess);
@@ -322,26 +327,26 @@ asynStatus NDFileTIFF::openFile(const char *fileName, NDFileOpenMode_t openMode,
  */
 asynStatus NDFileTIFF::populateAsciiFieldInfo(TIFFFieldInfo *fieldInfo, int fieldTag, const char *tagName)
 {
-  asynStatus status = asynSuccess;
+    asynStatus status = asynSuccess;
 
-  if (fieldInfo) {
-    fieldInfo->field_tag = fieldTag;
-    fieldInfo->field_readcount = 1;
-    fieldInfo->field_writecount = 1;
-    fieldInfo->field_type = TIFF_ASCII;
-    fieldInfo->field_bit = FIELD_CUSTOM;
-    fieldInfo->field_oktochange = 1;
-    fieldInfo->field_passcount = 0;
-    if (tagName) {
-      fieldInfo->field_name = (char *)tagName;
+    if (fieldInfo) {
+        fieldInfo->field_tag = fieldTag;
+        fieldInfo->field_readcount = 1;
+        fieldInfo->field_writecount = 1;
+        fieldInfo->field_type = TIFF_ASCII;
+        fieldInfo->field_bit = FIELD_CUSTOM;
+        fieldInfo->field_oktochange = 1;
+        fieldInfo->field_passcount = 0;
+        if (tagName) {
+            fieldInfo->field_name = (char *)tagName;
+        } else {
+            status = asynError;
+        }
     } else {
-      status = asynError;
+        status = asynError;
     }
-  } else {
-    status = asynError;
-  }
   
-  return status;
+    return status;
 
 }
 
@@ -484,9 +489,9 @@ extern "C" int NDFileTIFFConfigure(const char *portName, int queueSize, int bloc
                                    const char *NDArrayPort, int NDArrayAddr,
                                    int priority, int stackSize)
 {
-    new NDFileTIFF(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr,
-                   priority, stackSize);
-    return(asynSuccess);
+    NDFileTIFF *pPlugin = new NDFileTIFF(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr,
+                                         priority, stackSize);
+    return pPlugin->start();
 }
 
 

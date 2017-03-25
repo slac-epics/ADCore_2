@@ -13,8 +13,11 @@
 #include <stdio.h>
 #include <math.h>
 
-#include <epicsMutex.h>
-#include <epicsString.h>
+#include <epicsTypes.h>
+#include <epicsMessageQueue.h>
+#include <epicsThread.h>
+#include <epicsEvent.h>
+#include <epicsTime.h>
 #include <iocsh.h>
 
 #include <asynDriver.h>
@@ -631,9 +634,9 @@ extern "C" int NDColorConvertConfigure(const char *portName, int queueSize, int 
                                           int maxBuffers, size_t maxMemory,
                                           int priority, int stackSize)
 {
-    new NDPluginColorConvert(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr, 
-                             maxBuffers, maxMemory, priority, stackSize);
-    return(asynSuccess);
+    NDPluginColorConvert *pPlugin = new NDPluginColorConvert(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr, 
+                                                             maxBuffers, maxMemory, priority, stackSize);
+    return pPlugin->start();
 }
 
 /** EPICS iocsh shell commands */

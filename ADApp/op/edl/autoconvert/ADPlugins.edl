@@ -312,8 +312,8 @@ topShadowColor index 2
 botShadowColor index 12
 font "helvetica-medium-r-10.0"
 icon
-numPvs 24
-numDsps 12
+numPvs 26
+numDsps 13
 displayFileName {
   0 adl/NDStdArrays.edl
   1 adl/NDProcess.edl
@@ -327,6 +327,7 @@ displayFileName {
   9 adl/NDPluginAttribute.edl
   10 scan_more.adl
   11 yySseq.adl
+  12 ioc_stats_soft.adl
 }
 menuLabel {
   0 Image #1
@@ -341,6 +342,7 @@ menuLabel {
   9 Attribute #1
   10 Scan #1
   11 Acquire Sequence
+  12 devIocStats
 }
 symbols {
   0 "P=$(P),R=image1:"
@@ -355,6 +357,7 @@ symbols {
   9 "P=$(P),R=Attr1:"
   10 "P=$(P),S=scan1,N=1"
   11 "P=$(P),S=AcquireSequence"
+  12 "ioc=$(P)"
 }
 endObjectProperties
 
