@@ -1,3 +1,6 @@
+R2.6-0.2.0:	Apr 5, 2017, Bruce Hill (bhill)
+	Added WITH_HDF5 and other macros to enable additional plugins
+
 R2.6-0.1.0:	Mar 24, 2017, Bruce Hill (bhill)
 	Merged in updates from github R2-6
 	Now depends on ADSupport instead of pkg_mgr for standard areaDetector plugins.
@@ -16,3 +19,4 @@ ADCore-R2-1_1-0:  Initial RELEASE for ICD: areaDetector Core: (Developed by Mark
                           within the buildroot linuxRT OS and toolchain:
                           added <>/configure/CONFIG_SITE.Common.linuxRT-x86
                           added <>/configure/CONFIG_SITE.Common.linuxRT-x86_64
+
