@@ -8,7 +8,7 @@
 
 # Test for required macros
 ifeq ($(wildcard $(ADSUPPORT)),)
-$(error ADSUPPORT path not found: $(ADSUPPORt))
+$(error ADSUPPORT path not found: $(ADSUPPORT))
 endif
 ifeq ($(wildcard $(ASYN)),)
 $(error ASYN path not found: $(ASYN))
