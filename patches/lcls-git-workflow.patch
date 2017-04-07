@@ -1,0 +1,225 @@
+diff --git a/RELEASE_NOTES b/RELEASE_NOTES
+new file mode 100644
+index 0000000..aa4149c
+--- /dev/null
++++ b/RELEASE_NOTES
+@@ -0,0 +1,22 @@
++R2.6-0.2.0:	Apr 5, 2017, Bruce Hill (bhill)
++	Added WITH_HDF5 and other macros to enable additional plugins
++
++R2.6-0.1.0:	Mar 24, 2017, Bruce Hill (bhill)
++	Merged in updates from github R2-6
++	Now depends on ADSupport instead of pkg_mgr for standard areaDetector plugins.
++
++R2.2-0.1.0:	Oct 8, 2016, Bruce Hill (bhill)
++	Updated to asyn R4.30-0.1.2
++	Updated build files for git work-flow
++	Includes asSupport.dbd instead of autosaveSupport.dbd for compatibility
++		w/ SLAC autosave module
++
++ADCore-R2-1_1-0:  Initial RELEASE for ICD: areaDetector Core: (Developed by Mark Rivers, Univ of Chicago))
++                  -- base classes for drivers, 
++                  -- code for all of the standard plugins, 
++                  -- an example simulation detector
++                  -- ELW: Add config files to point to the location of SZIP and HDF
++                          within the buildroot linuxRT OS and toolchain:
++                          added <>/configure/CONFIG_SITE.Common.linuxRT-x86
++                          added <>/configure/CONFIG_SITE.Common.linuxRT-x86_64
++
+diff --git a/configure/CONFIG_SITE b/configure/CONFIG_SITE
+index 4df968f..3552285 100644
+--- a/configure/CONFIG_SITE
++++ b/configure/CONFIG_SITE
+@@ -19,7 +19,97 @@ CHECK_RELEASE = YES
+ # Set this when you only want to compile this application
+ #   for a subset of the cross-compiled target architectures
+ #   that Base is built for.
+-#CROSS_COMPILER_TARGET_ARCHS = vxWorks-68040
++CROSS_COMPILER_TARGET_ARCHS := $(filter-out linuxRT-i686,       $(CROSS_COMPILER_TARGET_ARCHS))
++CROSS_COMPILER_TARGET_ARCHS := $(filter-out linuxRT_glibc-i686, $(CROSS_COMPILER_TARGET_ARCHS))
++CROSS_COMPILER_TARGET_ARCHS := $(filter-out linuxRT-arm_zynq,   $(CROSS_COMPILER_TARGET_ARCHS))
++CROSS_COMPILER_TARGET_ARCHS := $(filter-out vxWorks%,           $(CROSS_COMPILER_TARGET_ARCHS))
++CROSS_COMPILER_TARGET_ARCHS := $(filter-out RTEMS%,             $(CROSS_COMPILER_TARGET_ARCHS))
++
++# To build areaDetector so that it only depends on libCom and asyn set the following flag
++#EPICS_LIBCOM_ONLY	= YES
++
++# Configure which 3rd party libraries to use and where to find them.
++# For each library XXX the following definitions are used:
++# WITH_XXX      Build the plugins and drivers that require this library.
++#               Build the source code for this library in ADSupport if XXX_EXTERNAL=NO.
++# XXX_EXTERNAL  If NO then build the source code for this library in ADSupport.
++# XXX_INCLUDE   If XXX_EXTERNAL=YES then this is the path to the include files for XXX.
++#               However, if XXX is a system library whose include files are in a 
++#               standard include search path then do not define XXX_INCLUDE.
++# XXX_LIB       If XXX_EXTERNAL=YES then this is the path to the library files for XXX.
++#               However, if XXX is a system library whose library files in a 
++#               standard library search path then do not define XXX_LIB.
++#
++
++# BOOST is required for the ADCore/pluginTests unit tests
++WITH_BOOST     = NO
++#BOOST_LIB     =
++#BOOST_INCLUDE =
++
++# EPICS_V4 is required for NDPluginPva and pvaDriver
++WITH_EPICS_V4  = NO
++
++# GraphicsMagick is required for NDFileMagick and the URL driver.
++WITH_GRAPHICSMAGICK     = NO
++GRAPHICSMAGICK_EXTERNAL = YES
++#GRAPHICSMAGICK_INCLUDE =
++#GRAPHICSMAGICK_LIB     =
++
++# HDF5 is required for the NDFileHDF5 and NDFileNexus plugins
++WITH_HDF5     = YES
++HDF5_EXTERNAL = NO
++#HDF5_INCLUDE =
++#HDF5_LIB     =
++
++# JPEG is required for the NDFileJPEG and NDFileTIFF plugins
++WITH_JPEG     = YES
++JPEG_EXTERNAL = NO
++#JPEG_INCLUDE =
++#JPEG_LIB     =
++
++# JPEG is required for the NDFileNetCDF plugin
++WITH_NETCDF     = YES
++NETCDF_EXTERNAL = NO
++#NETCDF_INCLUDE =
++#NETCDF_LIB     =
++
++# NEXUS is required for the NDFileNexus plugin
++WITH_NEXUS     = YES
++NEXUS_EXTERNAL = NO
++#NEXUS_INCLUDE =
++#NEXUS_LIB     =
++
++# OPENCV is required for the ADPluginEdge plugin
++WITH_OPENCV     = NO
++OPENCV_EXTERNAL = YES
++#OPENCV_INCLUDE =
++#OPENCV_LIB     =
++
++# SZIP is required for the NDFileHDF5 and NDFileNexus plugins.  
++# This may be optional in the future.
++WITH_SZIP     = YES
++SZIP_EXTERNAL = NO
++#SZIP_INCLUDE =
++#SZIP_LIB     =
++
++# TIFF is required for the NDFileTIFF plugin.
++WITH_TIFF     = YES
++TIFF_EXTERNAL = NO
++#TIFF_INCLUDE =
++#TIFF_LIB     =
++
++# XML2 is required for the NDFileHDF5 and NDFileNexus plugins.  
++WITH_XML2     = YES
++XML2_EXTERNAL = NO
++#XML2_INCLUDE =
++#XML2_LIB     =
++
++# ZLIB is required for the NDFileHDF5 and NDFileNexus plugins.  
++# This may be optional in the future.
++WITH_ZLIB     = YES
++ZLIB_EXTERNAL = NO
++#ZLIB_INCLUDE =
++#ZLIB_LIB     =
+ 
+ # To install files into a location other than $(TOP) define
+ #   INSTALL_LOCATION here.
+@@ -40,3 +130,10 @@ ifdef T_A
+   -include $(AREA_DETECTOR)/configure/CONFIG_SITE.Common.$(T_A)
+   -include $(AREA_DETECTOR)/configure/CONFIG_SITE.$(EPICS_HOST_ARCH).$(T_A)
+ endif
++
++# Build shared and static libs
++ifeq (Linux, $(OS_CLASS))
++	SHARED_LIBRARIES=YES
++	STATIC_BUILD=YES
++endif
++
+diff --git a/configure/CONFIG_SITE.Common.linuxRT_glibc-x86_64 b/configure/CONFIG_SITE.Common.linuxRT_glibc-x86_64
+new file mode 100644
+index 0000000..5546254
+--- /dev/null
++++ b/configure/CONFIG_SITE.Common.linuxRT_glibc-x86_64
+@@ -0,0 +1,14 @@
++-include $(TOP)/configure/CONFIG_SITE
++
++# For linuxRT-x86
++
++# Define the location of the hdf5, sz
++# So only need to define location of libs and headers
++BUILDROOT_HOME=/afs/slac/g/lcls/package/linuxRT/buildroot-2014.11
++STAGE_X86=$(BUILDROOT_HOME)/buildroot-glibc-x86_64/output/staging
++
++HDF5_LIB     = $(STAGE_X86)/usr/lib64
++HDF5_INCLUDE = -I$(STAGE_X86)/usr/include
++
++SZIP_LIB       = $(STAGE_X86)/usr/lib64
++SZIP_INCLUDE   = -I$(STAGE_X86)/usr/include
+diff --git a/configure/RELEASE b/configure/RELEASE
+index e835000..0273f32 100644
+--- a/configure/RELEASE
++++ b/configure/RELEASE
+@@ -5,3 +5,11 @@
+ -include $(TOP)/../configure/RELEASE_LIBS_INCLUDE
+ -include $(TOP)/RELEASE.local
+ -include $(TOP)/configure/RELEASE.local
++
++# Test for required macros
++ifeq ($(wildcard $(ADSUPPORT)),)
++$(error ADSUPPORT path not found: $(ADSUPPORt))
++endif
++ifeq ($(wildcard $(ASYN)),)
++$(error ASYN path not found: $(ASYN))
++endif
+diff --git a/configure/RELEASE.local b/configure/RELEASE.local
+new file mode 100644
+index 0000000..cc9edb5
+--- /dev/null
++++ b/configure/RELEASE.local
+@@ -0,0 +1,41 @@
++# RELEASE.local
++#
++# Read definitions of:
++#	EPICS_SITE_TOP
++#	BASE_MODULE_VERSION
++#	EPICS_MODULES 
++# from one of the following options
++-include $(TOP)/../../RELEASE_SITE
++-include $(TOP)/RELEASE_SITE
++
++# Check that EPICS_MODULES was defined in a RELEASE_SITE file
++-include $(TOP)/../../RELEASE_SITE.check
++
++# ==========================================================
++# Define the version strings for all needed modules
++# Use naming pattern:
++#   FOO_MODULE_VERSION = R1.2
++# so scripts can extract version strings
++# Don't set your version to anything such as "test" that
++# could match a directory name.
++# ==========================================================
++ADSUPPORT_MODULE_VERSION	= R1.1-0.1.0
++ASYN_MODULE_VERSION     	= R4.31-0.1.0
++
++# ==========================================================
++# Define module paths using pattern
++# FOO = $(EPICS_MODULES)/foo/$(FOO_MODULE_VERSION)
++#  or
++# FOO = /Full/Path/To/Development/Version 
++# ==========================================================
++
++ADSUPPORT=$(EPICS_MODULES)/ADSupport/$(ADSUPPORT_MODULE_VERSION)
++ASYN=$(EPICS_MODULES)/asyn/$(ASYN_MODULE_VERSION)
++
++
++# Set EPICS_BASE last so it appears last in the DB, DBD, INCLUDE, and LIB search paths
++EPICS_BASE              = $(EPICS_SITE_TOP)/base/$(BASE_MODULE_VERSION)
++
++# Check for undefined EPICS_BASE
++-include $(TOP)/../../EPICS_BASE.check
++
