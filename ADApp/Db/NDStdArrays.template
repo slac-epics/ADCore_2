@@ -16,4 +16,6 @@ record(waveform, "$(P)$(R)ArrayData")
     field(FTVL, "$(FTVL)")
     field(NELM, "$(NELEMENTS)")
     field(SCAN, "I/O Intr")
+    field(TSE,  "-2")
+    info( autosaveFields, "TSE" )
 }
