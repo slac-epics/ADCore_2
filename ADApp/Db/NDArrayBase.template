@@ -590,6 +590,7 @@ record(longin, "$(P)$(R)ArrayCounter_RBV")
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARRAY_COUNTER")
     field(SCAN, "I/O Intr")
+    info(autosaveFields, "DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV TSE")
 }
 
 # Updated rate calculation to use a smoothing factor w/ guard against negative values
@@ -604,6 +605,7 @@ record(calc, "$(P)$(R)ArrayRate_RBV")
     field(PREC, "2" )
     field(EGU,  "Hz" )
     field(SCAN, "1 second")
+    info(autosaveFields, "ADEL DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV MDEL PREC C E SCAN EGU")
 }
 
 ###################################################################

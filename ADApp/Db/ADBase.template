@@ -218,7 +218,7 @@ record(ao, "$(P)$(R)AcquireTime")
    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ACQ_TIME")
    field(PREC, "3")
    field(VAL,  "1.0")
-   info(autosaveFields, "VAL")
+   info(autosaveFields, "HHSV HIGH HIHI HSV LLSV LOLO LOW LSV VAL EGU DESC HOPR LOPR PREC")
 }
 
 record(ai, "$(P)$(R)AcquireTime_RBV")
@@ -227,6 +227,7 @@ record(ai, "$(P)$(R)AcquireTime_RBV")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ACQ_TIME")
    field(PREC, "3")
    field(SCAN, "I/O Intr")
+   info(autosaveFields, "HHSV HIGH HIHI HSV LLSV LOLO LOW LSV VAL EGU DESC PREC")
 }
 
 record(ao, "$(P)$(R)AcquirePeriod")
@@ -236,7 +237,7 @@ record(ao, "$(P)$(R)AcquirePeriod")
    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ACQ_PERIOD")
    field(PREC, "3")
    field(VAL,  "0")
-   info(autosaveFields, "VAL")
+   info(autosaveFields, "HHSV HIGH HIHI HSV LLSV LOLO LOW LSV VAL EGU DESC HOPR LOPR PREC")
 }
 
 record(ai, "$(P)$(R)AcquirePeriod_RBV")
@@ -245,6 +246,7 @@ record(ai, "$(P)$(R)AcquirePeriod_RBV")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ACQ_PERIOD")
    field(PREC, "3")
    field(SCAN, "I/O Intr")
+   info(autosaveFields, "HHSV HIGH HIHI HSV LLSV LOLO LOW LSV VAL EGU DESC PREC")
 }
 
 record(ai, "$(P)$(R)TimeRemaining_RBV")
@@ -394,6 +396,8 @@ record(longin, "$(P)$(R)NumExposuresCounter_RBV")
    field(DTYP, "asynInt32")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NEXPOSURES_COUNTER")
    field(SCAN, "I/O Intr")
+   field(TSE,  "$(TSE=-2)")
+   info(autosaveFields, "TSE")
 }
 record(longout, "$(P)$(R)NumImages")
 {
@@ -409,6 +413,8 @@ record(longin, "$(P)$(R)NumImages_RBV")
    field(DTYP, "asynInt32")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NIMAGES")
    field(SCAN, "I/O Intr")
+   field(TSE,  "$(TSE=-2)")
+   info(autosaveFields, "TSE")
 }
 
 record(longin, "$(P)$(R)NumImagesCounter_RBV")
@@ -416,6 +422,8 @@ record(longin, "$(P)$(R)NumImagesCounter_RBV")
    field(DTYP, "asynInt32")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NIMAGES_COUNTER")
    field(SCAN, "I/O Intr")
+   field(TSE,  "$(TSE=-2)")
+   info(autosaveFields, "TSE")
 }
 
 ###################################################################

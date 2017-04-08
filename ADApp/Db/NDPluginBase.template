@@ -29,7 +29,7 @@ record(stringout, "$(P)$(R)NDArrayPort")
     field(DTYP, "asynOctetWrite")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NDARRAY_PORT")
     field(VAL,  "$(NDARRAY_PORT)")
-    info(autosaveFields, "VAL")
+    info(autosaveFields, "DESC VAL")
 }
 
 record(stringin, "$(P)$(R)NDArrayPort_RBV")
@@ -45,7 +45,7 @@ record(longout, "$(P)$(R)NDArrayAddress")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NDARRAY_ADDR")
     field(VAL,  "$(NDARRAY_ADDR=0)")
-    info(autosaveFields, "VAL")
+    info(autosaveFields, "DESC VAL")
 }
 
 record(longin, "$(P)$(R)NDArrayAddress_RBV")
@@ -67,7 +67,7 @@ record(bo, "$(P)$(R)EnableCallbacks")
     field(ZNAM, "Disable")
     field(ONAM, "Enable")
     field(VAL,  "$(ENABLED=0)")
-    info(autosaveFields, "VAL")
+    info(autosaveFields, "DESC VAL")
 }
 
 record(bi, "$(P)$(R)EnableCallbacks_RBV")
@@ -124,7 +124,7 @@ record(bo, "$(P)$(R)BlockingCallbacks")
     field(ZNAM, "No")
     field(ONAM, "Yes")
     field(VAL,  "0")
-    info(autosaveFields, "VAL")
+    info(autosaveFields, "DESC ZSV OSV VAL")
 }
 
 record(bi, "$(P)$(R)BlockingCallbacks_RBV")
@@ -134,6 +134,7 @@ record(bi, "$(P)$(R)BlockingCallbacks_RBV")
     field(ZNAM, "No")
     field(ONAM, "Yes")
     field(SCAN, "I/O Intr")
+    info( autosaveFields, "DESC ZSV OSV" )
 }
 
 
@@ -143,6 +144,7 @@ record(longout, "$(P)$(R)DroppedArrays")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))DROPPED_ARRAYS")
     field(VAL,  "0")
+    info( autosaveFields, "DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV EGU" )
 }
 
 record(longin, "$(P)$(R)DroppedArrays_RBV")
@@ -150,6 +152,7 @@ record(longin, "$(P)$(R)DroppedArrays_RBV")
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))DROPPED_ARRAYS")
     field(SCAN, "I/O Intr")
+    info( autosaveFields, "DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV EGU" )
 }
 
 record(longout, "$(P)$(R)QueueSize")
@@ -157,6 +160,7 @@ record(longout, "$(P)$(R)QueueSize")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))QUEUE_SIZE")
     field(PINI, "YES")
+    info( autosaveFields, "DESC EGU" )
 }
 
 record(longin, "$(P)$(R)QueueSize_RBV")
