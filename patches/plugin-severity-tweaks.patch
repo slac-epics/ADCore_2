@@ -1,0 +1,80 @@
+diff --git a/ADApp/Db/NDArrayBase.template b/ADApp/Db/NDArrayBase.template
+index 8a22730..41aa421 100755
+--- a/ADApp/Db/NDArrayBase.template
++++ b/ADApp/Db/NDArrayBase.template
+@@ -590,13 +590,17 @@ record(longin, "$(P)$(R)ArrayCounter_RBV")
+     field(DTYP, "asynInt32")
+     field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARRAY_COUNTER")
+     field(SCAN, "I/O Intr")
++    field(TSE,  "$(TSE=-2)")
++    field(LOW,  "0" )
++    field(LSV,  "MINOR" )
+     info(autosaveFields, "DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV TSE")
+ }
+ 
+ # Updated rate calculation to use a smoothing factor w/ guard against negative values
++# 0 rate sets alarm state to MINOR
+ record(calc, "$(P)$(R)ArrayRate_RBV")
+ {
+-    field(INPA, "$(P)$(R)ArrayRate_RBV.LB NPP NMS")   # Previous counter value
++    field(INPA, "$(P)$(R)ArrayRate_RBV.LB NPP NMS")   # Previous counter (Last B value)
+     field(INPB, "$(P)$(R)ArrayCounter_RBV NPP NMS")   # Current counter value
+     field(INPC, "1.0")                                # Delta time in seconds
+     field(INPD, "$(P)$(R)ArrayRate_RBV.VAL NPP NMS")  # Previous rate
+@@ -605,6 +609,9 @@ record(calc, "$(P)$(R)ArrayRate_RBV")
+     field(PREC, "2" )
+     field(EGU,  "Hz" )
+     field(SCAN, "1 second")
++    field(LOW,  "0")
++    field(LSV,  "MINOR")
++	field(ADEL, "0.1")
+     info(autosaveFields, "ADEL DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV MDEL PREC C E SCAN EGU")
+ }
+ 
+diff --git a/ADApp/Db/NDFile.template b/ADApp/Db/NDFile.template
+index e6f217d..0b380fa 100644
+--- a/ADApp/Db/NDFile.template
++++ b/ADApp/Db/NDFile.template
+@@ -266,6 +266,9 @@ record(busy, "$(P)$(R)Capture")
+     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))CAPTURE")
+     field(ZNAM, "Done")
+     field(ONAM, "Capture")
++    field(ZSV,  "NO_ALARM")
++    field(OSV,  "MINOR")
++    info(autosaveFields, "OSV ZSV")
+ }
+ 
+ record(bi, "$(P)$(R)Capture_RBV")
+diff --git a/ADApp/Db/NDPluginBase.template b/ADApp/Db/NDPluginBase.template
+index 8a0f55d..cc740df 100644
+--- a/ADApp/Db/NDPluginBase.template
++++ b/ADApp/Db/NDPluginBase.template
+@@ -76,8 +76,8 @@ record(bi, "$(P)$(R)EnableCallbacks_RBV")
+     field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ENABLE_CALLBACKS")
+     field(ZNAM, "Disabled")
+     field(ONAM, "Enabled")
+-    field(ZSV,  "NO_ALARM")
+-    field(OSV,  "MINOR")
++    field(ZSV,  "MINOR")
++    field(OSV,  "NO_ALARM")
+     field(SCAN, "I/O Intr")
+ }
+ 
+@@ -133,6 +133,8 @@ record(bi, "$(P)$(R)BlockingCallbacks_RBV")
+     field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))BLOCKING_CALLBACKS")
+     field(ZNAM, "No")
+     field(ONAM, "Yes")
++    field(ZSV,  "NO_ALARM")
++    field(OSV,  "MINOR")
+     field(SCAN, "I/O Intr")
+     info( autosaveFields, "DESC ZSV OSV" )
+ }
+@@ -152,6 +154,8 @@ record(longin, "$(P)$(R)DroppedArrays_RBV")
+     field(DTYP, "asynInt32")
+     field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))DROPPED_ARRAYS")
+     field(SCAN, "I/O Intr")
++    field(HIGH, "1")
++    field(HSV,  "MINOR")
+     info( autosaveFields, "DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV EGU" )
+ }
+ 

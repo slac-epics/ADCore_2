@@ -1,0 +1,359 @@
+diff --git a/ADApp/Db/ADBase.template b/ADApp/Db/ADBase.template
+index 747302f..1debe8b 100644
+--- a/ADApp/Db/ADBase.template
++++ b/ADApp/Db/ADBase.template
+@@ -218,7 +218,7 @@ record(ao, "$(P)$(R)AcquireTime")
+    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ACQ_TIME")
+    field(PREC, "3")
+    field(VAL,  "1.0")
+-   info(autosaveFields, "VAL")
++   info(autosaveFields, "HHSV HIGH HIHI HSV LLSV LOLO LOW LSV VAL EGU DESC HOPR LOPR PREC")
+ }
+ 
+ record(ai, "$(P)$(R)AcquireTime_RBV")
+@@ -227,6 +227,7 @@ record(ai, "$(P)$(R)AcquireTime_RBV")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ACQ_TIME")
+    field(PREC, "3")
+    field(SCAN, "I/O Intr")
++   info(autosaveFields, "HHSV HIGH HIHI HSV LLSV LOLO LOW LSV VAL EGU DESC PREC")
+ }
+ 
+ record(ao, "$(P)$(R)AcquirePeriod")
+@@ -236,7 +237,7 @@ record(ao, "$(P)$(R)AcquirePeriod")
+    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ACQ_PERIOD")
+    field(PREC, "3")
+    field(VAL,  "0")
+-   info(autosaveFields, "VAL")
++   info(autosaveFields, "HHSV HIGH HIHI HSV LLSV LOLO LOW LSV VAL EGU DESC HOPR LOPR PREC")
+ }
+ 
+ record(ai, "$(P)$(R)AcquirePeriod_RBV")
+@@ -245,6 +246,7 @@ record(ai, "$(P)$(R)AcquirePeriod_RBV")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ACQ_PERIOD")
+    field(PREC, "3")
+    field(SCAN, "I/O Intr")
++   info(autosaveFields, "HHSV HIGH HIHI HSV LLSV LOLO LOW LSV VAL EGU DESC PREC")
+ }
+ 
+ record(ai, "$(P)$(R)TimeRemaining_RBV")
+@@ -394,6 +396,8 @@ record(longin, "$(P)$(R)NumExposuresCounter_RBV")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NEXPOSURES_COUNTER")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "$(TSE=-2)")
++   info(autosaveFields, "TSE")
+ }
+ record(longout, "$(P)$(R)NumImages")
+ {
+@@ -409,6 +413,8 @@ record(longin, "$(P)$(R)NumImages_RBV")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NIMAGES")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "$(TSE=-2)")
++   info(autosaveFields, "TSE")
+ }
+ 
+ record(longin, "$(P)$(R)NumImagesCounter_RBV")
+@@ -416,6 +422,8 @@ record(longin, "$(P)$(R)NumImagesCounter_RBV")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NIMAGES_COUNTER")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "$(TSE=-2)")
++   info(autosaveFields, "TSE")
+ }
+ 
+ ###################################################################
+diff --git a/ADApp/Db/NDArrayBase.template b/ADApp/Db/NDArrayBase.template
+index f17a5d4..8a22730 100755
+--- a/ADApp/Db/NDArrayBase.template
++++ b/ADApp/Db/NDArrayBase.template
+@@ -590,6 +590,7 @@ record(longin, "$(P)$(R)ArrayCounter_RBV")
+     field(DTYP, "asynInt32")
+     field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARRAY_COUNTER")
+     field(SCAN, "I/O Intr")
++    info(autosaveFields, "DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV TSE")
+ }
+ 
+ # Updated rate calculation to use a smoothing factor w/ guard against negative values
+@@ -604,6 +605,7 @@ record(calc, "$(P)$(R)ArrayRate_RBV")
+     field(PREC, "2" )
+     field(EGU,  "Hz" )
+     field(SCAN, "1 second")
++    info(autosaveFields, "ADEL DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV MDEL PREC C E SCAN EGU")
+ }
+ 
+ ###################################################################
+diff --git a/ADApp/Db/NDPluginBase.template b/ADApp/Db/NDPluginBase.template
+index 1df033b..8f54b88 100644
+--- a/ADApp/Db/NDPluginBase.template
++++ b/ADApp/Db/NDPluginBase.template
+@@ -29,7 +29,7 @@ record(stringout, "$(P)$(R)NDArrayPort")
+     field(DTYP, "asynOctetWrite")
+     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NDARRAY_PORT")
+     field(VAL,  "$(NDARRAY_PORT)")
+-    info(autosaveFields, "VAL")
++    info(autosaveFields, "DESC VAL")
+ }
+ 
+ record(stringin, "$(P)$(R)NDArrayPort_RBV")
+@@ -45,7 +45,7 @@ record(longout, "$(P)$(R)NDArrayAddress")
+     field(DTYP, "asynInt32")
+     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NDARRAY_ADDR")
+     field(VAL,  "$(NDARRAY_ADDR=0)")
+-    info(autosaveFields, "VAL")
++    info(autosaveFields, "DESC VAL")
+ }
+ 
+ record(longin, "$(P)$(R)NDArrayAddress_RBV")
+@@ -67,7 +67,7 @@ record(bo, "$(P)$(R)EnableCallbacks")
+     field(ZNAM, "Disable")
+     field(ONAM, "Enable")
+     field(VAL,  "$(ENABLED=0)")
+-    info(autosaveFields, "VAL")
++    info(autosaveFields, "DESC VAL")
+ }
+ 
+ record(bi, "$(P)$(R)EnableCallbacks_RBV")
+@@ -124,7 +124,7 @@ record(bo, "$(P)$(R)BlockingCallbacks")
+     field(ZNAM, "No")
+     field(ONAM, "Yes")
+     field(VAL,  "0")
+-    info(autosaveFields, "VAL")
++    info(autosaveFields, "DESC ZSV OSV VAL")
+ }
+ 
+ record(bi, "$(P)$(R)BlockingCallbacks_RBV")
+@@ -134,6 +134,7 @@ record(bi, "$(P)$(R)BlockingCallbacks_RBV")
+     field(ZNAM, "No")
+     field(ONAM, "Yes")
+     field(SCAN, "I/O Intr")
++    info( autosaveFields, "DESC ZSV OSV" )
+ }
+ 
+ 
+@@ -143,6 +144,7 @@ record(longout, "$(P)$(R)DroppedArrays")
+     field(DTYP, "asynInt32")
+     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))DROPPED_ARRAYS")
+     field(VAL,  "0")
++    info( autosaveFields, "DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV EGU" )
+ }
+ 
+ record(longin, "$(P)$(R)DroppedArrays_RBV")
+@@ -150,6 +152,7 @@ record(longin, "$(P)$(R)DroppedArrays_RBV")
+     field(DTYP, "asynInt32")
+     field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))DROPPED_ARRAYS")
+     field(SCAN, "I/O Intr")
++    info( autosaveFields, "DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV EGU" )
+ }
+ 
+ record(longout, "$(P)$(R)QueueSize")
+@@ -157,6 +160,7 @@ record(longout, "$(P)$(R)QueueSize")
+     field(DTYP, "asynInt32")
+     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))QUEUE_SIZE")
+     field(PINI, "YES")
++    info( autosaveFields, "DESC EGU" )
+ }
+ 
+ record(longin, "$(P)$(R)QueueSize_RBV")
+diff --git a/ADApp/Db/NDPluginBase_settings.req b/ADApp/Db/NDPluginBase_settings.req
+index f0ebe5a..a576304 100644
+--- a/ADApp/Db/NDPluginBase_settings.req
++++ b/ADApp/Db/NDPluginBase_settings.req
+@@ -1,7 +1,14 @@
+ $(P)$(R)NDArrayPort
+ $(P)$(R)NDArrayAddress
+ $(P)$(R)EnableCallbacks
++$(P)$(R)MemoryPoolDiagScan.SCAN
+ $(P)$(R)MinCallbackTime
+ $(P)$(R)BlockingCallbacks
+ $(P)$(R)QueueSize
+ file "NDArrayBase_settings.req", P=$(P), R=$(R)
++$(P)$(R)NDAttributesFile
++$(P)$(R)ArrayCounter_RBV.TSE
++$(P)$(R)EpicsTSNsec_RBV.TSE
++$(P)$(R)EpicsTSSec_RBV.TSE
++$(P)$(R)UniqueId_RBV.TSE
++$(P)$(R)TimeStamp_RBV.TSE
+diff --git a/ADApp/Db/NDStats.template b/ADApp/Db/NDStats.template
+index 20947e9..346045c 100644
+--- a/ADApp/Db/NDStats.template
++++ b/ADApp/Db/NDStats.template
+@@ -42,6 +42,7 @@ record(longin, "$(P)$(R)BgdWidth_RBV")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))BGD_WIDTH")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ record(ao, "$(P)$(R)MinValue")
+@@ -55,6 +56,7 @@ record(ai, "$(P)$(R)MinValue_RBV")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))MIN_VALUE")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ record(ao, "$(P)$(R)MaxValue")
+@@ -68,6 +70,7 @@ record(ai, "$(P)$(R)MaxValue_RBV")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))MAX_VALUE")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ record(ao, "$(P)$(R)MeanValue")
+@@ -81,6 +84,7 @@ record(ai, "$(P)$(R)MeanValue_RBV")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))MEAN_VALUE")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ record(ao, "$(P)$(R)SigmaValue")
+@@ -95,6 +99,7 @@ record(ai, "$(P)$(R)Sigma_RBV")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))SIGMA_VALUE")
+    field(PREC, "1")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ record(ao, "$(P)$(R)Total")
+@@ -108,6 +113,7 @@ record(ai, "$(P)$(R)Total_RBV")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))TOTAL")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ record(ao, "$(P)$(R)Net")
+@@ -121,6 +127,7 @@ record(ai, "$(P)$(R)Net_RBV")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NET")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ record(ao, "$(P)$(R)MinX")
+@@ -134,6 +141,7 @@ record(ai, "$(P)$(R)MinX_RBV")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))MIN_X")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ record(ao, "$(P)$(R)MinY")
+@@ -147,6 +155,7 @@ record(ai, "$(P)$(R)MinY_RBV")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))MIN_Y")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ record(ao, "$(P)$(R)MaxX")
+@@ -160,6 +169,7 @@ record(ai, "$(P)$(R)MaxX_RBV")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))MAX_X")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ record(ao, "$(P)$(R)MaxY")
+@@ -173,6 +183,7 @@ record(ai, "$(P)$(R)MaxY_RBV")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))MAX_Y")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ ###################################################################
+@@ -245,6 +256,7 @@ record(ai, "$(P)$(R)CentroidX_RBV")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))CENTROIDX_VALUE")
+    field(PREC, "1")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ record(ao, "$(P)$(R)CentroidY")
+@@ -259,6 +271,7 @@ record(ai, "$(P)$(R)CentroidY_RBV")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))CENTROIDY_VALUE")
+    field(PREC, "1")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ record(ao, "$(P)$(R)SigmaX")
+@@ -273,6 +286,7 @@ record(ai, "$(P)$(R)SigmaX_RBV")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))SIGMAX_VALUE")
+    field(PREC, "1")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ record(ao, "$(P)$(R)SigmaY")
+@@ -287,6 +301,7 @@ record(ai, "$(P)$(R)SigmaY_RBV")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))SIGMAY_VALUE")
+    field(PREC, "1")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ record(ao, "$(P)$(R)SigmaXY")
+@@ -301,6 +316,7 @@ record(ai, "$(P)$(R)SigmaXY_RBV")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))SIGMAXY_VALUE")
+    field(PREC, "3")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ record(ao, "$(P)$(R)SkewX")
+@@ -431,6 +447,7 @@ record(longin, "$(P)$(R)TSCurrentPoint")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))TS_CURRENT_POINT")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ record(bi, "$(P)$(R)TSAcquiring")
+@@ -765,6 +782,7 @@ record(waveform, "$(P)$(R)ProfileCentroidX_RBV")
+    field(FTVL, "DOUBLE")
+    field(NELM, "$(XSIZE)")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ record(waveform, "$(P)$(R)ProfileCentroidY_RBV")
+@@ -774,6 +792,7 @@ record(waveform, "$(P)$(R)ProfileCentroidY_RBV")
+    field(FTVL, "DOUBLE")
+    field(NELM, "$(YSIZE)")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ record(waveform, "$(P)$(R)ProfileCursorX_RBV")
+@@ -783,6 +802,7 @@ record(waveform, "$(P)$(R)ProfileCursorX_RBV")
+    field(FTVL, "DOUBLE")
+    field(NELM, "$(XSIZE)")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ record(waveform, "$(P)$(R)ProfileCursorY_RBV")
+@@ -792,6 +812,7 @@ record(waveform, "$(P)$(R)ProfileCursorY_RBV")
+    field(FTVL, "DOUBLE")
+    field(NELM, "$(YSIZE)")
+    field(SCAN, "I/O Intr")
++   field(TSE,  "-2")
+ }
+ 
+ 
+diff --git a/ADApp/Db/NDStdArrays.template b/ADApp/Db/NDStdArrays.template
+index ea1d182..5238dfc 100644
+--- a/ADApp/Db/NDStdArrays.template
++++ b/ADApp/Db/NDStdArrays.template
+@@ -16,4 +16,6 @@ record(waveform, "$(P)$(R)ArrayData")
+     field(FTVL, "$(FTVL)")
+     field(NELM, "$(NELEMENTS)")
+     field(SCAN, "I/O Intr")
++    field(TSE,  "-2")
++    info( autosaveFields, "TSE" )
+ }

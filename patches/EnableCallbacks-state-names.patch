@@ -1,0 +1,26 @@
+diff --git a/ADApp/Db/NDPluginBase.template b/ADApp/Db/NDPluginBase.template
+index 8f54b88..8a0f55d 100644
+--- a/ADApp/Db/NDPluginBase.template
++++ b/ADApp/Db/NDPluginBase.template
+@@ -64,8 +64,8 @@ record(bo, "$(P)$(R)EnableCallbacks")
+     field(PINI, "YES")
+     field(DTYP, "asynInt32")
+     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ENABLE_CALLBACKS")
+-    field(ZNAM, "Disable")
+-    field(ONAM, "Enable")
++    field(ZNAM, "Disabled")
++    field(ONAM, "Enabled")
+     field(VAL,  "$(ENABLED=0)")
+     info(autosaveFields, "DESC VAL")
+ }
+@@ -74,8 +74,8 @@ record(bi, "$(P)$(R)EnableCallbacks_RBV")
+ {
+     field(DTYP, "asynInt32")
+     field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ENABLE_CALLBACKS")
+-    field(ZNAM, "Disable")
+-    field(ONAM, "Enable")
++    field(ZNAM, "Disabled")
++    field(ONAM, "Enabled")
+     field(ZSV,  "NO_ALARM")
+     field(OSV,  "MINOR")
+     field(SCAN, "I/O Intr")

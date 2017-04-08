@@ -1,0 +1,77 @@
+diff --git a/ADApp/Db/NDOverlayN.template b/ADApp/Db/NDOverlayN.template
+index 62ccbf5..557c70e 100644
+--- a/ADApp/Db/NDOverlayN.template
++++ b/ADApp/Db/NDOverlayN.template
+@@ -53,9 +53,16 @@ record(bi, "$(P)$(R)Use_RBV")
+ #  These records control the overlay definition                   #
+ ###################################################################
+ 
++# Providing a dummy PV as the default PositionXLink DOL
++# so we don't generate references to a PV named "CP" when
++# we don't have a real PV that we want PositionX to follow.
++record(longout, "$(P)$(R)XPosDummy")
++{
++}
++
+ record(longout, "$(P)$(R)PositionXLink")
+ {
+-    field(DOL,  "$(XPOS="") CP MS")
++    field(DOL,  "$(XPOS=$(P)$(R)XPosDummy) CP MS")
+     field(OMSL, "closed_loop")
+     field(OUT, "$(P)$(R)PositionX PP")
+     info(autosaveFields, "DOL")
+@@ -77,9 +84,16 @@ record(longin, "$(P)$(R)PositionX_RBV")
+     field(SCAN, "I/O Intr")
+ }
+ 
++# Providing a dummy PV as the default PositionYLink DOL
++# so we don't generate references to a PV named "CP" when
++# we don't have a real PV that we want PositionY to follow.
++record(longout, "$(P)$(R)YPosDummy")
++{
++}
++
+ record(longout, "$(P)$(R)PositionYLink")
+ {
+-    field(DOL,  "$(YPOS="") CP MS")
++    field(DOL,  "$(YPOS=$(P)$(R)YPosDummy) CP MS")
+     field(OMSL, "closed_loop")
+     field(OUT, "$(P)$(R)PositionY PP")
+     info(autosaveFields, "DOL")
+@@ -146,10 +160,17 @@ record(longin, "$(P)$(R)CenterY_RBV")
+     field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_CENTER_Y")
+     field(SCAN, "I/O Intr")
+ }
++ 
++# Providing a dummy PV as the default SizeXLink DOL
++# so we don't generate references to a PV named "CP" when
++# we don't have a real PV that we want SizeX to follow.
++record(longout, "$(P)$(R)SizeXDummy")
++{
++}
+ 
+ record(longout, "$(P)$(R)SizeXLink")
+ {
+-    field(DOL,  "$(XSIZE="") CP MS")
++    field(DOL,  "$(XSIZE=$(P)$(R)SizeXDummy) CP MS")
+     field(OMSL, "closed_loop")
+     field(OUT, "$(P)$(R)SizeX PP")
+     info(autosaveFields, "DOL")
+@@ -173,9 +194,16 @@ record(longin, "$(P)$(R)SizeX_RBV")
+     field(SCAN, "I/O Intr")
+ }
+ 
++# Providing a dummy PV as the default SizeYLink DOL
++# so we don't generate references to a PV named "CP" when
++# we don't have a real PV that we want SizeY to follow.
++record(longout, "$(P)$(R)SizeYDummy")
++{
++}
++
+ record(longout, "$(P)$(R)SizeYLink")
+ {
+-    field(DOL,  "$(YSIZE="") CP MS")
++    field(DOL,  "$(YSIZE=$(P)$(R)SizeYDummy) CP MS")
+     field(OMSL, "closed_loop")
+     field(OUT, "$(P)$(R)SizeY PP")
+     info(autosaveFields, "DOL")
