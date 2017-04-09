@@ -75,6 +75,10 @@ asynStatus NDPluginFile::openFileBase(NDFileOpenMode_t openMode, NDArray *pArray
     epicsMutexUnlock(this->fileMutexId);
     this->lock();
 
+    epicsSnprintf(  errorMessage, sizeof(errorMessage)-1, 
+                    "Opened %s", fullFileName );
+    setStringParam( NDFileWriteMessage, errorMessage );
+    
     return(status);
 }
 
@@ -91,7 +95,9 @@ asynStatus NDPluginFile::closeFileBase()
     static const char* functionName = "closeFileBase";
 
     setIntegerParam(NDFileWriteStatus, NDFileWriteOK);
-    setStringParam(NDFileWriteMessage, "");
+    epicsSnprintf(  errorMessage, sizeof(errorMessage)-1, 
+                    "Closing %s ...", fullFileName );
+    setStringParam(NDFileWriteMessage, errorMessage );
 
     getStringParam(NDFullFileName, sizeof(fullFileName), fullFileName);
     getStringParam(NDFileTempSuffix, sizeof(tempSuffix), tempSuffix);
@@ -749,6 +755,10 @@ void NDPluginFile::processCallbacks(NDArray *pArray)
             }
             break;
         case NDFileModeCapture:
+			if ( capture && !this->isFrameValid(pArray)) {
+				capture = 0;
+				setIntegerParam(NDFileCapture, capture);
+			}
             if (capture) {
                 if (numCaptured < numCapture && this->isFrameValid(pArray)) {
                     pArray->reserve();
