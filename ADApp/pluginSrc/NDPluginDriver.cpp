@@ -214,15 +214,20 @@ void NDPluginDriver::beginProcessCallbacks(NDArray *pArray)
     setIntegerParam(NDArrayCounter, arrayCounter);
     setIntegerParam(NDNDimensions, pArray->ndims);
     setIntegerParam(NDDataType, pArray->dataType);
+
+    NDArrayInfo_t arrayInfo;
+    pArray->getInfo(&arrayInfo);
+    setIntegerParam(NDBitsPerPixel, arrayInfo.bitsPerElement);
+
     setIntegerParam(NDColorMode, colorMode);
     setIntegerParam(NDBayerPattern, bayerPattern);
     setStringParam(NDCodec, pArray->codec.name);
     setIntegerParam(NDCompressedSize, pArray->compressedSize);
     setIntegerParam(NDUniqueId, pArray->uniqueId);
     setTimeStamp(&pArray->epicsTS);
-    setDoubleParam(NDTimeStamp, pArray->timeStamp);
-    setIntegerParam(NDEpicsTSSec, pArray->epicsTS.secPastEpoch);
-    setIntegerParam(NDEpicsTSNsec, pArray->epicsTS.nsec);
+    setDoubleParam(NDTimeStamp,      pArray->timeStamp);
+    setIntegerParam(NDEpicsTSSec,    pArray->epicsTS.secPastEpoch);
+    setIntegerParam(NDEpicsTSNsec,   pArray->epicsTS.nsec);
     /* See if the array dimensions have changed.  If so then do callbacks on them. */
     for (i=0, dimsChanged=0; i<ND_ARRAY_MAX_DIMS; i++) {
         size = (int)pArray->dims[i].size;
