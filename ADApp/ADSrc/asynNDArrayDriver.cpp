@@ -55,10 +55,10 @@
 
 static const char *driverName = "asynNDArrayDriver";
 
-/** Checks whether the directory specified NDFilePath parameter exists.
+/** Checks whether the directory specified by NDFilePath parameter exists.
   * 
-  * This is a convenience function that determinesthe directory specified NDFilePath parameter exists.
-  * It sets the value of NDFilePathExists to 0 (does not exist) or 1 (exists).  
+  * This is a convenience function that determines if the specified directory exists.
+  * It sets the value of NDFilePathExists to 0 (does not exist) or 1 (exists).
   * It also adds a trailing '/' character to the path if one is not present.
   * Returns a error status if the directory does not exist.
   */
@@ -710,6 +710,7 @@ asynNDArrayDriver::asynNDArrayDriver(const char *portName, int maxAddr, int maxB
     createParam(NDNDimensionsString,          asynParamInt32,           &NDNDimensions);
     createParam(NDDimensionsString,           asynParamInt32,           &NDDimensions);
     createParam(NDDataTypeString,             asynParamInt32,           &NDDataType);
+    createParam(NDBitsPerPixelString,         asynParamInt32,           &NDBitsPerPixel);
     createParam(NDColorModeString,            asynParamInt32,           &NDColorMode);
     createParam(NDUniqueIdString,             asynParamInt32,           &NDUniqueId);
     createParam(NDTimeStampString,            asynParamFloat64,         &NDTimeStamp);
@@ -767,6 +768,8 @@ asynNDArrayDriver::asynNDArrayDriver(const char *portName, int maxAddr, int maxB
     setIntegerParam(NDArraySizeZ,   0);
     setIntegerParam(NDArraySize,    0);
     setIntegerParam(NDNDimensions,  0);
+    setIntegerParam(NDDataType,     NDUInt8);
+    setIntegerParam(NDBitsPerPixel, 8);
     setIntegerParam(NDColorMode,    NDColorModeMono);
     setIntegerParam(NDUniqueId,     0);
     setDoubleParam (NDTimeStamp,    0.);
