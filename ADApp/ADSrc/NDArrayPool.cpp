@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <dbDefs.h>
 #include <stdint.h>
+#include <math.h>
 
 #include <epicsMutex.h>
 #include <epicsThread.h>
@@ -150,6 +151,7 @@ NDArray* NDArrayPool::alloc(int ndims, size_t *dims, NDDataType_t dataType, size
   pArray->referenceCount = 1;
   pArray->pDriver = pDriver_;
   pArray->dataType = dataType;
+  pArray->bitsPerElement = GetNDDataTypeBits(dataType);
   pArray->ndims = ndims;
   memset(pArray->dims, 0, sizeof(pArray->dims));
   for (int i=0; i<ndims && i<ND_ARRAY_MAX_DIMS; i++) {
@@ -241,6 +243,7 @@ NDArray* NDArrayPool::copy(NDArray *pIn, NDArray *pOut, bool copyData, bool copy
     pOut = this->alloc(pIn->ndims, dimSizeOut, pIn->dataType, 0, NULL);
     if(NULL==pOut) return NULL;
   }
+  pOut->bitsPerElement = pIn->bitsPerElement;
   pOut->uniqueId = pIn->uniqueId;
   pOut->timeStamp = pIn->timeStamp;
   pOut->epicsTS = pIn->epicsTS;
@@ -615,6 +618,18 @@ int NDArrayPool::convert(NDArray *pIn,
       driverName, functionName);
     return(ND_ERROR);
   }
+
+  /* Use log2 of binning factors to calculate effect on bitsPerElement */
+  pOut->bitsPerElement  = pIn->bitsPerElement;
+  size_t    binFactor = 1;
+  for (i=0; i<pIn->ndims; i++)
+      binFactor *= dimsOutCopy[i].binning;
+  pOut->bitsPerElement  += lround( log2( binFactor ) );
+
+  /* Clip bitsPerElement to max for output dataType */
+  if( pOut->bitsPerElement > GetNDDataTypeBits(pOut->dataType) )
+      pOut->bitsPerElement = GetNDDataTypeBits(pOut->dataType);
+ 
   /* Copy fields from input to output */
   pOut->timeStamp = pIn->timeStamp;
   pOut->epicsTS = pIn->epicsTS;

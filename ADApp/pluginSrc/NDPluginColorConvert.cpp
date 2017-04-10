@@ -580,6 +580,12 @@ void NDPluginColorConvert::convertColor(NDArray *pArray)
         default:
             break;
     }
+
+    if ( pArrayOut ) {
+        /* Set nBits based on total bits used to represent one pixel element. */
+        pArrayOut->bitsPerElement = GetNDColorModeBits( colorModeOut, pArrayOut->dataType );
+    }
+
     /* If the output array pointer is null then no conversion was done, copy the input to the output */
     if (!pArrayOut) pArrayOut = this->pNDArrayPool->copy(pArray, NULL, 1);
     this->lock();

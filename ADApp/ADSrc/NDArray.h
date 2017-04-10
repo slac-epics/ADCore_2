@@ -38,6 +38,8 @@ typedef enum
     NDColorModeYUV411   /**< YUV image, 6 bytes encodes 4 RGB pixels */
 } NDColorMode_t;
 
+extern int GetNDColorModeBits( NDColorMode_t, NDDataType_t );
+
 /** Enumeration of Bayer patterns for NDArray attribute "bayerPattern".
   * This value is only meaningful if colorMode is NDColorModeBayer.
   * This value is needed because the Bayer pattern will change when reading out a
@@ -71,7 +73,8 @@ typedef struct NDDimension {
 /** Structure returned by NDArray::getInfo */
 typedef struct NDArrayInfo {
     size_t nElements;       /**< The total number of elements in the array */
-    int bytesPerElement;    /**< The number of bytes per element in the array */
+    int    bitsPerElement;  /**< The number of bits   per element in the array */
+    int    bytesPerElement; /**< The number of bytes per element in the array */
     size_t totalBytes;      /**< The total number of bytes required to hold the array;
                               *  this may be less than NDArray::dataSize. */
                             /**< The following are mostly useful for color images (RGB1, RGB2, RGB3) */
@@ -122,6 +125,7 @@ public:
     NDDataType_t  dataType;     /**< Data type for this array. */
     size_t        dataSize;     /**< Data size for this array; actual amount of memory allocated for *pData, may be more than
                                   * required to hold the array*/
+    int         bitsPerElement; /**< The number of bits   per element in the array */
     void          *pData;       /**< Pointer to the array data.
                                   * The data is assumed to be stored in the order of dims[0] changing fastest, and
                                   * dims[ndims-1] changing slowest. */
@@ -194,8 +198,8 @@ protected:
 private:
     std::multiset<freeListElement> freeList_;
     epicsMutexId listLock_;      /**< Mutex to protect the free list */
-    int          numBuffers_;
-    size_t       maxMemory_;     /**< Maximum bytes of memory this object is allowed to allocate; -1=unlimited */
+    int          numBuffers_;    /**< Number of buffers this object has currently allocated */
+    size_t       maxMemory_;     /**< Maximum bytes of memory this object is allowed to allocate; 0=unlimited */
     size_t       memorySize_;    /**< Number of bytes of memory this object has currently allocated */
     class asynNDArrayDriver *pDriver_; /**< The asynNDArrayDriver that created this object */
 };
