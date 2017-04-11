@@ -338,7 +338,7 @@ record(longout, "$(P)$(R)Red")
     field(PINI, "YES")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_RED")
-    field(VAL,  "1")
+    field(VAL,  "$(RED=1)")
     info(autosaveFields, "VAL")
 }
 
@@ -354,7 +354,7 @@ record(longout, "$(P)$(R)Green")
     field(PINI, "YES")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_GREEN")
-    field(VAL,  "1")
+    field(VAL,  "$(GREEN=65535)")
     info(autosaveFields, "VAL")
 }
 
@@ -370,7 +370,7 @@ record(longout, "$(P)$(R)Blue")
     field(PINI, "YES")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_BLUE")
-    field(VAL,  "1")
+    field(VAL,  "$(BLUE=1)")
     info(autosaveFields, "VAL")
 }
 
