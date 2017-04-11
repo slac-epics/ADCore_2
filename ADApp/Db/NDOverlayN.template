@@ -115,9 +115,13 @@ record(longin, "$(P)$(R)PositionY_RBV")
     field(SCAN, "I/O Intr")
 }
 
+record(longout, "$(P)$(R)CenterXDummy")
+{
+}
+
 record(longout, "$(P)$(R)CenterXLink")
 {
-    field(DOL,  "$(XCENT="") CP MS")
+    field(DOL,  "$(XCENT=$(P)$(R)CenterXDummy) CP MS")
     field(OMSL, "closed_loop")
     field(OUT, "$(P)$(R)CenterX PP")
     info(autosaveFields, "DOL")
@@ -138,9 +142,13 @@ record(longin, "$(P)$(R)CenterX_RBV")
     field(SCAN, "I/O Intr")
 }
 
+record(longout, "$(P)$(R)CenterYDummy")
+{
+}
+
 record(longout, "$(P)$(R)CenterYLink")
 {
-    field(DOL,  "$(YCENT="") CP MS")
+    field(DOL,  "$(YCENT=$(P)$(R)CenterYDummy) CP MS")
     field(OMSL, "closed_loop")
     field(OUT, "$(P)$(R)CenterY PP")
     info(autosaveFields, "DOL")
