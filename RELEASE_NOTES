@@ -1,3 +1,7 @@
+R2.6-0.3.0:	Apr 13, 2017, Bruce Hill (bhill)
+	Enabled WITH_EPICS_V4 to enable NDPluginPva
+	(Adds module dependencies on most of the V4 modules)
+
 R2.6-0.2.0:	Apr 5, 2017, Bruce Hill (bhill)
 	Added WITH_HDF5 and other macros to enable additional plugins
 
