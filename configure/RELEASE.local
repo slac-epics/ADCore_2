@@ -21,10 +21,10 @@
 # ==========================================================
 ADSUPPORT_MODULE_VERSION        = R1.1-0.1.0
 ASYN_MODULE_VERSION             = R4.31-0.1.0
-PVACCESS_MODULE_VERSION         = R5.0.0-0.2.0
-PVCOMMON_MODULE_VERSION         = R4.2.0-0.1.0
-PVDATABASE_MODULE_VERSION       = R4.2.0-0.1.0
+PVACCESS_MODULE_VERSION         = R5.0.0-0.2.1
+PVCOMMON_MODULE_VERSION         = R4.2.0-0.3.0
 PVDATA_MODULE_VERSION           = R6.0.0-0.3.0
+PVDATABASE_MODULE_VERSION       = R4.2.0-0.1.1
 NORMATIVETYPES_MODULE_VERSION   = R5.1.0-0.1.0
 
 # ==========================================================
