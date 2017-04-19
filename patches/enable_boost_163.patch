@@ -1,0 +1,161 @@
+diff --git a/ADApp/pluginTests/Makefile b/ADApp/pluginTests/Makefile
+index f765e26..85c4276 100644
+--- a/ADApp/pluginTests/Makefile
++++ b/ADApp/pluginTests/Makefile
+@@ -52,7 +52,6 @@ ifeq ($(WITH_BOOST),YES)
+   # Add tests for new plugins like this:
+   #plugin-test_SRCS += test_<plugin name>.cpp
+   
+-  plugin-test_LIBS += ADTestUtility
+   ifdef BOOST_LIB
+     boost_unit_test_framework_DIR=$(BOOST_LIB)
+     plugin-test_LIBS += boost_unit_test_framework
+@@ -60,11 +59,18 @@ ifeq ($(WITH_BOOST),YES)
+     plugin-test_SYS_LIBS += boost_unit_test_framework
+   endif
+ 
++  # Link order matters when doing a static build
++  plugin-test_LIBS += ADTestUtility
++
+   USR_INCLUDES += $(HDF5_INCLUDE)
+   USR_INCLUDES += $(SZ_INCLUDE)
+   USR_INCLUDES += $(XML2_INCLUDE)
+   USR_INCLUDES += $(BOOST_INCLUDE)
+ 
++  ifeq ($(BOOST_USE_STATIC_LINK),YES)
++	USR_CXXFLAGS_Linux += -DBOOST_USE_STATIC_LINK
++	USR_CFLAGS_Linux += -DBOOST_USE_STATIC_LINK
++  endif
+ endif
+ 
+ ifeq ($(WITH_HDF5),YES)
+diff --git a/ADApp/pluginTests/plugin-test.cpp b/ADApp/pluginTests/plugin-test.cpp
+index dfbe9d9..bd41844 100644
+--- a/ADApp/pluginTests/plugin-test.cpp
++++ b/ADApp/pluginTests/plugin-test.cpp
+@@ -7,8 +7,9 @@
+  *  Author: Ulrik Kofoed Pedersen, Diamond Light Source.
+  *          20. March 2015
+  */
+-
++#ifndef BOOST_USE_STATIC_LINK
+ #define BOOST_TEST_DYN_LINK
++#endif
+ #define BOOST_TEST_MODULE "NDPlugin Tests"
+ #include <boost/test/unit_test.hpp>
+ 
+diff --git a/ADApp/pluginTests/testingutilities.h b/ADApp/pluginTests/testingutilities.h
+index 139ef3e..7eb61b7 100644
+--- a/ADApp/pluginTests/testingutilities.h
++++ b/ADApp/pluginTests/testingutilities.h
+@@ -8,6 +8,11 @@
+ #ifndef ADAPP_PLUGINTESTS_TESTINGUTILITIES_H_
+ #define ADAPP_PLUGINTESTS_TESTINGUTILITIES_H_
+ 
++// Newer version of boost requires this:
++#if BOOST_VERSION > 105300
++#define BOOST_MESSAGE(msg) BOOST_TEST_MESSAGE(msg)
++#endif
++
+ #include <deque>
+ #include <string>
+ #include <vector>
+diff --git a/configure/CONFIG_SITE b/configure/CONFIG_SITE
+index 014995d..66a526d 100644
+--- a/configure/CONFIG_SITE
++++ b/configure/CONFIG_SITE
+@@ -42,7 +42,7 @@ CROSS_COMPILER_TARGET_ARCHS := $(filter-out RTEMS%,             $(CROSS_COMPILER
+ #
+ 
+ # BOOST is required for the ADCore/pluginTests unit tests
+-WITH_BOOST     = NO
++#WITH_BOOST     = NO
+ #BOOST_LIB     =
+ #BOOST_INCLUDE =
+ 
+@@ -135,5 +135,9 @@ endif
+ ifeq (Linux, $(OS_CLASS))
+ 	SHARED_LIBRARIES=YES
+ 	STATIC_BUILD=YES
++    BOOST_USE_STATIC_LINK=YES
+ endif
+ 
++ifndef PACKAGE_SITE_TOP
++    PACKAGE_SITE_TOP=/afs/slac/g/lcls/package
++endif
+diff --git a/configure/CONFIG_SITE.Common.linux-x86_64 b/configure/CONFIG_SITE.Common.linux-x86_64
+new file mode 100644
+index 0000000..c7327dc
+--- /dev/null
++++ b/configure/CONFIG_SITE.Common.linux-x86_64
+@@ -0,0 +1,8 @@
++WITH_BOOST=YES
++
++ARCH=rhel6-x86_64
++BOOST_VERSION=1.63.0
++
++BOOST_TOP=$(PACKAGE_SITE_TOP)/boost/$(BOOST_VERSION)/$(ARCH)
++BOOST_LIB=$(BOOST_TOP)/lib
++BOOST_INCLUDE=-I$(BOOST_TOP)/include
+diff --git a/configure/CONFIG_SITE.Common.linuxRT-x86_64 b/configure/CONFIG_SITE.Common.linuxRT-x86_64
+new file mode 100644
+index 0000000..cc31351
+--- /dev/null
++++ b/configure/CONFIG_SITE.Common.linuxRT-x86_64
+@@ -0,0 +1,8 @@
++WITH_BOOST=YES
++
++ARCH=buildroot-2016.11.1-x86_64
++BOOST_VERSION=1.63.0
++
++BOOST_TOP=$(PACKAGE_SITE_TOP)/boost/$(BOOST_VERSION)/$(ARCH)
++BOOST_LIB=$(BOOST_TOP)/lib
++BOOST_INCLUDE=-I$(BOOST_TOP)/include
+diff --git a/configure/CONFIG_SITE.Common.linuxRT_glibc-x86_64 b/configure/CONFIG_SITE.Common.linuxRT_glibc-x86_64
+new file mode 100644
+index 0000000..ad94c75
+--- /dev/null
++++ b/configure/CONFIG_SITE.Common.linuxRT_glibc-x86_64
+@@ -0,0 +1,8 @@
++WITH_BOOST=YES
++
++ARCH=buildroot-2015.02-x86_64
++BOOST_VERSION=1.63.0
++
++BOOST_TOP=$(PACKAGE_SITE_TOP)/boost/$(BOOST_VERSION)/$(ARCH)
++BOOST_LIB=$(BOOST_TOP)/lib
++BOOST_INCLUDE=-I$(BOOST_TOP)/include
+diff --git a/configure/CONFIG_SITE.Common.rhel6-x86_64 b/configure/CONFIG_SITE.Common.rhel6-x86_64
+new file mode 100644
+index 0000000..c7327dc
+--- /dev/null
++++ b/configure/CONFIG_SITE.Common.rhel6-x86_64
+@@ -0,0 +1,8 @@
++WITH_BOOST=YES
++
++ARCH=rhel6-x86_64
++BOOST_VERSION=1.63.0
++
++BOOST_TOP=$(PACKAGE_SITE_TOP)/boost/$(BOOST_VERSION)/$(ARCH)
++BOOST_LIB=$(BOOST_TOP)/lib
++BOOST_INCLUDE=-I$(BOOST_TOP)/include
+diff --git a/configure/RELEASE.local b/configure/RELEASE.local
+index 2d28141..dd4b934 100644
+--- a/configure/RELEASE.local
++++ b/configure/RELEASE.local
+@@ -22,7 +22,6 @@
+ ADSUPPORT_MODULE_VERSION        = R1.1-0.1.0
+ ASYN_MODULE_VERSION             = R4.31-0.1.0
+ PVACCESS_MODULE_VERSION         = R5.0.0-0.2.1
+-PVCOMMON_MODULE_VERSION         = R4.2.0-0.3.0
+ PVDATA_MODULE_VERSION           = R6.0.0-0.3.0
+ PVDATABASE_MODULE_VERSION       = R4.2.0-0.1.1
+ NORMATIVETYPES_MODULE_VERSION   = R5.1.0-0.1.0
+@@ -37,7 +36,6 @@ NORMATIVETYPES_MODULE_VERSION   = R5.1.0-0.1.0
+ ADSUPPORT       = $(EPICS_MODULES)/ADSupport/$(ADSUPPORT_MODULE_VERSION)
+ ASYN            = $(EPICS_MODULES)/asyn/$(ASYN_MODULE_VERSION)
+ PVACCESS        = $(EPICS_MODULES)/pvAccessCPP/$(PVACCESS_MODULE_VERSION)
+-PVCOMMON        = $(EPICS_MODULES)/pvCommonCPP/$(PVCOMMON_MODULE_VERSION)
+ PVDATA          = $(EPICS_MODULES)/pvDataCPP/$(PVDATA_MODULE_VERSION)
+ PVDATABASE      = $(EPICS_MODULES)/pvDatabaseCPP/$(PVDATABASE_MODULE_VERSION)
+ NORMATIVETYPES  = $(EPICS_MODULES)/normativeTypesCPP/$(NORMATIVETYPES_MODULE_VERSION)
