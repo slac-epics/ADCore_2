@@ -138,3 +138,6 @@ ifeq (Linux, $(OS_CLASS))
     BOOST_USE_STATIC_LINK=YES
 endif
 
+ifndef PACKAGE_SITE_TOP
+    PACKAGE_SITE_TOP=/afs/slac/g/lcls/package
+endif
