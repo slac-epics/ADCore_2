@@ -1,10 +1,9 @@
-R2.6-2.0.0: Apr 19, 2017, Hugo Slepicka (slepicka)
+R2.6-1.0.0: Apr 19, 2017, Hugo Slepicka (slepicka)
     Enabled WITH_BOOST to enable pluginTests
     Adjusted configuration files and modified the code to add
         needed changes to build with the newer Boost 1.63.0.
     Removed pvCommonCPP as a dependency as it is only needed for
         use on systems that have no support for shared_pointers.
-    Those changes are on patch: patches/enable_boost_163.patch
 
 R2.6-0.3.0:	Apr 13, 2017, Bruce Hill (bhill)
 	Enabled WITH_EPICS_V4 to enable NDPluginPva
