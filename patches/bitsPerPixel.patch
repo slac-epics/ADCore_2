@@ -1,0 +1,460 @@
+diff --git a/ADApp/ADSrc/NDArray.cpp b/ADApp/ADSrc/NDArray.cpp
+index ecc1c0a..0eac995 100755
+--- a/ADApp/ADSrc/NDArray.cpp
++++ b/ADApp/ADSrc/NDArray.cpp
+@@ -30,7 +30,7 @@
+ NDArray::NDArray()
+   : referenceCount(0), pNDArrayPool(NULL),  
+     uniqueId(0), timeStamp(0.0), ndims(0), dataType(NDInt8),
+-    dataSize(0),  pData(NULL)
++    dataSize(0), bitsPerElement(0), pData(NULL)
+ {
+   this->epicsTS.secPastEpoch = 0;
+   this->epicsTS.nsec = 0;
+@@ -148,6 +148,7 @@ int NDArray::getInfo(NDArrayInfo_t *pInfo)
+     pInfo->ySize     = this->dims[pInfo->yDim].size;
+     pInfo->colorSize = this->dims[pInfo->colorDim].size;
+   }
++  pInfo->bitsPerElement = this->bitsPerElement;
+   return(ND_SUCCESS);
+ }
+ 
+@@ -201,8 +202,8 @@ int NDArray::report(FILE *fp, int details)
+     this->ndims);
+   for (dim=0; dim<this->ndims; dim++) fprintf(fp, "%d ", (int)this->dims[dim].size);
+   fprintf(fp, "]\n");
+-  fprintf(fp, "  dataType=%d, dataSize=%d, pData=%p\n",
+-        this->dataType, (int)this->dataSize, this->pData);
++  fprintf(fp, "  dataType=%d, nBitsPerPixel=%d, dataSize=%d, pData=%p\n",
++        this->dataType, this->bitsPerElement, (int)this->dataSize, this->pData);
+   fprintf(fp, "  uniqueId=%d, timeStamp=%f, referenceCount=%d\n",
+         this->uniqueId, this->timeStamp, this->referenceCount);
+   fprintf(fp, "  number of attributes=%d\n", this->pAttributeList->count());
+@@ -212,3 +213,41 @@ int NDArray::report(FILE *fp, int details)
+   return ND_SUCCESS;
+ }
+ 
++int GetNDColorModeBits( NDColorMode_t tyColor, NDDataType_t tyData )
++{
++	int	nBits;
++	switch ( tyColor )
++	{
++	default:
++    case NDColorModeMono:
++		nBits = GetNDDataTypeBits( tyData );
++		break;
++	// For defined color standards, set nBits to the
++	// number of combined bits in one pixel element
++    case NDColorModeBayer:
++		// Optimal packing uses all bits of data type
++		nBits = GetNDDataTypeBits( tyData );
++		break;
++    case NDColorModeRGB1:
++    case NDColorModeRGB2:
++    case NDColorModeRGB3:
++		// 3 pixels packed with room for a 4th
++		nBits = GetNDDataTypeBits( tyData ) * 3 / 4;
++		break;
++    case NDColorModeYUV444:
++		// 3 values for 1 pixel
++		nBits = 3 * GetNDDataTypeBits( tyData );
++		break;
++    case NDColorModeYUV422:
++		// 4 values for 2 pixels
++		nBits = 4 * GetNDDataTypeBits( tyData );
++		break;
++    case NDColorModeYUV411:
++		// 6 values for 4 pixels
++		nBits = 6 * GetNDDataTypeBits( tyData );
++		break;
++	}
++	return nBits;
++}
++
++
+diff --git a/ADApp/ADSrc/NDArray.h b/ADApp/ADSrc/NDArray.h
+index 05ff585..4fc1424 100644
+--- a/ADApp/ADSrc/NDArray.h
++++ b/ADApp/ADSrc/NDArray.h
+@@ -35,6 +35,8 @@ typedef enum
+     NDColorModeYUV411   /**< YUV image, 6 bytes encodes 4 RGB pixels */
+ } NDColorMode_t;
+ 
++extern int GetNDColorModeBits( NDColorMode_t, NDDataType_t );
++
+ /** Enumeration of Bayer patterns for NDArray attribute "bayerPattern".
+   * This value is only meaningful if colorMode is NDColorModeBayer. 
+   * This value is needed because the Bayer pattern will change when reading out a 
+@@ -68,7 +70,8 @@ typedef struct NDDimension {
+ /** Structure returned by NDArray::getInfo */
+ typedef struct NDArrayInfo {
+     size_t nElements;       /**< The total number of elements in the array */
+-    int bytesPerElement;    /**< The number of bytes per element in the array */
++    int	   bitsPerElement;  /**< The number of bits   per element in the array */
++    int	   bytesPerElement; /**< The number of bytes per element in the array */
+     size_t totalBytes;      /**< The total number of bytes required to hold the array;
+                               *  this may be less than NDArray::dataSize. */
+                             /**< The following are mostly useful for color images (RGB1, RGB2, RGB3) */
+@@ -115,6 +118,7 @@ public:
+     NDDataType_t  dataType;     /**< Data type for this array. */
+     size_t        dataSize;     /**< Data size for this array; actual amount of memory allocated for *pData, may be more than
+                                   * required to hold the array*/
++    int	       bitsPerElement;  /**< The number of bits   per element in the array */
+     void          *pData;       /**< Pointer to the array data.
+                                   * The data is assumed to be stored in the order of dims[0] changing fastest, and 
+                                   * dims[ndims-1] changing slowest. */
+@@ -154,7 +158,7 @@ private:
+     epicsMutexId listLock_;      /**< Mutex to protect the free list */
+     int          maxBuffers_;    /**< Maximum number of buffers this object is allowed to allocate; -1=unlimited */
+     int          numBuffers_;    /**< Number of buffers this object has currently allocated */
+-    size_t       maxMemory_;     /**< Maximum bytes of memory this object is allowed to allocate; -1=unlimited */
++    size_t       maxMemory_;     /**< Maximum bytes of memory this object is allowed to allocate; 0=unlimited */
+     size_t       memorySize_;    /**< Number of bytes of memory this object has currently allocated */
+     int          numFree_;       /**< Number of NDArray objects in the free list */
+ };
+diff --git a/ADApp/ADSrc/NDArrayPool.cpp b/ADApp/ADSrc/NDArrayPool.cpp
+index 10027a8..afe4003 100644
+--- a/ADApp/ADSrc/NDArrayPool.cpp
++++ b/ADApp/ADSrc/NDArrayPool.cpp
+@@ -7,6 +7,7 @@
+  */
+ 
+ #include <stdlib.h>
++#include <math.h>
+ 
+ #include <epicsExport.h>
+ 
+@@ -89,6 +90,7 @@ NDArray* NDArrayPool::alloc(int ndims, size_t *dims, NDDataType_t dataType, size
+     /* Initialize fields */
+     pArray->pNDArrayPool = this;
+     pArray->dataType = dataType;
++	pArray->bitsPerElement = GetNDDataTypeBits(dataType);
+     pArray->ndims = ndims;
+     memset(pArray->dims, 0, sizeof(pArray->dims));
+     for (i=0; i<ndims && i<ND_ARRAY_MAX_DIMS; i++) {
+@@ -191,6 +193,7 @@ NDArray* NDArrayPool::copy(NDArray *pIn, NDArray *pOut, int copyData)
+     pOut = this->alloc(pIn->ndims, dimSizeOut, pIn->dataType, 0, NULL);
+     if(NULL==pOut) return NULL;
+   }
++  pOut->bitsPerElement = pIn->bitsPerElement;
+   pOut->uniqueId = pIn->uniqueId;
+   pOut->timeStamp = pIn->timeStamp;
+   pOut->epicsTS = pIn->epicsTS;
+@@ -515,6 +518,18 @@ int NDArrayPool::convert(NDArray *pIn,
+            driverName, functionName);
+     return(ND_ERROR);
+   }
++
++  /* Use log2 of binning factors to calculate effect on bitsPerElement */
++  pOut->bitsPerElement	= pIn->bitsPerElement;
++  size_t	binFactor = 1;
++  for (i=0; i<pIn->ndims; i++)
++	  binFactor	*= dimsOutCopy[i].binning;
++  pOut->bitsPerElement	+= lround( log2( binFactor ) );
++
++  /* Clip bitsPerElement to max for output dataType */
++  if( pOut->bitsPerElement > GetNDDataTypeBits(pOut->dataType) )
++	  pOut->bitsPerElement = GetNDDataTypeBits(pOut->dataType);
++ 
+   /* Copy fields from input to output */
+   pOut->timeStamp = pIn->timeStamp;
+   pOut->epicsTS = pIn->epicsTS;
+diff --git a/ADApp/ADSrc/NDAttribute.cpp b/ADApp/ADSrc/NDAttribute.cpp
+index bf07386..f736702 100644
+--- a/ADApp/ADSrc/NDAttribute.cpp
++++ b/ADApp/ADSrc/NDAttribute.cpp
+@@ -451,4 +451,29 @@ int NDAttribute::report(FILE *fp, int details)
+   return ND_SUCCESS;
+ }
+ 
++/** Get the max number of bits per pixel for the specified data type
++  * \param[in] NDDataType_t	 Data type
++  */
++int GetNDDataTypeBits( NDDataType_t tyData )
++{
++	int	nBits;
++	switch ( tyData )
++	{
++	// Default to large number so conversions to
++	// integer data types will be clipped to max
++	default:		nBits	= 99;	break;
++    case NDInt8:	nBits	= 8;	break;
++    case NDUInt8:	nBits	= 8;	break;
++    case NDInt16:	nBits	= 16;	break;
++    case NDUInt16:	nBits	= 16;	break;
++    case NDInt32:	nBits	= 32;	break;
++    case NDUInt32:	nBits	= 32;	break;
++	// nBits is more an indicator of max pixel value for mono rendering
++	// than a measure of accuracy, so we set floating point types to
++	// a large number to avoid clipping w/ wierd binning like 512x512
++    case NDFloat32:	nBits	= 99;	break;
++    case NDFloat64:	nBits	= 99;	break;
++	}
++	return nBits;
++}
+ 
+diff --git a/ADApp/ADSrc/NDAttribute.h b/ADApp/ADSrc/NDAttribute.h
+index a356131..8c68ad8 100644
+--- a/ADApp/ADSrc/NDAttribute.h
++++ b/ADApp/ADSrc/NDAttribute.h
+@@ -36,6 +36,8 @@ typedef enum
+     NDFloat64   /**< 64-bit float */
+ } NDDataType_t;
+ 
++extern int GetNDDataTypeBits( NDDataType_t );
++
+ /** Enumeration of NDAttribute attribute data types */
+ typedef enum
+ {
+diff --git a/ADApp/ADSrc/asynNDArrayDriver.cpp b/ADApp/ADSrc/asynNDArrayDriver.cpp
+index df56d68..43478cc 100644
+--- a/ADApp/ADSrc/asynNDArrayDriver.cpp
++++ b/ADApp/ADSrc/asynNDArrayDriver.cpp
+@@ -53,7 +53,7 @@ static const char *driverName = "asynNDArrayDriver";
+ 
+ /** Checks whether the directory specified NDFilePath parameter exists.
+   * 
+-  * This is a convenience function that determinesthe directory specified NDFilePath parameter exists.
++  * This is a convenience function that determines if the directory specified by NDFilePath parameter exists.
+   * It sets the value of NDFilePathExists to 0 (does not exist) or 1 (exists).  
+   * It also adds a trailing '/' character to the path if one is not present.
+   * Returns a error status if the directory does not exist.
+@@ -217,8 +217,8 @@ asynStatus asynNDArrayDriver::createFileName(int maxChars, char *fullFileName)
+   * \param[out] filePath The file path.
+   * \param[out] fileName The constructed file name without file file path.
+   * 
+-  * This is a convenience function that constructs a file path and file name
+-  * from the NDFilePath, NDFileName, NDFileNumber, and
++  * This is a convenience function that constructs the directory path and the
++  * file name in that directory from the NDFilePath, NDFileName, NDFileNumber, and
+   * NDFileTemplate parameters. If NDAutoIncrement is true then it increments the
+   * NDFileNumber after creating the file name.
+   */
+@@ -624,6 +624,7 @@ asynNDArrayDriver::asynNDArrayDriver(const char *portName, int maxAddr, int numP
+     createParam(NDNDimensionsString,          asynParamInt32,           &NDNDimensions);
+     createParam(NDDimensionsString,           asynParamInt32,           &NDDimensions);
+     createParam(NDDataTypeString,             asynParamInt32,           &NDDataType);
++    createParam(NDBitsPerPixelString,         asynParamInt32,           &NDBitsPerPixel);
+     createParam(NDColorModeString,            asynParamInt32,           &NDColorMode);
+     createParam(NDUniqueIdString,             asynParamInt32,           &NDUniqueId);
+     createParam(NDTimeStampString,            asynParamFloat64,         &NDTimeStamp);
+@@ -680,6 +681,7 @@ asynNDArrayDriver::asynNDArrayDriver(const char *portName, int maxAddr, int numP
+     setIntegerParam(NDArraySize,    0);
+     setIntegerParam(NDNDimensions,  0);
+     setIntegerParam(NDDataType,     NDUInt8);
++    setIntegerParam(NDBitsPerPixel, 8);
+     setIntegerParam(NDColorMode,    NDColorModeMono);
+     setIntegerParam(NDUniqueId,     0);
+     setDoubleParam (NDTimeStamp,    0.);
+diff --git a/ADApp/ADSrc/asynNDArrayDriver.h b/ADApp/ADSrc/asynNDArrayDriver.h
+index 88c6f46..2ce20af 100755
+--- a/ADApp/ADSrc/asynNDArrayDriver.h
++++ b/ADApp/ADSrc/asynNDArrayDriver.h
+@@ -41,6 +41,7 @@ typedef enum {
+ #define NDNDimensionsString     "ARRAY_NDIMENSIONS" /**< (asynInt32,    r/o) Number of dimensions in array */
+ #define NDDimensionsString      "ARRAY_DIMENSIONS"  /**< (asynInt32Array, r/o) Array dimensions */
+ #define NDDataTypeString        "DATA_TYPE"         /**< (asynInt32,    r/w) Data type (NDDataType_t) */
++#define NDBitsPerPixelString    "BITS_PER_PIXEL"    /**< (asynInt32,    r/w) Number of bits per pixel */
+ #define NDColorModeString       "COLOR_MODE"        /**< (asynInt32,    r/w) Color mode (NDColorMode_t) */
+ #define NDUniqueIdString        "UNIQUE_ID"         /**< (asynInt32,    r/o) Unique ID number of array */
+ #define NDTimeStampString       "TIME_STAMP"        /**< (asynFloat64,  r/o) Time stamp of array */
+@@ -132,6 +133,7 @@ protected:
+     int NDNDimensions;
+     int NDDimensions;
+     int NDDataType;
++	int NDBitsPerPixel;
+     int NDColorMode;
+     int NDUniqueId;
+     int NDTimeStamp;
+diff --git a/ADApp/pluginSrc/NDPluginColorConvert.cpp b/ADApp/pluginSrc/NDPluginColorConvert.cpp
+index b82b2aa..a6cddd3 100644
+--- a/ADApp/pluginSrc/NDPluginColorConvert.cpp
++++ b/ADApp/pluginSrc/NDPluginColorConvert.cpp
+@@ -497,6 +497,12 @@ void NDPluginColorConvert::convertColor(NDArray *pArray)
+         default:
+             break;
+     }
++
++	if ( pArrayOut ) {
++		/* Set nBits based on total bits used to represent one pixel element. */
++		pArrayOut->bitsPerElement = GetNDColorModeBits( colorModeOut, pArrayOut->dataType );
++	}
++
+     /* If the output array pointer is null then no conversion was done, copy the input to the output */
+     if (!pArrayOut) pArrayOut = this->pNDArrayPool->copy(pArray, NULL, 1);
+     this->lock();
+@@ -574,7 +580,7 @@ void NDPluginColorConvert::processCallbacks(NDArray *pArray)
+                       driverName, functionName, pArray->dataType);
+             break;
+     }
+-    
++ 
+     callParamCallbacks();
+     /* Call any clients who have registered for NDArray callbacks */
+     doCallbacksGenericPointer(this->pArrays[0], NDArrayData, 0);
+diff --git a/ADApp/pluginSrc/NDPluginDriver.cpp b/ADApp/pluginSrc/NDPluginDriver.cpp
+index 256ef10..d22d1ec 100644
+--- a/ADApp/pluginSrc/NDPluginDriver.cpp
++++ b/ADApp/pluginSrc/NDPluginDriver.cpp
+@@ -35,31 +35,36 @@ static const char *driverName="NDPluginDriver";
+   * This method takes care of some bookkeeping for callbacks, updating parameters
+   * from data in the class and in the NDArray.  It does asynInt32Array callbacks
+   * for the dimensions array if the dimensions of the NDArray data have changed. */ 
+-    void NDPluginDriver::processCallbacks(NDArray *pArray)
++void NDPluginDriver::processCallbacks(NDArray *pArray)
+ {
+     int arrayCounter;
+     int i, dimsChanged;
+     int size;
+     NDAttribute *pAttribute;
+     int colorMode=NDColorModeMono, bayerPattern=NDBayerRGGB;
+-    
++  
+     pAttribute = pArray->pAttributeList->find("ColorMode");
+     if (pAttribute) pAttribute->getValue(NDAttrInt32, &colorMode);
+     pAttribute = pArray->pAttributeList->find("BayerPattern");
+     if (pAttribute) pAttribute->getValue(NDAttrInt32, &bayerPattern);
+-    
++
+     getIntegerParam(NDArrayCounter, &arrayCounter);
+     arrayCounter++;
+-    setIntegerParam(NDArrayCounter, arrayCounter);
+-    setIntegerParam(NDNDimensions, pArray->ndims);
+-    setIntegerParam(NDDataType, pArray->dataType);
+-    setIntegerParam(NDColorMode, colorMode);
+-    setIntegerParam(NDBayerPattern, bayerPattern);
+-    setIntegerParam(NDUniqueId, pArray->uniqueId);
++    setIntegerParam(NDArrayCounter,  arrayCounter);
++    setIntegerParam(NDNDimensions,   pArray->ndims);
++    setIntegerParam(NDDataType,      pArray->dataType);
++
++    NDArrayInfo_t arrayInfo;
++    pArray->getInfo(&arrayInfo);
++    setIntegerParam(NDBitsPerPixel, arrayInfo.bitsPerElement);
++
++    setIntegerParam(NDColorMode,     colorMode);
++    setIntegerParam(NDBayerPattern,  bayerPattern);
++    setIntegerParam(NDUniqueId,      pArray->uniqueId);
+     setTimeStamp(&pArray->epicsTS);
+-    setDoubleParam(NDTimeStamp, pArray->timeStamp);
+-    setIntegerParam(NDEpicsTSSec, pArray->epicsTS.secPastEpoch);
+-    setIntegerParam(NDEpicsTSNsec, pArray->epicsTS.nsec);
++    setDoubleParam(NDTimeStamp,      pArray->timeStamp);
++    setIntegerParam(NDEpicsTSSec,    pArray->epicsTS.secPastEpoch);
++    setIntegerParam(NDEpicsTSNsec,   pArray->epicsTS.nsec);
+     /* See if the array dimensions have changed.  If so then do callbacks on them. */
+     for (i=0, dimsChanged=0; i<ND_ARRAY_MAX_DIMS; i++) {
+         size = (int)pArray->dims[i].size;
+diff --git a/ADApp/pluginSrc/NDPluginProcess.cpp b/ADApp/pluginSrc/NDPluginProcess.cpp
+index db13eb4..d4e984b 100644
+--- a/ADApp/pluginSrc/NDPluginProcess.cpp
++++ b/ADApp/pluginSrc/NDPluginProcess.cpp
+@@ -183,7 +183,7 @@ void NDPluginProcess::processCallbacks(NDArray *pArray)
+         if (enableLowClip  && (value < lowClip))  value = lowClip;
+         data[i] = value;
+     }
+-    
++
+     if (enableFilter) {
+         if (this->pFilter) {
+             this->pFilter->getInfo(&arrayInfo);
+@@ -239,7 +239,23 @@ void NDPluginProcess::processCallbacks(NDArray *pArray)
+ 
+     if (doCallbacks) {
+       /* Convert the array to the desired output data type */
+-      this->pNDArrayPool->convert(pScratch, &pArrayOut, (NDDataType_t)dataType);
++      if (this->pArrays[0]) this->pArrays[0]->release();
++      this->pNDArrayPool->convert(pScratch, &this->pArrays[0], (NDDataType_t)dataType);
++
++	  if ( enableOffsetScale ) {
++    	  NDArray * pOutput = this->pArrays[0];
++
++		  /* Update bitsPerElement */
++		  int		bitsPerPixel	=	arrayInfo.bitsPerElement;
++		  bitsPerPixel	+= static_cast<int>( ceil( log2( scale ) ) );
++
++		  /* Clip bitsPerElement to max for output dataType */
++		  if( bitsPerPixel > GetNDDataTypeBits(pOutput->dataType) )
++			  bitsPerPixel = GetNDDataTypeBits(pOutput->dataType);
++
++		  /* Set the bits per pixel of the ROI output */
++		  pOutput->bitsPerElement = bitsPerPixel;
++	  }
+     }
+ 
+     if (autoOffsetScale && (NULL != pArrayOut)) {
+diff --git a/ADApp/pluginSrc/NDPluginROI.cpp b/ADApp/pluginSrc/NDPluginROI.cpp
+index 0534205..2fd3f3a 100644
+--- a/ADApp/pluginSrc/NDPluginROI.cpp
++++ b/ADApp/pluginSrc/NDPluginROI.cpp
+@@ -157,7 +157,9 @@ void NDPluginROI::processCallbacks(NDArray *pArray)
+ 
+     /* Extract this ROI from the input array.  The convert() function allocates
+      * a new array and it is reserved (reference count = 1) */
+-    if (dataType == -1) dataType = (int)pArray->dataType;
++    if (dataType == -1) {
++        dataType     = (int)pArray->dataType;
++    }
+     /* We treat the case of RGB1 data specially, so that NX and NY are the X and Y dimensions of the
+      * image, not the first 2 dimensions.  This makes it much easier to switch back and forth between
+      * RGB1 and mono mode when using an ROI. */
+@@ -185,7 +187,7 @@ void NDPluginROI::processCallbacks(NDArray *pArray)
+         for (i=0; i<scratchInfo.nElements; i++) pData[i] = pData[i]/scale;
+         this->pNDArrayPool->convert(pScratch, &this->pArrays[0], (NDDataType_t)dataType);
+         pScratch->release();
+-    } 
++    }
+     else {        
+         this->pNDArrayPool->convert(pArray, &this->pArrays[0], (NDDataType_t)dataType, dims);
+     }
+@@ -231,6 +233,21 @@ void NDPluginROI::processCallbacks(NDArray *pArray)
+         }
+     }
+     this->lock();
++ 
++    /* Calculate ROI bitsPerElement */
++    double  bitsPerPixel    =   arrayInfo.bitsPerElement;
++    size_t  binFactor = 1;
++    for ( size_t iDim=0; iDim < static_cast<unsigned>(pArray->ndims); iDim++ )
++        binFactor   *= dims[iDim].binning;
++    if ( binFactor != 1 )
++        bitsPerPixel    += log2( binFactor );
++    if ( enableScale && scale != 0 && scale != 1 )
++        bitsPerPixel    -= log2( scale );
++    /* Clip bitsPerElement to max for output dataType */
++    if( bitsPerPixel > GetNDDataTypeBits(pOutput->dataType) )
++        bitsPerPixel = GetNDDataTypeBits(pOutput->dataType);
++    /* Set the bits per pixel of the ROI output */
++    pOutput->bitsPerElement = lrint( bitsPerPixel );
+ 
+     /* Set the image size of the ROI image data */
+     setIntegerParam(NDArraySizeX, 0);
+diff --git a/documentation/areaDetectorDoc.html b/documentation/areaDetectorDoc.html
+index b22b4c5..b951541 100755
+--- a/documentation/areaDetectorDoc.html
++++ b/documentation/areaDetectorDoc.html
+@@ -1536,6 +1536,24 @@
+       </tr>
+       <tr>
+         <td>
++          NDBitsPerPixel</td>
++        <td>
++          asynInt32</td>
++        <td>
++          r/o</td>
++        <td>
++          Number of bits per pixel.
++		  Only defined if set by driver.
++		</td>
++        <td>
++          BITS_PER_PIXEL</td>
++        <td>
++          $(P)$(R)BitsPerPixel_RBV<br />
++        <td>
++          longin</td>
++      </tr>
++      <tr>
++        <td>
+           ADTemperature</td>
+         <td>
+           asynFloat64</td>
