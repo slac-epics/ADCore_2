@@ -18,6 +18,7 @@ R2.6-2.1.0:	Apr 25, 2017, Bruce Hill (bhill)
 	Add dummy PV's as the defalt for Overlay Size links to avoid broken references to pv CP
 	Applied bitsPerPixel.patch to bring in bitsPerPixel support from pcds-trunk
 	Applied db-ADDR-TIMEOUT-defaults.patch to make ADDR default to 0 and TIMEOUT default to 1
+    Removed unused dependecy of pvCommonCPP
 
 R2.6-0.2.0:	Apr 5, 2017, Bruce Hill (bhill)
 	Added WITH_HDF5 and other macros to enable additional plugins
