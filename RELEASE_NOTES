@@ -1,3 +1,6 @@
+R2.6-2.1.1:	May 02, 2017, Bruce Hill (bhill)
+	Updated to pvDatabaseCPP/R4.2.0-0.1.1
+
 R2.6-2.1.0:	Apr 25, 2017, Bruce Hill (bhill)
 	Enabled WITH_EPICS_V4 so we get NDPluginPva
 	Provide macros defaults for overlay R,G,B colors
