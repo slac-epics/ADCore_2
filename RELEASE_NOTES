@@ -1,3 +1,6 @@
+R2.6-2.1.3: May 17, 2017, Hugo Slepicka (slepicka)
+    Adding BitsPerPixel_RBV to ADApp/Db/NDArrayBase.template
+
 R2.6-2.1.2:	May 16, 2017, Bruce Hill (bhill)
 	Updated to asyn/R4.31-1.0.0
 
