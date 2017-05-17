@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1299
-y 126
+x 636
+y 129
 w 390
 h 820
 font "helvetica-medium-r-18.0"
@@ -38,7 +38,7 @@ bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
 displaySource "file"
-file "NDPluginBase.edl"
+file "areaDetectorScreens/NDPluginBase.edl"
 sizeOfs 5
 numDsps 0
 noScroll
@@ -67,8 +67,8 @@ minor 1
 release 1
 x 5
 y 475
-w 75
-h 13
+w 76
+h 14
 font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
@@ -87,8 +87,8 @@ minor 1
 release 1
 x 80
 y 500
-w 92
-h 13
+w 96
+h 14
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
