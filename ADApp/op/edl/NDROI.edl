@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 480
-y 336
-w 390
-h 820
+x 905
+y 1409
+w 413
+h 835
 font "helvetica-bold-r-12.0"
 ctlFont "helvetica-bold-r-12.0"
 btnFont "helvetica-bold-r-12.0"
@@ -19,9 +19,10 @@ ctlBgColor1 index 3
 ctlBgColor2 index 3
 topShadowColor index 1
 botShadowColor index 11
+title "$(P)$(R) ROI Plugin"
 showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
 
 # (Rectangle)
@@ -30,25 +31,10 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 0
-y 385
-w 390
-h 435
-lineColor index 5
-fill
-fillColor index 5
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 5
-y 520
-w 380
-h 195
+x 4
+y 536
+w 400
+h 248
 lineColor index 14
 fill
 fillColor index 3
@@ -60,9 +46,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 5
-y 400
-w 380
+x 4
+y 416
+w 400
 h 40
 lineColor index 14
 fill
@@ -75,8 +61,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 5
-y 460
+x 4
+y 476
 w 380
 h 40
 lineColor index 14
@@ -92,15 +78,15 @@ minor 1
 release 0
 x 0
 y 0
-w 390
-h 385
+w 404
+h 384
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
 displaySource "file"
 file "areaDetectorScreens/NDPluginBase.edl"
-sizeOfs 5
+setSize
 numDsps 2
 displayFileName {
   0 "areaDetectorScreens/NDPluginBase.edl"
@@ -114,11 +100,11 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 5
-y 450
-w 57
-h 13
+release 1
+x 4
+y 468
+w 58
+h 14
 font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
@@ -135,8 +121,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 10
-y 470
+x 12
+y 488
 w 90
 h 20
 fgColor index 25
@@ -154,10 +140,10 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 105
-y 470
-w 85
+release 1
+x 108
+y 488
+w 80
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
@@ -168,41 +154,54 @@ value {
 }
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
-x 290
-y 470
+x 292
+y 488
 w 90
 h 20
 controlPv "$(P)$(R)Scale_RBV"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
+bgColor index 12
+objType "monitors"
+fgAlarm
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+fontAlign "center"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 195
-y 470
+x 196
+y 488
 w 90
 h 20
 controlPv "$(P)$(R)Scale"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "helvetica-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
 endObjectProperties
 
 # (Static Text)
@@ -210,11 +209,11 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 5
-y 390
-w 64
-h 13
+release 1
+x 4
+y 408
+w 68
+h 14
 font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
@@ -230,11 +229,11 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 5
-y 510
-w 79
-h 13
+release 1
+x 4
+y 528
+w 78
+h 14
 font "helvetica-medium-r-12.0"
 fgColor index 14
 bgColor index 5
@@ -250,12 +249,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 10
-y 590
+release 1
+x 12
+y 608
 w 55
 h 20
-font "helvetica-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -270,8 +269,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 290
-y 410
+x 292
+y 428
 w 90
 h 20
 fgColor index 25
@@ -289,9 +288,9 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 10
-y 410
+release 1
+x 12
+y 428
 w 70
 h 20
 font "helvetica-bold-r-12.0"
@@ -303,22 +302,28 @@ value {
 }
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 55
-y 410
+x 56
+y 428
 w 135
 h 20
 controlPv "$(P)$(R)Name"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "helvetica-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
 endObjectProperties
 
 # (Static Text)
@@ -326,9 +331,9 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 215
-y 410
+release 1
+x 216
+y 428
 w 70
 h 20
 font "helvetica-bold-r-12.0"
@@ -345,11 +350,11 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 115
-y 525
+release 1
+x 116
+y 540
 w 8
-h 13
+h 14
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
@@ -365,11 +370,11 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 220
-y 525
+y 540
 w 8
-h 13
+h 14
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
@@ -385,11 +390,11 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 325
-y 525
+release 1
+x 324
+y 540
 w 7
-h 13
+h 14
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
@@ -400,113 +405,152 @@ value {
 autoSize
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
 x 280
-y 590
+y 608
 w 50
 h 20
 controlPv "$(P)$(R)BinZ"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "helvetica-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
-x 330
-y 590
+x 332
+y 608
 w 50
 h 20
 controlPv "$(P)$(R)BinZ_RBV"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
+bgColor index 12
+objType "monitors"
+fgAlarm
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+fontAlign "center"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 175
-y 590
+x 176
+y 608
 w 50
 h 20
 controlPv "$(P)$(R)BinY"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "helvetica-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
-x 225
-y 590
+x 224
+y 608
 w 50
 h 20
 controlPv "$(P)$(R)BinY_RBV"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
+bgColor index 12
+objType "monitors"
+fgAlarm
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+fontAlign "center"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 70
-y 590
+x 72
+y 608
 w 50
 h 20
 controlPv "$(P)$(R)BinX"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "helvetica-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
 x 120
-y 590
+y 608
 w 50
 h 20
 controlPv "$(P)$(R)BinX_RBV"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
+bgColor index 12
+objType "monitors"
+fgAlarm
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+fontAlign "center"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
@@ -516,12 +560,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 10
-y 615
-w 60
+release 1
+x 12
+y 632
+w 55
 h 20
-font "helvetica-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -530,226 +574,304 @@ value {
 }
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
-x 330
-y 615
+x 332
+y 632
 w 50
 h 20
 controlPv "$(P)$(R)MinZ_RBV"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
+bgColor index 12
+objType "monitors"
+fgAlarm
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+fontAlign "center"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
 x 280
-y 615
+y 632
 w 50
 h 20
 controlPv "$(P)$(R)MinZ"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "helvetica-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
-x 225
-y 615
+x 224
+y 632
 w 50
 h 20
 controlPv "$(P)$(R)MinY_RBV"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
+bgColor index 12
+objType "monitors"
+fgAlarm
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+fontAlign "center"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 175
-y 615
+x 176
+y 632
 w 50
 h 20
 controlPv "$(P)$(R)MinY"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "helvetica-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
 x 120
-y 615
+y 632
 w 50
 h 20
 controlPv "$(P)$(R)MinX_RBV"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
+bgColor index 12
+objType "monitors"
+fgAlarm
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+fontAlign "center"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 70
-y 615
+x 72
+y 632
 w 50
 h 20
 controlPv "$(P)$(R)MinX"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "helvetica-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
-x 330
-y 640
+x 332
+y 656
 w 50
 h 20
 controlPv "$(P)$(R)SizeZ_RBV"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
+bgColor index 12
+objType "monitors"
+fgAlarm
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+fontAlign "center"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
 x 280
-y 640
+y 656
 w 50
 h 20
 controlPv "$(P)$(R)SizeZ"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "helvetica-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
-x 225
-y 640
+x 224
+y 656
 w 50
 h 20
 controlPv "$(P)$(R)SizeY_RBV"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
+bgColor index 12
+objType "monitors"
+fgAlarm
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+fontAlign "center"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 175
-y 640
+x 176
+y 656
 w 50
 h 20
 controlPv "$(P)$(R)SizeY"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "helvetica-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
 x 120
-y 640
+y 656
 w 50
 h 20
 controlPv "$(P)$(R)SizeX_RBV"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
+bgColor index 12
+objType "monitors"
+fgAlarm
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+fontAlign "center"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
-# (Textentry)
-object TextentryClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 70
-y 640
+x 72
+y 656
 w 50
 h 20
 controlPv "$(P)$(R)SizeX"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "helvetica-bold-r-12.0"
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
 endObjectProperties
 
 # (Static Text)
@@ -757,12 +879,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 10
-y 640
+release 1
+x 12
+y 656
 w 55
 h 20
-font "helvetica-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -771,59 +893,80 @@ value {
 }
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
-x 70
-y 565
+x 72
+y 580
 w 100
 h 20
 controlPv "$(P)$(R)MaxSizeX_RBV"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
+bgColor index 12
+objType "monitors"
+fgAlarm
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+fontAlign "center"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
-x 175
-y 565
+x 176
+y 580
 w 100
 h 20
 controlPv "$(P)$(R)MaxSizeY_RBV"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
+bgColor index 12
+objType "monitors"
+fgAlarm
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+fontAlign "center"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
 x 280
-y 565
+y 580
 w 100
 h 20
 controlPv "$(P)$(R)MaxSizeZ_RBV"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
+bgColor index 12
+objType "monitors"
+fgAlarm
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+fontAlign "center"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
@@ -833,12 +976,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 10
-y 560
-w 55
-h 30
-font "helvetica-bold-r-12.0"
+release 1
+x 12
+y 580
+w 56
+h 24
+font "helvetica-bold-r-10.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -853,12 +996,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 10
-y 665
+release 1
+x 12
+y 680
 w 55
 h 20
-font "helvetica-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -873,8 +1016,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 70
-y 665
+x 72
+y 680
 w 100
 h 20
 fgColor index 25
@@ -893,8 +1036,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 175
-y 665
+x 176
+y 680
 w 100
 h 20
 fgColor index 25
@@ -914,7 +1057,7 @@ major 4
 minor 0
 release 0
 x 280
-y 665
+y 680
 w 100
 h 20
 fgColor index 25
@@ -932,12 +1075,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 10
-y 690
-w 65
+release 1
+x 12
+y 728
+w 55
 h 20
-font "helvetica-bold-r-12.0"
+font "helvetica-bold-r-10.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -946,59 +1089,80 @@ value {
 }
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
 x 280
-y 690
+y 728
 w 100
 h 20
 controlPv "$(P)$(R)ArraySizeZ_RBV"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
+bgColor index 12
+objType "monitors"
+fgAlarm
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+fontAlign "center"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
-x 175
-y 690
+x 176
+y 728
 w 100
 h 20
 controlPv "$(P)$(R)ArraySizeY_RBV"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
+bgColor index 12
+objType "monitors"
+fgAlarm
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+fontAlign "center"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 5
 release 0
-x 70
-y 690
+x 72
+y 728
 w 100
 h 20
 controlPv "$(P)$(R)ArraySizeX_RBV"
 fgColor index 16
 fgAlarm
-bgColor index 10
-fill
+bgColor index 12
+objType "monitors"
+fgAlarm
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+fontAlign "center"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
@@ -1010,7 +1174,7 @@ major 4
 minor 0
 release 0
 x 280
-y 540
+y 556
 w 100
 h 20
 fgColor index 25
@@ -1029,8 +1193,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 175
-y 540
+x 176
+y 556
 w 100
 h 20
 fgColor index 25
@@ -1049,8 +1213,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 70
-y 540
+x 72
+y 556
 w 100
 h 20
 fgColor index 25
@@ -1068,12 +1232,12 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 10
-y 525
-w 55
-h 35
-font "helvetica-bold-r-12.0"
+release 1
+x 12
+y 552
+w 56
+h 24
+font "helvetica-bold-r-10.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1087,7 +1251,7 @@ endObjectProperties
 object shellCmdClass
 beginObjectProperties
 major 4
-minor 2
+minor 3
 release 0
 x 5
 y 790
@@ -1101,7 +1265,7 @@ font "helvetica-bold-r-12.0"
 buttonLabel "HTML Documentation"
 numCmds 1
 command {
-  0 "firefox file://$(which ADBase.edl | sed \"s|data/ADBase.edl|documentation/NDPluginROI.html|\") &"
+  0 "firefox --no-remote areaDetectorHelp/NDPluginROI.html &"
 }
 endObjectProperties
 
@@ -1109,7 +1273,7 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
 x 200
 y 790
@@ -1130,6 +1294,85 @@ displayFileName {
 }
 setPosition {
   0 "button"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 280
+y 704
+w 100
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)AutoSizeZ"
+indicatorPv "$(P)$(R)AutoSizeZ_RBV"
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 176
+y 704
+w 100
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)AutoSizeY"
+indicatorPv "$(P)$(R)AutoSizeY_RBV"
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 72
+y 704
+w 100
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)AutoSizeX"
+indicatorPv "$(P)$(R)AutoSizeX_RBV"
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 12
+y 704
+w 55
+h 20
+font "helvetica-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Autosize?"
 }
 endObjectProperties
 

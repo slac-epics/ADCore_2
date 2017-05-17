@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1249
-y 204
-w 390
-h 820
+x 523
+y 1104
+w 414
+h 1052
 font "helvetica-bold-r-12.0"
 ctlFont "helvetica-bold-r-12.0"
 btnFont "helvetica-bold-r-12.0"
@@ -21,23 +21,8 @@ topShadowColor index 1
 botShadowColor index 11
 showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 665
-w 390
-h 155
-lineColor index 5
-fill
-fillColor index 5
-endObjectProperties
 
 # (Embedded Window)
 object activePipClass
@@ -47,8 +32,8 @@ minor 1
 release 0
 x 0
 y 0
-w 390
-h 385
+w 404
+h 384
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
@@ -71,15 +56,15 @@ major 4
 minor 1
 release 0
 x 0
-y 385
-w 390
-h 280
+y 396
+w 404
+h 432
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
 displaySource "file"
-file "NDFile"
+file "areaDetectorScreens/NDFile.edl"
 sizeOfs 5
 numDsps 2
 displayFileName {
@@ -95,10 +80,10 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 5
-y 680
-w 380
-h 135
+x 4
+y 848
+w 400
+h 164
 lineColor index 14
 fill
 fillColor index 3
@@ -109,10 +94,10 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 5
-y 670
-w 65
+release 1
+x 4
+y 836
+w 66
 h 14
 font "helvetica-medium-r-12.0"
 fgColor index 14
@@ -129,11 +114,11 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 10
-y 690
+release 1
+x 12
+y 852
 w 370
-h 15
+h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
@@ -147,12 +132,12 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
-x 10
-y 705
+x 12
+y 876
 w 370
-h 18
+h 24
 controlPv "$(P)$(R)TemplateFilePath_RBV"
 font "helvetica-medium-r-10.0"
 fgColor index 16
@@ -169,12 +154,12 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
-x 10
-y 725
+x 12
+y 900
 w 370
-h 20
+h 24
 controlPv "$(P)$(R)TemplateFilePath"
 font "helvetica-medium-r-10.0"
 fgColor index 25
@@ -195,12 +180,12 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
-x 10
-y 765
+x 12
+y 952
 w 370
-h 18
+h 24
 controlPv "$(P)$(R)TemplateFileName_RBV"
 font "helvetica-medium-r-10.0"
 fgColor index 16
@@ -217,12 +202,12 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
-x 10
-y 785
+x 12
+y 980
 w 370
-h 20
+h 24
 controlPv "$(P)$(R)TemplateFileName"
 font "helvetica-medium-r-10.0"
 fgColor index 25
@@ -244,17 +229,39 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 10
-y 750
+release 1
+x 12
+y 928
 w 370
-h 15
+h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
   "Template file name"
+}
+endObjectProperties
+
+# (Shell Command)
+object shellCmdClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 4
+y 1020
+w 400
+h 24
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "helvetica-bold-r-12.0"
+buttonLabel "HTML Documentation"
+numCmds 1
+command {
+  0 "firefox --no-remote areaDetectorHelp/NDPluginStdArrays.html &"
 }
 endObjectProperties
 

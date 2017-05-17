@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 636
-y 129
+x 640
+y 153
 w 390
 h 820
 font "helvetica-medium-r-18.0"
@@ -983,6 +983,34 @@ endGroup
 
 endObjectProperties
 
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 200
+y 790
+w 185
+h 24
+fgColor index 43
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "helvetica-bold-r-12.0"
+xPosOffset 200
+yPosOffset -200
+buttonLabel "Advanced..."
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "areaDetectorScreens/NDPluginDriverAdvanced.edl"
+}
+setPosition {
+  0 "button"
+}
+endObjectProperties
+
 # (Shell Command)
 object shellCmdClass
 beginObjectProperties
@@ -1001,35 +1029,7 @@ font "helvetica-bold-r-12.0"
 buttonLabel "HTML Documentation"
 numCmds 1
 command {
-  0 "firefox \"file://$(which ADBase.edl | sed \"s|data/ADBase.edl|documentation/NDPluginTransform.html|\")\" &"
-}
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 4
-release 0
-x 200
-y 790
-w 185
-h 25
-fgColor index 43
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "helvetica-bold-r-12.0"
-xPosOffset 200
-yPosOffset -200
-buttonLabel "Advanced..."
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "NDPluginDriverAdvanced.edl"
-}
-setPosition {
-  0 "button"
+  0 "firefox --no-remote areaDetectorHelp/NDPluginProcess.html &"
 }
 endObjectProperties
 
