@@ -1,3 +1,8 @@
+R2.6-2.2.0: May 17, 2017, Bruce Hill (bhill)
+	Fixed a few remaining firefox help launchers to use areaDetectorHelp softlink to find documentation
+	Updated ADCore edl screens w/ slac fonts and widgets and tweaked layouts.
+	Added areaDetectorScreens/ prefix to each file reference and suffix .edl
+
 R2.6-2.1.3: May 17, 2017, Hugo Slepicka (slepicka)
     Adding BitsPerPixel_RBV to ADApp/Db/NDArrayBase.template
 
