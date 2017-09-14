@@ -399,7 +399,6 @@ record(longin, "$(P)$(R)NumExposuresCounter_RBV")
    field(DTYP, "asynInt32")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NEXPOSURES_COUNTER")
    field(SCAN, "I/O Intr")
-   field(TSE,  "$(TSE=-2)")
    info(autosaveFields, "TSE")
 }
 record(longout, "$(P)$(R)NumImages")
@@ -416,7 +415,6 @@ record(longin, "$(P)$(R)NumImages_RBV")
    field(DTYP, "asynInt32")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NIMAGES")
    field(SCAN, "I/O Intr")
-   field(TSE,  "$(TSE=-2)")
    info(autosaveFields, "TSE")
 }
 
@@ -425,7 +423,8 @@ record(longin, "$(P)$(R)NumImagesCounter_RBV")
    field(DTYP, "asynInt32")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NIMAGES_COUNTER")
    field(SCAN, "I/O Intr")
-   field(TSE,  "$(TSE=-2)")
+#  Using TSE=-2 here makes clearing NumImagesCounter get TS from last image
+#  field(TSE,  "$(TSE=-2)")
    info(autosaveFields, "TSE")
 }
 
