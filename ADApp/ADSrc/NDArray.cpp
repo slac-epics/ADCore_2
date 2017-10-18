@@ -202,7 +202,7 @@ int NDArray::report(FILE *fp, int details)
     this->ndims);
   for (dim=0; dim<this->ndims; dim++) fprintf(fp, "%d ", (int)this->dims[dim].size);
   fprintf(fp, "]\n");
-  fprintf(fp, "  dataType=%d, nBitsPerPixel=%d, dataSize=%d, pData=%p\n",
+  fprintf(fp, "  dataType=%d, bitsPerElement=%d, dataSize=%d, pData=%p\n",
         this->dataType, this->bitsPerElement, (int)this->dataSize, this->pData);
   fprintf(fp, "  uniqueId=%d, timeStamp=%f, referenceCount=%d\n",
         this->uniqueId, this->timeStamp, this->referenceCount);
