@@ -183,7 +183,7 @@ void NDPluginProcess::processCallbacks(NDArray *pArray)
         if (enableLowClip  && (value < lowClip))  value = lowClip;
         data[i] = value;
     }
-
+    
     if (enableFilter) {
         if (this->pFilter) {
             this->pFilter->getInfo(&arrayInfo);
@@ -239,23 +239,20 @@ void NDPluginProcess::processCallbacks(NDArray *pArray)
 
     if (doCallbacks) {
       /* Convert the array to the desired output data type */
-      if (this->pArrays[0]) this->pArrays[0]->release();
-      this->pNDArrayPool->convert(pScratch, &this->pArrays[0], (NDDataType_t)dataType);
+      this->pNDArrayPool->convert(pScratch, &pArrayOut, (NDDataType_t)dataType);
+    }
 
-	  if ( enableOffsetScale ) {
-    	  NDArray * pOutput = this->pArrays[0];
+    if (enableOffsetScale && (NULL != pArrayOut)) {
+        /* Update bitsPerElement */
+        int       bitsPerElement    =   arrayInfo.bitsPerElement;
+        bitsPerElement  += static_cast<int>( ceil( log2( scale ) ) );
 
-		  /* Update bitsPerElement */
-		  int		bitsPerPixel	=	arrayInfo.bitsPerElement;
-		  bitsPerPixel	+= static_cast<int>( ceil( log2( scale ) ) );
+        /* Clip bitsPerElement to max for output dataType */
+        if( bitsPerElement > GetNDDataTypeBits(pArrayOut->dataType) )
+            bitsPerElement = GetNDDataTypeBits(pArrayOut->dataType);
 
-		  /* Clip bitsPerElement to max for output dataType */
-		  if( bitsPerPixel > GetNDDataTypeBits(pOutput->dataType) )
-			  bitsPerPixel = GetNDDataTypeBits(pOutput->dataType);
-
-		  /* Set the bits per pixel of the ROI output */
-		  pOutput->bitsPerElement = bitsPerPixel;
-	  }
+        /* Set the bits per pixel of the ROI output */
+        pArrayOut->bitsPerElement = bitsPerElement;
     }
 
     if (autoOffsetScale && (NULL != pArrayOut)) {
