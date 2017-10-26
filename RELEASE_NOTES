@@ -1,3 +1,8 @@
+R2.6-2.3.0: Oct 25, 2017, Bruce Hill (bhill)
+	Fix merge error in Process plugin bitsPerPixel support
+	Don't use TSE=-2 for counters as they can be reset w/o the image timestamp updating.
+	Misc SLAC edm screen updates.
+
 R2.6-2.2.0: May 17, 2017, Bruce Hill (bhill)
 	Fixed a few remaining firefox help launchers to use areaDetectorHelp softlink to find documentation
 	Updated ADCore edl screens w/ slac fonts and widgets and tweaked layouts.
