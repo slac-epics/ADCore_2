@@ -3,9 +3,9 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1026
-y 289
-w 380
+x 781
+y 494
+w 396
 h 370
 font "helvetica-bold-r-12.0"
 ctlFont "helvetica-bold-r-12.0"
@@ -49,7 +49,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 5
 y 30
 w 70
@@ -67,24 +67,23 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
-x 50
-y 5
-w 325
+x 52
+y 4
+w 116
 h 20
 controlPv "$(P)$(R)$(O)Name"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 25
-
 bgColor index 5
-newPos
 editable
 motifWidget
 limitsFromDb
 nullColor index 40
 smartRefresh
-fontAlign "center"
-font "helvetica-bold-r-12.0"
+newPos
 endObjectProperties
 
 # (Static Text)
@@ -92,7 +91,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 5
 y 5
 w 70
@@ -111,7 +110,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 5
 y 55
 w 45
@@ -150,7 +149,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 5
 y 80
 w 45
@@ -189,9 +188,9 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 180
-y 30
+y 8
 w 70
 h 20
 font "helvetica-bold-r-12.0"
@@ -208,9 +207,9 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 180
-y 55
+y 32
 w 70
 h 20
 font "helvetica-bold-r-12.0"
@@ -227,9 +226,9 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 180
-y 80
+y 56
 w 70
 h 20
 font "helvetica-bold-r-12.0"
@@ -245,150 +244,141 @@ endObjectProperties
 object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 320
-y 30
+y 8
 w 55
 h 20
 controlPv "$(P)$(R)$(O)Red_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
 bgColor index 12
-objType "monitors"
-fgAlarm
 limitsFromDb
 nullColor index 40
 smartRefresh
 useHexPrefix
 newPos
-fontAlign "center"
-font "helvetica-bold-r-12.0"
-fontAlign "center"
+objType "monitors"
 endObjectProperties
 
 # (Text Control)
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 260
-y 30
+y 8
 w 55
 h 20
 controlPv "$(P)$(R)$(O)Red"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 25
-
 bgColor index 5
-newPos
 editable
 motifWidget
 limitsFromDb
 nullColor index 40
 smartRefresh
-fontAlign "center"
-font "helvetica-bold-r-12.0"
+newPos
 endObjectProperties
 
 # (Text Monitor)
 object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 320
-y 55
+y 32
 w 55
 h 20
 controlPv "$(P)$(R)$(O)Green_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
 bgColor index 12
-objType "monitors"
-fgAlarm
 limitsFromDb
 nullColor index 40
 smartRefresh
 useHexPrefix
 newPos
-fontAlign "center"
-font "helvetica-bold-r-12.0"
-fontAlign "center"
+objType "monitors"
 endObjectProperties
 
 # (Text Control)
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 260
-y 55
+y 32
 w 55
 h 20
 controlPv "$(P)$(R)$(O)Green"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 25
-
 bgColor index 5
-newPos
 editable
 motifWidget
 limitsFromDb
 nullColor index 40
 smartRefresh
-fontAlign "center"
-font "helvetica-bold-r-12.0"
+newPos
 endObjectProperties
 
 # (Text Monitor)
 object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 320
-y 80
+y 56
 w 55
 h 20
 controlPv "$(P)$(R)$(O)Blue_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
 bgColor index 12
-objType "monitors"
-fgAlarm
 limitsFromDb
 nullColor index 40
 smartRefresh
 useHexPrefix
 newPos
-fontAlign "center"
-font "helvetica-bold-r-12.0"
-fontAlign "center"
+objType "monitors"
 endObjectProperties
 
 # (Text Control)
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 260
-y 80
+y 56
 w 55
 h 20
 controlPv "$(P)$(R)$(O)Blue"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 25
-
 bgColor index 5
-newPos
 editable
 motifWidget
 limitsFromDb
 nullColor index 40
 smartRefresh
-fontAlign "center"
-font "helvetica-bold-r-12.0"
+newPos
 endObjectProperties
 
 # (Static Text)
@@ -396,279 +386,9 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 5
-y 115
-w 70
-h 20
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "X Position"
-}
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 5
-release 0
-x 135
-y 115
-w 55
-h 20
-controlPv "$(P)$(R)$(O)PositionX_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 12
-objType "monitors"
-fgAlarm
-limitsFromDb
-nullColor index 40
-smartRefresh
-useHexPrefix
-newPos
-fontAlign "center"
-font "helvetica-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 5
-release 0
-x 75
-y 115
-w 55
-h 20
-controlPv "$(P)$(R)$(O)PositionX"
-fgColor index 25
-
-bgColor index 5
-newPos
-editable
-motifWidget
-limitsFromDb
-nullColor index 40
-smartRefresh
-fontAlign "center"
-font "helvetica-bold-r-12.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 5
-y 140
-w 70
-h 20
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "DB Link"
-}
-endObjectProperties
-
-# (Motif Slider)
-object activeMotifSliderClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 195
-y 110
-w 180
-h 20
-fgColor index 25
-bgColor index 3
-2ndBgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)$(O)PositionX"
-controlLabelType "pvName"
-font "helvetica-bold-r-12.0"
-limitsFromDb
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 5
-release 0
-x 75
-y 140
-w 300
-h 18
-controlPv "$(P)$(R)$(O)PositionXLink.DOL"
-font "helvetica-bold-r-12.0"
-fgColor index 25
-bgColor index 3
-useDisplayBg
-editable
-autoHeight
-motifWidget
-limitsFromDb
-nullColor index 25
-updatePvOnDrop
-useHexPrefix
-newPos
-objType "controls"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 5
-y 225
-w 70
-h 20
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Y Position"
-}
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 5
-release 0
-x 135
-y 225
-w 55
-h 20
-controlPv "$(P)$(R)$(O)PositionY_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 12
-objType "monitors"
-fgAlarm
-limitsFromDb
-nullColor index 40
-smartRefresh
-useHexPrefix
-newPos
-fontAlign "center"
-font "helvetica-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 5
-release 0
-x 75
-y 225
-w 55
-h 20
-controlPv "$(P)$(R)$(O)PositionY"
-fgColor index 25
-
-bgColor index 5
-newPos
-editable
-motifWidget
-limitsFromDb
-nullColor index 40
-smartRefresh
-fontAlign "center"
-font "helvetica-bold-r-12.0"
-endObjectProperties
-
-# (Motif Slider)
-object activeMotifSliderClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 195
-y 210
-w 180
-h 20
-fgColor index 25
-bgColor index 3
-2ndBgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)$(O)PositionY"
-controlLabelType "pvName"
-font "helvetica-bold-r-12.0"
-limitsFromDb
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 5
-release 0
-x 75
-y 250
-w 300
-h 18
-controlPv "$(P)$(R)$(O)PositionYLink.DOL"
-font "helvetica-bold-r-12.0"
-fgColor index 25
-bgColor index 3
-useDisplayBg
-editable
-autoHeight
-motifWidget
-limitsFromDb
-nullColor index 25
-updatePvOnDrop
-useHexPrefix
-newPos
-objType "controls"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 5
-y 250
-w 70
-h 20
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "DB Link"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 5
-y 170
+release 1
+x 4
+y 184
 w 70
 h 20
 font "helvetica-bold-r-12.0"
@@ -684,50 +404,47 @@ endObjectProperties
 object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
-x 135
-y 170
+x 136
+y 184
 w 55
 h 20
 controlPv "$(P)$(R)$(O)SizeX_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
 bgColor index 12
-objType "monitors"
-fgAlarm
 limitsFromDb
 nullColor index 40
 smartRefresh
 useHexPrefix
 newPos
-fontAlign "center"
-font "helvetica-bold-r-12.0"
-fontAlign "center"
+objType "monitors"
 endObjectProperties
 
 # (Text Control)
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
-x 75
-y 170
+x 76
+y 184
 w 55
 h 20
 controlPv "$(P)$(R)$(O)SizeX"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 25
-
 bgColor index 5
-newPos
 editable
 motifWidget
 limitsFromDb
 nullColor index 40
 smartRefresh
-fontAlign "center"
-font "helvetica-bold-r-12.0"
+newPos
 endObjectProperties
 
 # (Static Text)
@@ -735,9 +452,9 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 5
-y 195
+release 1
+x 4
+y 212
 w 70
 h 20
 font "helvetica-bold-r-12.0"
@@ -755,8 +472,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 195
-y 160
+x 196
+y 184
 w 180
 h 20
 fgColor index 25
@@ -774,10 +491,10 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
-x 75
-y 195
+x 76
+y 214
 w 300
 h 18
 controlPv "$(P)$(R)$(O)SizeXLink.DOL"
@@ -801,9 +518,9 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 5
-y 280
+release 1
+x 4
+y 296
 w 70
 h 20
 font "helvetica-bold-r-12.0"
@@ -819,50 +536,47 @@ endObjectProperties
 object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
-x 135
-y 280
+x 136
+y 296
 w 55
 h 20
 controlPv "$(P)$(R)$(O)SizeY_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
 bgColor index 12
-objType "monitors"
-fgAlarm
 limitsFromDb
 nullColor index 40
 smartRefresh
 useHexPrefix
 newPos
-fontAlign "center"
-font "helvetica-bold-r-12.0"
-fontAlign "center"
+objType "monitors"
 endObjectProperties
 
 # (Text Control)
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
-x 75
-y 280
+x 76
+y 296
 w 55
 h 20
 controlPv "$(P)$(R)$(O)SizeY"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 25
-
 bgColor index 5
-newPos
 editable
 motifWidget
 limitsFromDb
 nullColor index 40
 smartRefresh
-fontAlign "center"
-font "helvetica-bold-r-12.0"
+newPos
 endObjectProperties
 
 # (Static Text)
@@ -870,9 +584,9 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 5
-y 305
+release 1
+x 4
+y 320
 w 70
 h 20
 font "helvetica-bold-r-12.0"
@@ -890,8 +604,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 195
-y 280
+x 196
+y 296
 w 180
 h 20
 fgColor index 25
@@ -909,10 +623,10 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
-x 75
-y 305
+x 76
+y 322
 w 300
 h 18
 controlPv "$(P)$(R)$(O)SizeYLink.DOL"
@@ -929,5 +643,738 @@ updatePvOnDrop
 useHexPrefix
 newPos
 objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 320
+y 80
+w 55
+h 20
+controlPv "$(P)$(R)$(O)WidthX_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 260
+y 80
+w 55
+h 20
+controlPv "$(P)$(R)$(O)WidthX"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 25
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 180
+y 80
+w 70
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Width X"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 4
+y 104
+w 45
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Origin"
+}
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 4
+y 132
+w 372
+h 156
+
+beginGroup
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 76
+y 268
+w 300
+h 18
+controlPv "$(P)$(R)$(O)PositionYLink.DOL"
+font "helvetica-bold-r-12.0"
+fgColor index 25
+bgColor index 3
+useDisplayBg
+editable
+autoHeight
+motifWidget
+limitsFromDb
+nullColor index 25
+updatePvOnDrop
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 4
+y 268
+w 70
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "DB Link"
+}
+endObjectProperties
+
+# (Motif Slider)
+object activeMotifSliderClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 196
+y 240
+w 180
+h 20
+fgColor index 25
+bgColor index 3
+2ndBgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)$(O)PositionY"
+controlLabelType "pvName"
+font "helvetica-bold-r-12.0"
+limitsFromDb
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 136
+y 240
+w 55
+h 20
+controlPv "$(P)$(R)$(O)PositionY_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 76
+y 240
+w 55
+h 20
+controlPv "$(P)$(R)$(O)PositionY"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 25
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 4
+y 240
+w 70
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Y Position"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 76
+y 160
+w 300
+h 18
+controlPv "$(P)$(R)$(O)PositionXLink.DOL"
+font "helvetica-bold-r-12.0"
+fgColor index 25
+bgColor index 3
+useDisplayBg
+editable
+autoHeight
+motifWidget
+limitsFromDb
+nullColor index 25
+updatePvOnDrop
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 4
+y 160
+w 70
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "DB Link"
+}
+endObjectProperties
+
+# (Motif Slider)
+object activeMotifSliderClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 196
+y 132
+w 180
+h 20
+fgColor index 25
+bgColor index 3
+2ndBgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)$(O)PositionX"
+controlLabelType "pvName"
+font "helvetica-bold-r-12.0"
+limitsFromDb
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 136
+y 132
+w 55
+h 20
+controlPv "$(P)$(R)$(O)PositionX_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 76
+y 132
+w 55
+h 20
+controlPv "$(P)$(R)$(O)PositionX"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 25
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 4
+y 132
+w 70
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "X Position"
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 4
+y 132
+w 372
+h 156
+
+beginGroup
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 76
+y 268
+w 300
+h 18
+controlPv "$(P)$(R)$(O)CenterYLink.DOL"
+font "helvetica-bold-r-12.0"
+fgColor index 25
+bgColor index 3
+useDisplayBg
+editable
+autoHeight
+motifWidget
+limitsFromDb
+nullColor index 25
+updatePvOnDrop
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 4
+y 268
+w 70
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "DB Link"
+}
+endObjectProperties
+
+# (Motif Slider)
+object activeMotifSliderClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 196
+y 240
+w 180
+h 20
+fgColor index 25
+bgColor index 3
+2ndBgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)$(O)CenterY"
+controlLabelType "pvName"
+font "helvetica-bold-r-12.0"
+limitsFromDb
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 136
+y 240
+w 55
+h 20
+controlPv "$(P)$(R)$(O)CenterY_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 76
+y 240
+w 55
+h 20
+controlPv "$(P)$(R)$(O)CenterY"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 25
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 4
+y 240
+w 70
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "Y Center"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 76
+y 160
+w 300
+h 18
+controlPv "$(P)$(R)$(O)CenterXLink.DOL"
+font "helvetica-bold-r-12.0"
+fgColor index 25
+bgColor index 3
+useDisplayBg
+editable
+autoHeight
+motifWidget
+limitsFromDb
+nullColor index 25
+updatePvOnDrop
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 4
+y 160
+w 70
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "DB Link"
+}
+endObjectProperties
+
+# (Motif Slider)
+object activeMotifSliderClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 196
+y 132
+w 180
+h 20
+fgColor index 25
+bgColor index 3
+2ndBgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)$(O)CenterX"
+controlLabelType "pvName"
+font "helvetica-bold-r-12.0"
+limitsFromDb
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 136
+y 132
+w 55
+h 20
+controlPv "$(P)$(R)$(O)CenterX_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 76
+y 132
+w 55
+h 20
+controlPv "$(P)$(R)$(O)CenterX"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 25
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 4
+y 132
+w 70
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "X Center"
+}
+endObjectProperties
+
+endGroup
+
+visPv "LOC\\$(!W)originRef=e:0,UpperLeft,Center"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 50
+y 104
+w 120
+h 20
+fgColor index 25
+bgColor index 3
+selectColor index 6
+inconsistentColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "LOC\\$(!W)originRef=e:0,UpperLeft,Center"
+font "helvetica-bold-r-10.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 320
+y 104
+w 55
+h 20
+controlPv "$(P)$(R)$(O)WidthY_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 260
+y 104
+w 55
+h 20
+controlPv "$(P)$(R)$(O)WidthY"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 25
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 180
+y 104
+w 70
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Width Y"
+}
 endObjectProperties
 
