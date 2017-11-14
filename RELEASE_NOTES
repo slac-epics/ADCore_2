@@ -1,3 +1,8 @@
+R2.6-2.4.0: Nov 13, 2017, Bruce Hill (bhill)
+	Added dummy defaults for XWIDTH and YWIDTH
+	Set default to 1 for WidthX and WidthY via DOL
+	Fix some fonts and add overlay display option to use position or center
+
 R2.6-2.3.0: Oct 25, 2017, Bruce Hill (bhill)
 	Fix merge error in Process plugin bitsPerPixel support
 	Don't use TSE=-2 for counters as they can be reset w/o the image timestamp updating.
