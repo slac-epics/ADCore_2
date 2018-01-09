@@ -174,8 +174,7 @@ endObjectProperties
 # (Text Monitor)
 object activeXTextDspClass:noedit
 beginObjectProperties
-major 43
-
+major 4
 minor 7
 release 0
 x 100
