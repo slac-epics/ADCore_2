@@ -1,3 +1,6 @@
+R2.6-2.4.2: Jan 18, 2017, Bruce Hill (bhill)
+	Updated V4 modules to latest versions.
+
 R2.6-2.4.1: Jan 8, 2017, Bruce Hill (bhill)
 	Fixed typo in ADBaseAdvanced.edl that kept it from loading.
 
