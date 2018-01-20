@@ -1,0 +1,26 @@
+R2.6-0.3.0:	Apr 13, 2017, Bruce Hill (bhill)
+	Enabled WITH_EPICS_V4 to enable NDPluginPva
+	(Adds module dependencies on most of the V4 modules)
+
+R2.6-0.2.0:	Apr 5, 2017, Bruce Hill (bhill)
+	Added WITH_HDF5 and other macros to enable additional plugins
+
+R2.6-0.1.0:	Mar 24, 2017, Bruce Hill (bhill)
+	Merged in updates from github R2-6
+	Now depends on ADSupport instead of pkg_mgr for standard areaDetector plugins.
+
+R2.2-0.1.0:	Oct 8, 2016, Bruce Hill (bhill)
+	Updated to asyn R4.30-0.1.2
+	Updated build files for git work-flow
+	Includes asSupport.dbd instead of autosaveSupport.dbd for compatibility
+		w/ SLAC autosave module
+
+ADCore-R2-1_1-0:  Initial RELEASE for ICD: areaDetector Core: (Developed by Mark Rivers, Univ of Chicago))
+                  -- base classes for drivers, 
+                  -- code for all of the standard plugins, 
+                  -- an example simulation detector
+                  -- ELW: Add config files to point to the location of SZIP and HDF
+                          within the buildroot linuxRT OS and toolchain:
+                          added <>/configure/CONFIG_SITE.Common.linuxRT-x86
+                          added <>/configure/CONFIG_SITE.Common.linuxRT-x86_64
+
