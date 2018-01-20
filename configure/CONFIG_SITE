@@ -42,7 +42,7 @@ CROSS_COMPILER_TARGET_ARCHS := $(filter-out RTEMS%,             $(CROSS_COMPILER
 #
 
 # BOOST is required for the ADCore/pluginTests unit tests
-WITH_BOOST     = NO
+#WITH_BOOST     = NO
 #BOOST_LIB     =
 #BOOST_INCLUDE =
 
@@ -135,6 +135,7 @@ endif
 ifeq (Linux, $(OS_CLASS))
 	SHARED_LIBRARIES=YES
 	STATIC_BUILD=YES
+    BOOST_USE_STATIC_LINK=YES
 endif
 
 ifndef PACKAGE_SITE_TOP
