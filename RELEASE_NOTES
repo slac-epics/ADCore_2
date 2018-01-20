@@ -1,0 +1,86 @@
+R3.1-2.3.3:	2019-06-12 Bruce Hill
+	Update to asyn/R4.32-1.0.0
+
+R3.1-2.3.2:	2019-06-12 Bruce Hill
+	ifdef build for BASE_7_0
+	PORT macro in NDPluginBase.template asyn record needs to be in quotes.
+
+R3.1-2.3.1:	2019-03-13 Bruce Hill
+	Build w/ pvAccessCPP/R6.0.0-0.3.0 pva2pva/R1.0.0-0.3.1 asyn/R4.31-0.1.0
+
+R3.1-2.3.0:	Nov 30, 2018, Bruce Hill (bhill)
+	Added new TimeStampStr PV that uses an autosaved format to show TimeStamp as a string.
+
+R3.1-2.2.0:	Aug 28, 2018, Bruce Hill (bhill)
+	Added Threads and access to NDPluginBaseFull screen to NDPluginBase.edl.
+	Added build support for adl2edl autoconvert, ran it, and added new screens
+	Added a soft link to autoconvert directory under slac-edl for easier cut/paste from autoconverted screens.
+	Removed dummy pvs from NDOverlayN.template as they tend to create more broken pvs.
+	Fixed pv in SortFreeLow output link
+
+R3.1-2.1.1:	Mar 29, 2018, Bruce Hill (bhill)
+	Update to ADSupport/R1.1-0.1.1
+
+R3.1-2.1.0:	Feb 10, 2018, Bruce Hill (bhill)
+	Updated to pvAccessCPP/R6.0.0-0.2.0 and pva2pva/R1.0.0-0.3.0 to fix qsrv.
+	More EnableCallbacks state names from Disable to Disabled, Enable to Enabled.
+	More severity field changes to follow SLAC std: Enabled=Green, Disabled=Yellow
+	Return error on attempt to Capture in NDFileModeSingle so Capture is actually cleared.
+
+R3.1-2.0.0:	Jan 29, 2018, Bruce Hill (bhill)
+	R3.1-1.0.0 plus:
+		Add dummy PV's as the default for Overlay Center, Size and Width links to avoid broken references to pv CP
+		Set default to 1 for Overlay WidthX and WidthY. Without this overlays aren't visible until user sets the width.
+		Provide macros s/ defaults for overlay R,G,B colors
+		Set EGU to sec for AcquireTime and AcquirePeriod pv's
+		Initialize SizeX and SizeY to 99999 so they clip to full image size.
+		Added additional autosaved fields and TSE=-2 fields.
+		Applied bitsPerPixel.patch to bring in bitsPerPixel support from pcds-trunk
+		Added ifdef __cplusplus extern C before including jpeg.h
+		Added additional status updates for NDFileWriteMessage and an ASYN_TRACE_ERROR message for an attempt
+			to start a capture from Single mode.
+		Show paramName in writeInt32() trace msgs
+		Set severity fields for ArrayCounter, ArrayRate, EnableCallbacks, BlockingCallbacks, and DroppedArrays
+			to help new users to see potential issues w/ their plugins.
+		Changed EnableCallbacks state names from Disable to Disabled, Enable to Enabled.
+			Makes it more obvious to new users what the actual state of the callback is.
+		Applied db-ADDR-TIMEOUT-defaults.patch to make ADDR default to 0 and TIMEOUT default to 1
+
+R3.1-0.1.0:	Jan 27, 2018, Bruce Hill (bhill)
+	Cherry-pick Mark Rivers 972bd7d Change to support pvAccess 6 and greater
+
+R3.1-0.0.1:	Jan 27, 2018, Bruce Hill (bhill)
+	Merged slac-edl branch for slac-edl files with their version history
+	Applied lcls-git-workflow.patch and enable_boost_163.patch to R3-1
+	Updated V4 modules to latest versions.
+
+R3.0-0.0.1:	Jan 24, 2018, Bruce Hill (bhill)
+	Applied lcls-git-workflow.patch and enable_boost_163.patch to R3-0
+	Updated V4 modules to latest versions.
+
+R2.6-0.3.0:	Apr 13, 2017, Bruce Hill (bhill)
+	Enabled WITH_EPICS_V4 to enable NDPluginPva
+	(Adds module dependencies on most of the V4 modules)
+
+R2.6-0.2.0:	Apr 5, 2017, Bruce Hill (bhill)
+	Added WITH_HDF5 and other macros to enable additional plugins
+
+R2.6-0.1.0:	Mar 24, 2017, Bruce Hill (bhill)
+	Merged in updates from github R2-6
+	Now depends on ADSupport instead of pkg_mgr for standard areaDetector plugins.
+
+R2.2-0.1.0:	Oct 8, 2016, Bruce Hill (bhill)
+	Updated to asyn R4.30-0.1.2
+	Updated build files for git work-flow
+	Includes asSupport.dbd instead of autosaveSupport.dbd for compatibility
+		w/ SLAC autosave module
+
+ADCore-R2-1_1-0:  Initial RELEASE for ICD: areaDetector Core: (Developed by Mark Rivers, Univ of Chicago))
+                  -- base classes for drivers, 
+                  -- code for all of the standard plugins, 
+                  -- an example simulation detector
+                  -- ELW: Add config files to point to the location of SZIP and HDF
+                          within the buildroot linuxRT OS and toolchain:
+                          added <>/configure/CONFIG_SITE.Common.linuxRT-x86
+                          added <>/configure/CONFIG_SITE.Common.linuxRT-x86_64
+
