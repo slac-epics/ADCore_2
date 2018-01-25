@@ -1,3 +1,6 @@
+R3.0-1.0.0:	Jan 24, 2018, Bruce Hill (bhill)
+	Same as R3.0-0.0.1 as the R2.6-1.branch patches made it into R3-0.
+
 R3.0-0.0.1:	Jan 24, 2018, Bruce Hill (bhill)
 	Applied lcls-git-workflow.patch and enable_boost_163.patch to R3-0
 	Updated V4 modules to latest versions.
