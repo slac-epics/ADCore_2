@@ -58,8 +58,8 @@ file "NDPluginBase"
 sizeOfs 5
 numDsps 2
 displayFileName {
-  0 "NDPluginBase"
-  1 "NDPluginBase"
+  0 "areaDetectorScreens/NDPluginBase.edl"
+  1 "areaDetectorScreens/NDPluginBase.edl"
 }
 noScroll
 endObjectProperties
@@ -83,8 +83,8 @@ file "NDFile"
 sizeOfs 5
 numDsps 2
 displayFileName {
-  0 "NDPluginBase"
-  1 "NDPluginBase"
+  0 "areaDetectorScreens/NDPluginBase.edl"
+  1 "areaDetectorScreens/NDPluginBase.edl"
 }
 noScroll
 endObjectProperties
@@ -542,7 +542,7 @@ buttonLabel "details..."
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "NDFileHDF5Details"
+  0 "areaDetectorScreens/NDFileHDF5Details.edl"
 }
 setPosition {
   0 "button"
