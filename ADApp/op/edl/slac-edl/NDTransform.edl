@@ -38,7 +38,7 @@ bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
 displaySource "file"
-file "NDPluginBase.edl"
+file "areaDetectorScreens/NDPluginBase.edl"
 sizeOfs 5
 numDsps 0
 noScroll
