@@ -165,7 +165,6 @@ record(bi, "$(P)$(R)ReverseY_RBV")
    field(SCAN, "I/O Intr")
 }
 
-
 ###################################################################
 #  These records control the acquisition time and                 #
 #  period                                                         # 
@@ -177,6 +176,7 @@ record(ao, "$(P)$(R)AcquireTime")
    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ACQ_TIME")
    field(PREC, "3")
    field(VAL,  "1.0")
+   field(EGU,  "sec")
    info(autosaveFields, "HHSV HIGH HIHI HSV LLSV LOLO LOW LSV VAL EGU DESC HOPR LOPR PREC")
 }
 
@@ -186,6 +186,7 @@ record(ai, "$(P)$(R)AcquireTime_RBV")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ACQ_TIME")
    field(PREC, "3")
    field(SCAN, "I/O Intr")
+   field(EGU,  "sec")
    info(autosaveFields, "HHSV HIGH HIHI HSV LLSV LOLO LOW LSV VAL EGU DESC PREC")
 }
 
@@ -196,6 +197,7 @@ record(ao, "$(P)$(R)AcquirePeriod")
    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ACQ_PERIOD")
    field(PREC, "3")
    field(VAL,  "0")
+   field(EGU,  "sec")
    info(autosaveFields, "HHSV HIGH HIHI HSV LLSV LOLO LOW LSV VAL EGU DESC HOPR LOPR PREC")
 }
 
@@ -205,6 +207,7 @@ record(ai, "$(P)$(R)AcquirePeriod_RBV")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ACQ_PERIOD")
    field(PREC, "3")
    field(SCAN, "I/O Intr")
+   field(EGU,  "sec")
    info(autosaveFields, "HHSV HIGH HIHI HSV LLSV LOLO LOW LSV VAL EGU DESC PREC")
 }
 
