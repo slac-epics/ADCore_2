@@ -1,3 +1,7 @@
+R3.0-0.0.1:	Jan 24, 2018, Bruce Hill (bhill)
+	Applied lcls-git-workflow.patch and enable_boost_163.patch to R3-0
+	Updated V4 modules to latest versions.
+
 R2.6-0.3.0:	Apr 13, 2017, Bruce Hill (bhill)
 	Enabled WITH_EPICS_V4 to enable NDPluginPva
 	(Adds module dependencies on most of the V4 modules)
