@@ -1,3 +1,8 @@
+R3.1-0.0.1:	Jan 27, 2018, Bruce Hill (bhill)
+	Merged slac-edl branch for slac-edl files with their version history
+	Applied lcls-git-workflow.patch and enable_boost_163.patch to R3-1
+	Updated V4 modules to latest versions.
+
 R3.0-0.0.1:	Jan 24, 2018, Bruce Hill (bhill)
 	Applied lcls-git-workflow.patch and enable_boost_163.patch to R3-0
 	Updated V4 modules to latest versions.
