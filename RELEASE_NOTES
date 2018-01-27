@@ -1,3 +1,15 @@
+R3.2-2.0.0:	Jan 26, 2018, Bruce Hill (bhill)
+	First release from R3.2-2.branch.
+	Includes R3.0-0.0.1 plus SLAC updates:
+		ADApp/op/edl/slac-edl/*.edl - SLAC versions of edm files
+		bitsPerPixel.patch
+		db-ADDR-TIMEOUT-defaults.patch
+		dummy-pv-default-links.patch
+		enable_boost_163.patch
+		EnableCallbacks-state-names.patch
+		more-autosave-fields.patch
+		plugin-severity-tweaks.patch
+
 R3.0-0.0.1:	Jan 24, 2018, Bruce Hill (bhill)
 	Applied lcls-git-workflow.patch and enable_boost_163.patch to R3-0
 	Updated V4 modules to latest versions.
