@@ -1,3 +1,6 @@
+R3.1-1.0.0:	Jan 29, 2018, Bruce Hill (bhill)
+	R3-1 plus support for pvAccess 6 and greater.
+
 R3.1-0.1.0:	Jan 27, 2018, Bruce Hill (bhill)
 	Cherry-pick Mark Rivers 972bd7d Change to support pvAccess 6 and greater
 
