@@ -1,5 +1,21 @@
-R3.1-1.0.0:	Jan 29, 2018, Bruce Hill (bhill)
-	R3-1 plus support for pvAccess 6 and greater.
+R3.1-2.0.0:	Jan 29, 2018, Bruce Hill (bhill)
+	R3.1-1.0.0 plus:
+		Add dummy PV's as the default for Overlay Center, Size and Width links to avoid broken references to pv CP
+		Set default to 1 for Overlay WidthX and WidthY. Without this overlays aren't visible until user sets the width.
+		Provide macros s/ defaults for overlay R,G,B colors
+		Set EGU to sec for AcquireTime and AcquirePeriod pv's
+		Initialize SizeX and SizeY to 99999 so they clip to full image size.
+		Added additional autosaved fields and TSE=-2 fields.
+		Applied bitsPerPixel.patch to bring in bitsPerPixel support from pcds-trunk
+		Added ifdef __cplusplus extern C before including jpeg.h
+		Added additional status updates for NDFileWriteMessage and an ASYN_TRACE_ERROR message for an attempt
+			to start a capture from Single mode.
+		Show paramName in writeInt32() trace msgs
+		Set severity fields for ArrayCounter, ArrayRate, EnableCallbacks, BlockingCallbacks, and DroppedArrays
+			to help new users to see potential issues w/ their plugins.
+		Changed EnableCallbacks state names from Disable to Disabled, Enable to Enabled.
+			Makes it more obvious to new users what the actual state of the callback is.
+		Applied db-ADDR-TIMEOUT-defaults.patch to make ADDR default to 0 and TIMEOUT default to 1
 
 R3.1-0.1.0:	Jan 27, 2018, Bruce Hill (bhill)
 	Cherry-pick Mark Rivers 972bd7d Change to support pvAccess 6 and greater
