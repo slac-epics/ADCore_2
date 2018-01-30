@@ -47,7 +47,7 @@ asynStatus NDPluginFile::openFileBase(NDFileOpenMode_t openMode, NDArray *pArray
         this->attrFileNameSet();
 
     setIntegerParam(NDFileWriteStatus, NDFileWriteOK);
-    setStringParam(NDFileWriteMessage, "Creating full file name ...");
+    setStringParam(NDFileWriteMessage, "");
     status = (asynStatus)createFileName(MAX_FILENAME_LEN, fullFileName);
     if (status) {
         asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR, 
@@ -65,10 +65,6 @@ asynStatus NDPluginFile::openFileBase(NDFileOpenMode_t openMode, NDArray *pArray
         strcat( fullFileName, tempSuffix );
     }
 
-    epicsSnprintf(  errorMessage, sizeof(errorMessage)-1, 
-                    "Opening %s ...", fullFileName );
-    setStringParam( NDFileWriteMessage, "Opening %s ..." );
- 
     /* Call the openFile method in the derived class */
     /* Do this with the main lock released since it is slow */
     this->unlock();
@@ -107,7 +103,9 @@ asynStatus NDPluginFile::closeFileBase()
     static const char* functionName = "closeFileBase";
 
     setIntegerParam(NDFileWriteStatus, NDFileWriteOK);
-    setStringParam(NDFileWriteMessage, "Closing output file ...");
+    epicsSnprintf(  errorMessage, sizeof(errorMessage)-1, 
+                    "Closing %s ...", fullFileName );
+    setStringParam(NDFileWriteMessage, errorMessage );
 
     getStringParam(NDFullFileName, sizeof(fullFileName), fullFileName);
     getStringParam(NDFileTempSuffix, sizeof(tempSuffix), tempSuffix);
@@ -435,8 +433,9 @@ asynStatus NDPluginFile::doCapture(int capture)
             asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
                 "%s:%s ERROR: capture not supported in Single mode\n",
                 driverName, functionName);
+			setStringParam(NDFileWriteMessage, "ERROR: capture not supported in Single mode\n");
             setIntegerParam(NDFileCapture, 0);
-            break;
+			return(asynError);
         case NDFileModeCapture:
             if (capture) {
                 /* Capturing was just started */
@@ -763,6 +762,10 @@ void NDPluginFile::processCallbacks(NDArray *pArray)
             }
             break;
         case NDFileModeCapture:
+			if ( capture && !this->isFrameValid(pArray)) {
+				capture = 0;
+				setIntegerParam(NDFileCapture, capture);
+			}
             if (capture) {
                 if (numCaptured < numCapture && this->isFrameValid(pArray)) {
                     this->pNDArrayPool->copy(pArray, this->pCapture[numCaptured++], 1);
