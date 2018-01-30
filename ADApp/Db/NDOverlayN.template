@@ -206,6 +206,7 @@ record(longout, "$(P)$(R)WidthXLink")
 
 record(longout, "$(P)$(R)WidthX")
 {
+    field(DOL,  "1")
     field(PINI, "YES")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_WIDTH_X")
@@ -229,6 +230,7 @@ record(longout, "$(P)$(R)WidthYLink")
 
 record(longout, "$(P)$(R)WidthY")
 {
+    field(DOL,  "1")
     field(PINI, "YES")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_WIDTH_Y")
