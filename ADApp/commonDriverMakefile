@@ -18,15 +18,16 @@ $(DBD_NAME)_DBD += NDFileNull.dbd
 ifeq ($(WITH_EPICS_V4),YES)
   $(DBD_NAME)_DBD += NDPluginPva.dbd
   $(DBD_NAME)_DBD += PVAServerRegister.dbd
-  # $(DBD_NAME)_DBD += PVAServerRegister.dbd
   $(DBD_NAME)_DBD += qsrv.dbd
   PROD_LIBS += qsrv
   PROD_LIBS += ntndArrayConverter
   PROD_LIBS += nt
   PROD_LIBS += pvDatabase
+  PROD_LIBS += pvAccessIOC
+  PROD_LIBS += pvAccessCA
   PROD_LIBS += pvAccess
+  PROD_LIBS += pvAccessIOC
   PROD_LIBS += pvData
-  PROD_LIBS += ntndArrayConverter
 endif
 
 ifeq ($(WITH_NETCDF),YES)
