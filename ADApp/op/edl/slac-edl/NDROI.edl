@@ -5,8 +5,8 @@ minor 0
 release 1
 x 624
 y 256
-w 390
-h 820
+w 413
+h 835
 font "helvetica-bold-r-12.0"
 ctlFont "helvetica-bold-r-12.0"
 btnFont "helvetica-bold-r-12.0"
@@ -19,6 +19,7 @@ ctlBgColor1 index 3
 ctlBgColor2 index 3
 topShadowColor index 1
 botShadowColor index 11
+title "$(P)$(R) ROI plugin"
 showGrid
 snapToGrid
 gridSize 4
@@ -30,10 +31,10 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 5
-y 520
-w 380
-h 195
+x 4
+y 536
+w 400
+h 248
 lineColor index 14
 fill
 fillColor index 3
@@ -45,9 +46,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 5
-y 400
-w 380
+x 4
+y 416
+w 400
 h 40
 lineColor index 14
 fill
@@ -60,9 +61,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 5
-y 460
-w 380
+x 4
+y 476
+w 400
 h 40
 lineColor index 14
 fill
@@ -77,15 +78,15 @@ minor 1
 release 0
 x 0
 y 0
-w 390
-h 385
+w 404
+h 384
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
 displaySource "file"
 file "areaDetectorScreens/NDPluginBase.edl"
-sizeOfs 5
+setSize
 numDsps 2
 displayFileName {
   0 "areaDetectorScreens/NDPluginBase.edl"
@@ -100,8 +101,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 5
-y 450
+x 4
+y 468
 w 58
 h 14
 font "helvetica-medium-r-12.0"
@@ -120,8 +121,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 10
-y 470
+x 12
+y 488
 w 90
 h 20
 fgColor index 25
@@ -140,9 +141,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 105
-y 470
-w 85
+x 108
+y 488
+w 80
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
@@ -159,8 +160,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 290
-y 470
+x 292
+y 488
 w 90
 h 20
 controlPv "$(P)$(R)Scale_RBV"
@@ -183,23 +184,22 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 195
-y 470
+x 196
+y 488
 w 90
 h 20
 controlPv "$(P)$(R)Scale"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 fgColor index 25
-fgAlarm
 bgColor index 5
 editable
 motifWidget
 limitsFromDb
 nullColor index 40
 smartRefresh
-useHexPrefix
 newPos
+noExecuteClipMask
 endObjectProperties
 
 # (Static Text)
@@ -208,8 +208,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 5
-y 390
+x 4
+y 408
 w 68
 h 14
 font "helvetica-medium-r-12.0"
@@ -228,8 +228,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 5
-y 510
+x 4
+y 528
 w 78
 h 14
 font "helvetica-medium-r-12.0"
@@ -248,9 +248,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 590
-w 55
+x 12
+y 608
+w 64
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
@@ -267,8 +267,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 290
-y 410
+x 292
+y 428
 w 90
 h 20
 fgColor index 25
@@ -287,8 +287,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 410
+x 12
+y 428
 w 70
 h 20
 font "helvetica-bold-r-12.0"
@@ -306,23 +306,22 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 55
-y 410
+x 56
+y 428
 w 135
 h 20
 controlPv "$(P)$(R)Name"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 fgColor index 25
-fgAlarm
 bgColor index 5
 editable
 motifWidget
 limitsFromDb
 nullColor index 40
 smartRefresh
-useHexPrefix
 newPos
+noExecuteClipMask
 endObjectProperties
 
 # (Static Text)
@@ -331,8 +330,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 215
-y 410
+x 216
+y 428
 w 70
 h 20
 font "helvetica-bold-r-12.0"
@@ -350,8 +349,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 115
-y 525
+x 124
+y 540
 w 8
 h 14
 font "helvetica-bold-r-12.0"
@@ -370,8 +369,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 220
-y 525
+x 228
+y 540
 w 8
 h 14
 font "helvetica-bold-r-12.0"
@@ -390,8 +389,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 325
-y 525
+x 332
+y 540
 w 7
 h 14
 font "helvetica-bold-r-12.0"
@@ -410,23 +409,22 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 280
-y 590
+x 288
+y 608
 w 50
 h 20
 controlPv "$(P)$(R)BinZ"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 fgColor index 25
-fgAlarm
 bgColor index 5
 editable
 motifWidget
 limitsFromDb
 nullColor index 40
 smartRefresh
-useHexPrefix
 newPos
+noExecuteClipMask
 endObjectProperties
 
 # (Text Monitor)
@@ -435,8 +433,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 330
-y 590
+x 340
+y 608
 w 50
 h 20
 controlPv "$(P)$(R)BinZ_RBV"
@@ -459,23 +457,22 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 175
-y 590
+x 184
+y 608
 w 50
 h 20
 controlPv "$(P)$(R)BinY"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 fgColor index 25
-fgAlarm
 bgColor index 5
 editable
 motifWidget
 limitsFromDb
 nullColor index 40
 smartRefresh
-useHexPrefix
 newPos
+noExecuteClipMask
 endObjectProperties
 
 # (Text Monitor)
@@ -484,8 +481,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 225
-y 590
+x 232
+y 608
 w 50
 h 20
 controlPv "$(P)$(R)BinY_RBV"
@@ -508,23 +505,22 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 70
-y 590
+x 80
+y 608
 w 50
 h 20
 controlPv "$(P)$(R)BinX"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 fgColor index 25
-fgAlarm
 bgColor index 5
 editable
 motifWidget
 limitsFromDb
 nullColor index 40
 smartRefresh
-useHexPrefix
 newPos
+noExecuteClipMask
 endObjectProperties
 
 # (Text Monitor)
@@ -533,8 +529,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 120
-y 590
+x 128
+y 608
 w 50
 h 20
 controlPv "$(P)$(R)BinX_RBV"
@@ -557,9 +553,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 615
-w 60
+x 12
+y 632
+w 64
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
@@ -576,8 +572,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 330
-y 615
+x 340
+y 632
 w 50
 h 20
 controlPv "$(P)$(R)MinZ_RBV"
@@ -600,23 +596,22 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 280
-y 615
+x 288
+y 632
 w 50
 h 20
 controlPv "$(P)$(R)MinZ"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 fgColor index 25
-fgAlarm
 bgColor index 5
 editable
 motifWidget
 limitsFromDb
 nullColor index 40
 smartRefresh
-useHexPrefix
 newPos
+noExecuteClipMask
 endObjectProperties
 
 # (Text Monitor)
@@ -625,8 +620,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 225
-y 615
+x 232
+y 632
 w 50
 h 20
 controlPv "$(P)$(R)MinY_RBV"
@@ -649,23 +644,22 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 175
-y 615
+x 184
+y 632
 w 50
 h 20
 controlPv "$(P)$(R)MinY"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 fgColor index 25
-fgAlarm
 bgColor index 5
 editable
 motifWidget
 limitsFromDb
 nullColor index 40
 smartRefresh
-useHexPrefix
 newPos
+noExecuteClipMask
 endObjectProperties
 
 # (Text Monitor)
@@ -674,8 +668,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 120
-y 615
+x 128
+y 632
 w 50
 h 20
 controlPv "$(P)$(R)MinX_RBV"
@@ -698,23 +692,22 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 70
-y 615
+x 80
+y 632
 w 50
 h 20
 controlPv "$(P)$(R)MinX"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 fgColor index 25
-fgAlarm
 bgColor index 5
 editable
 motifWidget
 limitsFromDb
 nullColor index 40
 smartRefresh
-useHexPrefix
 newPos
+noExecuteClipMask
 endObjectProperties
 
 # (Text Monitor)
@@ -723,8 +716,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 330
-y 640
+x 340
+y 656
 w 50
 h 20
 controlPv "$(P)$(R)SizeZ_RBV"
@@ -747,23 +740,22 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 280
-y 640
+x 288
+y 656
 w 50
 h 20
 controlPv "$(P)$(R)SizeZ"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 fgColor index 25
-fgAlarm
 bgColor index 5
 editable
 motifWidget
 limitsFromDb
 nullColor index 40
 smartRefresh
-useHexPrefix
 newPos
+noExecuteClipMask
 endObjectProperties
 
 # (Text Monitor)
@@ -772,8 +764,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 225
-y 640
+x 232
+y 656
 w 50
 h 20
 controlPv "$(P)$(R)SizeY_RBV"
@@ -796,23 +788,22 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 175
-y 640
+x 184
+y 656
 w 50
 h 20
 controlPv "$(P)$(R)SizeY"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 fgColor index 25
-fgAlarm
 bgColor index 5
 editable
 motifWidget
 limitsFromDb
 nullColor index 40
 smartRefresh
-useHexPrefix
 newPos
+noExecuteClipMask
 endObjectProperties
 
 # (Text Monitor)
@@ -821,8 +812,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 120
-y 640
+x 128
+y 656
 w 50
 h 20
 controlPv "$(P)$(R)SizeX_RBV"
@@ -845,23 +836,22 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 70
-y 640
+x 80
+y 656
 w 50
 h 20
 controlPv "$(P)$(R)SizeX"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
 fgColor index 25
-fgAlarm
 bgColor index 5
 editable
 motifWidget
 limitsFromDb
 nullColor index 40
 smartRefresh
-useHexPrefix
 newPos
+noExecuteClipMask
 endObjectProperties
 
 # (Static Text)
@@ -870,9 +860,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 640
-w 55
+x 12
+y 656
+w 64
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
@@ -889,8 +879,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 70
-y 565
+x 80
+y 580
 w 100
 h 20
 controlPv "$(P)$(R)MaxSizeX_RBV"
@@ -913,8 +903,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 175
-y 565
+x 184
+y 580
 w 100
 h 20
 controlPv "$(P)$(R)MaxSizeY_RBV"
@@ -937,8 +927,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 280
-y 565
+x 288
+y 580
 w 100
 h 20
 controlPv "$(P)$(R)MaxSizeZ_RBV"
@@ -961,10 +951,10 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 560
-w 55
-h 30
+x 12
+y 580
+w 64
+h 24
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
@@ -981,9 +971,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 665
-w 55
+x 12
+y 680
+w 64
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
@@ -1000,8 +990,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 70
-y 665
+x 80
+y 680
 w 100
 h 20
 fgColor index 25
@@ -1020,8 +1010,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 175
-y 665
+x 184
+y 680
 w 100
 h 20
 fgColor index 25
@@ -1040,8 +1030,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 280
-y 665
+x 288
+y 680
 w 100
 h 20
 fgColor index 25
@@ -1060,9 +1050,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 690
-w 65
+x 12
+y 728
+w 64
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
@@ -1079,8 +1069,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 280
-y 690
+x 288
+y 728
 w 100
 h 20
 controlPv "$(P)$(R)ArraySizeZ_RBV"
@@ -1103,8 +1093,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 175
-y 690
+x 184
+y 728
 w 100
 h 20
 controlPv "$(P)$(R)ArraySizeY_RBV"
@@ -1127,8 +1117,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 70
-y 690
+x 80
+y 728
 w 100
 h 20
 controlPv "$(P)$(R)ArraySizeX_RBV"
@@ -1151,8 +1141,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 280
-y 540
+x 288
+y 556
 w 100
 h 20
 fgColor index 25
@@ -1171,8 +1161,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 175
-y 540
+x 184
+y 556
 w 100
 h 20
 fgColor index 25
@@ -1191,8 +1181,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 70
-y 540
+x 80
+y 556
 w 100
 h 20
 fgColor index 25
@@ -1211,10 +1201,10 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 525
-w 55
-h 35
+x 12
+y 552
+w 64
+h 24
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
@@ -1272,6 +1262,85 @@ displayFileName {
 }
 setPosition {
   0 "button"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 288
+y 704
+w 100
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)AutoSizeZ"
+indicatorPv "$(P)$(R)AutoSizeZ_RBV"
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 184
+y 704
+w 100
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)AutoSizeY"
+indicatorPv "$(P)$(R)AutoSizeY_RBV"
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 80
+y 704
+w 100
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)AutoSizeX"
+indicatorPv "$(P)$(R)AutoSizeX_RBV"
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 12
+y 704
+w 64
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Autosize?"
 }
 endObjectProperties
 

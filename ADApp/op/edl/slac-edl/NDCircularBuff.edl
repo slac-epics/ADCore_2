@@ -19,6 +19,7 @@ ctlBgColor1 index 3
 ctlBgColor2 index 3
 topShadowColor index 1
 botShadowColor index 11
+title "$(P)$(R) CircularBuff plugin"
 showGrid
 snapToGrid
 gridSize 4
@@ -318,8 +319,8 @@ h 20
 controlPv "$(P)$(R)StatusMessage"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
-fgColor index 25
-bgColor index 5
+fgColor index 16
+bgColor index 10
 limitsFromDb
 nullColor index 0
 smartRefresh
@@ -472,6 +473,28 @@ bgColor index 3
 useDisplayBg
 value {
   "Post-trigger count"
+}
+endObjectProperties
+
+# (Shell Command)
+object shellCmdClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 8
+y 788
+w 185
+h 25
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "helvetica-bold-r-12.0"
+buttonLabel "HTML Documentation"
+numCmds 1
+command {
+  0 "firefox --no-remote areaDetectorHelp/NDPluginCircularBuff.html &"
 }
 endObjectProperties
 
