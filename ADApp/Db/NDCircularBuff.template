@@ -15,9 +15,9 @@ record(busy, "$(P)$(R)Capture") {
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT) 0)CIRC_BUFF_CONTROL")
   field(ZNAM, "Done")
-  field(ZSV,  "NO_ALARM")
+  field(ZSV,  "MINOR")
   field(ONAM, "Capture")
-  field(OSV,  "MINOR")
+  field(OSV,  "NO_ALARM")
 }
 
 # # Control readback record
@@ -26,9 +26,9 @@ record(bi, "$(P)$(R)Capture_RBV") {
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT) 0)CIRC_BUFF_CONTROL")
   field(ZNAM, "Done")
-  field(ZSV,  "NO_ALARM")
+  field(OSV,  "NO_ALARM")
   field(ONAM, "Capturing")
-  field(OSV,  "MINOR")
+  field(ZSV,  "MINOR")
 }
 
 # # Status message
@@ -161,7 +161,7 @@ record(busy, "$(P)$(R)Trigger") {
   field(ZNAM, "Done")
   field(ZSV,  "NO_ALARM")
   field(ONAM, "Trigger")
-  field(OSV,  "MINOR")
+  field(OSV,  "NO_ALARM")
   field(VAL, "1")
 }
 
@@ -173,7 +173,7 @@ record(bi, "$(P)$(R)Trigger_RBV") {
   field(ZNAM, "Done")
   field(ZSV,  "NO_ALARM")
   field(ONAM, "Triggered")
-  field(OSV,  "MINOR")
+  field(OSV,  "NO_ALARM")
 }
 
 # # Preset trigger count, 0=infinite

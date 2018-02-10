@@ -72,8 +72,8 @@ record(bi, "$(P)$(R)TSAcquiring")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ATTR_TS_ACQUIRING")
    field(ZNAM, "Done")
    field(ONAM, "Acquiring")
-   field(ZSV,  "NO_ALARM")
-   field(OSV,  "MINOR")
+   field(ZSV,  "MINOR")
+   field(OSV,  "NO_ALARM")
    field(SCAN, "I/O Intr")
 }
 
