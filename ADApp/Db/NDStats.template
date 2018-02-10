@@ -23,8 +23,8 @@ record(bi, "$(P)$(R)ComputeStatistics_RBV")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))COMPUTE_STATISTICS")
    field(ZNAM, "No")
    field(ONAM, "Yes")
-   field(ZSV,  "NO_ALARM")
-   field(OSV,  "MINOR")
+   field(ZSV,  "MINOR")
+   field(OSV,  "NO_ALARM")
    field(SCAN, "I/O Intr")
 }
 
@@ -206,8 +206,8 @@ record(bi, "$(P)$(R)ComputeCentroid_RBV")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))COMPUTE_CENTROID")
    field(ZNAM, "No")
    field(ONAM, "Yes")
-   field(ZSV,  "NO_ALARM")
-   field(OSV,  "MINOR")
+   field(ZSV,  "MINOR")
+   field(OSV,  "NO_ALARM")
    field(SCAN, "I/O Intr")
 }
 
@@ -633,8 +633,8 @@ record(bi, "$(P)$(R)ComputeProfiles_RBV")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))COMPUTE_PROFILES")
    field(ZNAM, "No")
    field(ONAM, "Yes")
-   field(ZSV,  "NO_ALARM")
-   field(OSV,  "MINOR")
+   field(ZSV,  "MINOR")
+   field(OSV,  "NO_ALARM")
    field(SCAN, "I/O Intr")
 }
 
@@ -781,8 +781,8 @@ record(bi, "$(P)$(R)ComputeHistogram_RBV")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))COMPUTE_HISTOGRAM")
    field(ZNAM, "No")
    field(ONAM, "Yes")
-   field(ZSV,  "NO_ALARM")
-   field(OSV,  "MINOR")
+   field(ZSV,  "MINOR")
+   field(OSV,  "NO_ALARM")
    field(SCAN, "I/O Intr")
 }
 
