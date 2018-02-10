@@ -136,7 +136,7 @@ h 20
 controlPv "$(P)$(R)BgdWidth_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -185,7 +185,7 @@ h 20
 controlPv "$(P)$(R)MaxValue_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -209,7 +209,7 @@ h 20
 controlPv "$(P)$(R)MinValue_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -233,7 +233,7 @@ h 20
 controlPv "$(P)$(R)Net_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -257,7 +257,7 @@ h 20
 controlPv "$(P)$(R)Total_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -281,7 +281,7 @@ h 20
 controlPv "$(P)$(R)MeanValue_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -305,7 +305,7 @@ h 20
 controlPv "$(P)$(R)Sigma_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -403,7 +403,7 @@ h 20
 controlPv "$(P)$(R)CentroidThreshold_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -452,7 +452,7 @@ h 20
 controlPv "$(P)$(R)SigmaX_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -476,7 +476,7 @@ h 20
 controlPv "$(P)$(R)CentroidX_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -500,7 +500,7 @@ h 20
 controlPv "$(P)$(R)SigmaY_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -524,7 +524,7 @@ h 20
 controlPv "$(P)$(R)CentroidY_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -548,7 +548,7 @@ h 20
 controlPv "$(P)$(R)SigmaXY_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -646,7 +646,7 @@ h 20
 controlPv "$(P)$(R)HistSize_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -714,7 +714,7 @@ h 20
 controlPv "$(P)$(R)HistEntropy_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -738,7 +738,7 @@ h 20
 controlPv "$(P)$(R)HistMin_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -787,7 +787,7 @@ h 20
 controlPv "$(P)$(R)HistMax_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -974,7 +974,7 @@ h 20
 controlPv "$(P)$(R)CursorX_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -1042,7 +1042,7 @@ h 20
 controlPv "$(P)$(R)ProfileSizeX_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -1136,7 +1136,7 @@ h 20
 controlPv "$(P)$(R)CursorY_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -1160,7 +1160,7 @@ h 20
 controlPv "$(P)$(R)ProfileSizeY_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -1562,7 +1562,7 @@ h 20
 controlPv "$(P)$(R)TSCurrentPoint"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -2007,7 +2007,7 @@ h 20
 controlPv "$(P)$(R)MinX_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -2057,7 +2057,7 @@ h 20
 controlPv "$(P)$(R)MinY_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -2081,7 +2081,7 @@ h 20
 controlPv "$(P)$(R)MaxY_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
@@ -2131,7 +2131,7 @@ h 20
 controlPv "$(P)$(R)MaxX_RBV"
 font "helvetica-bold-r-12.0"
 fontAlign "center"
-fgColor index 16
+fgColor index 15
 fgAlarm
 bgColor index 12
 limitsFromDb
