@@ -356,7 +356,7 @@ record(bi, "$(P)$(R)EnableX_RBV")
    field(ZNAM, "Disabled")
    field(ONAM, "Enabled")
    field(ZSV,  "NO_ALARM")
-   field(OSV,  "MINOR")
+   field(OSV,  "NO_ALARM")
    field(SCAN, "I/O Intr")
 }
 
@@ -378,7 +378,7 @@ record(bi, "$(P)$(R)EnableY_RBV")
    field(ZNAM, "Disabled")
    field(ONAM, "Enabled")
    field(ZSV,  "NO_ALARM")
-   field(OSV,  "MINOR")
+   field(OSV,  "NO_ALARM")
    field(SCAN, "I/O Intr")
 }
 
@@ -400,7 +400,7 @@ record(bi, "$(P)$(R)EnableZ_RBV")
    field(ZNAM, "Disabled")
    field(ONAM, "Enabled")
    field(ZSV,  "NO_ALARM")
-   field(OSV,  "MINOR")
+   field(OSV,  "NO_ALARM")
    field(SCAN, "I/O Intr")
 }
 

@@ -82,7 +82,7 @@ record(bi, "$(P)$(R)TSAcquiring")
    field(ZNAM, "Done")
    field(ONAM, "Acquiring")
    field(ZSV,  "NO_ALARM")
-   field(OSV,  "MINOR")
+   field(OSV,  "NO_ALARM")
    field(SCAN, "I/O Intr")
 }
 
