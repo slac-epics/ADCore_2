@@ -49,35 +49,9 @@ CROSS_COMPILER_TARGET_ARCHS := $(filter-out RTEMS%,             $(CROSS_COMPILER
 # EPICS_V4 is required for NDPluginPva and pvaDriver
 WITH_EPICS_V4  = YES
 
-# GraphicsMagick is required for NDFileMagick and the URL driver.
-WITH_GRAPHICSMAGICK     = NO
-GRAPHICSMAGICK_EXTERNAL = YES
-#GRAPHICSMAGICK_INCLUDE =
-#GRAPHICSMAGICK_LIB     =
-
-# HDF5 is required for the NDFileHDF5 and NDFileNexus plugins
-WITH_HDF5     = YES
-HDF5_EXTERNAL = NO
-#HDF5_INCLUDE =
-#HDF5_LIB     =
-
-# JPEG is required for the NDFileJPEG and NDFileTIFF plugins
-WITH_JPEG     = YES
-JPEG_EXTERNAL = NO
-#JPEG_INCLUDE =
-#JPEG_LIB     =
-
-# JPEG is required for the NDFileNetCDF plugin
-WITH_NETCDF     = YES
-NETCDF_EXTERNAL = NO
-#NETCDF_INCLUDE =
-#NETCDF_LIB     =
-
-# NEXUS is required for the NDFileNexus plugin
-WITH_NEXUS     = YES
-NEXUS_EXTERNAL = NO
-#NEXUS_INCLUDE =
-#NEXUS_LIB     =
+# We inherit the WITH_HDF5, WITH_JPEG, ... macros that were here via
+# ADSUPPORT/cfg/CONFIG_ADSupport
+#
 
 # OPENCV is required for the ADPluginEdge plugin
 WITH_OPENCV     = NO
@@ -85,31 +59,11 @@ OPENCV_EXTERNAL = YES
 #OPENCV_INCLUDE =
 #OPENCV_LIB     =
 
-# SZIP is required for the NDFileHDF5 and NDFileNexus plugins.  
-# This may be optional in the future.
-WITH_SZIP     = YES
-SZIP_EXTERNAL = NO
-#SZIP_INCLUDE =
-#SZIP_LIB     =
-
-# TIFF is required for the NDFileTIFF plugin.
-WITH_TIFF     = YES
-TIFF_EXTERNAL = NO
-#TIFF_INCLUDE =
-#TIFF_LIB     =
-
-# XML2 is required for the NDFileHDF5 and NDFileNexus plugins.  
-WITH_XML2     = YES
-XML2_EXTERNAL = NO
-#XML2_INCLUDE =
-#XML2_LIB     =
-
-# ZLIB is required for the NDFileHDF5 and NDFileNexus plugins.  
-# This may be optional in the future.
-WITH_ZLIB     = YES
-ZLIB_EXTERNAL = NO
-#ZLIB_INCLUDE =
-#ZLIB_LIB     =
+# GraphicsMagick is required for NDFileMagick and the URL driver.
+WITH_GRAPHICSMAGICK     = NO
+GRAPHICSMAGICK_EXTERNAL = YES
+#GRAPHICSMAGICK_INCLUDE =
+#GRAPHICSMAGICK_LIB     =
 
 # To install files into a location other than $(TOP) define
 #   INSTALL_LOCATION here.
