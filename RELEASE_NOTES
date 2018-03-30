@@ -1,3 +1,6 @@
+R3.1-2.1.1:	Mar 29, 2018, Bruce Hill (bhill)
+	Update to ADSupport/R1.1-0.1.1
+
 R3.1-2.1.0:	Feb 10, 2018, Bruce Hill (bhill)
 	Updated to pvAccessCPP/R6.0.0-0.2.0 and pva2pva/R1.0.0-0.3.0 to fix qsrv.
 	More EnableCallbacks state names from Disable to Disabled, Enable to Enabled.
