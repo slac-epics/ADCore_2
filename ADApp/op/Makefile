@@ -9,4 +9,7 @@ BOB_DIR = bob/autoconvert
 
 include $(CONFIG)/RULES_DIRS
 
+ADL2EDL = adl2edl
+EDMFONTFILE = edl/fonts.adl2edl
+
 -include $(SUPPORT)/configure/RULES_OPI
