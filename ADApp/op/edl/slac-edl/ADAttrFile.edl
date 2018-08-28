@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 214
-y 81
+x 813
+y 1576
 w 350
 h 110
 font "helvetica-medium-r-18.0"
@@ -60,21 +60,6 @@ value {
 }
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 0
-w 350
-h 110
-lineColor index 14
-fillColor index 14
-lineWidth 0
-endObjectProperties
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
@@ -108,7 +93,6 @@ h 20
 controlPv "$(P)$(R)NDAttributesFile"
 format "string"
 font "helvetica-medium-r-12.0"
-fontAlign "left"
 fgColor index 25
 bgColor index 5
 editable
@@ -154,7 +138,6 @@ h 20
 controlPv "$(P)$(R)NDAttributesMacros"
 format "string"
 font "helvetica-medium-r-12.0"
-fontAlign "left"
 fgColor index 25
 bgColor index 5
 editable
@@ -200,7 +183,6 @@ h 18
 controlPv "$(P)$(R)NDAttributesStatus"
 format "string"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 fgAlarm
 bgColor index 12

@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 556
-y 37
+x 404
+y 1104
 w 390
-h 930
+h 970
 font "helvetica-medium-r-18.0"
 ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
@@ -73,7 +73,6 @@ h 18
 controlPv "$(P)$(R)PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -137,7 +136,6 @@ h 18
 controlPv "$(P)$(R)PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -181,7 +179,6 @@ h 18
 controlPv "$(P)$(R)ADCoreVersion_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -225,7 +222,6 @@ h 18
 controlPv "$(P)$(R)DriverVersion_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -249,7 +245,6 @@ h 20
 controlPv "$(P)$(R)NDArrayAddress"
 format "string"
 font "helvetica-medium-r-12.0"
-fontAlign "left"
 fgColor index 25
 bgColor index 5
 editable
@@ -275,7 +270,6 @@ h 18
 controlPv "$(P)$(R)NDArrayAddress_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -339,7 +333,6 @@ h 20
 controlPv "$(P)$(R)NDArrayPort"
 format "string"
 font "helvetica-medium-r-12.0"
-fontAlign "left"
 fgColor index 25
 bgColor index 5
 editable
@@ -365,7 +358,6 @@ h 18
 controlPv "$(P)$(R)NDArrayPort_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -409,7 +401,6 @@ h 20
 controlPv "$(P)$(R)MinCallbackTime"
 format "decimal"
 font "helvetica-medium-r-12.0"
-fontAlign "left"
 fgColor index 25
 bgColor index 5
 editable
@@ -435,7 +426,6 @@ h 18
 controlPv "$(P)$(R)MinCallbackTime_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -479,7 +469,6 @@ h 18
 controlPv "$(P)$(R)EnableCallbacks_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 fgAlarm
 bgColor index 12
@@ -524,7 +513,6 @@ h 18
 controlPv "$(P)$(R)MaxThreads_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -581,7 +569,6 @@ h 18
 controlPv "$(P)$(R)BlockingCallbacks_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -595,7 +582,6 @@ endObjectProperties
 endGroup
 
 endObjectProperties
-
 
 # (Static Text)
 object activeXTextClass
@@ -630,7 +616,6 @@ h 18
 controlPv "$(P)$(R)SortMode_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -667,7 +652,6 @@ h 20
 controlPv "$(P)$(R)NumThreads"
 format "decimal"
 font "helvetica-medium-r-12.0"
-fontAlign "left"
 fgColor index 25
 bgColor index 5
 editable
@@ -693,7 +677,6 @@ h 18
 controlPv "$(P)$(R)NumThreads_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -728,7 +711,6 @@ endGroup
 
 endObjectProperties
 
-
 # (Text Control)
 object activeXTextDspClass
 beginObjectProperties
@@ -742,7 +724,6 @@ h 20
 controlPv "$(P)$(R)SortTime"
 format "decimal"
 font "helvetica-medium-r-12.0"
-fontAlign "left"
 fgColor index 25
 bgColor index 5
 editable
@@ -768,7 +749,6 @@ h 18
 controlPv "$(P)$(R)SortTime_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -845,7 +825,6 @@ h 18
 controlPv "$(P)$(R)QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 fgAlarm
 bgColor index 12
@@ -870,7 +849,6 @@ h 20
 controlPv "$(P)$(R)QueueSize"
 format "decimal"
 font "helvetica-medium-r-12.0"
-fontAlign "left"
 fgColor index 25
 bgColor index 5
 editable
@@ -886,7 +864,6 @@ endObjectProperties
 endGroup
 
 endObjectProperties
-
 
 # (Static Text)
 object activeXTextClass
@@ -921,7 +898,6 @@ h 18
 controlPv "$(P)$(R)SortFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 fgAlarm
 bgColor index 12
@@ -946,7 +922,6 @@ h 20
 controlPv "$(P)$(R)SortSize"
 format "decimal"
 font "helvetica-medium-r-12.0"
-fontAlign "left"
 fgColor index 25
 bgColor index 5
 editable
@@ -972,7 +947,6 @@ h 18
 controlPv "$(P)$(R)DisorderedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -1036,7 +1010,6 @@ h 18
 controlPv "$(P)$(R)ExecutionTime_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -1113,7 +1086,6 @@ h 18
 controlPv "$(P)$(R)ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -1128,7 +1100,6 @@ endGroup
 
 endObjectProperties
 
-
 # (Text Monitor)
 object activeXTextDspClass:noedit
 beginObjectProperties
@@ -1142,7 +1113,6 @@ h 18
 controlPv "$(P)$(R)ArrayCounter_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -1171,21 +1141,6 @@ useDisplayBg
 value {
   "Array counter"
 }
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 5
-y 30
-w 380
-h 895
-lineColor index 14
-fillColor index 14
-lineWidth 0
 endObjectProperties
 
 # (Static Text)
@@ -1289,7 +1244,6 @@ h 18
 controlPv "$(P)$(R)DataType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -1333,7 +1287,6 @@ h 18
 controlPv "$(P)$(R)NDimensions_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -1401,7 +1354,6 @@ h 18
 controlPv "$(P)$(R)UniqueId_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -1445,7 +1397,6 @@ h 18
 controlPv "$(P)$(R)ColorMode_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -1489,7 +1440,6 @@ h 18
 controlPv "$(P)$(R)BayerPattern_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -1513,7 +1463,6 @@ h 18
 controlPv "$(P)$(R)DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -1557,7 +1506,6 @@ h 18
 controlPv "$(P)$(R)DroppedOutputArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -1586,170 +1534,6 @@ useDisplayBg
 value {
   "Dropped outputs"
 }
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 10
-y 850
-w 366
-h 70
-
-beginGroup
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 10
-y 850
-w 150
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Array callbacks"
-}
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 50
-y 900
-w 220
-h 20
-
-beginGroup
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 50
-y 900
-w 110
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "asyn record"
-}
-endObjectProperties
-
-endGroup
-
-endObjectProperties
-
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 276
-y 851
-w 100
-h 18
-controlPv "$(P)$(R)ArrayCallbacks_RBV"
-format "string"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor index 15
-fgAlarm
-bgColor index 12
-limitsFromDb
-nullColor index 32
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 23
-y 875
-w 140
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Process plugin"
-}
-endObjectProperties
-
-endGroup
-
-endObjectProperties
-
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 20
-y 735
-w 350
-h 110
-
-beginGroup
-
-# (Embedded Window)
-object activePipClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 20
-y 735
-w 350
-h 110
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-displaySource "file"
-file "ADAttrFile.edl"
-sizeOfs 5
-numDsps 1
-displayFileName {
-  0 "ADAttrFile.edl"
-}
-noScroll
-endObjectProperties
-
-endGroup
-
-visMin "A"
-visMax "1"
 endObjectProperties
 
 # (Group)
@@ -1798,7 +1582,6 @@ h 18
 controlPv "$(P)$(R)TimeStamp_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
-fontAlign "left"
 fgColor index 15
 bgColor index 12
 limitsFromDb
@@ -1812,7 +1595,6 @@ endObjectProperties
 endGroup
 
 endObjectProperties
-
 
 # (Menu Button)
 object activeMenuButtonClass
@@ -1833,6 +1615,7 @@ controlPv "$(P)$(R)EnableCallbacks"
 indicatorPv "$(P)$(R)EnableCallbacks"
 font "helvetica-medium-r-12.0"
 endObjectProperties
+
 # (Group)
 object activeGroupClass
 beginObjectProperties
@@ -1870,7 +1653,6 @@ endGroup
 
 endObjectProperties
 
-
 # (Menu Button)
 object activeMenuButtonClass
 beginObjectProperties
@@ -1890,63 +1672,12 @@ controlPv "$(P)$(R)SortMode"
 indicatorPv "$(P)$(R)SortMode"
 font "helvetica-medium-r-12.0"
 endObjectProperties
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 70
-y 260
-w 306
-h 20
-
-beginGroup
-
-endGroup
-
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 10
-y 310
-w 366
-h 20
-
-beginGroup
-
-endGroup
-
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 60
-y 460
-w 210
-h 20
-
-beginGroup
-
-endGroup
-
-endObjectProperties
-
 
 # (Message Button)
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 170
 y 410
@@ -1959,7 +1690,6 @@ topShadowColor index 0
 botShadowColor index 14
 controlPv "$(P)$(R)DisorderedArrays"
 pressValue "0"
-releaseValue 
 onLabel "Reset to 0"
 offLabel "Reset to 0"
 3d
@@ -1971,7 +1701,7 @@ endObjectProperties
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 170
 y 435
@@ -1984,7 +1714,6 @@ topShadowColor index 0
 botShadowColor index 14
 controlPv "$(P)$(R)ArrayCounter"
 pressValue "0"
-releaseValue 
 onLabel "Reset to 0"
 offLabel "Reset to 0"
 3d
@@ -1996,7 +1725,7 @@ endObjectProperties
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 170
 y 510
@@ -2009,7 +1738,6 @@ topShadowColor index 0
 botShadowColor index 14
 controlPv "$(P)$(R)DroppedArrays"
 pressValue "0"
-releaseValue 
 onLabel "Reset to 0"
 offLabel "Reset to 0"
 3d
@@ -2021,7 +1749,7 @@ endObjectProperties
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 169
 y 535
@@ -2034,74 +1762,36 @@ topShadowColor index 0
 botShadowColor index 14
 controlPv "$(P)$(R)DroppedOutputArrays"
 pressValue "0"
-releaseValue 
 onLabel "Reset to 0"
 offLabel "Reset to 0"
 3d
 useEnumNumeric
 font "helvetica-medium-r-12.0"
 endObjectProperties
-# (Group)
-object activeGroupClass
+
+# (Embedded Window)
+object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
-x 10
-y 850
-w 366
-h 70
-
-beginGroup
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 50
-y 900
-w 220
-h 20
-
-beginGroup
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 170
-y 900
-w 100
-h 20
+x 12
+y 736
+w 368
+h 132
 fgColor index 14
-bgColor index 51
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-8.0"
-icon
-numPvs 2
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "file"
+file "areaDetectorScreens/ADAttrFile.edl"
+sizeOfs 5
 numDsps 1
 displayFileName {
-  0 asynRecord.edl
+  0 "areaDetectorScreens/ADAttrFile.edl"
 }
-menuLabel {
-  0 asynRecord
-}
-symbols {
-  0 "P=$(P),R=$(R)AsynIO"
-}
-replaceSymbols {
-  0 1
-}
+noScroll
 endObjectProperties
-
-endGroup
-
-endObjectProperties
-
 
 # (Menu Button)
 object activeMenuButtonClass
@@ -2109,13 +1799,13 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 170
-y 850
+x 172
+y 892
 w 100
 h 20
-fgColor index 14
-bgColor index 51
-inconsistentColor index 12
+fgColor index 25
+bgColor index 5
+inconsistentColor index 40
 topShadowColor index 2
 botShadowColor index 12
 controlPv "$(P)$(R)ArrayCallbacks"
@@ -2127,20 +1817,19 @@ endObjectProperties
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
-x 170
-y 875
+x 172
+y 916
 w 100
 h 20
-fgColor index 14
-onColor index 51
-offColor index 51
-topShadowColor index 0
-botShadowColor index 14
+fgColor index 25
+onColor index 6
+offColor index 5
+topShadowColor index 1
+botShadowColor index 13
 controlPv "$(P)$(R)ProcessPlugin"
 pressValue "1"
-releaseValue 
 onLabel "Process"
 offLabel "Process"
 3d
@@ -2148,25 +1837,120 @@ useEnumNumeric
 font "helvetica-medium-r-12.0"
 endObjectProperties
 
-endGroup
-
-endObjectProperties
-
-# (Group)
-object activeGroupClass
+# (Static Text)
+object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
-x 60
-y 710
-w 260
+minor 1
+release 1
+x 16
+y 892
+w 150
 h 20
-
-beginGroup
-
-endGroup
-
+font "helvetica-medium-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Array callbacks"
+}
 endObjectProperties
 
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 280
+y 892
+w 100
+h 18
+controlPv "$(P)$(R)ArrayCallbacks_RBV"
+format "string"
+font "helvetica-medium-r-14.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 24
+y 916
+w 140
+h 20
+font "helvetica-medium-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Process plugin"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 52
+y 940
+w 110
+h 20
+font "helvetica-medium-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "asyn record"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 172
+y 940
+w 100
+h 20
+fgColor index 14
+bgColor index 5
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-12.0"
+buttonLabel "ASYN"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "asynRecord.edl"
+}
+menuLabel {
+  0 "asynRecord"
+}
+symbols {
+  0 "P=$(P),R=$(R)AsynIO"
+}
+replaceSymbols {
+  0 1
+}
+icon
+endObjectProperties
 
