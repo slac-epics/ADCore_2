@@ -10,15 +10,15 @@ h 80
 font "helvetica-medium-r-18.0"
 ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
-fgColor rgb 0 0 0
-bgColor rgb 47872 47872 47872
-textColor rgb 0 0 0
-ctlFgColor1 rgb 64256 62208 18944
-ctlFgColor2 rgb 60928 46592 11008
-ctlBgColor1 rgb 52480 24832 0
-ctlBgColor2 rgb 65280 45056 65280
-topShadowColor rgb 44544 19968 48128
-botShadowColor rgb 13312 13056 34304
+fgColor index 14
+bgColor index 4
+textColor index 14
+ctlFgColor1 index 25
+ctlFgColor2 index 15
+ctlBgColor1 index 5
+ctlBgColor2 index 12
+topShadowColor index 1
+botShadowColor index 13
 showGrid
 snapToGrid
 gridSize 4
@@ -34,8 +34,8 @@ x 122
 y 10
 w 8
 h 40
-font "utopia-medium-r-34.0"
-fgColor rgb 0 0 0
+font "utopia-medium-r-32.0"
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -53,8 +53,8 @@ x 0
 y 0
 w 350
 h 80
-lineColor rgb 0 0 0
-fillColor rgb 0 0 0
+lineColor index 14
+fillColor index 14
 lineWidth 0
 endObjectProperties
 
@@ -68,9 +68,9 @@ x 122
 y 2
 w 106
 h 20
-lineColor rgb 55808 55808 55808
+lineColor index 2
 fill
-fillColor rgb 55808 55808 55808
+fillColor index 2
 lineWidth 0
 endObjectProperties
 
@@ -80,13 +80,13 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 140
+x 94
 y 3
-w 70
+w 163
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -105,7 +105,7 @@ y 29
 w 40
 h 20
 font "helvetica-medium-r-14.0"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -124,7 +124,7 @@ y 29
 w 39
 h 20
 font "helvetica-medium-r-14.0"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -143,7 +143,7 @@ y 55
 w 50
 h 20
 font "helvetica-medium-r-14.0"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -161,10 +161,10 @@ x 135
 y 29
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 14
@@ -217,10 +217,10 @@ x 265
 y 29
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 10
@@ -265,10 +265,10 @@ x 10
 y 29
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 buttonLabel "All"
 numPvs 2
@@ -297,10 +297,10 @@ x 65
 y 55
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 12
@@ -349,10 +349,10 @@ x 177
 y 55
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "Other #1"
@@ -438,10 +438,10 @@ x 264
 y 55
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "Other #2"

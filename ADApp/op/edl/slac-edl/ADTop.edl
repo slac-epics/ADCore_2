@@ -6,19 +6,19 @@ release 1
 x 171
 y 78
 w 225
-h 675
+h 640
 font "helvetica-medium-r-18.0"
 ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
-fgColor rgb 0 0 0
-bgColor rgb 47872 47872 47872
-textColor rgb 0 0 0
-ctlFgColor1 rgb 64256 62208 18944
-ctlFgColor2 rgb 60928 46592 11008
-ctlBgColor1 rgb 52480 24832 0
-ctlBgColor2 rgb 65280 45056 65280
-topShadowColor rgb 44544 19968 48128
-botShadowColor rgb 13312 13056 34304
+fgColor index 14
+bgColor index 4
+textColor index 14
+ctlFgColor1 index 25
+ctlFgColor2 index 15
+ctlBgColor1 index 5
+ctlBgColor2 index 12
+topShadowColor index 1
+botShadowColor index 13
 showGrid
 snapToGrid
 gridSize 4
@@ -35,7 +35,7 @@ y 6
 w 201
 h 31
 font "utopia-medium-r-24.0"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -55,7 +55,7 @@ w 54
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -75,7 +75,7 @@ w 100
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -95,7 +95,7 @@ w 70
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -115,7 +115,7 @@ w 80
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -135,7 +135,7 @@ w 64
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -155,7 +155,7 @@ w 100
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -188,7 +188,7 @@ w 37
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -213,7 +213,7 @@ w 60
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -246,7 +246,7 @@ w 54
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -271,7 +271,7 @@ w 130
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -291,7 +291,7 @@ w 120
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -305,13 +305,13 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 30
+x 20
 y 310
-w 110
+w 120
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -331,7 +331,7 @@ w 90
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -351,7 +351,7 @@ w 70
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -371,7 +371,7 @@ w 70
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -391,7 +391,7 @@ w 100
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -411,7 +411,7 @@ w 90
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -431,11 +431,31 @@ w 52
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
   "Roper"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 99
+y 610
+w 41
+h 20
+font "helvetica-medium-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "URL"
 }
 endObjectProperties
 
@@ -451,7 +471,7 @@ w 40
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -471,7 +491,7 @@ w 68
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -485,13 +505,13 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 50
+x 62
 y 485
-w 90
+w 78
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -511,51 +531,11 @@ w 90
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
   "Photon II"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 99
-y 635
-w 41
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "URL"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 50
-y 610
-w 90
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "Spinnaker"
 }
 endObjectProperties
 
@@ -569,10 +549,10 @@ x 145
 y 110
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 10
@@ -617,10 +597,10 @@ x 145
 y 135
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 4
@@ -653,10 +633,10 @@ x 145
 y 285
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 4
@@ -689,10 +669,10 @@ x 145
 y 210
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 4
@@ -725,10 +705,10 @@ x 145
 y 260
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 4
@@ -761,10 +741,10 @@ x 145
 y 235
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 6
@@ -813,10 +793,10 @@ x 145
 y 160
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 4
@@ -854,10 +834,10 @@ x 145
 y 184
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 4
@@ -902,10 +882,10 @@ x 145
 y 85
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 4
@@ -943,10 +923,10 @@ x 145
 y 60
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 2
@@ -975,10 +955,10 @@ x 145
 y 335
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 4
@@ -1011,10 +991,10 @@ x 145
 y 310
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 4
@@ -1047,10 +1027,10 @@ x 145
 y 460
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 8
@@ -1091,10 +1071,10 @@ x 145
 y 385
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 4
@@ -1127,10 +1107,10 @@ x 145
 y 410
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 4
@@ -1163,10 +1143,10 @@ x 145
 y 435
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 4
@@ -1199,10 +1179,10 @@ x 145
 y 585
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 8
@@ -1243,10 +1223,10 @@ x 145
 y 560
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 4
@@ -1276,13 +1256,49 @@ major 4
 minor 0
 release 0
 x 145
+y 610
+w 64
+h 20
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-8.0"
+icon
+numPvs 4
+numDsps 2
+displayFileName {
+  0 ADBase.edl
+  1 URLDriver.edl
+}
+menuLabel {
+  0 URL #1 general
+  1 URL #1 specific
+}
+symbols {
+  0 "P=13URL1:,R=cam1:"
+  1 "P=13URL1:,R=cam1:"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 145
 y 535
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 4
@@ -1315,10 +1331,10 @@ x 145
 y 510
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 4
@@ -1351,10 +1367,10 @@ x 145
 y 485
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 4
@@ -1387,10 +1403,10 @@ x 145
 y 360
 w 64
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-8.0"
 icon
 numPvs 4
@@ -1406,78 +1422,6 @@ menuLabel {
 symbols {
   0 "P=13PII_1:,R=cam1:"
   1 "P=13PII_1:,R=cam1:"
-}
-replaceSymbols {
-  0 1
-  1 1
-}
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 145
-y 635
-w 64
-h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
-font "helvetica-medium-r-8.0"
-icon
-numPvs 4
-numDsps 2
-displayFileName {
-  0 ADBase.edl
-  1 URLDriver.edl
-}
-menuLabel {
-  0 URL #1 general
-  1 URL #1 specific
-}
-symbols {
-  0 "P=13URL1:,R=cam1:"
-  1 "P=13URL1:,R=cam1:"
-}
-replaceSymbols {
-  0 1
-  1 1
-}
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 145
-y 610
-w 64
-h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
-font "helvetica-medium-r-8.0"
-icon
-numPvs 4
-numDsps 2
-displayFileName {
-  0 ADBase.edl
-  1 ADSpinnaker.edl
-}
-menuLabel {
-  0 Spinnaker #1 general
-  1 Spinnaker #1 specific
-}
-symbols {
-  0 "P=13SP1:,R=cam1:"
-  1 "P=13SP1:,R=cam1:"
 }
 replaceSymbols {
   0 1

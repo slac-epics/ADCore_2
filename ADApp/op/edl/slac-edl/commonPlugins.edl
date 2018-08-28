@@ -10,15 +10,15 @@ h 775
 font "helvetica-medium-r-18.0"
 ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
-fgColor rgb 0 0 0
-bgColor rgb 47872 47872 47872
-textColor rgb 0 0 0
-ctlFgColor1 rgb 64256 62208 18944
-ctlFgColor2 rgb 60928 46592 11008
-ctlBgColor1 rgb 52480 24832 0
-ctlBgColor2 rgb 65280 45056 65280
-topShadowColor rgb 44544 19968 48128
-botShadowColor rgb 13312 13056 34304
+fgColor index 14
+bgColor index 4
+textColor index 14
+ctlFgColor1 index 25
+ctlFgColor2 index 15
+ctlBgColor1 index 5
+ctlBgColor2 index 12
+topShadowColor index 1
+botShadowColor index 13
 showGrid
 snapToGrid
 gridSize 4
@@ -34,9 +34,9 @@ x 0
 y 5
 w 934
 h 24
-lineColor rgb 55808 55808 55808
+lineColor index 2
 fill
-fillColor rgb 55808 55808 55808
+fillColor index 2
 lineWidth 0
 endObjectProperties
 
@@ -46,13 +46,13 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 0
+x 359
 y 6
-w 935
+w 216
 h 25
 font "helvetica-medium-r-18.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -72,7 +72,7 @@ w 110
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -92,7 +92,7 @@ w 110
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -114,10 +114,10 @@ controlPv "$(P)image1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -138,10 +138,10 @@ controlPv "$(P)image1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -160,7 +160,7 @@ w 40
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -180,7 +180,7 @@ w 60
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -200,7 +200,7 @@ w 80
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -222,12 +222,12 @@ controlPv "$(P)image1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -245,14 +245,14 @@ y 71
 w 80
 h 18
 controlPv "$(P)image1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -271,7 +271,7 @@ w 43
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -293,10 +293,10 @@ controlPv "$(P)image1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -309,13 +309,13 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 726
+x 700
 y 40
-w 44
+w 70
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -337,11 +337,11 @@ controlPv "$(P)image1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -360,7 +360,7 @@ w 70
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
-fgColor rgb 0 0 0
+fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
@@ -382,10 +382,10 @@ controlPv "$(P)image1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -406,10 +406,10 @@ controlPv "$(P)Proc1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -430,10 +430,10 @@ controlPv "$(P)Proc1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -454,10 +454,10 @@ controlPv "$(P)Trans1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -478,10 +478,10 @@ controlPv "$(P)Trans1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -502,10 +502,10 @@ controlPv "$(P)CC1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -526,10 +526,10 @@ controlPv "$(P)CC1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -550,10 +550,10 @@ controlPv "$(P)CC2:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -574,10 +574,10 @@ controlPv "$(P)CC2:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -598,10 +598,10 @@ controlPv "$(P)Over1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -622,10 +622,10 @@ controlPv "$(P)Over1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -646,10 +646,10 @@ controlPv "$(P)ROI1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -670,10 +670,10 @@ controlPv "$(P)ROI1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -694,10 +694,10 @@ controlPv "$(P)ROI2:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -718,10 +718,10 @@ controlPv "$(P)ROI2:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -742,10 +742,10 @@ controlPv "$(P)ROI3:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -766,10 +766,10 @@ controlPv "$(P)ROI3:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -790,10 +790,10 @@ controlPv "$(P)ROI4:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -814,10 +814,10 @@ controlPv "$(P)ROI4:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -838,10 +838,10 @@ controlPv "$(P)Stats1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -862,10 +862,10 @@ controlPv "$(P)Stats1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -886,10 +886,10 @@ controlPv "$(P)Stats2:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -910,10 +910,10 @@ controlPv "$(P)Stats2:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -934,10 +934,10 @@ controlPv "$(P)Stats3:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -958,10 +958,10 @@ controlPv "$(P)Stats3:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -982,10 +982,10 @@ controlPv "$(P)Stats4:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1006,10 +1006,10 @@ controlPv "$(P)Stats4:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1030,12 +1030,12 @@ controlPv "$(P)Proc1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1053,14 +1053,14 @@ y 121
 w 80
 h 18
 controlPv "$(P)Proc1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1081,12 +1081,12 @@ controlPv "$(P)Trans1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1104,14 +1104,14 @@ y 146
 w 80
 h 18
 controlPv "$(P)Trans1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1132,12 +1132,12 @@ controlPv "$(P)CC1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1155,14 +1155,14 @@ y 171
 w 80
 h 18
 controlPv "$(P)CC1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1183,12 +1183,12 @@ controlPv "$(P)CC2:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1206,14 +1206,14 @@ y 196
 w 80
 h 18
 controlPv "$(P)CC2:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1234,12 +1234,12 @@ controlPv "$(P)Over1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1257,14 +1257,14 @@ y 221
 w 80
 h 18
 controlPv "$(P)Over1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1285,12 +1285,12 @@ controlPv "$(P)ROI1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1308,14 +1308,14 @@ y 246
 w 80
 h 18
 controlPv "$(P)ROI1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1336,12 +1336,12 @@ controlPv "$(P)ROI2:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1359,14 +1359,14 @@ y 271
 w 80
 h 18
 controlPv "$(P)ROI2:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1387,12 +1387,12 @@ controlPv "$(P)ROI3:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1410,14 +1410,14 @@ y 296
 w 80
 h 18
 controlPv "$(P)ROI3:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1438,12 +1438,12 @@ controlPv "$(P)ROI4:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1461,14 +1461,14 @@ y 321
 w 80
 h 18
 controlPv "$(P)ROI4:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1489,12 +1489,12 @@ controlPv "$(P)Stats1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1512,14 +1512,14 @@ y 346
 w 80
 h 18
 controlPv "$(P)Stats1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1540,12 +1540,12 @@ controlPv "$(P)Stats2:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1563,14 +1563,14 @@ y 371
 w 80
 h 18
 controlPv "$(P)Stats2:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1591,12 +1591,12 @@ controlPv "$(P)Stats3:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1614,14 +1614,14 @@ y 396
 w 80
 h 18
 controlPv "$(P)Stats3:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1642,12 +1642,12 @@ controlPv "$(P)Stats4:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1665,14 +1665,14 @@ y 421
 w 80
 h 18
 controlPv "$(P)Stats4:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1693,10 +1693,10 @@ controlPv "$(P)Proc1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1717,10 +1717,10 @@ controlPv "$(P)Trans1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1741,10 +1741,10 @@ controlPv "$(P)CC1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1765,10 +1765,10 @@ controlPv "$(P)CC2:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1789,10 +1789,10 @@ controlPv "$(P)Over1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1813,10 +1813,10 @@ controlPv "$(P)ROI1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1837,10 +1837,10 @@ controlPv "$(P)ROI2:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1861,10 +1861,10 @@ controlPv "$(P)ROI3:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1885,10 +1885,10 @@ controlPv "$(P)ROI4:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1909,10 +1909,10 @@ controlPv "$(P)Stats1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1933,10 +1933,10 @@ controlPv "$(P)Stats2:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1957,10 +1957,10 @@ controlPv "$(P)Stats3:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -1981,10 +1981,10 @@ controlPv "$(P)Stats4:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2005,11 +2005,11 @@ controlPv "$(P)Proc1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2030,11 +2030,11 @@ controlPv "$(P)Trans1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2055,11 +2055,11 @@ controlPv "$(P)CC1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2080,11 +2080,11 @@ controlPv "$(P)CC2:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2105,11 +2105,11 @@ controlPv "$(P)Over1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2130,11 +2130,11 @@ controlPv "$(P)ROI1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2155,11 +2155,11 @@ controlPv "$(P)ROI2:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2180,11 +2180,11 @@ controlPv "$(P)ROI3:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2205,11 +2205,11 @@ controlPv "$(P)ROI4:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2230,11 +2230,11 @@ controlPv "$(P)Stats1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2255,11 +2255,11 @@ controlPv "$(P)Stats2:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2280,11 +2280,11 @@ controlPv "$(P)Stats3:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2305,11 +2305,11 @@ controlPv "$(P)Stats4:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2330,10 +2330,10 @@ controlPv "$(P)Proc1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2354,10 +2354,10 @@ controlPv "$(P)Trans1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2378,10 +2378,10 @@ controlPv "$(P)CC1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2402,10 +2402,10 @@ controlPv "$(P)CC2:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2426,10 +2426,10 @@ controlPv "$(P)Over1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2450,10 +2450,10 @@ controlPv "$(P)ROI1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2474,10 +2474,10 @@ controlPv "$(P)ROI2:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2498,10 +2498,10 @@ controlPv "$(P)ROI3:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2522,10 +2522,10 @@ controlPv "$(P)ROI4:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2546,10 +2546,10 @@ controlPv "$(P)Stats1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2570,10 +2570,10 @@ controlPv "$(P)Stats2:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2594,10 +2594,10 @@ controlPv "$(P)Stats3:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2618,10 +2618,10 @@ controlPv "$(P)Stats4:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2642,10 +2642,10 @@ controlPv "$(P)Stats5:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2666,10 +2666,10 @@ controlPv "$(P)Stats5:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2690,12 +2690,12 @@ controlPv "$(P)Stats5:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2713,14 +2713,14 @@ y 446
 w 80
 h 18
 controlPv "$(P)Stats5:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2741,10 +2741,10 @@ controlPv "$(P)Stats5:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2765,11 +2765,11 @@ controlPv "$(P)Stats5:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2790,10 +2790,10 @@ controlPv "$(P)Stats5:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2814,10 +2814,10 @@ controlPv "$(P)ROIStat1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2838,10 +2838,10 @@ controlPv "$(P)ROIStat1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2862,12 +2862,12 @@ controlPv "$(P)ROIStat1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2885,14 +2885,14 @@ y 521
 w 80
 h 18
 controlPv "$(P)ROIStat1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2913,10 +2913,10 @@ controlPv "$(P)ROIStat1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2937,11 +2937,11 @@ controlPv "$(P)ROIStat1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -2962,15 +2962,28 @@ controlPv "$(P)ROIStat1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
 objType "controls"
 endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 545
+w 915
+h 20
+
+beginGroup
 
 # (Text Monitor)
 object activeXTextDspClass:noedit
@@ -2986,10 +2999,10 @@ controlPv "$(P)CB1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3010,10 +3023,10 @@ controlPv "$(P)CB1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3034,12 +3047,12 @@ controlPv "$(P)CB1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3057,14 +3070,14 @@ y 546
 w 80
 h 18
 controlPv "$(P)CB1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3085,10 +3098,10 @@ controlPv "$(P)CB1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3109,11 +3122,11 @@ controlPv "$(P)CB1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3134,15 +3147,33 @@ controlPv "$(P)CB1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
 objType "controls"
 endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 470
+w 915
+h 20
+
+beginGroup
 
 # (Text Monitor)
 object activeXTextDspClass:noedit
@@ -3158,10 +3189,10 @@ controlPv "$(P)Scatter1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3182,10 +3213,10 @@ controlPv "$(P)Scatter1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3206,12 +3237,12 @@ controlPv "$(P)Scatter1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3229,14 +3260,14 @@ y 471
 w 80
 h 18
 controlPv "$(P)Scatter1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3257,10 +3288,10 @@ controlPv "$(P)Scatter1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3281,11 +3312,11 @@ controlPv "$(P)Scatter1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3306,15 +3337,33 @@ controlPv "$(P)Scatter1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
 objType "controls"
 endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 495
+w 915
+h 20
+
+beginGroup
 
 # (Text Monitor)
 object activeXTextDspClass:noedit
@@ -3330,10 +3379,10 @@ controlPv "$(P)Gather1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3354,10 +3403,10 @@ controlPv "$(P)Gather1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3378,12 +3427,12 @@ controlPv "$(P)Gather1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3401,14 +3450,14 @@ y 496
 w 80
 h 18
 controlPv "$(P)Gather1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3429,10 +3478,10 @@ controlPv "$(P)Gather1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3453,11 +3502,11 @@ controlPv "$(P)Gather1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3478,15 +3527,33 @@ controlPv "$(P)Gather1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
 objType "controls"
 endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 620
+w 915
+h 145
+
+beginGroup
 
 # (Text Monitor)
 object activeXTextDspClass:noedit
@@ -3502,10 +3569,10 @@ controlPv "$(P)netCDF1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3526,10 +3593,10 @@ controlPv "$(P)netCDF1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3550,10 +3617,10 @@ controlPv "$(P)TIFF1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3574,10 +3641,10 @@ controlPv "$(P)TIFF1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3598,10 +3665,10 @@ controlPv "$(P)JPEG1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3622,10 +3689,10 @@ controlPv "$(P)JPEG1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3646,10 +3713,10 @@ controlPv "$(P)Nexus1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3670,10 +3737,10 @@ controlPv "$(P)Nexus1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3694,10 +3761,10 @@ controlPv "$(P)Magick1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3718,10 +3785,10 @@ controlPv "$(P)Magick1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3742,12 +3809,12 @@ controlPv "$(P)netCDF1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3765,14 +3832,14 @@ y 621
 w 80
 h 18
 controlPv "$(P)netCDF1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3793,12 +3860,12 @@ controlPv "$(P)TIFF1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3816,14 +3883,14 @@ y 646
 w 80
 h 18
 controlPv "$(P)TIFF1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3844,12 +3911,12 @@ controlPv "$(P)JPEG1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3867,14 +3934,14 @@ y 671
 w 80
 h 18
 controlPv "$(P)JPEG1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3895,12 +3962,12 @@ controlPv "$(P)Nexus1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3918,14 +3985,14 @@ y 696
 w 80
 h 18
 controlPv "$(P)Nexus1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3946,12 +4013,12 @@ controlPv "$(P)Magick1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3969,14 +4036,14 @@ y 721
 w 80
 h 18
 controlPv "$(P)Magick1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -3997,10 +4064,10 @@ controlPv "$(P)netCDF1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4021,10 +4088,10 @@ controlPv "$(P)TIFF1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4045,10 +4112,10 @@ controlPv "$(P)JPEG1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4069,10 +4136,10 @@ controlPv "$(P)Nexus1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4093,10 +4160,10 @@ controlPv "$(P)Magick1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4117,11 +4184,11 @@ controlPv "$(P)netCDF1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4142,11 +4209,11 @@ controlPv "$(P)TIFF1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4167,11 +4234,11 @@ controlPv "$(P)JPEG1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4192,11 +4259,11 @@ controlPv "$(P)Nexus1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4217,11 +4284,11 @@ controlPv "$(P)Magick1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4242,10 +4309,10 @@ controlPv "$(P)netCDF1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4266,10 +4333,10 @@ controlPv "$(P)TIFF1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4290,10 +4357,10 @@ controlPv "$(P)JPEG1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4314,10 +4381,10 @@ controlPv "$(P)Nexus1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4338,10 +4405,10 @@ controlPv "$(P)Magick1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4362,10 +4429,10 @@ controlPv "$(P)HDF1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4386,10 +4453,10 @@ controlPv "$(P)HDF1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4410,12 +4477,12 @@ controlPv "$(P)HDF1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4433,14 +4500,14 @@ y 746
 w 80
 h 18
 controlPv "$(P)HDF1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4461,10 +4528,10 @@ controlPv "$(P)HDF1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4485,11 +4552,11 @@ controlPv "$(P)HDF1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4510,15 +4577,20 @@ controlPv "$(P)HDF1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
 objType "controls"
 endObjectProperties
+
+endGroup
+
+endObjectProperties
+
 
 # (Text Monitor)
 object activeXTextDspClass:noedit
@@ -4534,10 +4606,10 @@ controlPv "$(P)FFT1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4558,10 +4630,10 @@ controlPv "$(P)FFT1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4582,12 +4654,12 @@ controlPv "$(P)FFT1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4605,14 +4677,14 @@ y 596
 w 80
 h 18
 controlPv "$(P)FFT1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4633,10 +4705,10 @@ controlPv "$(P)FFT1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4657,11 +4729,11 @@ controlPv "$(P)FFT1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4682,15 +4754,28 @@ controlPv "$(P)FFT1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
 objType "controls"
 endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 570
+w 915
+h 20
+
+beginGroup
 
 # (Text Monitor)
 object activeXTextDspClass:noedit
@@ -4706,10 +4791,10 @@ controlPv "$(P)Attr1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4730,10 +4815,10 @@ controlPv "$(P)Attr1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4754,12 +4839,12 @@ controlPv "$(P)Attr1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4777,14 +4862,14 @@ y 571
 w 80
 h 18
 controlPv "$(P)Attr1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4805,10 +4890,10 @@ controlPv "$(P)Attr1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4829,11 +4914,11 @@ controlPv "$(P)Attr1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4854,15 +4939,33 @@ controlPv "$(P)Attr1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
 objType "controls"
 endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 95
+w 915
+h 20
+
+beginGroup
 
 # (Text Monitor)
 object activeXTextDspClass:noedit
@@ -4878,10 +4981,10 @@ controlPv "$(P)Pva1:PortName_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4902,10 +5005,10 @@ controlPv "$(P)Pva1:PluginType_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4926,12 +5029,12 @@ controlPv "$(P)Pva1:NDArrayPort"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
+fgColor index 25
+bgColor index 5
 editable
 motifWidget
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4949,14 +5052,14 @@ y 96
 w 80
 h 18
 controlPv "$(P)Pva1:EnableCallbacks_RBV"
-format "string"
+format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -4977,10 +5080,10 @@ controlPv "$(P)Pva1:ArrayRate_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -5001,11 +5104,11 @@ controlPv "$(P)Pva1:QueueFree"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 0 65535 0
+fgColor index 15
 fgAlarm
-bgColor rgb 17920 17920 17920
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
@@ -5026,15 +5129,20 @@ controlPv "$(P)Pva1:DroppedArrays_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
+fgColor index 15
+bgColor index 12
 limitsFromDb
-nullColor rgb 60928 46592 11008
+nullColor index 32
 smartRefresh
 fastUpdate
 newPos
 objType "controls"
 endObjectProperties
+
+endGroup
+
+endObjectProperties
+
 
 # (Menu Button)
 object activeMenuButtonClass
@@ -5046,11 +5154,11 @@ x 355
 y 70
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)image1:EnableCallbacks"
 indicatorPv "$(P)image1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5066,11 +5174,11 @@ x 525
 y 70
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)image1:BlockingCallbacks"
 indicatorPv "$(P)image1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5086,10 +5194,10 @@ x 865
 y 70
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -5119,11 +5227,11 @@ x 355
 y 120
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Proc1:EnableCallbacks"
 indicatorPv "$(P)Proc1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5139,11 +5247,11 @@ x 525
 y 120
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Proc1:BlockingCallbacks"
 indicatorPv "$(P)Proc1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5159,11 +5267,11 @@ x 355
 y 145
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Trans1:EnableCallbacks"
 indicatorPv "$(P)Trans1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5179,11 +5287,11 @@ x 525
 y 145
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Trans1:BlockingCallbacks"
 indicatorPv "$(P)Trans1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5199,11 +5307,11 @@ x 355
 y 170
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)CC1:EnableCallbacks"
 indicatorPv "$(P)CC1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5219,11 +5327,11 @@ x 525
 y 170
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)CC1:BlockingCallbacks"
 indicatorPv "$(P)CC1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5239,11 +5347,11 @@ x 355
 y 195
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)CC2:EnableCallbacks"
 indicatorPv "$(P)CC2:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5259,11 +5367,11 @@ x 525
 y 195
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)CC2:BlockingCallbacks"
 indicatorPv "$(P)CC2:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5279,11 +5387,11 @@ x 355
 y 220
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Over1:EnableCallbacks"
 indicatorPv "$(P)Over1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5299,11 +5407,11 @@ x 525
 y 220
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Over1:BlockingCallbacks"
 indicatorPv "$(P)Over1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5319,11 +5427,11 @@ x 355
 y 245
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)ROI1:EnableCallbacks"
 indicatorPv "$(P)ROI1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5339,11 +5447,11 @@ x 525
 y 245
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)ROI1:BlockingCallbacks"
 indicatorPv "$(P)ROI1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5359,11 +5467,11 @@ x 355
 y 270
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)ROI2:EnableCallbacks"
 indicatorPv "$(P)ROI2:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5379,11 +5487,11 @@ x 525
 y 270
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)ROI2:BlockingCallbacks"
 indicatorPv "$(P)ROI2:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5399,11 +5507,11 @@ x 355
 y 295
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)ROI3:EnableCallbacks"
 indicatorPv "$(P)ROI3:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5419,11 +5527,11 @@ x 525
 y 295
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)ROI3:BlockingCallbacks"
 indicatorPv "$(P)ROI3:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5439,11 +5547,11 @@ x 355
 y 320
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)ROI4:EnableCallbacks"
 indicatorPv "$(P)ROI4:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5459,11 +5567,11 @@ x 525
 y 320
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)ROI4:BlockingCallbacks"
 indicatorPv "$(P)ROI4:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5479,11 +5587,11 @@ x 355
 y 345
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Stats1:EnableCallbacks"
 indicatorPv "$(P)Stats1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5499,11 +5607,11 @@ x 525
 y 345
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Stats1:BlockingCallbacks"
 indicatorPv "$(P)Stats1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5519,11 +5627,11 @@ x 355
 y 370
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Stats2:EnableCallbacks"
 indicatorPv "$(P)Stats2:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5539,11 +5647,11 @@ x 525
 y 370
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Stats2:BlockingCallbacks"
 indicatorPv "$(P)Stats2:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5559,11 +5667,11 @@ x 355
 y 395
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Stats3:EnableCallbacks"
 indicatorPv "$(P)Stats3:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5579,11 +5687,11 @@ x 525
 y 395
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Stats3:BlockingCallbacks"
 indicatorPv "$(P)Stats3:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5599,11 +5707,11 @@ x 355
 y 420
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Stats4:EnableCallbacks"
 indicatorPv "$(P)Stats4:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5619,11 +5727,11 @@ x 525
 y 420
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Stats4:BlockingCallbacks"
 indicatorPv "$(P)Stats4:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -5639,10 +5747,10 @@ x 865
 y 120
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -5672,10 +5780,10 @@ x 865
 y 145
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -5705,10 +5813,10 @@ x 865
 y 170
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -5738,10 +5846,10 @@ x 865
 y 195
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -5771,10 +5879,10 @@ x 865
 y 220
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -5804,10 +5912,10 @@ x 865
 y 245
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -5837,10 +5945,10 @@ x 865
 y 270
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -5870,10 +5978,10 @@ x 865
 y 295
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -5903,10 +6011,10 @@ x 865
 y 320
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -5936,10 +6044,10 @@ x 865
 y 345
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -5969,10 +6077,10 @@ x 865
 y 370
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -6002,10 +6110,10 @@ x 865
 y 395
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -6035,10 +6143,10 @@ x 865
 y 420
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -6068,11 +6176,11 @@ x 355
 y 445
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Stats5:EnableCallbacks"
 indicatorPv "$(P)Stats5:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6088,11 +6196,11 @@ x 525
 y 445
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Stats5:BlockingCallbacks"
 indicatorPv "$(P)Stats5:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6108,10 +6216,10 @@ x 865
 y 445
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -6141,11 +6249,11 @@ x 355
 y 520
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)ROIStat1:EnableCallbacks"
 indicatorPv "$(P)ROIStat1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6161,11 +6269,11 @@ x 525
 y 520
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)ROIStat1:BlockingCallbacks"
 indicatorPv "$(P)ROIStat1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6181,10 +6289,10 @@ x 865
 y 520
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -6203,6 +6311,18 @@ replaceSymbols {
   0 1
 }
 endObjectProperties
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 545
+w 915
+h 20
+
+beginGroup
 
 # (Menu Button)
 object activeMenuButtonClass
@@ -6214,11 +6334,11 @@ x 355
 y 545
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)CB1:EnableCallbacks"
 indicatorPv "$(P)CB1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6234,11 +6354,11 @@ x 525
 y 545
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)CB1:BlockingCallbacks"
 indicatorPv "$(P)CB1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6254,10 +6374,10 @@ x 865
 y 545
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -6277,6 +6397,23 @@ replaceSymbols {
 }
 endObjectProperties
 
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 470
+w 915
+h 20
+
+beginGroup
+
 # (Menu Button)
 object activeMenuButtonClass
 beginObjectProperties
@@ -6287,11 +6424,11 @@ x 355
 y 470
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Scatter1:EnableCallbacks"
 indicatorPv "$(P)Scatter1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6307,11 +6444,11 @@ x 525
 y 470
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Scatter1:BlockingCallbacks"
 indicatorPv "$(P)Scatter1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6327,10 +6464,10 @@ x 865
 y 470
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -6350,6 +6487,23 @@ replaceSymbols {
 }
 endObjectProperties
 
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 495
+w 915
+h 20
+
+beginGroup
+
 # (Menu Button)
 object activeMenuButtonClass
 beginObjectProperties
@@ -6360,11 +6514,11 @@ x 355
 y 495
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Gather1:EnableCallbacks"
 indicatorPv "$(P)Gather1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6380,11 +6534,11 @@ x 525
 y 495
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Gather1:BlockingCallbacks"
 indicatorPv "$(P)Gather1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6400,10 +6554,10 @@ x 865
 y 495
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -6423,6 +6577,23 @@ replaceSymbols {
 }
 endObjectProperties
 
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 620
+w 915
+h 145
+
+beginGroup
+
 # (Menu Button)
 object activeMenuButtonClass
 beginObjectProperties
@@ -6433,11 +6604,11 @@ x 355
 y 620
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)netCDF1:EnableCallbacks"
 indicatorPv "$(P)netCDF1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6453,11 +6624,11 @@ x 525
 y 620
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)netCDF1:BlockingCallbacks"
 indicatorPv "$(P)netCDF1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6473,11 +6644,11 @@ x 355
 y 645
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)TIFF1:EnableCallbacks"
 indicatorPv "$(P)TIFF1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6493,11 +6664,11 @@ x 525
 y 645
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)TIFF1:BlockingCallbacks"
 indicatorPv "$(P)TIFF1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6513,11 +6684,11 @@ x 355
 y 670
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)JPEG1:EnableCallbacks"
 indicatorPv "$(P)JPEG1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6533,11 +6704,11 @@ x 525
 y 670
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)JPEG1:BlockingCallbacks"
 indicatorPv "$(P)JPEG1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6553,11 +6724,11 @@ x 355
 y 695
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Nexus1:EnableCallbacks"
 indicatorPv "$(P)Nexus1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6573,11 +6744,11 @@ x 525
 y 695
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Nexus1:BlockingCallbacks"
 indicatorPv "$(P)Nexus1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6593,11 +6764,11 @@ x 355
 y 720
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Magick1:EnableCallbacks"
 indicatorPv "$(P)Magick1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6613,11 +6784,11 @@ x 525
 y 720
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Magick1:BlockingCallbacks"
 indicatorPv "$(P)Magick1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6633,10 +6804,10 @@ x 865
 y 620
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -6666,10 +6837,10 @@ x 865
 y 645
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -6699,10 +6870,10 @@ x 865
 y 670
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -6732,10 +6903,10 @@ x 865
 y 695
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -6765,10 +6936,10 @@ x 865
 y 720
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -6798,11 +6969,11 @@ x 355
 y 745
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)HDF1:EnableCallbacks"
 indicatorPv "$(P)HDF1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6818,11 +6989,11 @@ x 525
 y 745
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)HDF1:BlockingCallbacks"
 indicatorPv "$(P)HDF1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6838,10 +7009,10 @@ x 865
 y 745
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -6861,6 +7032,11 @@ replaceSymbols {
 }
 endObjectProperties
 
+endGroup
+
+endObjectProperties
+
+
 # (Menu Button)
 object activeMenuButtonClass
 beginObjectProperties
@@ -6871,11 +7047,11 @@ x 355
 y 595
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)FFT1:EnableCallbacks"
 indicatorPv "$(P)FFT1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6891,11 +7067,11 @@ x 525
 y 595
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)FFT1:BlockingCallbacks"
 indicatorPv "$(P)FFT1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6911,10 +7087,10 @@ x 865
 y 595
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -6933,6 +7109,18 @@ replaceSymbols {
   0 1
 }
 endObjectProperties
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 570
+w 915
+h 20
+
+beginGroup
 
 # (Menu Button)
 object activeMenuButtonClass
@@ -6944,11 +7132,11 @@ x 355
 y 570
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Attr1:EnableCallbacks"
 indicatorPv "$(P)Attr1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6964,11 +7152,11 @@ x 525
 y 570
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Attr1:BlockingCallbacks"
 indicatorPv "$(P)Attr1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -6984,10 +7172,10 @@ x 865
 y 570
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -7011,6 +7199,23 @@ replaceSymbols {
 }
 endObjectProperties
 
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 95
+w 915
+h 20
+
+beginGroup
+
 # (Menu Button)
 object activeMenuButtonClass
 beginObjectProperties
@@ -7021,11 +7226,11 @@ x 355
 y 95
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Pva1:EnableCallbacks"
 indicatorPv "$(P)Pva1:EnableCallbacks"
 font "helvetica-medium-r-12.0"
@@ -7041,11 +7246,11 @@ x 525
 y 95
 w 80
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
 controlPv "$(P)Pva1:BlockingCallbacks"
 indicatorPv "$(P)Pva1:BlockingCallbacks"
 font "helvetica-medium-r-12.0"
@@ -7061,10 +7266,10 @@ x 865
 y 95
 w 60
 h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
+fgColor index 14
+bgColor index 51
+topShadowColor index 2
+botShadowColor index 12
 font "helvetica-medium-r-12.0"
 icon
 buttonLabel "More"
@@ -7083,4 +7288,9 @@ replaceSymbols {
   0 1
 }
 endObjectProperties
+
+endGroup
+
+endObjectProperties
+
 

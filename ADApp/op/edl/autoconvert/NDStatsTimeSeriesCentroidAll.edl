@@ -86,7 +86,7 @@ h 200
 # Appearance
 border
 graphTitle "$(P)$(R)TSCentroidX"
-xLabel "Time (s)"
+xLabel "Time point"
 yLabel "Value"
 fgColor rgb 0 0 0
 bgColor rgb 55808 55808 55808
@@ -104,9 +104,6 @@ showYAxis
 yAxisSrc "AutoScale"
 #  Trace Properties
 numTraces 1
-xPv {
-  0 "$(P)$(R)TS:TSTimeAxis"
-}
 yPv {
   0 "$(P)$(R)TSCentroidX"
 }
@@ -137,7 +134,7 @@ h 200
 # Appearance
 border
 graphTitle "$(P)$(R)TSCentroidY"
-xLabel "Time (s)"
+xLabel "Time point"
 yLabel "Value"
 fgColor rgb 0 0 0
 bgColor rgb 55808 55808 55808
@@ -155,9 +152,6 @@ showYAxis
 yAxisSrc "AutoScale"
 #  Trace Properties
 numTraces 1
-xPv {
-  0 "$(P)$(R)TS:TSTimeAxis"
-}
 yPv {
   0 "$(P)$(R)TSCentroidY"
 }
@@ -188,7 +182,7 @@ h 200
 # Appearance
 border
 graphTitle "$(P)$(R)TSSigmaX"
-xLabel "Time (s)"
+xLabel "Time point"
 yLabel "Value"
 fgColor rgb 0 0 0
 bgColor rgb 55808 55808 55808
@@ -206,9 +200,6 @@ showYAxis
 yAxisSrc "AutoScale"
 #  Trace Properties
 numTraces 1
-xPv {
-  0 "$(P)$(R)TS:TSTimeAxis"
-}
 yPv {
   0 "$(P)$(R)TSSigmaX"
 }
@@ -239,7 +230,7 @@ h 200
 # Appearance
 border
 graphTitle "$(P)$(R)TSSigmaY"
-xLabel "Time (s)"
+xLabel "Time point"
 yLabel "Value"
 fgColor rgb 0 0 0
 bgColor rgb 55808 55808 55808
@@ -257,9 +248,6 @@ showYAxis
 yAxisSrc "AutoScale"
 #  Trace Properties
 numTraces 1
-xPv {
-  0 "$(P)$(R)TS:TSTimeAxis"
-}
 yPv {
   0 "$(P)$(R)TSSigmaY"
 }
@@ -290,7 +278,7 @@ h 200
 # Appearance
 border
 graphTitle "$(P)$(R)TSCentroidTotal"
-xLabel "Time (s)"
+xLabel "Time point"
 yLabel "Value"
 fgColor rgb 0 0 0
 bgColor rgb 55808 55808 55808
@@ -308,9 +296,6 @@ showYAxis
 yAxisSrc "AutoScale"
 #  Trace Properties
 numTraces 1
-xPv {
-  0 "$(P)$(R)TS:TSTimeAxis"
-}
 yPv {
   0 "$(P)$(R)TSCentroidTotal"
 }
@@ -341,7 +326,7 @@ h 200
 # Appearance
 border
 graphTitle "$(P)$(R)TSSigmaXY"
-xLabel "Time (s)"
+xLabel "Time point"
 yLabel "Value"
 fgColor rgb 0 0 0
 bgColor rgb 55808 55808 55808
@@ -359,9 +344,6 @@ showYAxis
 yAxisSrc "AutoScale"
 #  Trace Properties
 numTraces 1
-xPv {
-  0 "$(P)$(R)TS:TSTimeAxis"
-}
 yPv {
   0 "$(P)$(R)TSSigmaXY"
 }
@@ -392,7 +374,7 @@ h 200
 # Appearance
 border
 graphTitle "$(P)$(R)TSSkewX"
-xLabel "Time (s)"
+xLabel "Time point"
 yLabel "Value"
 fgColor rgb 0 0 0
 bgColor rgb 55808 55808 55808
@@ -410,9 +392,6 @@ showYAxis
 yAxisSrc "AutoScale"
 #  Trace Properties
 numTraces 1
-xPv {
-  0 "$(P)$(R)TS:TSTimeAxis"
-}
 yPv {
   0 "$(P)$(R)TSSkewX"
 }
@@ -443,7 +422,7 @@ h 200
 # Appearance
 border
 graphTitle "$(P)$(R)TSSkewY"
-xLabel "Time (s)"
+xLabel "Time point"
 yLabel "Value"
 fgColor rgb 0 0 0
 bgColor rgb 55808 55808 55808
@@ -461,9 +440,6 @@ showYAxis
 yAxisSrc "AutoScale"
 #  Trace Properties
 numTraces 1
-xPv {
-  0 "$(P)$(R)TS:TSTimeAxis"
-}
 yPv {
   0 "$(P)$(R)TSSkewY"
 }
@@ -494,7 +470,7 @@ h 200
 # Appearance
 border
 graphTitle "$(P)$(R)TSKurtosisX"
-xLabel "Time (s)"
+xLabel "Time point"
 yLabel "Value"
 fgColor rgb 0 0 0
 bgColor rgb 55808 55808 55808
@@ -512,9 +488,6 @@ showYAxis
 yAxisSrc "AutoScale"
 #  Trace Properties
 numTraces 1
-xPv {
-  0 "$(P)$(R)TS:TSTimeAxis"
-}
 yPv {
   0 "$(P)$(R)TSKurtosisX"
 }
@@ -545,7 +518,7 @@ h 200
 # Appearance
 border
 graphTitle "$(P)$(R)TSKurtosisY"
-xLabel "Time (s)"
+xLabel "Time point"
 yLabel "Value"
 fgColor rgb 0 0 0
 bgColor rgb 55808 55808 55808
@@ -563,9 +536,6 @@ showYAxis
 yAxisSrc "AutoScale"
 #  Trace Properties
 numTraces 1
-xPv {
-  0 "$(P)$(R)TS:TSTimeAxis"
-}
 yPv {
   0 "$(P)$(R)TSKurtosisY"
 }
@@ -596,7 +566,7 @@ h 200
 # Appearance
 border
 graphTitle "$(P)$(R)TSEccentricity"
-xLabel "Time (s)"
+xLabel "Time point"
 yLabel "Value"
 fgColor rgb 0 0 0
 bgColor rgb 55808 55808 55808
@@ -614,9 +584,6 @@ showYAxis
 yAxisSrc "AutoScale"
 #  Trace Properties
 numTraces 1
-xPv {
-  0 "$(P)$(R)TS:TSTimeAxis"
-}
 yPv {
   0 "$(P)$(R)TSEccentricity"
 }
@@ -647,7 +614,7 @@ h 200
 # Appearance
 border
 graphTitle "$(P)$(R)TSOrientation"
-xLabel "Time (s)"
+xLabel "Time point"
 yLabel "Value"
 fgColor rgb 0 0 0
 bgColor rgb 55808 55808 55808
@@ -665,9 +632,6 @@ showYAxis
 yAxisSrc "AutoScale"
 #  Trace Properties
 numTraces 1
-xPv {
-  0 "$(P)$(R)TS:TSTimeAxis"
-}
 yPv {
   0 "$(P)$(R)TSOrientation"
 }
