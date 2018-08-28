@@ -238,6 +238,7 @@ record(longout, "$(P)$(R)NumThreads")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NUM_THREADS")
     field(VAL,  "1")
     field(PINI, "YES")
+    info(autosaveFields, "DESC VAL")
 }
 
 record(longin, "$(P)$(R)NumThreads_RBV")
