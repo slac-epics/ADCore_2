@@ -1,3 +1,10 @@
+R3.1-2.2.0:	Aug 28, 2018, Bruce Hill (bhill)
+	Added Threads and access to NDPluginBaseFull screen to NDPluginBase.edl.
+	Added build support for adl2edl autoconvert, ran it, and added new screens
+	Added a soft link to autoconvert directory under slac-edl for easier cut/paste from autoconverted screens.
+	Removed dummy pvs from NDOverlayN.template as they tend to create more broken pvs.
+	Fixed pv in SortFreeLow output link
+
 R3.1-2.1.1:	Mar 29, 2018, Bruce Hill (bhill)
 	Update to ADSupport/R1.1-0.1.1
 
