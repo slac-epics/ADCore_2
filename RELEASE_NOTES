@@ -1,3 +1,6 @@
+R3.1-2.3.0:	Nov 30, 2018, Bruce Hill (bhill)
+	Added new TimeStampStr PV that uses an autosaved format to show TimeStamp as a string.
+
 R3.1-2.2.0:	Aug 28, 2018, Bruce Hill (bhill)
 	Added Threads and access to NDPluginBaseFull screen to NDPluginBase.edl.
 	Added build support for adl2edl autoconvert, ran it, and added new screens
