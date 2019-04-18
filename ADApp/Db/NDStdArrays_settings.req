@@ -1,2 +1,2 @@
-# Nothing extra needed beyond NDPluginBase_settings.req for now
+$(P)$(R)ArrayData.TSE
 file "NDPluginBase_settings.req", P=$(P), R=$(R)

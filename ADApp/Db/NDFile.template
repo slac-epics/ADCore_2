@@ -180,7 +180,7 @@ record(bi, "$(P)$(R)WriteFile_RBV")
     field(ZNAM, "Done")
     field(ZSV,  "NO_ALARM")
     field(ONAM, "Writing")
-    field(OSV,  "MINOR")
+    field(OSV,  "NO_ALARM")
     field(SCAN, "I/O Intr")
 }
 
@@ -201,7 +201,7 @@ record(bi, "$(P)$(R)ReadFile_RBV")
     field(ZNAM, "Done")
     field(ZSV,  "NO_ALARM")
     field(ONAM, "Reading")
-    field(OSV,  "MINOR")
+    field(OSV,  "NO_ALARM")
     field(SCAN, "I/O Intr")
 }
 
@@ -266,6 +266,9 @@ record(busy, "$(P)$(R)Capture")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))CAPTURE")
     field(ZNAM, "Done")
     field(ONAM, "Capture")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "NO_ALARM")
+    info(autosaveFields, "OSV ZSV")
 }
 
 record(bi, "$(P)$(R)Capture_RBV")
@@ -275,7 +278,7 @@ record(bi, "$(P)$(R)Capture_RBV")
     field(ZNAM, "Done")
     field(ZSV,  "NO_ALARM")
     field(ONAM, "Capturing")
-    field(OSV,  "MINOR")
+    field(OSV,  "NO_ALARM")
     field(SCAN, "I/O Intr")
 }
 

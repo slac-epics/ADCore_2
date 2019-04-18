@@ -16,4 +16,17 @@ record(waveform, "$(P)$(R)ArrayData")
     field(FTVL, "$(FTVL)")
     field(NELM, "$(NELEMENTS)")
     field(SCAN, "I/O Intr")
+    field(TSE,  "-2")
+	field(FLNK, "$(P)$(R)TimeStampStr")
+    info(autosaveFields, "TSE")
+}
+
+# Timestamp formatted as a string
+record(stringin, "$(P)$(R)TimeStampStr")
+{
+	field(DESC,	"Image Capture Time")
+	field(DTYP,	"Soft Timestamp")
+	field(TSEL,	"$(P)$(R)ArrayData.TIME")
+	field(INP,	"@%m-%d %H:%M:%S.%01f")
+    info(autosaveFields, "INP")
 }

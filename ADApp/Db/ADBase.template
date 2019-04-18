@@ -139,7 +139,7 @@ record(longout, "$(P)$(R)SizeX")
    field(PINI, "YES")
    field(DTYP, "asynInt32")
    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))SIZE_X")
-   field(VAL,  "1")
+   field(VAL,  "99999")
    info(autosaveFields, "VAL")
 }
 
@@ -155,7 +155,7 @@ record(longout, "$(P)$(R)SizeY")
    field(PINI, "YES")
    field(DTYP, "asynInt32")
    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))SIZE_Y")
-   field(VAL,  "1")
+   field(VAL,  "99999")
    info(autosaveFields, "VAL")
 }
 
@@ -206,7 +206,6 @@ record(bi, "$(P)$(R)ReverseY_RBV")
    field(SCAN, "I/O Intr")
 }
 
-
 ###################################################################
 #  These records control the acquisition time and                 #
 #  period                                                         # 
@@ -218,7 +217,8 @@ record(ao, "$(P)$(R)AcquireTime")
    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ACQ_TIME")
    field(PREC, "3")
    field(VAL,  "1.0")
-   info(autosaveFields, "VAL")
+   field(EGU,  "sec")
+   info(autosaveFields, "HHSV HIGH HIHI HSV LLSV LOLO LOW LSV VAL EGU DESC HOPR LOPR PREC")
 }
 
 record(ai, "$(P)$(R)AcquireTime_RBV")
@@ -227,6 +227,8 @@ record(ai, "$(P)$(R)AcquireTime_RBV")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ACQ_TIME")
    field(PREC, "3")
    field(SCAN, "I/O Intr")
+   field(EGU,  "sec")
+   info(autosaveFields, "HHSV HIGH HIHI HSV LLSV LOLO LOW LSV VAL EGU DESC PREC")
 }
 
 record(ao, "$(P)$(R)AcquirePeriod")
@@ -236,7 +238,8 @@ record(ao, "$(P)$(R)AcquirePeriod")
    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ACQ_PERIOD")
    field(PREC, "3")
    field(VAL,  "0")
-   info(autosaveFields, "VAL")
+   field(EGU,  "sec")
+   info(autosaveFields, "HHSV HIGH HIHI HSV LLSV LOLO LOW LSV VAL EGU DESC HOPR LOPR PREC")
 }
 
 record(ai, "$(P)$(R)AcquirePeriod_RBV")
@@ -245,6 +248,8 @@ record(ai, "$(P)$(R)AcquirePeriod_RBV")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ACQ_PERIOD")
    field(PREC, "3")
    field(SCAN, "I/O Intr")
+   field(EGU,  "sec")
+   info(autosaveFields, "HHSV HIGH HIHI HSV LLSV LOLO LOW LSV VAL EGU DESC PREC")
 }
 
 record(ai, "$(P)$(R)TimeRemaining_RBV")
@@ -394,6 +399,7 @@ record(longin, "$(P)$(R)NumExposuresCounter_RBV")
    field(DTYP, "asynInt32")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NEXPOSURES_COUNTER")
    field(SCAN, "I/O Intr")
+   info(autosaveFields, "TSE")
 }
 record(longout, "$(P)$(R)NumImages")
 {
@@ -409,6 +415,7 @@ record(longin, "$(P)$(R)NumImages_RBV")
    field(DTYP, "asynInt32")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NIMAGES")
    field(SCAN, "I/O Intr")
+   info(autosaveFields, "TSE")
 }
 
 record(longin, "$(P)$(R)NumImagesCounter_RBV")
@@ -416,6 +423,9 @@ record(longin, "$(P)$(R)NumImagesCounter_RBV")
    field(DTYP, "asynInt32")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NIMAGES_COUNTER")
    field(SCAN, "I/O Intr")
+#  Using TSE=-2 here makes clearing NumImagesCounter get TS from last image
+#  field(TSE,  "$(TSE=-2)")
+   info(autosaveFields, "TSE")
 }
 
 ###################################################################
@@ -439,7 +449,7 @@ record(bi, "$(P)$(R)Acquire_RBV") {
    field(ZNAM, "Done")
    field(ZSV,  "NO_ALARM")
    field(ONAM, "Acquiring")
-   field(OSV,  "MINOR")
+   field(OSV,  "NO_ALARM")
    field(SCAN, "I/O Intr")
 }
 

@@ -45,7 +45,7 @@ record(bi, "$(P)$(R)Use_RBV")
     field(ZNAM, "No")
     field(ONAM, "Yes")
     field(ZSV,  "NO_ALARM")
-    field(OSV,  "MINOR")
+    field(OSV,  "NO_ALARM")
     field(SCAN, "I/O Intr")
 }
 
@@ -55,7 +55,7 @@ record(bi, "$(P)$(R)Use_RBV")
 
 record(longout, "$(P)$(R)PositionXLink")
 {
-    field(DOL,  "$(XPOS="") CP MS")
+    field(DOL,  "$(XPOS=) CP MS")
     field(OMSL, "closed_loop")
     field(OUT, "$(P)$(R)PositionX PP")
     info(autosaveFields, "DOL")
@@ -79,7 +79,7 @@ record(longin, "$(P)$(R)PositionX_RBV")
 
 record(longout, "$(P)$(R)PositionYLink")
 {
-    field(DOL,  "$(YPOS="") CP MS")
+    field(DOL,  "$(YPOS=) CP MS")
     field(OMSL, "closed_loop")
     field(OUT, "$(P)$(R)PositionY PP")
     info(autosaveFields, "DOL")
@@ -103,7 +103,7 @@ record(longin, "$(P)$(R)PositionY_RBV")
 
 record(longout, "$(P)$(R)CenterXLink")
 {
-    field(DOL,  "$(XCENT="") CP MS")
+    field(DOL,  "$(XCENT=) CP MS")
     field(OMSL, "closed_loop")
     field(OUT, "$(P)$(R)CenterX PP")
     info(autosaveFields, "DOL")
@@ -126,7 +126,7 @@ record(longin, "$(P)$(R)CenterX_RBV")
 
 record(longout, "$(P)$(R)CenterYLink")
 {
-    field(DOL,  "$(YCENT="") CP MS")
+    field(DOL,  "$(YCENT=) CP MS")
     field(OMSL, "closed_loop")
     field(OUT, "$(P)$(R)CenterY PP")
     info(autosaveFields, "DOL")
@@ -146,10 +146,10 @@ record(longin, "$(P)$(R)CenterY_RBV")
     field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_CENTER_Y")
     field(SCAN, "I/O Intr")
 }
-
+ 
 record(longout, "$(P)$(R)SizeXLink")
 {
-    field(DOL,  "$(XSIZE="") CP MS")
+    field(DOL,  "$(XSIZE=) CP MS")
     field(OMSL, "closed_loop")
     field(OUT, "$(P)$(R)SizeX PP")
     info(autosaveFields, "DOL")
@@ -175,7 +175,7 @@ record(longin, "$(P)$(R)SizeX_RBV")
 
 record(longout, "$(P)$(R)SizeYLink")
 {
-    field(DOL,  "$(YSIZE="") CP MS")
+    field(DOL,  "$(YSIZE=) CP MS")
     field(OMSL, "closed_loop")
     field(OUT, "$(P)$(R)SizeY PP")
     info(autosaveFields, "DOL")
@@ -198,7 +198,7 @@ record(longin, "$(P)$(R)SizeY_RBV")
 
 record(longout, "$(P)$(R)WidthXLink")
 {
-    field(DOL,  "$(XWIDTH="") CP MS")
+    field(DOL,  "$(XWIDTH=) CP MS")
     field(OMSL, "closed_loop")
     field(OUT, "$(P)$(R)WidthX PP")
     info(autosaveFields, "DOL")
@@ -206,6 +206,7 @@ record(longout, "$(P)$(R)WidthXLink")
 
 record(longout, "$(P)$(R)WidthX")
 {
+    field(DOL,  "1")
     field(PINI, "YES")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_WIDTH_X")
@@ -221,7 +222,7 @@ record(longin, "$(P)$(R)WidthX_RBV")
 
 record(longout, "$(P)$(R)WidthYLink")
 {
-    field(DOL,  "$(YWIDTH="") CP MS")
+    field(DOL,  "$(YWIDTH=) CP MS")
     field(OMSL, "closed_loop")
     field(OUT, "$(P)$(R)WidthY PP")
     info(autosaveFields, "DOL")
@@ -229,6 +230,7 @@ record(longout, "$(P)$(R)WidthYLink")
 
 record(longout, "$(P)$(R)WidthY")
 {
+    field(DOL,  "1")
     field(PINI, "YES")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_WIDTH_Y")
@@ -302,7 +304,7 @@ record(longout, "$(P)$(R)Red")
     field(PINI, "YES")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_RED")
-    field(VAL,  "1")
+    field(VAL,  "$(RED=1)")
     info(autosaveFields, "VAL")
 }
 
@@ -318,7 +320,7 @@ record(longout, "$(P)$(R)Green")
     field(PINI, "YES")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_GREEN")
-    field(VAL,  "1")
+    field(VAL,  "$(GREEN=65535)")
     info(autosaveFields, "VAL")
 }
 
@@ -334,7 +336,7 @@ record(longout, "$(P)$(R)Blue")
     field(PINI, "YES")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))OVERLAY_BLUE")
-    field(VAL,  "1")
+    field(VAL,  "$(BLUE=1)")
     info(autosaveFields, "VAL")
 }
 

@@ -29,7 +29,7 @@ record(stringout, "$(P)$(R)NDArrayPort")
     field(DTYP, "asynOctetWrite")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NDARRAY_PORT")
     field(VAL,  "$(NDARRAY_PORT)")
-    info(autosaveFields, "VAL")
+    info(autosaveFields, "DESC VAL")
 }
 
 record(stringin, "$(P)$(R)NDArrayPort_RBV")
@@ -45,7 +45,7 @@ record(longout, "$(P)$(R)NDArrayAddress")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NDARRAY_ADDR")
     field(VAL,  "$(NDARRAY_ADDR=0)")
-    info(autosaveFields, "VAL")
+    info(autosaveFields, "DESC VAL")
 }
 
 record(longin, "$(P)$(R)NDArrayAddress_RBV")
@@ -64,20 +64,20 @@ record(bo, "$(P)$(R)EnableCallbacks")
     field(PINI, "YES")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ENABLE_CALLBACKS")
-    field(ZNAM, "Disable")
-    field(ONAM, "Enable")
+    field(ZNAM, "Disabled")
+    field(ONAM, "Enabled")
     field(VAL,  "$(ENABLED=0)")
-    info(autosaveFields, "VAL")
+    info(autosaveFields, "DESC VAL")
 }
 
 record(bi, "$(P)$(R)EnableCallbacks_RBV")
 {
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ENABLE_CALLBACKS")
-    field(ZNAM, "Disable")
-    field(ONAM, "Enable")
-    field(ZSV,  "NO_ALARM")
-    field(OSV,  "MINOR")
+    field(ZNAM, "Disabled")
+    field(ONAM, "Enabled")
+    field(ZSV,  "MINOR")
+    field(OSV,  "NO_ALARM")
     field(SCAN, "I/O Intr")
 }
 
@@ -135,7 +135,7 @@ record(bo, "$(P)$(R)BlockingCallbacks")
     field(ZNAM, "No")
     field(ONAM, "Yes")
     field(VAL,  "0")
-    info(autosaveFields, "VAL")
+    info(autosaveFields, "DESC ZSV OSV VAL")
 }
 
 record(bi, "$(P)$(R)BlockingCallbacks_RBV")
@@ -144,7 +144,10 @@ record(bi, "$(P)$(R)BlockingCallbacks_RBV")
     field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))BLOCKING_CALLBACKS")
     field(ZNAM, "No")
     field(ONAM, "Yes")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MINOR")
     field(SCAN, "I/O Intr")
+    info( autosaveFields, "DESC ZSV OSV" )
 }
 
 
@@ -154,6 +157,7 @@ record(longout, "$(P)$(R)DroppedArrays")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))DROPPED_ARRAYS")
     field(VAL,  "0")
+    info( autosaveFields, "DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV EGU" )
 }
 
 record(longin, "$(P)$(R)DroppedArrays_RBV")
@@ -161,6 +165,9 @@ record(longin, "$(P)$(R)DroppedArrays_RBV")
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))DROPPED_ARRAYS")
     field(SCAN, "I/O Intr")
+    field(HIGH, "1")
+    field(HSV,  "MINOR")
+    info( autosaveFields, "DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV EGU" )
 }
 
 record(longout, "$(P)$(R)QueueSize")
@@ -168,6 +175,7 @@ record(longout, "$(P)$(R)QueueSize")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))QUEUE_SIZE")
     field(PINI, "YES")
+    info( autosaveFields, "DESC EGU" )
 }
 
 record(longin, "$(P)$(R)QueueSize_RBV")
@@ -230,6 +238,7 @@ record(longout, "$(P)$(R)NumThreads")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))NUM_THREADS")
     field(VAL,  "1")
     field(PINI, "YES")
+    info(autosaveFields, "DESC VAL")
 }
 
 record(longin, "$(P)$(R)NumThreads_RBV")
@@ -313,7 +322,7 @@ record(longin, "$(P)$(R)SortFree") {
 record(calcout, "$(P)$(R)SortFreeLow") {
     field(CALC, "A*0.25")
     field(INPA, "$(P)$(R)SortSize")
-    field(OUT,  "$(P)$(R)SortFree_RBV.LOW")
+    field(OUT,  "$(P)$(R)SortFree.LOW")
 }
 
 record(longout, "$(P)$(R)DroppedOutputArrays")

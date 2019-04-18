@@ -492,6 +492,13 @@ record(mbbi, "$(P)$(R)DataType_RBV")
    field(SCAN, "I/O Intr")
 }
 
+record(longin, "$(P)$(R)BitsPerPixel_RBV")
+{
+   field(DTYP, "asynInt32")
+   field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))BITS_PER_PIXEL")
+   field(SCAN, "I/O Intr")
+}
+
 ###################################################################
 #  These records control the color mode                           #
 #  These choices must agree with NDColorMode_t in NDArray.h       # 
@@ -591,12 +598,17 @@ record(longin, "$(P)$(R)ArrayCounter_RBV")
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARRAY_COUNTER")
     field(SCAN, "I/O Intr")
+    field(TSE,  "$(TSE=-2)")
+    field(LOW,  "0" )
+    field(LSV,  "MINOR" )
+    info(autosaveFields, "DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV TSE")
 }
 
 # Updated rate calculation to use a smoothing factor w/ guard against negative values
+# 0 rate sets alarm state to MINOR
 record(calc, "$(P)$(R)ArrayRate_RBV")
 {
-    field(INPA, "$(P)$(R)ArrayRate_RBV.LB NPP NMS")   # Previous counter value
+    field(INPA, "$(P)$(R)ArrayRate_RBV.LB NPP NMS")   # Previous counter (Last B value)
     field(INPB, "$(P)$(R)ArrayCounter_RBV NPP NMS")   # Current counter value
     field(INPC, "1.0")                                # Delta time in seconds
     field(INPD, "$(P)$(R)ArrayRate_RBV.VAL NPP NMS")  # Previous rate
@@ -605,6 +617,10 @@ record(calc, "$(P)$(R)ArrayRate_RBV")
     field(PREC, "2" )
     field(EGU,  "Hz" )
     field(SCAN, "1 second")
+    field(LOW,  "0")
+    field(LSV,  "MINOR")
+    field(ADEL, "0.1")
+    info(autosaveFields, "ADEL DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV MDEL PREC C E SCAN EGU")
 }
 
 ###################################################################
@@ -615,10 +631,10 @@ record(bo, "$(P)$(R)ArrayCallbacks")
     field(PINI, "YES")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARRAY_CALLBACKS")
-    field(ZNAM, "Disable")
-    field(ZSV,  "NO_ALARM")
-    field(ONAM, "Enable")
-    field(OSV,  "MINOR")
+    field(ZNAM, "Disabled")
+    field(ZSV,  "MINOR")
+    field(ONAM, "Enabled")
+    field(OSV,  "NO_ALARM")
     field(VAL, "1")
     info(autosaveFields, "VAL")
 }
@@ -627,10 +643,10 @@ record(bi, "$(P)$(R)ArrayCallbacks_RBV")
 {
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARRAY_CALLBACKS")
-    field(ZNAM, "Disable")
-    field(ZSV,  "NO_ALARM")
-    field(ONAM, "Enable")
-    field(OSV,  "MINOR")
+    field(ZNAM, "Disabled")
+    field(ZSV,  "MINOR")
+    field(ONAM, "Enabled")
+    field(OSV,  "NO_ALARM")
     field(SCAN, "I/O Intr")
 }
 
