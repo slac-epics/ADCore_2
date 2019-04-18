@@ -6,3 +6,10 @@
 -include $(TOP)/RELEASE.local
 -include $(TOP)/configure/RELEASE.local
 
+# Test for required macros
+ifeq ($(wildcard $(ADSUPPORT)),)
+$(error ADSUPPORT path not found: $(ADSUPPORT))
+endif
+ifeq ($(wildcard $(ASYN)),)
+$(error ASYN path not found: $(ASYN))
+endif
