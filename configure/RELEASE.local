@@ -21,11 +21,13 @@
 # ==========================================================
 ADSUPPORT_MODULE_VERSION        = R1.1-0.1.1
 ASYN_MODULE_VERSION             = R4.31-0.1.0
+ifndef BASE_7_0
 PVA2PVA_MODULE_VERSION          = R1.0.0-0.3.1
 PVACCESS_MODULE_VERSION         = R6.0.0-0.3.0
 PVDATA_MODULE_VERSION           = R7.0.0-0.0.1
 PVDATABASE_MODULE_VERSION       = R4.3.0-0.0.1
 NORMATIVETYPES_MODULE_VERSION   = R5.2.0-0.0.1
+endif
 
 # ==========================================================
 # Define module paths using pattern
@@ -36,12 +38,13 @@ NORMATIVETYPES_MODULE_VERSION   = R5.2.0-0.0.1
 
 ADSUPPORT       = $(EPICS_MODULES)/ADSupport/$(ADSUPPORT_MODULE_VERSION)
 ASYN            = $(EPICS_MODULES)/asyn/$(ASYN_MODULE_VERSION)
+ifndef BASE_7_0
 PVA2PVA         = $(EPICS_MODULES)/pva2pva/$(PVA2PVA_MODULE_VERSION)
 PVACCESS        = $(EPICS_MODULES)/pvAccessCPP/$(PVACCESS_MODULE_VERSION)
 PVDATA          = $(EPICS_MODULES)/pvDataCPP/$(PVDATA_MODULE_VERSION)
 PVDATABASE      = $(EPICS_MODULES)/pvDatabaseCPP/$(PVDATABASE_MODULE_VERSION)
 NORMATIVETYPES  = $(EPICS_MODULES)/normativeTypesCPP/$(NORMATIVETYPES_MODULE_VERSION)
-
+endif
 
 # Set EPICS_BASE last so it appears last in the DB, DBD, INCLUDE, and LIB search paths
 EPICS_BASE      = $(EPICS_SITE_TOP)/base/$(BASE_MODULE_VERSION)
