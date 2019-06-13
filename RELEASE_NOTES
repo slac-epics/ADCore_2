@@ -1,3 +1,7 @@
+R3.1-2.3.2:	2019-06-12 Bruce Hill
+	ifdef build for BASE_7_0
+	PORT macro in NDPluginBase.template asyn record needs to be in quotes.
+
 R3.1-2.3.1:	2019-03-13 Bruce Hill
 	Build w/ pvAccessCPP/R6.0.0-0.3.0 pva2pva/R1.0.0-0.3.1 asyn/R4.31-0.1.0
 
