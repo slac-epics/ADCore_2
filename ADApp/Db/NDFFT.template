@@ -46,6 +46,7 @@ record(waveform, "$(P)$(R)FFTTimeAxis")
    field(NELM, "$(NCHANS)")
    field(FTVL, "DOUBLE")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(waveform, "$(P)$(R)FFTFreqAxis")
@@ -55,6 +56,7 @@ record(waveform, "$(P)$(R)FFTFreqAxis")
    field(NELM, "$(NCHANS)")
    field(FTVL, "DOUBLE")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(bo, "$(P)$(R)FFTDirection")
@@ -116,6 +118,7 @@ record(longin, "$(P)$(R)FFTNumAveraged")
    field(DTYP, "asynInt32")
    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))FFT_NUM_AVERAGED")
    field(SCAN,  "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(bo, "$(P)$(R)FFTResetAverage")
@@ -141,6 +144,7 @@ record(waveform, "$(P)$(R)FFTTimeSeries")
    field(NELM, "$(NCHANS)")
    field(FTVL, "DOUBLE")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(waveform, "$(P)$(R)FFTReal")
@@ -150,6 +154,7 @@ record(waveform, "$(P)$(R)FFTReal")
    field(NELM, "$(NCHANS)")
    field(FTVL, "DOUBLE")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(waveform, "$(P)$(R)FFTImaginary")
@@ -159,6 +164,7 @@ record(waveform, "$(P)$(R)FFTImaginary")
    field(NELM, "$(NCHANS)")
    field(FTVL, "DOUBLE")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(waveform, "$(P)$(R)FFTAbsValue")
@@ -168,5 +174,6 @@ record(waveform, "$(P)$(R)FFTAbsValue")
    field(NELM, "$(NCHANS)")
    field(FTVL, "DOUBLE")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
