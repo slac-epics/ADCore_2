@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 768
-y 1659
+x 50
+y 50
 w 400
 h 480
 font "helvetica-bold-r-12.0"
@@ -34,7 +34,7 @@ release 0
 x 4
 y 12
 w 388
-h 416
+h 444
 lineColor index 14
 fill
 fillColor index 3
@@ -67,7 +67,7 @@ major 4
 minor 1
 release 1
 x 12
-y 176
+y 200
 w 372
 h 20
 font "helvetica-bold-r-12.0"
@@ -82,26 +82,24 @@ endObjectProperties
 object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 152
 y 124
 w 60
 h 20
 controlPv "$(P)$(R)FileNumber"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
 bgColor index 12
-objType "monitors"
-fgAlarm
 limitsFromDb
 nullColor index 40
 smartRefresh
 useHexPrefix
 newPos
-fontAlign "center"
-font "helvetica-bold-r-12.0"
-fontAlign "center"
+objType "monitors"
 endObjectProperties
 
 # (Menu Button)
@@ -266,7 +264,7 @@ major 4
 minor 7
 release 0
 x 12
-y 240
+y 264
 w 376
 h 20
 controlPv "$(P)$(R)FullFileName_RBV"
@@ -377,7 +375,7 @@ major 4
 minor 1
 release 1
 x 268
-y 268
+y 292
 w 60
 h 20
 font "helvetica-bold-r-12.0"
@@ -396,7 +394,7 @@ major 4
 minor 0
 release 0
 x 332
-y 268
+y 292
 w 56
 h 20
 fgColor index 25
@@ -416,7 +414,7 @@ major 4
 minor 0
 release 0
 x 308
-y 296
+y 320
 w 80
 h 40
 
@@ -429,7 +427,7 @@ major 4
 minor 1
 release 1
 x 308
-y 296
+y 320
 w 40
 h 20
 font "helvetica-bold-r-12.0"
@@ -448,7 +446,7 @@ major 4
 minor 0
 release 0
 x 312
-y 316
+y 340
 w 20
 h 20
 controlPv "$(P)$(R)WriteFile_RBV"
@@ -466,7 +464,7 @@ major 4
 minor 1
 release 0
 x 344
-y 296
+y 320
 w 44
 h 44
 fgColor index 25
@@ -515,7 +513,7 @@ major 4
 minor 7
 release 0
 x 76
-y 344
+y 368
 w 312
 h 20
 controlPv "$(P)$(R)WriteMessage"
@@ -539,7 +537,7 @@ major 4
 minor 0
 release 0
 x 52
-y 344
+y 368
 w 18
 h 18
 controlPv "$(P)$(R)WriteStatus"
@@ -620,7 +618,7 @@ major 4
 minor 1
 release 1
 x 8
-y 344
+y 368
 w 40
 h 20
 font "helvetica-bold-r-12.0"
@@ -639,7 +637,7 @@ major 4
 minor 1
 release 1
 x 12
-y 196
+y 220
 w 372
 h 20
 font "helvetica-bold-r-12.0"
@@ -657,7 +655,7 @@ major 4
 minor 1
 release 1
 x 12
-y 216
+y 240
 w 372
 h 20
 font "helvetica-bold-r-12.0"
@@ -675,7 +673,7 @@ major 4
 minor 0
 release 0
 x 12
-y 268
+y 292
 w 289
 h 68
 
@@ -688,7 +686,7 @@ major 4
 minor 1
 release 0
 x 256
-y 296
+y 320
 w 45
 h 40
 fgColor index 21
@@ -712,7 +710,7 @@ major 4
 minor 1
 release 0
 x 204
-y 296
+y 320
 w 45
 h 40
 fgColor index 19
@@ -733,52 +731,48 @@ endObjectProperties
 object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 200
-y 268
+y 292
 w 52
 h 20
 controlPv "$(P)$(R)NumCaptured_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
 bgColor index 12
-objType "monitors"
-fgAlarm
 limitsFromDb
 nullColor index 40
 smartRefresh
 useHexPrefix
 newPos
-fontAlign "center"
-font "helvetica-bold-r-12.0"
-fontAlign "center"
+objType "monitors"
 endObjectProperties
 
 # (Text Monitor)
 object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
-minor 5
+minor 7
 release 0
 x 144
-y 268
+y 292
 w 52
 h 20
 controlPv "$(P)$(R)NumCapture_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
 fgColor index 16
 fgAlarm
 bgColor index 12
-objType "monitors"
-fgAlarm
 limitsFromDb
 nullColor index 40
 smartRefresh
 useHexPrefix
 newPos
-fontAlign "center"
-font "helvetica-bold-r-12.0"
-fontAlign "center"
+objType "monitors"
 endObjectProperties
 
 # (Text Control)
@@ -788,7 +782,7 @@ major 4
 minor 7
 release 0
 x 84
-y 268
+y 292
 w 56
 h 20
 controlPv "$(P)$(R)NumCapture"
@@ -813,7 +807,7 @@ major 4
 minor 1
 release 1
 x 12
-y 268
+y 292
 w 68
 h 20
 font "helvetica-bold-r-12.0"
@@ -839,7 +833,7 @@ major 4
 minor 1
 release 1
 x 12
-y 296
+y 320
 w 90
 h 20
 font "helvetica-bold-r-12.0"
@@ -858,7 +852,7 @@ major 4
 minor 0
 release 0
 x 100
-y 296
+y 320
 w 72
 h 20
 fgColor index 25
@@ -877,8 +871,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 178
-y 296
+x 180
+y 320
 w 20
 h 20
 controlPv "$(P)$(R)Capture_RBV"
@@ -896,7 +890,7 @@ major 4
 minor 7
 release 0
 x 100
-y 372
+y 396
 w 100
 h 20
 controlPv "$(P)$(R)Capture_RBV"
@@ -919,7 +913,7 @@ major 4
 minor 1
 release 1
 x 8
-y 372
+y 396
 w 92
 h 20
 font "helvetica-bold-r-12.0"
@@ -938,7 +932,7 @@ major 4
 minor 1
 release 1
 x 8
-y 396
+y 420
 w 92
 h 20
 font "helvetica-bold-r-12.0"
@@ -957,7 +951,7 @@ major 4
 minor 7
 release 0
 x 100
-y 396
+y 420
 w 100
 h 20
 controlPv "$(P)$(R)WriteFile_RBV"
@@ -980,7 +974,7 @@ major 4
 minor 7
 release 0
 x 284
-y 372
+y 396
 w 104
 h 20
 controlPv "$(P)$(R)ReadFile_RBV"
@@ -1003,7 +997,7 @@ major 4
 minor 1
 release 1
 x 204
-y 372
+y 396
 w 76
 h 20
 font "helvetica-bold-r-12.0"
@@ -1022,7 +1016,7 @@ major 4
 minor 7
 release 0
 x 284
-y 396
+y 420
 w 104
 h 20
 controlPv "$(P)$(R)WriteStatus"
@@ -1045,7 +1039,7 @@ major 4
 minor 1
 release 1
 x 204
-y 396
+y 420
 w 76
 h 20
 font "helvetica-bold-r-12.0"
@@ -1054,6 +1048,74 @@ bgColor index 3
 useDisplayBg
 value {
   "Write Status"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 192
+y 176
+w 100
+h 20
+controlPv "$(P)$(R)FileSuffix_RBV"
+font "helvetica-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 0
+smartRefresh
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 84
+y 176
+w 100
+h 20
+controlPv "$(P)$(R)FileSuffix"
+font "helvetica-medium-r-12.0"
+fgColor index 25
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 0
+useKp
+file
+useHexPrefix
+newPos
+inputFocusUpdates
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 12
+y 176
+w 68
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "File Suffix"
 }
 endObjectProperties
 
