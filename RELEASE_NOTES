@@ -1,3 +1,6 @@
+R3.1-2.3.5:	2020-09-26 Bruce Hill
+	Bring in SLAC NFFile.edl improvements from R2.6-2.branch
+
 R3.1-2.3.4:	2020-03-03 Bruce Hill
 	Update to pvDatabaseCPP/R4.3.0-0.0.3
 
