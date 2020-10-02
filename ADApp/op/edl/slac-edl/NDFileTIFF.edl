@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1171
-y 120
-w 416
-h 820
+x 569
+y 101
+w 522
+h 1009
 font "helvetica-bold-r-12.0"
 ctlFont "helvetica-bold-r-12.0"
 btnFont "helvetica-bold-r-12.0"
@@ -32,8 +32,8 @@ minor 1
 release 0
 x 0
 y 0
-w 390
-h 385
+w 420
+h 384
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
@@ -55,10 +55,10 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 0
-y 384
-w 392
-h 400
+x 4
+y 392
+w 460
+h 512
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
@@ -80,8 +80,8 @@ beginObjectProperties
 major 4
 minor 3
 release 0
-x 5
-y 790
+x 8
+y 908
 w 380
 h 25
 fgColor index 14
