@@ -19,6 +19,7 @@ ctlBgColor1 index 5
 ctlBgColor2 index 12
 topShadowColor index 1
 botShadowColor index 13
+title "$(P) $(NAME) Plugin"
 showGrid
 snapToGrid
 gridSize 4

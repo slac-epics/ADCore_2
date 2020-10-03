@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1253
-y 228
-w 390
-h 820
+x 458
+y 37
+w 420
+h 1060
 font "helvetica-bold-r-12.0"
 ctlFont "helvetica-bold-r-12.0"
 btnFont "helvetica-bold-r-12.0"
@@ -19,6 +19,7 @@ ctlBgColor1 index 3
 ctlBgColor2 index 3
 topShadowColor index 1
 botShadowColor index 11
+title "$(P) $(NAME) Plugin"
 showGrid
 snapToGrid
 gridSize 4
@@ -32,8 +33,8 @@ minor 1
 release 0
 x 0
 y 0
-w 390
-h 385
+w 408
+h 388
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
@@ -56,9 +57,9 @@ major 4
 minor 1
 release 0
 x 0
-y 385
-w 390
-h 280
+y 392
+w 408
+h 464
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
@@ -80,8 +81,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 5
-y 680
+x 4
+y 868
 w 380
 h 135
 lineColor index 14
@@ -95,8 +96,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 5
-y 670
+x 4
+y 860
 w 66
 h 14
 font "helvetica-medium-r-12.0"
@@ -115,8 +116,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 690
+x 12
+y 880
 w 370
 h 15
 font "helvetica-bold-r-12.0"
@@ -134,8 +135,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 10
-y 705
+x 12
+y 892
 w 370
 h 18
 controlPv "$(P)$(R)TemplateFilePath_RBV"
@@ -156,8 +157,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 10
-y 725
+x 12
+y 912
 w 370
 h 20
 controlPv "$(P)$(R)TemplateFilePath"
@@ -182,8 +183,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 10
-y 765
+x 12
+y 952
 w 370
 h 18
 controlPv "$(P)$(R)TemplateFileName_RBV"
@@ -204,8 +205,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 10
-y 785
+x 12
+y 972
 w 370
 h 20
 controlPv "$(P)$(R)TemplateFileName"
@@ -230,8 +231,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 750
+x 12
+y 940
 w 370
 h 15
 font "helvetica-bold-r-12.0"
@@ -240,6 +241,28 @@ bgColor index 3
 useDisplayBg
 value {
   "Template file name"
+}
+endObjectProperties
+
+# (Shell Command)
+object shellCmdClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 8
+y 1012
+w 380
+h 25
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "helvetica-bold-r-12.0"
+buttonLabel "HTML Documentation"
+numCmds 1
+command {
+  0 "firefox --no-remote areaDetectorHelp/NDPluginFile.html#Nexus &"
 }
 endObjectProperties
 
