@@ -1,3 +1,6 @@
+R3.9-1.0.0: 2020-10-13 Bruce Hill
+	R3-9 plus SLAC build support, screens, and features
+
 R3.1-2.3.5:	2020-09-26 Bruce Hill
 	Bring in SLAC NFFile.edl improvements from R2.6-2.branch
 
