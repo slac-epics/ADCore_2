@@ -19,7 +19,7 @@
 # Don't set your version to anything such as "test" that
 # could match a directory name.
 # ==========================================================
-ADSUPPORT_MODULE_VERSION        = R1.1-0.1.1
+ADSUPPORT_MODULE_VERSION        = R1.9-0.1.0
 ASYN_MODULE_VERSION             = R4.39-0.0.1
 
 # ==========================================================
