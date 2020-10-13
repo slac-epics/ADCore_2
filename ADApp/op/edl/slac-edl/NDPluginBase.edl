@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 791
-y 1312
+x 852
+y 1135
 w 400
 h 400
 font "helvetica-bold-r-12.0"
@@ -180,9 +180,9 @@ major 4
 minor 0
 release 0
 x 0
-y 80
+y 72
 w 192
-h 60
+h 52
 lineColor index 14
 fill
 fillColor index 3
@@ -195,9 +195,9 @@ major 4
 minor 1
 release 1
 x 4
-y 92
-w 59
-h 45
+y 84
+w 60
+h 36
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
@@ -215,7 +215,7 @@ major 4
 minor 7
 release 0
 x 68
-y 116
+y 100
 w 112
 h 20
 controlPv "$(P)$(R)NDArrayPort_RBV"
@@ -240,7 +240,7 @@ major 4
 minor 7
 release 0
 x 68
-y 92
+y 76
 w 112
 h 20
 controlPv "$(P)$(R)NDArrayPort"
@@ -264,9 +264,9 @@ major 4
 minor 0
 release 0
 x 0
-y 156
+y 132
 w 192
-h 84
+h 112
 lineColor index 14
 fill
 fillColor index 3
@@ -279,7 +279,7 @@ major 4
 minor 1
 release 1
 x 4
-y 168
+y 144
 w 60
 h 20
 font "helvetica-bold-r-12.0"
@@ -298,7 +298,7 @@ major 4
 minor 1
 release 1
 x 4
-y 192
+y 168
 w 60
 h 20
 font "helvetica-bold-r-12.0"
@@ -317,7 +317,7 @@ major 4
 minor 7
 release 0
 x 128
-y 192
+y 168
 w 55
 h 20
 controlPv "$(P)$(R)MinCallbackTime_RBV"
@@ -342,7 +342,7 @@ major 4
 minor 7
 release 0
 x 68
-y 192
+y 168
 w 55
 h 20
 controlPv "$(P)$(R)MinCallbackTime"
@@ -405,7 +405,7 @@ major 4
 minor 0
 release 0
 x 68
-y 168
+y 144
 w 115
 h 20
 fgColor index 25
@@ -1061,7 +1061,7 @@ major 4
 minor 1
 release 1
 x 0
-y 76
+y 68
 w 43
 h 14
 font "helvetica-medium-r-12.0"
@@ -1081,7 +1081,7 @@ major 4
 minor 1
 release 1
 x 0
-y 152
+y 128
 w 60
 h 16
 font "helvetica-medium-r-12.0"
@@ -1191,17 +1191,17 @@ botShadowColor index 11
 font "helvetica-medium-r-12.0"
 xPosOffset -200
 yPosOffset -400
-buttonLabel "ASYN"
+buttonLabel "More"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "asynScreens/asynRecord.edl"
+  0 "areaDetectorScreens/NDPluginBaseFull.edl"
 }
 setPosition {
   0 "button"
 }
 symbols {
-  0 "P=$(P),R=$(R)AsynIO"
+  0 "P=$(P),R=$(R)"
 }
 replaceSymbols {
   0 1
@@ -1318,5 +1318,73 @@ visPv "$(P)$(R)ColorMode"
 visInvert
 visMin "0"
 visMax "1"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 128
+y 192
+w 55
+h 20
+controlPv "$(P)$(R)NumThreads_RBV"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
+fgColor index 15
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 68
+y 192
+w 55
+h 20
+controlPv "$(P)$(R)NumThreads"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
+fgColor index 25
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+noExecuteClipMask
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 4
+y 192
+w 60
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Threads"
+}
 endObjectProperties
 
