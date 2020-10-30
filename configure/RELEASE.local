@@ -20,7 +20,7 @@
 # could match a directory name.
 # ==========================================================
 ADSUPPORT_MODULE_VERSION        = R1.1-0.1.1
-ASYN_MODULE_VERSION             = R4.32-1.0.0
+ASYN_MODULE_VERSION             = R4.35-0.0.1
 ifndef BASE_7_0
 PVA2PVA_MODULE_VERSION          = R1.0.0-0.3.1
 PVACCESS_MODULE_VERSION         = R6.0.0-0.3.0
