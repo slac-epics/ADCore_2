@@ -1,3 +1,6 @@
+R3.9-1.0.1: 2021-04-27 Bruce Hill
+	ADCore now uses WITH_PVA as the macro to control building NDPluginPva
+
 R3.9-1.0.0: 2020-10-13 Bruce Hill
 	R3-9 plus SLAC build support, screens, and features
 
