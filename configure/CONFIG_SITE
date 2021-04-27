@@ -48,6 +48,7 @@ CROSS_COMPILER_TARGET_ARCHS := $(filter-out RTEMS%,             $(CROSS_COMPILER
 
 # WITH_PVA is required for NDPluginPva and pvaDriver
 WITH_PVA  = YES
+WITH_QSRV = YES
 
 # We inherit the WITH_HDF5, WITH_JPEG, ... macros that were here via
 # ADSUPPORT/cfg/CONFIG_ADSupport
