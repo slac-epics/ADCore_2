@@ -1,3 +1,6 @@
+R3.9-1.0.2: 2021-05-26 Bruce Hill
+	update to asyn/R4.39-1.0.0
+
 R3.9-1.0.1: 2021-04-27 Bruce Hill
 	ADCore now uses WITH_PVA as the macro to control building NDPluginPva
 
