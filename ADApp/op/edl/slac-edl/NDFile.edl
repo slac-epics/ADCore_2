@@ -1061,7 +1061,7 @@ x 192
 y 176
 w 100
 h 20
-controlPv "$(P)$(R)FileSuffix_RBV"
+controlPv "$(P)$(R)TempSuffix_RBV"
 font "helvetica-medium-r-12.0"
 fgColor index 15
 fgAlarm
@@ -1084,7 +1084,7 @@ x 84
 y 176
 w 100
 h 20
-controlPv "$(P)$(R)FileSuffix"
+controlPv "$(P)$(R)TempSuffix"
 font "helvetica-medium-r-12.0"
 fgColor index 25
 bgColor index 5
@@ -1115,7 +1115,7 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "File Suffix"
+  "Temp Suffix"
 }
 endObjectProperties
 
