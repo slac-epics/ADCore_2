@@ -20,7 +20,7 @@
 # could match a directory name.
 # ==========================================================
 ADSUPPORT_MODULE_VERSION        = R1.9-0.1.0
-ASYN_MODULE_VERSION             = R4.39-1.0.0
+ASYN_MODULE_VERSION             = R4.39-1.0.1
 
 # ==========================================================
 # Define module paths using pattern
