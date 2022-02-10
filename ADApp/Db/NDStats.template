@@ -691,6 +691,7 @@ record(waveform, "$(P)$(R)ProfileAverageX_RBV")
    field(FTVL, "DOUBLE")
    field(NELM, "$(XSIZE)")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(waveform, "$(P)$(R)ProfileAverageY_RBV")
@@ -700,6 +701,7 @@ record(waveform, "$(P)$(R)ProfileAverageY_RBV")
    field(FTVL, "DOUBLE")
    field(NELM, "$(YSIZE)")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(waveform, "$(P)$(R)ProfileThresholdX_RBV")
@@ -709,6 +711,7 @@ record(waveform, "$(P)$(R)ProfileThresholdX_RBV")
    field(FTVL, "DOUBLE")
    field(NELM, "$(XSIZE)")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(waveform, "$(P)$(R)ProfileThresholdY_RBV")
@@ -718,6 +721,7 @@ record(waveform, "$(P)$(R)ProfileThresholdY_RBV")
    field(FTVL, "DOUBLE")
    field(NELM, "$(YSIZE)")
    field(SCAN, "I/O Intr")
+   field(TSE,  "-2")
 }
 
 record(waveform, "$(P)$(R)ProfileCentroidX_RBV")
