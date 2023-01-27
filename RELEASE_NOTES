@@ -1,3 +1,6 @@
+R3.9-1.2.0: 2023-01-26 Bruce Hill
+	Added some ADCore edm screens and tweaks that got lost in a prior merge.
+
 R3.9-1.1.0: 2022-02-09 Bruce Hill
 	Set TSE=-2 for NDStats ProfileAverage and ProfileThreshold waveforms
 	Fix TempSuffix vs FileSuffix PV reference in NDFile.edl
