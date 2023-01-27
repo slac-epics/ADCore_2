@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 425
-y 183
-w 390
-h 820
+x 1944
+y 1308
+w 406
+h 841
 font "helvetica-bold-r-12.0"
 ctlFont "helvetica-bold-r-12.0"
 btnFont "helvetica-bold-r-12.0"
@@ -31,8 +31,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 5
-y 400
+x 4
+y 412
 w 185
 h 160
 lineColor index 14
@@ -48,8 +48,8 @@ minor 1
 release 0
 x 0
 y 0
-w 390
-h 385
+w 396
+h 384
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
@@ -70,8 +70,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 5
-y 390
+x 4
+y 404
 w 65
 h 14
 font "helvetica-medium-r-12.0"
@@ -90,8 +90,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 10
-y 410
+x 12
+y 424
 w 175
 h 20
 fgColor index 25
@@ -110,8 +110,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 430
+x 12
+y 444
 w 75
 h 30
 font "helvetica-bold-r-12.0"
@@ -131,7 +131,7 @@ major 4
 minor 7
 release 0
 x 140
-y 435
+y 448
 w 45
 h 20
 controlPv "$(P)$(R)BgdWidth_RBV"
@@ -154,8 +154,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 90
-y 435
+x 92
+y 448
 w 45
 h 20
 controlPv "$(P)$(R)BgdWidth"
@@ -179,8 +179,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 50
-y 485
+x 52
+y 496
 w 35
 h 20
 controlPv "$(P)$(R)MaxValue_RBV"
@@ -203,8 +203,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 50
-y 460
+x 52
+y 472
 w 35
 h 20
 controlPv "$(P)$(R)MinValue_RBV"
@@ -227,8 +227,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 110
-y 535
+x 112
+y 548
 w 75
 h 20
 controlPv "$(P)$(R)Net_RBV"
@@ -251,8 +251,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 110
-y 510
+x 112
+y 524
 w 75
 h 20
 controlPv "$(P)$(R)Total_RBV"
@@ -275,8 +275,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 50
-y 510
+x 52
+y 524
 w 35
 h 20
 controlPv "$(P)$(R)MeanValue_RBV"
@@ -299,8 +299,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 50
-y 535
+x 52
+y 548
 w 35
 h 20
 controlPv "$(P)$(R)Sigma_RBV"
@@ -324,7 +324,7 @@ major 4
 minor 0
 release 0
 x 200
-y 400
+y 412
 w 185
 h 135
 lineColor index 14
@@ -339,7 +339,7 @@ major 4
 minor 1
 release 1
 x 200
-y 390
+y 404
 w 63
 h 14
 font "helvetica-medium-r-12.0"
@@ -358,8 +358,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 205
-y 410
+x 204
+y 424
 w 175
 h 20
 fgColor index 25
@@ -378,8 +378,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 205
-y 430
+x 204
+y 444
 w 70
 h 30
 font "helvetica-bold-r-12.0"
@@ -397,8 +397,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 335
-y 435
+x 336
+y 448
 w 45
 h 20
 controlPv "$(P)$(R)CentroidThreshold_RBV"
@@ -421,8 +421,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 285
-y 435
+x 284
+y 448
 w 45
 h 20
 controlPv "$(P)$(R)CentroidThreshold"
@@ -446,8 +446,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 335
-y 460
+x 336
+y 472
 w 45
 h 20
 controlPv "$(P)$(R)SigmaX_RBV"
@@ -470,8 +470,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 235
-y 460
+x 236
+y 472
 w 45
 h 20
 controlPv "$(P)$(R)CentroidX_RBV"
@@ -494,8 +494,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 335
-y 485
+x 336
+y 496
 w 45
 h 20
 controlPv "$(P)$(R)SigmaY_RBV"
@@ -518,8 +518,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 235
-y 485
+x 236
+y 496
 w 45
 h 20
 controlPv "$(P)$(R)CentroidY_RBV"
@@ -542,8 +542,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 335
-y 510
+x 336
+y 524
 w 45
 h 20
 controlPv "$(P)$(R)SigmaXY_RBV"
@@ -566,8 +566,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 5
-y 580
+x 4
+y 592
 w 185
 h 135
 lineColor index 14
@@ -581,8 +581,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 5
-y 570
+x 4
+y 584
 w 71
 h 14
 font "helvetica-medium-r-12.0"
@@ -601,8 +601,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 10
-y 590
+x 12
+y 604
 w 175
 h 20
 fgColor index 25
@@ -621,8 +621,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 615
+x 12
+y 628
 w 45
 h 20
 font "helvetica-bold-r-12.0"
@@ -640,8 +640,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 130
-y 615
+x 132
+y 628
 w 55
 h 20
 controlPv "$(P)$(R)HistSize_RBV"
@@ -664,8 +664,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 70
-y 615
+x 72
+y 628
 w 55
 h 20
 controlPv "$(P)$(R)HistSize"
@@ -689,8 +689,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 690
+x 12
+y 704
 w 55
 h 20
 font "helvetica-bold-r-12.0"
@@ -708,8 +708,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 70
-y 690
+x 72
+y 704
 w 55
 h 20
 controlPv "$(P)$(R)HistEntropy_RBV"
@@ -732,8 +732,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 130
-y 640
+x 132
+y 652
 w 55
 h 20
 controlPv "$(P)$(R)HistMin_RBV"
@@ -756,8 +756,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 70
-y 640
+x 72
+y 652
 w 55
 h 20
 controlPv "$(P)$(R)HistMin"
@@ -781,8 +781,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 130
-y 665
+x 132
+y 676
 w 55
 h 20
 controlPv "$(P)$(R)HistMax_RBV"
@@ -805,8 +805,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 70
-y 665
+x 72
+y 676
 w 55
 h 20
 controlPv "$(P)$(R)HistMax"
@@ -830,8 +830,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 640
+x 12
+y 652
 w 45
 h 20
 font "helvetica-bold-r-12.0"
@@ -849,8 +849,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 665
+x 12
+y 676
 w 45
 h 20
 font "helvetica-bold-r-12.0"
@@ -868,8 +868,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 130
-y 690
+x 132
+y 704
 w 55
 h 20
 fgColor index 43
@@ -895,7 +895,7 @@ major 4
 minor 0
 release 0
 x 200
-y 560
+y 572
 w 185
 h 225
 lineColor index 14
@@ -910,7 +910,7 @@ major 4
 minor 1
 release 1
 x 200
-y 550
+y 564
 w 57
 h 14
 font "helvetica-medium-r-12.0"
@@ -929,8 +929,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 205
-y 570
+x 204
+y 584
 w 175
 h 20
 fgColor index 25
@@ -949,8 +949,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 205
-y 595
+x 204
+y 608
 w 50
 h 20
 font "helvetica-bold-r-12.0"
@@ -968,8 +968,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 325
-y 595
+x 324
+y 608
 w 55
 h 20
 controlPv "$(P)$(R)CursorX_RBV"
@@ -993,7 +993,7 @@ major 4
 minor 7
 release 0
 x 260
-y 595
+y 608
 w 55
 h 20
 controlPv "$(P)$(R)CursorX"
@@ -1017,8 +1017,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 205
-y 645
+x 204
+y 656
 w 55
 h 20
 font "helvetica-bold-r-12.0"
@@ -1037,7 +1037,7 @@ major 4
 minor 7
 release 0
 x 260
-y 645
+y 656
 w 55
 h 20
 controlPv "$(P)$(R)ProfileSizeX_RBV"
@@ -1061,7 +1061,7 @@ major 4
 minor 4
 release 0
 x 320
-y 670
+y 684
 w 30
 h 20
 fgColor index 43
@@ -1086,8 +1086,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 205
-y 620
+x 204
+y 632
 w 50
 h 20
 font "helvetica-bold-r-12.0"
@@ -1106,7 +1106,7 @@ major 4
 minor 7
 release 0
 x 260
-y 620
+y 632
 w 55
 h 20
 controlPv "$(P)$(R)CursorY"
@@ -1130,8 +1130,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 325
-y 620
+x 324
+y 632
 w 55
 h 20
 controlPv "$(P)$(R)CursorY_RBV"
@@ -1154,8 +1154,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 325
-y 645
+x 324
+y 656
 w 55
 h 20
 controlPv "$(P)$(R)ProfileSizeY_RBV"
@@ -1178,8 +1178,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 350
-y 670
+x 352
+y 684
 w 30
 h 20
 fgColor index 43
@@ -1205,7 +1205,7 @@ major 4
 minor 4
 release 0
 x 320
-y 695
+y 708
 w 30
 h 20
 fgColor index 43
@@ -1230,8 +1230,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 350
-y 695
+x 352
+y 708
 w 30
 h 20
 fgColor index 43
@@ -1257,7 +1257,7 @@ major 4
 minor 4
 release 0
 x 320
-y 735
+y 748
 w 30
 h 20
 fgColor index 43
@@ -1282,8 +1282,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 350
-y 735
+x 352
+y 748
 w 30
 h 20
 fgColor index 43
@@ -1309,7 +1309,7 @@ major 4
 minor 4
 release 0
 x 320
-y 760
+y 772
 w 30
 h 20
 fgColor index 43
@@ -1334,8 +1334,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 350
-y 760
+x 352
+y 772
 w 30
 h 20
 fgColor index 43
@@ -1360,8 +1360,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 205
-y 670
+x 204
+y 684
 w 115
 h 20
 font "helvetica-bold-r-12.0"
@@ -1379,8 +1379,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 205
-y 695
+x 204
+y 708
 w 115
 h 20
 font "helvetica-bold-r-12.0"
@@ -1398,8 +1398,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 205
-y 735
+x 204
+y 748
 w 115
 h 20
 font "helvetica-bold-r-12.0"
@@ -1417,8 +1417,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 205
-y 760
+x 204
+y 772
 w 115
 h 20
 font "helvetica-bold-r-12.0"
@@ -1436,8 +1436,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 5
-y 735
+x 4
+y 748
 w 185
 h 80
 lineColor index 14
@@ -1451,8 +1451,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 5
-y 725
+x 4
+y 736
 w 149
 h 14
 font "helvetica-medium-r-12.0"
@@ -1471,8 +1471,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 205
-y 715
+x 204
+y 728
 w 175
 h 20
 font "helvetica-medium-r-12.0"
@@ -1491,7 +1491,7 @@ major 4
 minor 3
 release 0
 x 200
-y 790
+y 804
 w 90
 h 25
 fgColor index 14
@@ -1512,8 +1512,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 765
+x 12
+y 776
 w 55
 h 20
 font "helvetica-bold-r-12.0"
@@ -1531,8 +1531,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 130
-y 765
+x 132
+y 776
 w 55
 h 20
 controlPv "$(P)$(R)TSNumPoints"
@@ -1556,8 +1556,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 70
-y 765
+x 72
+y 776
 w 55
 h 20
 controlPv "$(P)$(R)TSCurrentPoint"
@@ -1580,8 +1580,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 125
-y 765
+x 124
+y 776
 w 5
 h 20
 font "helvetica-bold-r-12.0"
@@ -1599,8 +1599,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 125
-y 740
+x 124
+y 752
 w 35
 h 20
 fgColor index 21
@@ -1623,8 +1623,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 85
-y 740
+x 84
+y 752
 w 35
 h 20
 fgColor index 19
@@ -1647,8 +1647,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 165
-y 740
+x 164
+y 752
 w 18
 h 18
 controlPv "$(P)$(R)TSAcquiring"
@@ -1665,8 +1665,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 10
-y 740
+x 12
+y 752
 w 70
 h 20
 fgColor index 19
@@ -1689,8 +1689,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 10
-y 460
+x 12
+y 472
 w 40
 h 20
 fgColor index 43
@@ -1715,8 +1715,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 10
-y 485
+x 12
+y 496
 w 40
 h 20
 fgColor index 43
@@ -1741,8 +1741,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 10
-y 510
+x 12
+y 524
 w 40
 h 20
 fgColor index 43
@@ -1767,8 +1767,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 10
-y 535
+x 12
+y 548
 w 40
 h 20
 fgColor index 43
@@ -1793,8 +1793,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 85
-y 510
+x 84
+y 524
 w 25
 h 20
 fgColor index 43
@@ -1819,8 +1819,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 85
-y 535
+x 84
+y 548
 w 25
 h 20
 fgColor index 43
@@ -1845,8 +1845,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 205
-y 460
+x 204
+y 472
 w 30
 h 20
 fgColor index 43
@@ -1871,8 +1871,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 205
-y 485
+x 204
+y 496
 w 30
 h 20
 fgColor index 43
@@ -1897,8 +1897,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 285
-y 460
+x 284
+y 472
 w 50
 h 20
 fgColor index 43
@@ -1923,8 +1923,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 285
-y 485
+x 284
+y 496
 w 50
 h 20
 fgColor index 43
@@ -1949,8 +1949,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 275
-y 510
+x 276
+y 524
 w 60
 h 20
 fgColor index 43
@@ -1975,8 +1975,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 85
-y 460
+x 84
+y 472
 w 20
 h 20
 fgColor index 43
@@ -2001,8 +2001,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 105
-y 460
+x 104
+y 472
 w 30
 h 20
 controlPv "$(P)$(R)MinX_RBV"
@@ -2025,8 +2025,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 135
-y 460
+x 136
+y 472
 w 20
 h 20
 fgColor index 43
@@ -2051,8 +2051,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 155
-y 460
+x 156
+y 472
 w 30
 h 20
 controlPv "$(P)$(R)MinY_RBV"
@@ -2075,8 +2075,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 155
-y 485
+x 156
+y 496
 w 30
 h 20
 controlPv "$(P)$(R)MaxY_RBV"
@@ -2099,8 +2099,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 135
-y 485
+x 136
+y 496
 w 20
 h 20
 fgColor index 43
@@ -2125,8 +2125,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 105
-y 485
+x 104
+y 496
 w 30
 h 20
 controlPv "$(P)$(R)MaxX_RBV"
@@ -2149,8 +2149,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 85
-y 485
+x 84
+y 496
 w 20
 h 20
 fgColor index 43
@@ -2175,8 +2175,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 790
+x 12
+y 804
 w 55
 h 20
 font "helvetica-bold-r-12.0"
@@ -2194,8 +2194,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 70
-y 790
+x 72
+y 804
 w 115
 h 20
 fgColor index 25
@@ -2213,8 +2213,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 295
-y 790
+x 296
+y 804
 w 90
 h 25
 fgColor index 43

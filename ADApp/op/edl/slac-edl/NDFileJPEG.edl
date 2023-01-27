@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 666
-y 102
+x 1510
+y 1300
 w 420
 h 952
 font "helvetica-bold-r-12.0"
@@ -82,7 +82,7 @@ minor 0
 release 0
 x 4
 y 876
-w 185
+w 208
 h 40
 lineColor index 14
 fill
@@ -117,7 +117,7 @@ minor 1
 release 1
 x 12
 y 888
-w 70
+w 92
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
@@ -134,7 +134,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 92
+x 108
 y 888
 w 45
 h 20
@@ -159,7 +159,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 140
+x 156
 y 888
 w 45
 h 20

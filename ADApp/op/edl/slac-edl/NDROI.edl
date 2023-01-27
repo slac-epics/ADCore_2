@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 624
-y 256
+x 1525
+y 1366
 w 390
 h 820
 font "helvetica-bold-r-12.0"
@@ -31,10 +31,10 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 5
+x 0
 y 520
-w 380
-h 195
+w 384
+h 196
 lineColor index 14
 fill
 fillColor index 3
@@ -46,8 +46,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 5
-y 400
+x 0
+y 408
 w 380
 h 40
 lineColor index 14
@@ -61,8 +61,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 5
-y 460
+x 0
+y 464
 w 380
 h 40
 lineColor index 14
@@ -101,8 +101,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 5
-y 450
+x 0
+y 456
 w 58
 h 14
 font "helvetica-medium-r-12.0"
@@ -121,8 +121,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 10
-y 470
+x 8
+y 476
 w 90
 h 20
 fgColor index 25
@@ -141,8 +141,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 105
-y 470
+x 100
+y 476
 w 85
 h 20
 font "helvetica-bold-r-12.0"
@@ -160,8 +160,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 290
-y 470
+x 288
+y 476
 w 90
 h 20
 controlPv "$(P)$(R)Scale_RBV"
@@ -184,8 +184,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 195
-y 470
+x 192
+y 476
 w 90
 h 20
 controlPv "$(P)$(R)Scale"
@@ -209,8 +209,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 5
-y 390
+x 0
+y 400
 w 68
 h 14
 font "helvetica-medium-r-12.0"
@@ -229,8 +229,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 5
-y 510
+x 0
+y 512
 w 78
 h 14
 font "helvetica-medium-r-12.0"
@@ -249,8 +249,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 590
+x 4
+y 596
 w 55
 h 20
 font "helvetica-bold-r-12.0"
@@ -268,8 +268,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 290
-y 410
+x 288
+y 420
 w 90
 h 20
 fgColor index 25
@@ -288,8 +288,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 410
+x 8
+y 420
 w 70
 h 20
 font "helvetica-bold-r-12.0"
@@ -307,8 +307,8 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 55
-y 410
+x 52
+y 420
 w 135
 h 20
 controlPv "$(P)$(R)Name"
@@ -332,8 +332,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 215
-y 410
+x 212
+y 420
 w 70
 h 20
 font "helvetica-bold-r-12.0"
@@ -558,8 +558,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 615
+x 4
+y 620
 w 60
 h 20
 font "helvetica-bold-r-12.0"
@@ -871,8 +871,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 640
+x 4
+y 644
 w 55
 h 20
 font "helvetica-bold-r-12.0"
@@ -962,8 +962,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 560
+x 4
+y 564
 w 55
 h 30
 font "helvetica-bold-r-12.0"
@@ -982,9 +982,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 665
-w 55
+x 0
+y 664
+w 64
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
@@ -1061,8 +1061,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 690
+x 0
+y 688
 w 65
 h 20
 font "helvetica-bold-r-12.0"
@@ -1212,8 +1212,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 10
-y 525
+x 4
+y 528
 w 55
 h 35
 font "helvetica-bold-r-12.0"
