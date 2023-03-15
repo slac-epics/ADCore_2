@@ -455,7 +455,8 @@ void NTNDArrayConverter::fromTimeStamp (NDArray *src)
     PVTimeStamp pvDest;
     pvDest.attach(dest);
 
-    TimeStamp ts(src->epicsTS.secPastEpoch, src->epicsTS.nsec);
+    // pvAccess uses Posix time, NDArray uses EPICS time, need to convert
+    TimeStamp ts(src->epicsTS.secPastEpoch + POSIX_TIME_AT_EPICS_EPOCH, src->epicsTS.nsec);
     pvDest.set(ts);
 }
 
