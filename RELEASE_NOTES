@@ -1,3 +1,9 @@
+R3.10-1.1.1: 2024-09-30 Marcio Donadio
+     - Commented line in configure/CONFIG_SITE so make in Rocky9 stopped
+       complaining. We need to make sure this won't cause side effects
+       to other Area Detector modules.
+     - Upgraded Asyn to build in S3DF.
+
 R3.10-1.1.0: 2023-01-26 Bruce Hill
 	Added some ADCore edm screens and tweaks that got lost in a prior merge.
 
